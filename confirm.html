@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Booking Confirmation - Life of Lotus</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Life of Lotus</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Our Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact Us</a>
+      <a href="#pricing" class="header-cta">Book a Session</a>
+    </nav>
+  </header>
+
+  <!-- Confirmation Section -->
+  <section class="confirmation">
+    <div class="confirmation-container">
+      <h1 class="confirmation-heading">Your slot is reserved.</h1>
+      <p class="confirmation-message">To confirm your session, please complete the payment.</p>
+      <a href="#" class="confirmation-cta" id="payment-cta">Proceed to Payment</a>
+      <p class="redirect-message" id="redirect-message" style="display: none;">Redirecting you to WhatsApp for booking confirmation and payment…</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">Life of Lotus</div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Our Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact Us</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="reschedule.html">Rescheduling Policy</a>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById('payment-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Show redirect message
+      const redirectMessage = document.getElementById('redirect-message');
+      redirectMessage.style.display = 'block';
+      
+      // Redirect to WhatsApp after a brief delay
+      setTimeout(function() {
+        window.location.href = 'https://wa.me/919868157299?text=Hi%2C%20I%E2%80%99ve%20booked%20a%20session%20on%20Calendly.%0AName%3A%20%0ADate%20%26%20Time%3A%20%0ASession%20type%3A%2030%20minutes%0APlease%20share%20payment%20details.';
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,1264 @@
+/* CSS Variables */
+:root {
+  --primary: #431039;
+  --primary-light: #663e61;
+  --primary-lighter: #8b6e87;
+  --secondary: #40c0c5;
+  --secondary-light: #78c6cf;
+  --secondary-lighter: #97d3d6;
+  --tertiary: #ba9751;
+  --tertiary-light: #cab482;
+  --cream-white: #F8F6F2;
+  --gold: #ba9751;
+  --white: #FFFFFF;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Brygada 1918', serif;
+  color: var(--primary);
+  line-height: 1.6;
+  padding-top: 72px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Brygada 1918', serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+
+section {
+  padding: 112px 40px;
+  width: 100%;
+}
+
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--cream-white);
+  padding: 20px 40px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Brygada 1918', serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.nav {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: opacity 0.3s;
+}
+
+.nav a:hover {
+  opacity: 0.7;
+}
+
+.nav .header-cta {
+  background: var(--primary);
+  color: var(--cream-white) !important;
+  padding: 14px 32px;
+  border-radius: 200px;
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 8px;
+  transition: background-color 0.3s;
+}
+
+.nav .header-cta:hover {
+  background: var(--secondary);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  background-color: var(--primary-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-planets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 75px;
+  z-index: 2;
+}
+
+.planet-icon {
+  width: 60px;
+  height: 60px;
+  animation: planetFloat 6s ease-in-out infinite;
+}
+
+.planet-icon:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.planet-icon:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.planet-icon:nth-child(3) {
+  animation-delay: 2s;
+}
+
+.planet-icon:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+.planet-icon:nth-child(5) {
+  animation-delay: 1.5s;
+}
+
+@keyframes planetFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 40px;
+}
+
+.hero-content h1,
+.hero-content p,
+.hero-content .cta {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-content h1 {
+  font-size: 50px;
+  margin-bottom: 24px;
+  color: var(--cream-white);
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-content p {
+  font-size: 27px;
+  margin-bottom: 62px;
+  color: var(--cream-white);
+  max-width: 800px;
+  width: 100%;
+}
+
+.hero-content .cta {
+  width: auto;
+  font-size: 21px;
+  padding: 18px 42px;
+}
+
+.cta {
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 14px 32px;
+  border-radius: 200px;
+  border: 2px solid var(--tertiary);
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.cta:hover {
+  background: var(--secondary-light);
+}
+
+.intake .cta {
+  background: var(--primary);
+  color: var(--cream-white);
+  border: none;
+}
+
+.intake .cta:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+/* Areas of Guidance */
+.areas {
+  background-color: var(--cream-white);
+}
+
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.area-item {
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.1);
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.area-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.area-icon-primary-circle {
+  width: 64px;
+  height: 64px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+}
+
+.area-icon {
+  width: 32px;
+  height: 32px;
+  stroke: var(--tertiary);
+  position: relative;
+  z-index: 3;
+}
+
+.area-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: var(--primary);
+}
+
+.area-detail {
+  font-size: 14px;
+  color: rgba(67, 16, 57, 0.7);
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+.area-cta {
+  color: var(--secondary);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Pricing Section */
+.pricing {
+  background-color: var(--primary);
+  color: var(--cream-white);
+}
+
+.pricing h2 {
+  color: var(--cream-white);
+  margin-bottom: 48px;
+}
+
+.pricing-container {
+  background-color: var(--primary-lighter);
+  border-radius: 28px;
+  padding: 48px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.pricing-card {
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.12);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+}
+
+.pricing-popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--gold);
+  color: var(--primary);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pricing-duration {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: rgba(67, 16, 57, 0.7);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.pricing-name {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  color: var(--primary);
+}
+
+.pricing-best-for {
+  font-size: 16px;
+  margin-bottom: 24px;
+  font-style: italic;
+  color: var(--secondary);
+  font-family: 'Comfortaa', sans-serif;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pricing-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.toggle-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 200px;
+  background: rgba(67, 16, 57, 0.1);
+  color: var(--primary);
+  cursor: pointer;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s;
+}
+
+.toggle-btn.active {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.toggle-btn:hover {
+  background: var(--secondary-light);
+  color: var(--primary);
+}
+
+.pricing-price {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--primary);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(67, 16, 57, 0.12);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.pricing-details {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.pricing-detail-item {
+  font-size: 12px;
+  margin-bottom: 8px;
+  position: relative;
+  color: rgba(67, 16, 57, 0.85);
+}
+
+.pricing-cta {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 12px 32px;
+  border-radius: 200px;
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  font-weight: 500;
+  margin-bottom: 16px;
+  transition: background-color 0.3s;
+}
+
+.pricing-cta:hover {
+  background-color: var(--secondary-light);
+}
+
+.pricing-footer-note {
+  font-size: 11px;
+  color: rgba(67, 16, 57, 0.6);
+  margin-top: 16px;
+}
+
+/* Safe Space */
+.safe-space {
+  background-color: var(--primary-light);
+  color: var(--cream-white);
+}
+
+.safe-space h2 {
+  color: var(--cream-white);
+  margin-bottom: 48px;
+}
+
+.safe-space-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.safe-space-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  color: var(--cream-white);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.safe-space-lotus {
+  width: 135px;
+  height: 135px;
+  margin: 0 auto;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(12%) saturate(1000%) hue-rotate(350deg) brightness(98%) contrast(90%);
+}
+
+/* Testimonials */
+.testimonial {
+  background-color: var(--cream-white);
+  text-align: center;
+  padding: 112px 40px;
+}
+
+.testimonial-quote {
+  font-size: 120px;
+  line-height: 1;
+  color: var(--tertiary-light);
+  margin-bottom: -28px;
+  font-family: 'Brygada 1918', serif;
+}
+
+.testimonial-text {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 22.4px;
+  color: var(--primary);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.testimonial-attribution {
+  font-size: 16px;
+  color: rgba(67, 16, 57, 0.7);
+  font-style: italic;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+/* Packages */
+.packages {
+  background-color: var(--primary);
+  color: var(--cream-white);
+}
+
+.packages h2 {
+  color: var(--cream-white);
+  margin-bottom: 48px;
+}
+
+.packages-container {
+  background-color: var(--primary-lighter);
+  border-radius: 28px;
+  padding: 48px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.package-card {
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.12);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+}
+
+.package-duration {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: rgba(67, 16, 57, 0.7);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.package-sessions {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgba(67, 16, 57, 0.7);
+  margin-left: 8px;
+}
+
+.package-name {
+  font-size: 36px;
+  font-weight: 500;
+  margin: 0 0 12px 0;
+  color: var(--primary);
+}
+
+.package-toggle {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+  margin-top: 8px;
+}
+
+.package-original-price {
+  font-size: 20px;
+  text-decoration: line-through;
+  margin-bottom: 8px;
+  color: rgba(67, 16, 57, 0.6);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.package-price {
+  font-size: 36px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  color: var(--primary);
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(67, 16, 57, 0.12);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.package-savings {
+  font-size: 16px;
+  color: rgba(67, 16, 57, 0.6);
+  margin-bottom: 32px;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.package-cta {
+  display: inline-block;
+  background-color: var(--secondary);
+  color: var(--primary);
+  padding: 12px 32px;
+  border-radius: 200px;
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  font-weight: 500;
+  margin-bottom: 16px;
+  transition: background-color 0.3s;
+}
+
+.package-cta:hover {
+  background-color: var(--secondary-light);
+}
+
+.package-note {
+  font-size: 12px;
+  color: rgba(67, 16, 57, 0.6);
+}
+
+/* Process / Session Experience */
+.process {
+  background-color: var(--primary-lighter);
+}
+
+.process h2 {
+  margin-bottom: 24px;
+  color: var(--cream-white);
+}
+
+.process-intro {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--cream-white);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 64px;
+  opacity: 0.9;
+}
+
+.process-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+}
+
+.process-icon {
+  width: 120px;
+  height: 120px;
+  margin-bottom: 24px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 50%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.process-heading {
+  font-size: 20px;
+  margin-bottom: 16px;
+  color: var(--cream-white);
+}
+
+.process-text {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.85;
+  color: var(--cream-white);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.process-divider {
+  width: 1px;
+  height: 200px;
+  background-color: rgba(67, 16, 57, 0.15);
+  margin: 0 40px;
+}
+
+/* Founder's Note */
+.founder-note {
+  background-color: var(--primary-light);
+  text-align: center;
+}
+
+.founder-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.founder-photo-wrapper {
+  position: relative;
+  width: 281px;
+  height: 281px;
+  margin: 0 auto 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.founder-white-circle {
+  position: absolute;
+  width: 312px;
+  height: 312px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.founder-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.founder-circle-outline {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.founder-heading {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: var(--cream-white);
+}
+
+.founder-text {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.9;
+  text-align: left;
+  color: var(--cream-white);
+  font-family: 'Comfortaa', sans-serif;
+}
+
+/* FAQ */
+.faq {
+  background-color: var(--cream-white);
+  color: var(--primary);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(67, 16, 57, 0.15);
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  text-align: left;
+  font-size: 18px;
+  font-family: 'Brygada 1918', serif;
+  color: var(--primary);
+  cursor: pointer;
+  position: relative;
+  padding-right: 32px;
+}
+
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  transition: transform 0.3s;
+  color: var(--secondary);
+}
+
+.faq-item.active .faq-question::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 0 20px 0;
+  color: rgba(67, 16, 57, 0.8);
+  line-height: 1.6;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+
+/* Contact / Get in Touch */
+.contact {
+  background-color: var(--primary);
+}
+
+.contact-container {
+  background-color: var(--primary-light);
+  border-radius: 12px;
+  padding: 48px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact h2 {
+  margin-bottom: 48px;
+  color: var(--cream-white);
+}
+
+.contact-subtext {
+  font-size: 16px;
+  opacity: 0.8;
+  margin-bottom: 48px;
+  color: var(--cream-white);
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  align-items: center;
+}
+
+.contact-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--secondary);
+}
+
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 12px;
+  transition: transform 0.3s;
+}
+
+.contact-icon-item:hover .contact-icon {
+  transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--primary-light);
+  text-align: center;
+  padding: 120px 40px;
+}
+
+.footer-logo {
+  font-family: 'Brygada 1918', serif;
+  font-size: 24px;
+  margin-bottom: 48px;
+  color: var(--cream-white);
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin-bottom: 32px;
+}
+
+.footer-nav a {
+  color: var(--cream-white);
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-nav a:hover {
+  opacity: 1;
+}
+
+/* Intake Page */
+.intake {
+  background-color: var(--cream-white);
+  padding: 160px 40px;
+}
+
+.intake-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.intake-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.intake-section {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.12);
+  border-radius: 20px;
+  padding: 32px;
+  min-height: 100%;
+}
+
+.intake-section .pricing-card {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+}
+
+.intake-form {
+  width: 100%;
+}
+
+.intake-optional {
+  width: 100%;
+  margin: 0 auto 32px;
+}
+
+.intake-cta-wrapper {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.field {
+  margin-bottom: 24px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid rgba(67, 16, 57, 0.2);
+  border-radius: 8px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--primary);
+  background-color: var(--white);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--secondary);
+}
+
+/* Date and Time Picker Styling */
+.field input[type="date"]::-webkit-calendar-picker-indicator,
+.field input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+/* Note: Browser-native date/time pickers have limited styling options.
+   The selection color in the popup is controlled by the browser's native styling.
+   For better control, you may need a custom date/time picker library. */
+
+.field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  section {
+    padding: 80px 20px;
+  }
+
+  .header {
+    padding: 16px 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero-planets {
+    gap: 40px;
+  }
+
+  .planet-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-grid,
+  .packages-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .pricing-container,
+  .packages-container {
+    padding: 32px 24px;
+  }
+
+  .process-flow {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .process-divider {
+    width: 200px;
+    height: 1px;
+    margin: 0 auto;
+  }
+
+  .contact-icons {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .intake-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+/* Confirmation Page */
+.confirmation {
+  background-color: var(--cream-white);
+  padding: 200px 40px;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmation-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.confirmation-heading {
+  font-size: 48px;
+  color: var(--primary);
+  margin-bottom: 24px;
+  font-family: 'Brygada 1918', serif;
+  font-weight: 500;
+}
+
+.confirmation-message {
+  font-size: 20px;
+  color: var(--primary);
+  font-family: 'Comfortaa', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.confirmation-cta {
+  display: inline-block;
+  background: var(--primary);
+  color: var(--cream-white);
+  padding: 14px 32px;
+  border-radius: 200px;
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.confirmation-cta:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.redirect-message {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  color: var(--primary);
+  margin-top: 24px;
+  opacity: 0.8;
+}
+
+.redirect-message {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  color: var(--primary);
+  margin-top: 24px;
+  opacity: 0.8;
+}
+
+/* Calendly Section */
+.calendly-section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 48px;
+}
+
+.calendly-heading {
+  text-align: center;
+  margin-bottom: 24px;
+  color: var(--primary);
+  font-size: 24px;
+}
+
+.calendly-note-item {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--primary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 16px;
+}
+
+.calendly-note-item strong {
+  font-weight: 700;
+}
+
+.calendly-inline-widget {
+  width: 100%;
+  height: 700px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+  .calendly-inline-widget {
+    height: 600px;
+  }
+  
+  .calendly-heading {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Privacy Policy Page */
+.privacy-policy {
+  background-color: var(--cream-white);
+  padding: 160px 40px;
+  min-height: calc(100vh - 72px);
+}
+
+.privacy-policy h1 {
+  text-align: center;
+  margin-bottom: 48px;
+  color: var(--primary);
+}
+
+.privacy-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.privacy-content h2 {
+  margin-top: 48px;
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+.privacy-content h3 {
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: var(--primary);
+  font-family: 'Comfortaa', sans-serif;
+  text-align: left;
+  text-transform: none;
+}
+
+.privacy-content p,
+.privacy-content li {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.privacy-intro {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.privacy-content ul {
+  margin-left: 24px;
+  margin-bottom: 24px;
+}
+
+.privacy-content li {
+  margin-bottom: 8px;
+}

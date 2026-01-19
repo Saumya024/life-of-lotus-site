@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Select a Session Time | Life of Lotus</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Life of Lotus</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Our Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Schedule Section -->
+  <section class="schedule">
+    <h1>Select a session time</h1>
+    <p class="schedule-sub">
+      Choose a time that works for you. All sessions are conducted with prior preparation.
+    </p>
+
+    <div class="slots">
+
+      <div class="slot-group">
+        <h3>Morning</h3>
+        <button type="button" class="slot" data-time="10:00 AM">10:00 AM</button>
+        <button type="button" class="slot" data-time="11:30 AM">11:30 AM</button>
+        <button type="button" class="slot" data-time="12:30 PM">12:30 PM</button>
+      </div>
+
+      <div class="slot-group">
+        <h3>Afternoon</h3>
+        <button type="button" class="slot" data-time="2:00 PM">2:00 PM</button>
+        <button type="button" class="slot" data-time="4:00 PM">4:00 PM</button>
+        <button type="button" class="slot" data-time="5:30 PM">5:30 PM</button>
+      </div>
+
+      <div class="slot-group">
+        <h3>Evening</h3>
+        <button type="button" class="slot" data-time="7:00 PM">7:00 PM</button>
+        <button type="button" class="slot" data-time="8:00 PM">8:00 PM</button>
+      </div>
+
+    </div>
+
+    <a class="cta" id="wa-link" href="#">
+      Continue to WhatsApp
+    </a>
+  </section>
+
+  <!-- Script -->
+  <script>
+    let selectedTime = "";
+  
+    const slots = document.querySelectorAll(".slot");
+    const waLink = document.getElementById("wa-link");
+  
+    // Disable WA link initially
+    waLink.style.pointerEvents = "none";
+    waLink.style.opacity = "0.5";
+  
+    slots.forEach(slot => {
+      slot.addEventListener("click", () => {
+        selectedTime = slot.dataset.time;
+  
+        // Highlight selected slot
+        slots.forEach(s => s.classList.remove("active"));
+        slot.classList.add("active");
+  
+        // Enable WA link
+        waLink.style.pointerEvents = "auto";
+        waLink.style.opacity = "1";
+  
+        const message =
+          "Hello, I’ve selected a session with Life of Lotus.%0A" +
+          "Preferred slot: Next available " + selectedTime + " (IST)%0A"
+          "Please share the payment details.";
+  
+        waLink.href =
+          "https://wa.me/XXXXXXXXXX?text=" + message;
+      });
+    });
+  </script>
+  
+
+</body>
+</html>
+

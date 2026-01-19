@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life of Lotus</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Life of Lotus</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Our Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact Us</a>
+      <a href="#pricing" class="header-cta">Book a Session</a>
+    </nav>
+  </header>
+
+  <!-- Intake Section -->
+  <section class="intake">
+    <div class="intake-container">
+      <form class="intake-form" id="intake-form">
+        <div class="intake-grid">
+          
+          <!-- First Section: Pricing Card -->
+          <div class="intake-section">
+            <div class="pricing-card">
+              <div class="pricing-duration">60-Minutes</div>
+              <h3 class="pricing-name">Deep Insight</h3>
+              <div class="pricing-best-for">Root-cause analysis | First-time consultations</div>
+              <div class="pricing-toggle">
+                <button type="button" class="toggle-btn active" data-type="audio">Audio</button>
+                <button type="button" class="toggle-btn" data-type="video">Video</button>
+              </div>
+              <div class="pricing-price" data-audio-price="₹1,800" data-video-price="₹2,000">₹1,800</div>
+              <div class="pricing-details">
+                <div class="pricing-detail-item">Up to 3 related topics allowed</div>
+                <div class="pricing-detail-item">2 charts covered</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Section: Personal Information -->
+          <div class="intake-section">
+            <div class="field">
+              <label>First Name *</label>
+              <input type="text" name="firstName" required />
+            </div>
+
+            <div class="field">
+              <label>Last Name *</label>
+              <input type="text" name="lastName" required />
+            </div>
+
+            <div class="field">
+              <label>Phone Number *</label>
+              <input type="tel" name="phone" required />
+            </div>
+
+            <div class="field">
+              <label>Email ID *</label>
+              <input type="email" name="email" required />
+            </div>
+          </div>
+
+          <!-- Third Section: Birth Details -->
+          <div class="intake-section">
+            <div class="field">
+              <label>Date of Birth *</label>
+              <input type="date" name="dob" required />
+            </div>
+
+            <div class="field">
+              <label>Time of Birth *</label>
+              <input type="time" name="tob" required />
+            </div>
+
+            <div class="field">
+              <label>Place of Birth *</label>
+              <input type="text" name="pob" required />
+            </div>
+
+            <div class="field">
+              <label>Primary Area of Guidance *</label>
+              <select name="area" required>
+                <option value="">Select an area</option>
+                <option>Career & Finances</option>
+                <option>Marriage & Relationships</option>
+                <option>Health & Wellbeing</option>
+                <option>Family & Children</option>
+                <option>Personal / Spiritual Growth</option>
+                <option>Open session</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optional Section -->
+        <div class="intake-optional">
+          <div class="field">
+            <label>What feels most unclear right now? (Optional)</label>
+            <textarea name="unclear" rows="4"></textarea>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="intake-cta-wrapper">
+          <button class="cta" type="button" id="book-slot-btn">
+            Book Slot
+          </button>
+        </div>
+      </form>
+
+      <!-- Calendly Section (hidden initially) -->
+      <div class="calendly-section" id="calendly-section" style="display: none;">
+        <h2 class="calendly-heading">Select your preferred slot</h2>
+        <p class="calendly-note-item"><strong>Note 1: Important: Please ensure your correct time zone is selected before choosing a slot.</strong></p>
+        <p class="calendly-note-item"><strong>Note 2: After selecting a slot, you'll be redirected to WhatsApp to complete payment and confirmation.</strong></p>
+        <p class="calendly-note-item"><strong>Note 3: Please note: The selected time slot indicates the start time of the session. Session duration will be as per the session you have booked.</strong></p>
+        <div class="calendly-inline-widget" data-url="https://calendly.com/saumyasingh-2403/lifeoflotus" style="min-width:320px;height:700px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Toggle button functionality with price updates
+    document.querySelectorAll('.toggle-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const toggleGroup = this.parentElement;
+        const card = toggleGroup.closest('.pricing-card, .package-card');
+        const isVideo = this.dataset.type === 'video';
+        
+        // Update toggle active state
+        toggleGroup.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Update pricing card prices
+        if (card && card.classList.contains('pricing-card')) {
+          const priceElement = card.querySelector('.pricing-price');
+          if (priceElement) {
+            const audioPrice = priceElement.dataset.audioPrice;
+            const videoPrice = priceElement.dataset.videoPrice;
+            if (audioPrice && videoPrice) {
+              priceElement.textContent = isVideo ? videoPrice : audioPrice;
+            }
+          }
+        }
+      });
+    });
+
+    // Book Slot button - show Calendly
+    document.getElementById('book-slot-btn').addEventListener('click', function() {
+      // Validate form first
+      const form = document.getElementById('intake-form');
+      if (form.checkValidity()) {
+        // Hide form
+        document.querySelector('.intake-form').style.display = 'none';
+        // Show Calendly section
+        const calendlySection = document.getElementById('calendly-section');
+        calendlySection.style.display = 'block';
+        // Load Calendly widget script if not already loaded
+        if (!document.querySelector('script[src*="calendly.com"]')) {
+          const script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = 'https://assets.calendly.com/assets/external/widget.js';
+          script.async = true;
+          document.body.appendChild(script);
+        }
+        // Scroll to Calendly
+        setTimeout(() => {
+          calendlySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      } else {
+        form.reportValidity();
+      }
+    });
+
+    // Listen for Calendly event when event is scheduled
+    window.addEventListener('message', function(e) {
+      if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+        if (e.data.event === 'calendly.event_scheduled') {
+          // Redirect to confirmation/payment page after scheduling
+          window.location.href = 'confirm.html';
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>
