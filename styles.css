@@ -1050,6 +1050,12 @@ section {
 }
 
 /* Date and Time Picker Styling - Native Appearance Preserved */
+.field input[type="date"],
+.field input[type="time"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .field input[type="date"]::-webkit-calendar-picker-indicator,
 .field input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
