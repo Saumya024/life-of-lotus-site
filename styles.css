@@ -183,13 +183,13 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 75px;
+  gap: 64px;
   z-index: 2;
 }
 
 .planet-icon {
-  width: 60px;
-  height: 60px;
+  width: 90px;
+  height: 90px;
   animation: planetFloat 6s ease-in-out infinite;
 }
 
@@ -1232,12 +1232,12 @@ section {
   }
 
   .hero-planets {
-    gap: 40px;
+    gap: 34px;
   }
 
   .planet-icon {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
   }
 
   .areas-grid {
