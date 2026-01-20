@@ -1344,7 +1344,16 @@ section {
   color: var(--primary);
   font-family: 'Comfortaa', sans-serif;
   line-height: 1.6;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
+}
+
+.confirmation-next-step {
+  font-size: 16px;
+  color: var(--primary);
+  font-family: 'Comfortaa', sans-serif;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.8;
 }
 
 .confirmation-cta {
@@ -1396,12 +1405,12 @@ section {
 
 .calendly-note-item {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1.6;
   color: var(--primary);
   text-align: center;
   max-width: 600px;
-  margin: 0 auto 16px;
+  margin: 0 auto 24px;
 }
 
 .calendly-note-item strong {
