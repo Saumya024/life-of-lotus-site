@@ -99,6 +99,50 @@ section {
   background: var(--secondary);
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  transform: rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -1px;
+  transform: rotate(-45deg);
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -1028,14 +1072,66 @@ section {
 
   .header {
     padding: 16px 20px;
-    flex-direction: column;
-    gap: 16px;
+  }
+
+  .hamburger {
+    display: flex;
   }
 
   .nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background-color: var(--cream-white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 20px;
+    gap: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+
+  .nav.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav a {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(67, 16, 57, 0.1);
+    font-size: 16px;
+    transition: opacity 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .nav a:hover {
+    opacity: 0.7;
+    padding-left: 8px;
+  }
+
+  .nav a:last-child {
+    border-bottom: none;
+    margin-top: 8px;
+  }
+
+  .nav .header-cta {
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+    margin-top: 8px;
+    padding: 14px 24px;
+  }
+
+  body.menu-open {
+    overflow: hidden;
   }
 
   .hero h1 {
