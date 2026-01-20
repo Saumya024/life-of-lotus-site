@@ -1352,7 +1352,7 @@ section {
   color: var(--primary);
   font-family: 'Comfortaa', sans-serif;
   line-height: 1.6;
-  margin-bottom: 48px;
+  margin-bottom: 32px;
   opacity: 0.8;
 }
 
@@ -1370,6 +1370,7 @@ section {
   font-family: 'Brygada 1918', serif;
   font-size: 16px;
   transition: background-color 0.3s;
+  margin-top: 24px;
 }
 
 .confirmation-cta:hover {
