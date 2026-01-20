@@ -68,21 +68,8 @@
       
       // Redirect to WhatsApp after a brief delay
       setTimeout(function() {
-        // Get booking details from URL parameters or use placeholders
-        const urlParams = new URLSearchParams(window.location.search);
-        const name = urlParams.get('name') || '{{name}}';
-        const dateTime = urlParams.get('date_time') || '{{date_time}}';
-        const sessionType = urlParams.get('session_type') || '{{session_type}}';
-        
-        // Construct WhatsApp message
-        const message = `Hello, I have booked a session with Life of Lotus.
-Here are my booking details:
-
-Name: ${name}
-Date & Time: ${dateTime}
-Session Type: ${sessionType}
-
-Please share payment details and the next steps.`;
+        // Static WhatsApp message
+        const message = "Hello, I've booked a session with Life of Lotus.\nPlease share payment details and next steps.";
         
         window.location.href = 'https://wa.me/919868157299?text=' + encodeURIComponent(message);
       }, 1500);
