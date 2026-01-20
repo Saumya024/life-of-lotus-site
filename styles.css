@@ -261,13 +261,6 @@ section {
   width: 100%;
 }
 
-.hero-content .cta {
-  width: auto;
-  padding: 16px 42px;
-  font-weight: 500;
-  font-size: 21px;
-}
-
 .cta {
   background: var(--secondary);
   color: var(--primary);
@@ -278,6 +271,13 @@ section {
   font-family: 'Brygada 1918', serif;
   display: inline-block;
   transition: background-color 0.3s;
+}
+
+.hero-content .cta {
+  width: auto;
+  padding: 16px 42px !important;
+  font-weight: 500;
+  font-size: 21px !important;
 }
 
 .cta:hover {
