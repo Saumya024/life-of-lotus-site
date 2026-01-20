@@ -263,8 +263,9 @@ section {
 
 .hero-content .cta {
   width: auto;
-  padding: 12px 32px;
+  padding: 16px 42px;
   font-weight: 500;
+  font-size: 21px;
 }
 
 .cta {
