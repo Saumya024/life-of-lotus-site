@@ -1344,7 +1344,7 @@ section {
   color: var(--primary);
   font-family: 'Comfortaa', sans-serif;
   line-height: 1.6;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .confirmation-next-step {
@@ -1352,8 +1352,12 @@ section {
   color: var(--primary);
   font-family: 'Comfortaa', sans-serif;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 48px;
   opacity: 0.8;
+}
+
+.confirmation-next-step strong {
+  font-weight: 700;
 }
 
 .confirmation-cta {
