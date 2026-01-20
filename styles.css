@@ -377,7 +377,7 @@ section {
 }
 
 .area-detail {
-  font-size: 14px;
+  font-size: 16px;
   color: rgba(67, 16, 57, 0.7);
   margin-bottom: 24px;
   flex-grow: 1;
@@ -559,7 +559,7 @@ section {
 }
 
 .safe-space-text {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.8;
   margin-bottom: 40px;
   color: var(--cream-white);
@@ -589,8 +589,8 @@ section {
 }
 
 .testimonial-text {
-  font-size: 20px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.8;
   margin-bottom: 22.4px;
   color: var(--primary);
   max-width: 800px;
@@ -771,8 +771,8 @@ section {
 }
 
 .process-text {
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  line-height: 1.8;
   opacity: 0.85;
   color: var(--cream-white);
   font-family: 'Comfortaa', sans-serif;
@@ -1710,7 +1710,7 @@ section {
 }
 
 .about-content p {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.8;
   margin-bottom: 24px;
   font-family: 'Comfortaa', sans-serif;
@@ -1722,7 +1722,7 @@ section {
 }
 
 .about-content li {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.8;
   margin-bottom: 12px;
   font-family: 'Comfortaa', sans-serif;
@@ -1757,7 +1757,7 @@ section {
 }
 
 .about-cta-text {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 32px;
   color: var(--cream-white);
@@ -1813,7 +1813,7 @@ section {
 
 .privacy-intro {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 24px;
