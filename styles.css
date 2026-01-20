@@ -1049,10 +1049,11 @@ section {
   border-color: var(--secondary);
 }
 
-/* Date and Time Picker Styling */
+/* Date and Time Picker Styling - Native Appearance Preserved */
 .field input[type="date"]::-webkit-calendar-picker-indicator,
 .field input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
+  opacity: 1;
 }
 
 /* Note: Browser-native date/time pickers have limited styling options.
@@ -1189,18 +1190,13 @@ section {
     gap: 32px;
   }
 
-  /* Mobile Date and Time Input Fixes */
+  /* Mobile Date and Time Input Fixes - Native Appearance Preserved */
   .field input[type="date"],
   .field input[type="time"] {
-    position: relative;
     width: 100% !important;
     max-width: 100% !important;
     padding: 12px 16px !important;
-    padding-right: 40px !important; /* Space for icon */
     box-sizing: border-box !important;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: textfield;
     border: 1px solid rgba(67, 16, 57, 0.2) !important;
     border-radius: 8px !important;
     font-family: 'Brygada 1918', serif !important;
@@ -1208,22 +1204,15 @@ section {
     color: var(--primary) !important;
     background-color: var(--white) !important;
     height: auto;
-    min-height: 44px; /* Ensure consistent height */
+    min-height: 44px;
     line-height: 1.5;
     margin: 0;
   }
 
   .field input[type="date"]::-webkit-calendar-picker-indicator,
   .field input[type="time"]::-webkit-calendar-picker-indicator {
-    position: absolute;
-    right: 12px;
-    width: 20px;
-    height: 20px;
     cursor: pointer;
-    opacity: 1 !important;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
+    opacity: 1;
   }
 
   .field input[type="date"]:focus,
