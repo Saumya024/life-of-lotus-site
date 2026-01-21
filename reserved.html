@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slot Reserved - Life of Lotus</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">Life of Lotus</div>
+    <div class="header-mobile-actions">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Our Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Reserved Section -->
+  <section class="reserved">
+    <div class="reserved-container">
+      <h1 class="reserved-heading">Your selected slot is reserved</h1>
+      <p class="reserved-subheading">Thank you for selecting your session time.</p>
+      <p class="reserved-message">Your chosen slot has been reserved and will be confirmed once payment is completed.</p>
+      <p class="reserved-next-step">To complete your booking and receive final confirmation, please proceed to WhatsApp for payment and next steps.</p>
+      <a href="#" class="reserved-cta" id="whatsapp-cta">Proceed to WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">Life of Lotus</div>
+    <nav class="footer-nav">
+      <a href="index.html">Home</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Our Services</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="reschedule.html">Rescheduling Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+    </nav>
+  </footer>
+
+  <script>
+    document.getElementById('whatsapp-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Static WhatsApp message
+      const message = "Hello, I've reserved a session slot with Life of Lotus. Please share payment details and next steps.";
+      
+      window.location.href = 'https://wa.me/919868157299?text=' + encodeURIComponent(message);
+    });
+  </script>
+
+  <!-- Mobile Menu Script -->
+  <script src="js/mobile-menu.js"></script>
+
+</body>
+</html>
+
