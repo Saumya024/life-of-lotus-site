@@ -185,7 +185,7 @@ section {
   top: 0;
   left: 0;
   right: 0;
-  height: 25.5%;
+  height: 20%;
   background-color: var(--primary);
   display: flex;
   align-items: center;
@@ -197,7 +197,7 @@ section {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 74.5%;
+  height: 80%;
   background-color: var(--primary-light);
   display: flex;
   align-items: center;
@@ -206,11 +206,11 @@ section {
 
 .hero-planets {
   position: absolute;
-  top: 1.35%;
+  top: 3.8%;
   left: 0;
   right: 0;
   width: 100%;
-  height: 21%;
+  height: 14.7%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,7 +266,7 @@ section {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 70%;
+  height: 80%;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -314,9 +314,9 @@ section {
 
 .hero-content .cta {
   width: auto;
-  padding: 16px 42px !important;
+  padding: 20px 53px !important;
   font-weight: 500;
-  font-size: 21px !important;
+  font-size: 26px !important;
 }
 
 .cta:hover {
