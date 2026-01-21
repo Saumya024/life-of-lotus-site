@@ -333,6 +333,80 @@ section {
   background: var(--secondary-light);
 }
 
+/* When Do People Reach Out */
+.reach-out {
+  background-color: var(--primary);
+}
+
+.reach-out h2 {
+  color: var(--cream-white);
+  margin-bottom: 48px;
+}
+
+.reach-out-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.reach-out-item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background-color: var(--primary-lighter);
+  border-radius: 16px;
+  padding: 24px 32px;
+  border: 1px solid rgba(248, 246, 242, 0.1);
+}
+
+.reach-out-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.reach-out-icon-circle-outer {
+  width: 64px;
+  height: 64px;
+  background-color: var(--cream-white);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+.reach-out-icon-circle {
+  width: 56px;
+  height: 56px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 4px;
+  left: 4px;
+}
+
+.reach-out-icon {
+  width: 28px;
+  height: 28px;
+  stroke: var(--tertiary);
+  position: relative;
+  z-index: 3;
+}
+
+.reach-out-text {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 18px;
+  color: var(--cream-white);
+  margin: 0;
+  line-height: 1.6;
+}
+
 /* Areas of Guidance */
 .areas {
   background-color: var(--cream-white);
@@ -1326,6 +1400,41 @@ section {
     height: 45px;
     flex-shrink: 0;
     min-width: 45px;
+  }
+
+  .reach-out-list {
+    gap: 20px;
+  }
+
+  .reach-out-item {
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  .reach-out-icon-wrapper {
+    width: 56px;
+    height: 56px;
+  }
+
+  .reach-out-icon-circle-outer {
+    width: 56px;
+    height: 56px;
+  }
+
+  .reach-out-icon-circle {
+    width: 48px;
+    height: 48px;
+    top: 4px;
+    left: 4px;
+  }
+
+  .reach-out-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .reach-out-text {
+    font-size: 16px;
   }
 
   .areas-grid {
