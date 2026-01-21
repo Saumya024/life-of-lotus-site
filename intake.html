@@ -43,9 +43,10 @@
       <form class="intake-form" id="intake-form">
         <div class="intake-grid">
           
-          <!-- First Section: Pricing Card -->
+          <!-- First Section: Pricing/Package Card -->
           <div class="intake-section">
-            <div class="pricing-card">
+            <!-- Pricing Card (default, shown for pricing) -->
+            <div class="pricing-card" id="pricing-card">
               <div class="pricing-duration">60-Minutes</div>
               <h3 class="pricing-name">Deep Insight</h3>
               <div class="pricing-best-for">Root-cause analysis | First-time consultations</div>
@@ -58,6 +59,19 @@
                 <div class="pricing-detail-item">Up to 3 related topics allowed</div>
                 <div class="pricing-detail-item">2 charts covered</div>
               </div>
+            </div>
+            <!-- Package Card (hidden by default, shown for packages) -->
+            <div class="package-card" id="package-card" style="display: none;">
+              <div class="package-duration">60-Minutes <span class="package-sessions">× 3</span></div>
+              <h3 class="package-name">Deep Insight</h3>
+              <div class="package-toggle">
+                <button type="button" class="toggle-btn active" data-type="audio">Audio</button>
+                <button type="button" class="toggle-btn" data-type="video">Video</button>
+              </div>
+              <div class="package-original-price" data-audio-original="₹5,400" data-video-original="₹6,000">₹5,400</div>
+              <div class="package-price" data-audio-price="₹4,800" data-video-price="₹5,400">₹4,800</div>
+              <div class="package-savings" data-audio-savings="Save ₹600" data-video-savings="Save ₹600">Save ₹600</div>
+              <div class="package-note">No expiry on sessions.</div>
             </div>
             <!-- Cal.com modal will be dynamically created after form submission -->
       </div>
@@ -187,7 +201,41 @@
       }
     };
 
-    // Read duration from URL query parameter
+    // Package data for each duration
+    const packageData = {
+      30: {
+        duration: '30-Minutes',
+        name: 'Quick Clarity',
+        audioOriginal: '₹2,700',
+        videoOriginal: '₹3,300',
+        audioPrice: '₹2,400',
+        videoPrice: '₹3,000',
+        audioSavings: 'Save ₹300',
+        videoSavings: 'Save ₹300'
+      },
+      60: {
+        duration: '60-Minutes',
+        name: 'Deep Insight',
+        audioOriginal: '₹5,400',
+        videoOriginal: '₹6,000',
+        audioPrice: '₹4,800',
+        videoPrice: '₹5,400',
+        audioSavings: 'Save ₹600',
+        videoSavings: 'Save ₹600'
+      },
+      90: {
+        duration: '90-Minutes',
+        name: 'Holistic Guidance',
+        audioOriginal: '₹8,100',
+        videoOriginal: '₹8,700',
+        audioPrice: '₹7,200',
+        videoPrice: '₹7,800',
+        audioSavings: 'Save ₹900',
+        videoSavings: 'Save ₹900'
+      }
+    };
+
+    // Read duration and type from URL query parameters
     function getDurationFromURL() {
       const urlParams = new URLSearchParams(window.location.search);
       const duration = urlParams.get('duration');
@@ -198,12 +246,17 @@
       return 60; // Default to 60 minutes
     }
 
+    function getTypeFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('type'); // Returns 'package' or null
+    }
+
     // Update pricing card based on duration
     function updatePricingCard(duration) {
       const data = pricingData[duration];
       if (!data) return;
 
-      const card = document.querySelector('.pricing-card');
+      const card = document.getElementById('pricing-card');
       if (!card) return;
 
       // Update duration
@@ -232,14 +285,100 @@
         detailsElements[0].textContent = data.details[0];
         detailsElements[1].textContent = data.details[1];
       }
+
+      // Reset toggle buttons to audio (default)
+      const toggleButtons = card.querySelectorAll('.toggle-btn');
+      toggleButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.type === 'audio') {
+          btn.classList.add('active');
+        }
+      });
     }
 
-    // Initialize page based on URL parameter (only update pricing card, not calendar)
-    (function() {
+    // Update package card based on duration
+    function updatePackageCard(duration) {
+      const data = packageData[duration];
+      if (!data) return;
+
+      const card = document.getElementById('package-card');
+      if (!card) return;
+
+      // Update duration
+      const durationElement = card.querySelector('.package-duration');
+      if (durationElement) {
+        durationElement.innerHTML = `${data.duration} <span class="package-sessions">× 3</span>`;
+      }
+
+      // Update name
+      const nameElement = card.querySelector('.package-name');
+      if (nameElement) nameElement.textContent = data.name;
+
+      // Update original price
+      const originalPriceElement = card.querySelector('.package-original-price');
+      if (originalPriceElement) {
+        originalPriceElement.setAttribute('data-audio-original', data.audioOriginal);
+        originalPriceElement.setAttribute('data-video-original', data.videoOriginal);
+        originalPriceElement.textContent = data.audioOriginal;
+      }
+
+      // Update package price
+      const priceElement = card.querySelector('.package-price');
+      if (priceElement) {
+        priceElement.setAttribute('data-audio-price', data.audioPrice);
+        priceElement.setAttribute('data-video-price', data.videoPrice);
+        priceElement.textContent = data.audioPrice;
+      }
+
+      // Update savings
+      const savingsElement = card.querySelector('.package-savings');
+      if (savingsElement) {
+        savingsElement.setAttribute('data-audio-savings', data.audioSavings);
+        savingsElement.setAttribute('data-video-savings', data.videoSavings);
+        savingsElement.textContent = data.audioSavings;
+      }
+
+      // Reset toggle buttons to audio (default)
+      const toggleButtons = card.querySelectorAll('.toggle-btn');
+      toggleButtons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.dataset.type === 'audio') {
+          btn.classList.add('active');
+        }
+      });
+    }
+
+    // Initialize page based on URL parameters
+    // Ensure DOM is ready before updating
+    function initializeCard() {
       const duration = getDurationFromURL();
-      updatePricingCard(duration);
-      // Do NOT show calendar containers on page load
-    })();
+      const type = getTypeFromURL();
+      const pricingCard = document.getElementById('pricing-card');
+      const packageCard = document.getElementById('package-card');
+
+      if (type === 'package') {
+        // Show package card, hide pricing card
+        if (pricingCard) pricingCard.style.display = 'none';
+        if (packageCard) {
+          packageCard.style.display = 'block';
+          updatePackageCard(duration);
+        }
+      } else {
+        // Show pricing card, hide package card (default)
+        if (packageCard) packageCard.style.display = 'none';
+        if (pricingCard) {
+          pricingCard.style.display = 'block';
+          updatePricingCard(duration);
+        }
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeCard);
+    } else {
+      // DOM is already ready
+      initializeCard();
+    }
 
     // Toggle button functionality with price updates
     document.querySelectorAll('.toggle-btn').forEach(btn => {
@@ -260,6 +399,37 @@
             const videoPrice = priceElement.dataset.videoPrice;
             if (audioPrice && videoPrice) {
               priceElement.textContent = isVideo ? videoPrice : audioPrice;
+            }
+          }
+        }
+        
+        // Update package card prices, original prices, and savings
+        if (card && card.classList.contains('package-card')) {
+          const originalPriceElement = card.querySelector('.package-original-price');
+          const priceElement = card.querySelector('.package-price');
+          const savingsElement = card.querySelector('.package-savings');
+          
+          if (originalPriceElement) {
+            const audioOriginal = originalPriceElement.dataset.audioOriginal;
+            const videoOriginal = originalPriceElement.dataset.videoOriginal;
+            if (audioOriginal && videoOriginal) {
+              originalPriceElement.textContent = isVideo ? videoOriginal : audioOriginal;
+            }
+          }
+          
+          if (priceElement) {
+            const audioPrice = priceElement.dataset.audioPrice;
+            const videoPrice = priceElement.dataset.videoPrice;
+            if (audioPrice && videoPrice) {
+              priceElement.textContent = isVideo ? videoPrice : audioPrice;
+            }
+          }
+          
+          if (savingsElement) {
+            const audioSavings = savingsElement.dataset.audioSavings;
+            const videoSavings = savingsElement.dataset.videoSavings;
+            if (audioSavings && videoSavings) {
+              savingsElement.textContent = isVideo ? videoSavings : audioSavings;
             }
           }
         }
@@ -297,8 +467,10 @@
       
       // Only create iframe once per page load
       if (!calIframeCreated && modalContent) {
-        // Determine duration from pricing card
-        const durationElement = document.querySelector('.pricing-duration');
+        // Determine duration from pricing card or package card
+        const pricingDurationElement = document.querySelector('.pricing-duration');
+        const packageDurationElement = document.querySelector('.package-duration');
+        const durationElement = pricingDurationElement || packageDurationElement;
         let duration = 60; // Default to 60 minutes
         if (durationElement) {
           const durationText = durationElement.textContent.trim();
