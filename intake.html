@@ -17,7 +17,9 @@
 
   <!-- Header -->
   <header class="header">
-    <div class="logo">Life of Lotus</div>
+    <div class="logo">
+      <img src="assets/images/Screenshot 2026-01-21 at 2.11.00 PM.png" alt="Life of Lotus" />
+    </div>
     <div class="header-mobile-actions">
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
@@ -57,92 +59,188 @@
                 <div class="pricing-detail-item">2 charts covered</div>
               </div>
             </div>
-          </div>
-
+            <!-- Cal.com modal will be dynamically created after form submission -->
+      </div>
+  
           <!-- Second Section: Personal Information -->
           <div class="intake-section">
-            <div class="field">
-              <label>First Name *</label>
-              <input type="text" name="firstName" required />
-            </div>
-
-            <div class="field">
-              <label>Last Name *</label>
-              <input type="text" name="lastName" required />
-            </div>
-
-            <div class="field">
+      <div class="field">
+              <label>Name *</label>
+              <input type="text" name="name" required />
+      </div>
+  
+      <div class="field">
+              <label>Email *</label>
+              <input type="email" name="email" required />
+      </div>
+  
+      <div class="field">
               <label>Phone Number *</label>
               <input type="tel" name="phone" required />
             </div>
-
-            <div class="field">
-              <label>Email ID *</label>
-              <input type="email" name="email" required />
-            </div>
-          </div>
-
+      </div>
+  
           <!-- Third Section: Birth Details -->
           <div class="intake-section">
-            <div class="field">
+      <div class="field">
               <label>Date of Birth *</label>
               <input type="date" name="dob" required />
-            </div>
-
-            <div class="field">
+      </div>
+  
+      <div class="field">
               <label>Time of Birth *</label>
               <input type="time" name="tob" required />
-            </div>
-
-            <div class="field">
+      </div>
+  
+      <div class="field">
               <label>Place of Birth *</label>
               <div class="autocomplete-wrapper">
                 <input type="text" name="pob" id="place-of-birth" autocomplete="off" required />
                 <div class="autocomplete-suggestions" id="place-suggestions"></div>
               </div>
-            </div>
-
-            <div class="field">
+      </div>
+  
+      <div class="field">
               <label>Primary Area of Guidance *</label>
               <select name="area" required>
                 <option value="">Select an area</option>
-                <option>Career & Finances</option>
-                <option>Marriage & Relationships</option>
-                <option>Health & Wellbeing</option>
-                <option>Family & Children</option>
-                <option>Personal / Spiritual Growth</option>
-                <option>Open session</option>
-              </select>
+          <option>Career & Finances</option>
+          <option>Marriage & Relationships</option>
+          <option>Health & Wellbeing</option>
+          <option>Family & Children</option>
+          <option>Personal / Spiritual Growth</option>
+          <option>Open session</option>
+        </select>
             </div>
           </div>
-        </div>
-
+      </div>
+  
         <!-- Optional Section -->
         <div class="intake-optional">
-          <div class="field">
+      <div class="field">
             <label>What feels most unclear right now? (Optional)</label>
             <textarea name="unclear" rows="4"></textarea>
           </div>
-        </div>
-
+      </div>
+  
         <!-- CTA Button -->
         <div class="intake-cta-wrapper">
           <button class="cta" type="button" id="book-slot-btn">
             Book Slot
-          </button>
+      </button>
         </div>
       </form>
-
-      <!-- Calendly Section (hidden initially) -->
-      <div class="calendly-section" id="calendly-section" style="display: none;">
-        <h2 class="calendly-heading">Select your preferred slot</h2>
-        <p class="calendly-note-item"><strong>Please note:</strong> Select your time zone before booking. The selected slot indicates the session start time. Session duration depends on the service you choose.</p>
-        <div class="calendly-inline-widget" data-url="https://calendly.com/saumyasingh-2403/lifeoflotus" style="min-width:320px;height:700px;"></div>
-      </div>
+  
+      <!-- Booking link will be replaced with Cal.com -->
     </div>
   </section>
+  
+  <!-- Cal.com Booking Modal (dynamically created) -->
+  <div id="cal-modal-overlay" style="display: none;">
+    <div id="cal-modal">
+      <button id="cal-modal-close" class="cal-modal-close" aria-label="Close">×</button>
+      <p class="cal-modal-instruction">Please Note: Please select your time zone below to book a slot.</p>
+      <div id="cal-modal-content"></div>
+    </div>
+  </div>
 
   <script>
+    // Cal.com Booking URLs
+    const CAL_30_URL = 'https://cal.com/life-of-lotus/30min';
+    const CAL_60_URL = 'https://cal.com/life-of-lotus/60min';
+    const CAL_90_URL = 'https://cal.com/life-of-lotus/90min';
+
+    // Pricing data for each duration
+    const pricingData = {
+      30: {
+        duration: '30-Minutes',
+        name: 'Quick Clarity',
+        bestFor: 'Follow-up sessions | Focused queries | Quick clarity',
+        audioPrice: '₹900',
+        videoPrice: '₹1,100',
+        details: [
+          '1 key topic allowed',
+          '1 chart covered'
+        ]
+      },
+      60: {
+        duration: '60-Minutes',
+        name: 'Deep Insight',
+        bestFor: 'Root-cause analysis | First-time consultations',
+        audioPrice: '₹1,800',
+        videoPrice: '₹2,000',
+        details: [
+          'Up to 3 related topics allowed',
+          '2 charts covered'
+        ]
+      },
+      90: {
+        duration: '90-Minutes',
+        name: 'Holistic Guidance',
+        bestFor: 'In-depth life themes | Remedies & planning',
+        audioPrice: '₹2,700',
+        videoPrice: '₹2,900',
+        details: [
+          'Multiple life areas allowed',
+          'Multiple charts covered'
+        ]
+      }
+    };
+
+    // Read duration from URL query parameter
+    function getDurationFromURL() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const duration = urlParams.get('duration');
+      // Validate duration, default to 60 if invalid
+      if (duration === '30' || duration === '60' || duration === '90') {
+        return parseInt(duration, 10);
+      }
+      return 60; // Default to 60 minutes
+    }
+
+    // Update pricing card based on duration
+    function updatePricingCard(duration) {
+      const data = pricingData[duration];
+      if (!data) return;
+
+      const card = document.querySelector('.pricing-card');
+      if (!card) return;
+
+      // Update duration
+      const durationElement = card.querySelector('.pricing-duration');
+      if (durationElement) durationElement.textContent = data.duration;
+
+      // Update name
+      const nameElement = card.querySelector('.pricing-name');
+      if (nameElement) nameElement.textContent = data.name;
+
+      // Update best for
+      const bestForElement = card.querySelector('.pricing-best-for');
+      if (bestForElement) bestForElement.textContent = data.bestFor;
+
+      // Update price
+      const priceElement = card.querySelector('.pricing-price');
+      if (priceElement) {
+        priceElement.setAttribute('data-audio-price', data.audioPrice);
+        priceElement.setAttribute('data-video-price', data.videoPrice);
+        priceElement.textContent = data.audioPrice;
+      }
+
+      // Update details
+      const detailsElements = card.querySelectorAll('.pricing-detail-item');
+      if (detailsElements && detailsElements.length >= 2) {
+        detailsElements[0].textContent = data.details[0];
+        detailsElements[1].textContent = data.details[1];
+      }
+    }
+
+    // Initialize page based on URL parameter (only update pricing card, not calendar)
+    (function() {
+      const duration = getDurationFromURL();
+      updatePricingCard(duration);
+      // Do NOT show calendar containers on page load
+    })();
+
     // Toggle button functionality with price updates
     document.querySelectorAll('.toggle-btn').forEach(btn => {
       btn.addEventListener('click', function() {
@@ -168,40 +266,119 @@
       });
     });
 
-    // Book Slot button - show Calendly
-    document.getElementById('book-slot-btn').addEventListener('click', function() {
+    // Track iframe creation to ensure it's created only once per page load
+    let calIframeCreated = false;
+
+    // Book Slot button - open modal with Cal.com iframe after form submission
+    document.getElementById('book-slot-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      
       // Validate form first
       const form = document.getElementById('intake-form');
-      if (form.checkValidity()) {
-        // Hide form
-        document.querySelector('.intake-form').style.display = 'none';
-        // Show Calendly section
-        const calendlySection = document.getElementById('calendly-section');
-        calendlySection.style.display = 'block';
-        // Load Calendly widget script if not already loaded
-        if (!document.querySelector('script[src*="calendly.com"]')) {
-          const script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.src = 'https://assets.calendly.com/assets/external/widget.js';
-          script.async = true;
-          document.body.appendChild(script);
-        }
-        // Scroll to Calendly
-        setTimeout(() => {
-          calendlySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
-      } else {
+      if (!form.checkValidity()) {
         form.reportValidity();
+        return;
+      }
+      
+      // Read form values
+      const formData = new FormData(form);
+      const name = formData.get('name');
+      const email = formData.get('email');
+      
+      // Validate required fields
+      if (!name || !email) {
+        form.reportValidity();
+        return;
+      }
+      
+      // Get modal elements
+      const modalOverlay = document.getElementById('cal-modal-overlay');
+      const modalContent = document.getElementById('cal-modal-content');
+      
+      // Only create iframe once per page load
+      if (!calIframeCreated && modalContent) {
+        // Determine duration from pricing card
+        const durationElement = document.querySelector('.pricing-duration');
+        let duration = 60; // Default to 60 minutes
+        if (durationElement) {
+          const durationText = durationElement.textContent.trim();
+          const durationMatch = durationText.match(/(\d+)/);
+          if (durationMatch) {
+            duration = parseInt(durationMatch[1], 10);
+          }
+        }
+        
+        // Get the matching Cal.com URL
+        let calUrl;
+        if (duration === 30) {
+          calUrl = CAL_30_URL;
+        } else if (duration === 60) {
+          calUrl = CAL_60_URL;
+        } else if (duration === 90) {
+          calUrl = CAL_90_URL;
+        } else {
+          calUrl = CAL_60_URL; // Default to 60 minutes
+        }
+        
+        // URL-encode name and email
+        const encodedName = encodeURIComponent(name);
+        const encodedEmail = encodeURIComponent(email);
+        
+        // Construct Cal.com URL with query parameters
+        const calUrlWithParams = `${calUrl}?name=${encodedName}&email=${encodedEmail}`;
+        
+        // Create and inject Cal.com iframe (only once)
+        const iframe = document.createElement('iframe');
+        iframe.src = calUrlWithParams;
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allowtransparency', 'true');
+        iframe.setAttribute('allow', 'geolocation; microphone; camera');
+        iframe.id = 'cal-booking-iframe'; // Add ID for reference
+        
+        // Inject iframe into modal content
+        modalContent.appendChild(iframe);
+        
+        // Mark iframe as created - never create again
+        calIframeCreated = true;
+      }
+      
+      // Show modal (iframe persists if already created)
+      if (modalOverlay) {
+        modalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent body scrolling
       }
     });
 
-    // Listen for Calendly event when event is scheduled
-    window.addEventListener('message', function(e) {
-      if (e.data.event && e.data.event.indexOf('calendly') === 0) {
-        if (e.data.event === 'calendly.event_scheduled') {
-          // Redirect to confirmation/payment page after scheduling
-          window.location.href = 'confirm.html';
+    // Close modal functionality (only if iframe hasn't been created yet)
+    const modalOverlay = document.getElementById('cal-modal-overlay');
+    const modalClose = document.getElementById('cal-modal-close');
+
+    // Close button click - only allow closing if iframe hasn't been created
+    if (modalClose) {
+      modalClose.addEventListener('click', function() {
+        // Prevent closing if iframe has been created (let Cal.com handle redirect)
+        if (!calIframeCreated && modalOverlay) {
+          modalOverlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore body scrolling
         }
+      });
+    }
+
+    // Close on overlay click (outside modal) - only if iframe hasn't been created
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', function(e) {
+        if (e.target === modalOverlay && !calIframeCreated) {
+          modalOverlay.style.display = 'none';
+          document.body.style.overflow = ''; // Restore body scrolling
+        }
+      });
+    }
+
+    // Close on Escape key - only if iframe hasn't been created
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modalOverlay && modalOverlay.style.display === 'flex' && !calIframeCreated) {
+        modalOverlay.style.display = 'none';
+        document.body.style.overflow = ''; // Restore body scrolling
       }
     });
 
