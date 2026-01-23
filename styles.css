@@ -347,10 +347,10 @@ section {
 }
 
 .reach-out-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -383,12 +383,16 @@ section {
 
 .reach-out-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 24px;
+  text-align: center;
+  gap: 16px;
   background-color: var(--primary-lighter);
   border-radius: 16px;
-  padding: 24px 32px;
+  padding: 32px 24px;
   border: 1px solid rgba(248, 246, 242, 0.1);
+  justify-content: flex-start;
+  min-height: 280px;
 }
 
 .reach-out-icon-wrapper {
@@ -429,12 +433,30 @@ section {
   z-index: 3;
 }
 
+.reach-out-icon-image {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 3;
+  object-fit: contain;
+}
+
 .reach-out-text {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 18px;
   color: var(--cream-white);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+.reach-out-subtext {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--cream-white);
+  margin: 0;
+  line-height: 1.5;
+  opacity: 0.9;
 }
 
 /* Areas of Guidance */
@@ -1186,7 +1208,7 @@ section {
 }
 
 .faq-item.active .faq-answer {
-  max-height: 500px;
+  max-height: 2000px;
   padding: 0 0 20px 0;
 }
 
@@ -1715,12 +1737,21 @@ section {
   }
 
   .reach-out-list {
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
 
   .reach-out-item {
-    gap: 16px;
-    padding: 20px 24px;
+    gap: 12px;
+    padding: 24px 20px;
+  }
+
+  .reach-out-text {
+    font-size: 16px;
+  }
+
+  .reach-out-subtext {
+    font-size: 13px;
   }
 
   .reach-out-icon-wrapper {
@@ -1745,8 +1776,13 @@ section {
     height: 24px;
   }
 
+  .reach-out-icon-image {
+    width: 24px;
+    height: 24px;
+  }
+
   .reach-out-text {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .reach-out-bullets {
