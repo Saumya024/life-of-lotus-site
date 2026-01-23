@@ -85,12 +85,14 @@
   
       <div class="field">
               <label>Email *</label>
-              <input type="email" name="email" required />
+              <input type="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" />
+              <span class="field-error" id="email-error"></span>
       </div>
   
       <div class="field">
               <label>Phone Number *</label>
-              <input type="tel" name="phone" required />
+              <input type="tel" name="phone" required pattern="[\d\s\+\-\(\)]+" title="Please enter a valid phone number with country code" />
+              <span class="field-error" id="phone-error"></span>
             </div>
       </div>
   
@@ -98,7 +100,8 @@
           <div class="intake-section">
       <div class="field">
               <label>Date of Birth *</label>
-              <input type="date" name="dob" required />
+              <input type="date" name="dob" required id="dob-input" max="" />
+              <span class="field-error" id="dob-error"></span>
       </div>
   
       <div class="field">
@@ -133,7 +136,9 @@
         <div class="intake-optional">
       <div class="field">
             <label>What feels most unclear right now? (Optional)</label>
-            <textarea name="unclear" rows="4"></textarea>
+            <textarea name="unclear" rows="4" id="unclear-textarea" maxlength="1000"></textarea>
+            <div class="word-count"><span id="word-count-display">0</span> / 150 words</div>
+            <span class="field-error" id="unclear-error"></span>
           </div>
       </div>
   
@@ -159,6 +164,74 @@
   </div>
 
   <script>
+    // Set max date for Date of Birth (today's date) and mark required fields as empty
+    document.addEventListener('DOMContentLoaded', function() {
+      const dobInput = document.getElementById('dob-input');
+      if (dobInput) {
+        const today = new Date();
+        const maxDate = today.toISOString().split('T')[0];
+        dobInput.setAttribute('max', maxDate);
+        // Explicitly mark DOB as empty
+        if (!dobInput.value || dobInput.value === '') {
+          dobInput.classList.add('required-empty');
+        }
+      }
+      
+      // Explicitly mark Time of Birth as empty
+      const tobInput = document.querySelector('input[name="tob"]');
+      if (tobInput && (!tobInput.value || tobInput.value === '')) {
+        tobInput.classList.add('required-empty');
+      }
+      
+      // Mark all required fields as empty on page load
+      const requiredFields = document.querySelectorAll('.field input[required], .field select[required]');
+      requiredFields.forEach(function(field) {
+        // For date and time inputs, check if value is empty
+        const isEmpty = !field.value || field.value === '' || (field.type === 'date' && field.value === '') || (field.type === 'time' && field.value === '');
+        
+        if (isEmpty) {
+          field.classList.add('required-empty');
+        }
+        
+        // Add event listeners to update classes on change
+        field.addEventListener('change', function() {
+          const hasValue = this.value && this.value !== '';
+          if (hasValue) {
+            this.classList.remove('required-empty');
+            this.classList.add('required-filled');
+          } else {
+            this.classList.add('required-empty');
+            this.classList.remove('required-filled');
+          }
+        });
+        
+        // For date/time inputs, also listen to input event
+        if (field.type === 'date' || field.type === 'time') {
+          field.addEventListener('input', function() {
+            const hasValue = this.value && this.value !== '';
+            if (hasValue) {
+              this.classList.remove('required-empty');
+              this.classList.add('required-filled');
+            } else {
+              this.classList.add('required-empty');
+              this.classList.remove('required-filled');
+            }
+          });
+        } else {
+          field.addEventListener('input', function() {
+            const hasValue = this.value && this.value !== '';
+            if (hasValue) {
+              this.classList.remove('required-empty');
+              this.classList.add('required-filled');
+            } else {
+              this.classList.add('required-empty');
+              this.classList.remove('required-filled');
+            }
+          });
+        }
+      });
+    });
+
     // Cal.com Booking URLs
     const CAL_30_URL = 'https://cal.com/life-of-lotus/30min';
     const CAL_60_URL = 'https://cal.com/life-of-lotus/60min';
@@ -439,9 +512,121 @@
     // Track iframe creation to ensure it's created only once per page load
     let calIframeCreated = false;
 
+    // Validation functions
+    function validateEmail(email) {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(email);
+    }
+
+    function validatePhone(phone) {
+      // Remove spaces, dashes, parentheses for validation
+      const cleaned = phone.replace(/[\s\-\(\)]/g, '');
+      // Must start with + or digit, contain only digits after that
+      const phoneRegex = /^[\+]?[\d]{7,15}$/;
+      return phoneRegex.test(cleaned) && cleaned.length >= 7 && cleaned.length <= 15;
+    }
+
+    function validateDateOfBirth(dob) {
+      const selectedDate = new Date(dob);
+      const today = new Date();
+      today.setHours(23, 59, 59, 999); // Set to end of today
+      return selectedDate <= today;
+    }
+
+    function countWords(text) {
+      if (!text || text.trim() === '') return 0;
+      return text.trim().split(/\s+/).filter(word => word.length > 0).length;
+    }
+
+    function showError(fieldId, message) {
+      const errorElement = document.getElementById(fieldId + '-error');
+      if (errorElement) {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+      }
+    }
+
+    function clearError(fieldId) {
+      const errorElement = document.getElementById(fieldId + '-error');
+      if (errorElement) {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+      }
+    }
+
+    // Word count for textarea
+    const unclearTextarea = document.getElementById('unclear-textarea');
+    const wordCountDisplay = document.getElementById('word-count-display');
+    if (unclearTextarea && wordCountDisplay) {
+      unclearTextarea.addEventListener('input', function() {
+        const wordCount = countWords(this.value);
+        wordCountDisplay.textContent = wordCount;
+        
+        if (wordCount > 150) {
+          showError('unclear', 'Maximum 150 words allowed');
+          wordCountDisplay.style.color = '#d32f2f';
+        } else {
+          clearError('unclear');
+          wordCountDisplay.style.color = 'inherit';
+        }
+      });
+    }
+
+    // Real-time validation for email
+    const emailInput = document.querySelector('input[name="email"]');
+    if (emailInput) {
+      emailInput.addEventListener('blur', function() {
+        if (this.value && !validateEmail(this.value)) {
+          showError('email', 'Please enter a valid email address');
+        } else {
+          clearError('email');
+        }
+      });
+      emailInput.addEventListener('input', function() {
+        if (this.value && validateEmail(this.value)) {
+          clearError('email');
+        }
+      });
+    }
+
+    // Real-time validation for phone
+    const phoneInput = document.querySelector('input[name="phone"]');
+    if (phoneInput) {
+      phoneInput.addEventListener('blur', function() {
+        if (this.value && !validatePhone(this.value)) {
+          showError('phone', 'Please enter a valid phone number with country code (7-15 digits)');
+        } else {
+          clearError('phone');
+        }
+      });
+      phoneInput.addEventListener('input', function() {
+        if (this.value && validatePhone(this.value)) {
+          clearError('phone');
+        }
+      });
+    }
+
+    // Real-time validation for date of birth
+    const dobInput = document.getElementById('dob-input');
+    if (dobInput) {
+      dobInput.addEventListener('change', function() {
+        if (this.value && !validateDateOfBirth(this.value)) {
+          showError('dob', 'Date of birth cannot be in the future');
+        } else {
+          clearError('dob');
+        }
+      });
+    }
+
     // Book Slot button - open modal with Cal.com iframe after form submission
     document.getElementById('book-slot-btn').addEventListener('click', function(e) {
       e.preventDefault();
+      
+      // Clear previous errors
+      clearError('email');
+      clearError('phone');
+      clearError('dob');
+      clearError('unclear');
       
       // Validate form first
       const form = document.getElementById('intake-form');
@@ -454,11 +639,45 @@
       const formData = new FormData(form);
       const name = formData.get('name');
       const email = formData.get('email');
+      const phone = formData.get('phone');
+      const dob = formData.get('dob');
+      const unclear = formData.get('unclear');
       
       // Validate required fields
       if (!name || !email) {
         form.reportValidity();
         return;
+      }
+      
+      // Custom validation for email
+      if (!validateEmail(email)) {
+        showError('email', 'Please enter a valid email address');
+        emailInput.focus();
+        return;
+      }
+      
+      // Custom validation for phone
+      if (!validatePhone(phone)) {
+        showError('phone', 'Please enter a valid phone number with country code (7-15 digits)');
+        phoneInput.focus();
+        return;
+      }
+      
+      // Custom validation for date of birth
+      if (dob && !validateDateOfBirth(dob)) {
+        showError('dob', 'Date of birth cannot be in the future');
+        dobInput.focus();
+        return;
+      }
+      
+      // Validate word count for optional textarea
+      if (unclear) {
+        const wordCount = countWords(unclear);
+        if (wordCount > 150) {
+          showError('unclear', 'Maximum 150 words allowed');
+          unclearTextarea.focus();
+          return;
+        }
       }
       
       // Get modal elements
