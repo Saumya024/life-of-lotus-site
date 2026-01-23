@@ -1052,7 +1052,7 @@ section {
   text-align: center;
   margin-top: 0;
   padding-top: 24px;
-  border-top: 1px solid rgba(67, 16, 57, 0.15);
+  border-top: none;
 }
 
 .faq-cta-link {
@@ -1076,7 +1076,7 @@ section {
 }
 
 .faq-item:last-of-type {
-  border-bottom: none;
+  border-bottom: 1px solid rgba(67, 16, 57, 0.15);
   margin-bottom: 0;
   padding-bottom: 0;
 }
@@ -1087,7 +1087,7 @@ section {
   border: none;
   padding: 20px 0;
   text-align: left;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'Brygada 1918', serif;
   color: var(--primary);
   cursor: pointer;
