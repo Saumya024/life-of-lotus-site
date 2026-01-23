@@ -1375,7 +1375,7 @@ section {
   flex-wrap: wrap;
   padding-top: 24px;
   border-top: 1px solid rgba(248, 246, 242, 0.2);
-  margin-top: 24px;
+  margin-top: 0;
   margin-bottom: 0;
   width: 100%;
 }
@@ -1883,7 +1883,7 @@ section {
   .footer-nav-policies {
     gap: 16px;
     padding-top: 20px;
-    margin-top: 20px;
+    margin-top: 0;
   }
 
   .footer-nav-policies a {
