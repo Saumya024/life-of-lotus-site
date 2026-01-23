@@ -404,7 +404,7 @@ section {
 
 .reach-out-text {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   color: var(--cream-white);
   margin: 0;
   line-height: 1.6;
@@ -469,10 +469,11 @@ section {
 }
 
 .area-detail {
-  font-size: 16px;
+  font-size: 14px;
   color: rgba(67, 16, 57, 0.7);
   margin-bottom: 24px;
   flex-grow: 1;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 .area-cta {
@@ -651,7 +652,7 @@ section {
 }
 
 .safe-space-text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   margin-bottom: 40px;
   color: var(--cream-white);
@@ -755,7 +756,7 @@ section {
 }
 
 .testimonial-text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   margin-bottom: 22.4px;
   color: var(--primary);
@@ -896,7 +897,7 @@ section {
 
 .process-intro {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--cream-white);
   text-align: center;
@@ -937,7 +938,7 @@ section {
 }
 
 .process-text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   opacity: 0.85;
   color: var(--cream-white);
@@ -1011,7 +1012,7 @@ section {
 }
 
 .founder-text {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   opacity: 0.9;
   text-align: left;
@@ -1133,6 +1134,7 @@ section {
   color: rgba(67, 16, 57, 0.8);
   line-height: 1.6;
   font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
 }
 
 .faq-item.active .faq-answer {
@@ -1161,7 +1163,7 @@ section {
 }
 
 .contact-subtext {
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0.8;
   margin-bottom: 48px;
   color: var(--cream-white);
@@ -1605,7 +1607,7 @@ section {
   }
 
   .reach-out-text {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .areas-grid {
@@ -2215,7 +2217,7 @@ section {
 }
 
 .about-content p {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   margin-bottom: 24px;
   font-family: 'Comfortaa', sans-serif;
@@ -2227,7 +2229,7 @@ section {
 }
 
 .about-content li {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   margin-bottom: 12px;
   font-family: 'Comfortaa', sans-serif;
@@ -2348,6 +2350,10 @@ section {
   .collapsible-section.collapsed .about-section-toggle {
     margin-bottom: 0;
   }
+  
+  .about-section-3 .toggle-icon {
+    color: var(--primary-light);
+  }
 }
 
 /* About CTA Section */
@@ -2418,7 +2424,7 @@ section {
 .privacy-content p,
 .privacy-content li {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 16px;
@@ -2426,7 +2432,7 @@ section {
 
 .privacy-intro {
   font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 24px;

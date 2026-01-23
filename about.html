@@ -50,10 +50,14 @@
   </section>
 
   <!-- About Section 1: My Path to Astrology -->
-  <section class="about-section about-section-1">
+  <section class="about-section about-section-1 collapsible-section">
     <div class="about-content">
-      <h2>My Path to Astrology</h2>
+      <button class="about-section-toggle" aria-label="Toggle section">
+        <h2>My Path to Astrology</h2>
+        <span class="toggle-icon">▼</span>
+      </button>
       
+      <div class="about-section-content">
       <p>I did not come to Vedic astrology as an intellectual pursuit. I came because the same questions kept repeating in my own life, and conventional answers stopped working.</p>
       
       <p>Loss, prolonged uncertainty, emotional strain, and periods of internal conflict shaped important phases of my life. During those years, clarity felt impossible to reach. Decisions felt heavier than the situation seemed to warrant. Relationships carried familiar tensions despite changing circumstances. I kept wondering: why does this keep happening? What am I missing?</p>
@@ -61,6 +65,7 @@
       <p>Astrology entered my life during this terrain, not as belief or escape, but as a way to understand why similar situations kept resurfacing, why timing mattered more than effort in certain phases, and why some problems resolved only when approached differently rather than harder. What I found was not vague symbolism. It was a rigorous framework that explained patterns I had already lived through, including their timing and repetition.</p>
       
       <p>Life of Lotus grew from this lived confrontation with repetition, uncertainty, and the search for clarity that holds up under pressure.</p>
+      </div>
     </div>
   </section>
 
@@ -103,23 +108,32 @@
   </section>
 
   <!-- About Section 4: What Is Vedic Astrology -->
-  <section class="about-section about-section-4">
+  <section class="about-section about-section-4 collapsible-section">
     <div class="about-content">
-      <h2>What Is Vedic Astrology</h2>
+      <button class="about-section-toggle" aria-label="Toggle section">
+        <h2>What Is Vedic Astrology</h2>
+        <span class="toggle-icon">▼</span>
+      </button>
       
+      <div class="about-section-content">
       <p>Vedic astrology, also known as Jyotish, is a predictive system used to understand repeating life patterns, decision timing, and periods of increased challenge or opportunity.</p>
       
       <p>It examines how tendencies formed early in life, family conditioning, and inherited patterns activate at specific periods. Charts often reveal why one person repeatedly attracts unstable partnerships, why another faces career stagnation despite competence, or why health issues surface under stress rather than randomly.</p>
       
       <p>A birth chart shows what is already set in motion and when particular themes become active. Some events unfold regardless of effort. Others respond strongly to timing and preparedness. Vedic astrology exists to clarify this distinction, so you are not left guessing why life feels harder than it should.</p>
+      </div>
     </div>
   </section>
 
   <!-- About Section 5: How I Practice Vedic Astrology -->
-  <section class="about-section about-section-5">
+  <section class="about-section about-section-5 collapsible-section">
     <div class="about-content">
-      <h2>How I Practice Vedic Astrology</h2>
+      <button class="about-section-toggle" aria-label="Toggle section">
+        <h2>How I Practice Vedic Astrology</h2>
+        <span class="toggle-icon">▼</span>
+      </button>
       
+      <div class="about-section-content">
       <p>My work focuses on identifying patterns that repeat unless addressed, periods when life pushes for change, and phases where restraint prevents damage.</p>
       
       <p>I use planetary periods, transits, and focused question-based techniques to understand what is likely to unfold, how intensely it may express, and what response reduces unnecessary loss. Charts often point to specific periods, triggers, and outcomes, not just themes. This allows people to prepare rather than react.</p>
@@ -129,14 +143,19 @@
       <p>Astrology here does not replace doctors, therapists, or professional advice. It flags vulnerabilities before they harden, so corrective steps can be taken in time.</p>
       
       <p>I do not offer dramatic predictions or false certainty. I offer clarity that helps people make better decisions when the stakes are real, along with compassion for what they are carrying.</p>
+      </div>
     </div>
   </section>
 
   <!-- About Section 6: The Lens I Bring to This Work -->
-  <section class="about-section about-section-6">
+  <section class="about-section about-section-6 collapsible-section">
     <div class="about-content">
-      <h2>The Lens I Bring to This Work</h2>
+      <button class="about-section-toggle" aria-label="Toggle section">
+        <h2>The Lens I Bring to This Work</h2>
+        <span class="toggle-icon">▼</span>
+      </button>
       
+      <div class="about-section-content">
       <p>My approach is shaped by how I have lived and worked.</p>
       
       <p>Years in product management trained me to evaluate trade-offs, long-term consequences, and imperfect decisions made under pressure. Training in social sciences and business deepened my understanding of power dynamics, emotional conditioning, and behavioural patterns. Over a decade of Vipassana practice strengthened my ability to observe without reacting and to sit with complexity without forcing answers.</p>
@@ -144,6 +163,7 @@
       <p>This lens allows me to read charts without projection or exaggeration. Patterns are examined in relation to real life circumstances, not isolated symbols.</p>
       
       <p>I hold your questions with care. The work we do together is confidential, serious, and without judgment.</p>
+      </div>
     </div>
   </section>
 
@@ -256,10 +276,13 @@
     function initCollapsibleSections() {
       const collapsibleSections = document.querySelectorAll('.collapsible-section');
       
-      // Collapse sections 2 and 3 by default on mobile
+      // Collapse only sections 2 and 3 by default on mobile
       if (window.innerWidth <= 768) {
         collapsibleSections.forEach(section => {
-          section.classList.add('collapsed');
+          // Only collapse sections 2 and 3 (about-section-2 and about-section-3)
+          if (section.classList.contains('about-section-2') || section.classList.contains('about-section-3')) {
+            section.classList.add('collapsed');
+          }
         });
       }
       
@@ -281,12 +304,18 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function() {
           if (window.innerWidth > 768) {
+            // On desktop, expand all sections
             collapsibleSections.forEach(section => {
               section.classList.remove('collapsed');
             });
           } else {
+            // On mobile, collapse only sections 2 and 3
             collapsibleSections.forEach(section => {
-              section.classList.add('collapsed');
+              if (section.classList.contains('about-section-2') || section.classList.contains('about-section-3')) {
+                section.classList.add('collapsed');
+              } else {
+                section.classList.remove('collapsed');
+              }
             });
           }
         }, 250);
