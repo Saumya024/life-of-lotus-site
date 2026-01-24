@@ -20,6 +20,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Brygada 1918', serif;
   color: var(--primary);
@@ -180,6 +184,7 @@ section {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  padding: 0;
 }
 
 .hero-top {
@@ -200,7 +205,7 @@ section {
   left: 0;
   right: 0;
   height: 80%;
-  background-color: var(--primary-light);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,7 +213,7 @@ section {
 
 .hero-planets {
   position: absolute;
-  top: 3.42%;
+  top: 50%;
   left: 0;
   right: 0;
   width: 100%;
@@ -222,6 +227,7 @@ section {
   padding: 0 20px;
   box-sizing: border-box;
   overflow: visible;
+  transform: translateY(-50%);
 }
 
 .planet-icon {
@@ -265,7 +271,7 @@ section {
 
 .hero-content {
   position: absolute;
-  bottom: 0;
+  top: 3.42%;
   left: 0;
   right: 0;
   height: 64%;
@@ -273,18 +279,28 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   padding: 2% 40px;
-  transform: translateY(-15%);
+  transform: translateY(0);
 }
 
 .hero-content h1,
-.hero-content p,
+.hero-content p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .hero-content .cta {
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  position: absolute;
+  bottom: -17%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
 }
 
 .hero-content h1 {
@@ -320,6 +336,7 @@ section {
   padding: 21px 56px !important;
   font-weight: 500;
   font-size: 27.6px !important;
+  white-space: nowrap;
 }
 
 .cta:hover {
@@ -336,9 +353,140 @@ section {
   background: var(--secondary-light);
 }
 
+/* Brand Highlights Section */
+.brand-highlights {
+  background-color: var(--cream-white);
+  padding: 80px 40px;
+}
+
+.brand-highlights-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  align-items: start;
+}
+
+.brand-subsection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.brand-subsection-heading {
+  font-family: 'Brygada 1918', serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 24px;
+}
+
+.brand-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.brand-pill {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: var(--cream-white);
+  border-radius: 200px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.brand-stars {
+  font-size: 24px;
+  color: var(--tertiary);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.brand-stars-text {
+  font-family: 'Brygada 1918', serif;
+  font-size: 14px;
+  color: var(--primary);
+  margin: 0;
+}
+
+.brand-google {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.brand-principles {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.brand-principle-pill {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+  border-radius: 200px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 14px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .brand-highlights {
+    padding: 60px 20px;
+  }
+  
+  .brand-highlights-container {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  
+  .brand-subsection-heading {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .brand-pills {
+    gap: 10px;
+  }
+  
+  .brand-pill {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .brand-stars {
+    font-size: 20px;
+  }
+  
+  .brand-principles {
+    gap: 10px;
+  }
+  
+  .brand-google {
+    font-size: 15px;
+  }
+  
+  .brand-principle-pill {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
 /* When Do People Reach Out */
 .reach-out {
-  background-color: var(--primary);
+  background-color: var(--primary-light);
 }
 
 .reach-out h2 {
@@ -387,12 +535,21 @@ section {
   align-items: center;
   text-align: center;
   gap: 16px;
-  background-color: var(--primary-lighter);
+  background-color: var(--primary);
   border-radius: 16px;
   padding: 32px 24px;
-  border: 1px solid rgba(248, 246, 242, 0.1);
+  border: 1px solid rgba(248, 246, 242, 0.15);
   justify-content: flex-start;
   min-height: 280px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.reach-out-item:hover {
+  transform: translateY(-4px);
+  background-color: var(--primary-lighter);
+  border-color: rgba(248, 246, 242, 0.25);
 }
 
 .reach-out-icon-wrapper {
@@ -473,6 +630,7 @@ section {
 }
 
 .area-item {
+  scroll-margin-top: 100px;
   background-color: var(--white);
   border: 1px solid rgba(67, 16, 57, 0.1);
   border-radius: 12px;
@@ -792,7 +950,7 @@ section {
   }
 
   .testimonial {
-    padding: 80px 24px;
+    padding: 80px 20px;
   }
 }
 
@@ -1720,6 +1878,8 @@ section {
   }
 
   .hero-planets {
+    top: 50%;
+    transform: translateY(-50%);
     gap: 13px;
     padding: 0 10px;
     flex-wrap: nowrap;
@@ -1727,6 +1887,17 @@ section {
     overflow-x: auto;
     overflow-y: visible;
     -webkit-overflow-scrolling: touch;
+  }
+
+  .hero-content {
+    padding: 2% 20px;
+  }
+
+  .hero-content .cta {
+    font-size: 20px !important;
+    padding: 16px 40px !important;
+    white-space: nowrap;
+    bottom: -10%;
   }
 
   .hero-planets::-webkit-scrollbar {
@@ -1811,7 +1982,7 @@ section {
 
   .pricing-container,
   .packages-container {
-    padding: 32px 24px;
+    padding: 32px 20px;
   }
 
   .process-flow {
@@ -1828,7 +1999,7 @@ section {
   .contact-container {
     flex-direction: column;
     gap: 60px;
-    padding: 48px 24px;
+    padding: 48px 20px;
   }
 
   .contact-section {
