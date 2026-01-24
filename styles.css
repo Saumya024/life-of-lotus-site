@@ -182,7 +182,7 @@ section {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 68vh;
+  height: 71vh;
   overflow: hidden;
   padding: 0;
 }
@@ -1965,7 +1965,7 @@ section {
   }
 
   .hero {
-    height: 50vh;
+    height: 53vh;
   }
 
   .hero h1 {
