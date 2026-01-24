@@ -495,6 +495,7 @@ section {
   padding: 10px 20px;
   background-color: var(--primary);
   color: var(--cream-white);
+  border: none;
   border-radius: 200px;
   font-family: 'Brygada 1918', serif;
   font-size: 14px;
@@ -531,9 +532,9 @@ section {
 .brand-principle-pill {
   display: inline-block;
   padding: 10px 20px;
-  background-color: transparent;
-  color: var(--primary);
-  border: 1px solid var(--primary);
+  background-color: var(--primary);
+  color: var(--cream-white);
+  border: none;
   border-radius: 200px;
   font-family: 'Brygada 1918', serif;
   font-size: 14px;
