@@ -182,7 +182,7 @@ section {
 /* Hero Section */
 .hero {
   position: relative;
-  height: 71vh;
+  height: 90vh;
   overflow: hidden;
   padding: 0;
 }
@@ -193,7 +193,7 @@ section {
   left: 0;
   right: 0;
   height: 20%;
-  background: linear-gradient(180deg, #5a1f4f 0%, var(--primary) 100%);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,7 +206,7 @@ section {
   left: 0;
   right: 0;
   height: 80%;
-  background: linear-gradient(180deg, var(--primary) 0%, #350a2d 50%, #2a0824 100%);
+  background-color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -215,17 +215,6 @@ section {
 }
 
 .hero-bottom::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(248, 246, 242, 0.03) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-bottom::after {
   content: '';
   position: absolute;
   top: 0;
@@ -246,7 +235,24 @@ section {
     radial-gradient(2px 2px at 15% 75%, rgba(248, 246, 242, 0.65), transparent),
     radial-gradient(1px 1px at 25% 28%, rgba(248, 246, 242, 0.6), transparent),
     radial-gradient(1.5px 1.5px at 35% 48%, rgba(248, 246, 242, 0.7), transparent),
-    radial-gradient(2px 2px at 45% 68%, rgba(248, 246, 242, 0.65), transparent),
+    radial-gradient(2px 2px at 45% 68%, rgba(248, 246, 242, 0.65), transparent);
+  background-size: 100% 100%;
+  background-position: 0% 0%;
+  background-repeat: no-repeat;
+  animation: starTwinkle 4s ease-in-out infinite;
+  animation-delay: 0s;
+  pointer-events: none;
+  opacity: 1;
+}
+
+.hero-bottom::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
     radial-gradient(1px 1px at 55% 22%, rgba(248, 246, 242, 0.6), transparent),
     radial-gradient(1.5px 1.5px at 65% 42%, rgba(248, 246, 242, 0.7), transparent),
     radial-gradient(2px 2px at 75% 62%, rgba(248, 246, 242, 0.65), transparent),
@@ -267,26 +273,27 @@ section {
   background-position: 0% 0%;
   background-repeat: no-repeat;
   animation: starTwinkle 4s ease-in-out infinite;
+  animation-delay: 2s;
   pointer-events: none;
   opacity: 1;
 }
 
 @keyframes starTwinkle {
   0%, 100% {
-    opacity: 0.7;
+    opacity: 0.3;
   }
   50% {
     opacity: 1;
   }
 }
 
+
 .hero-planets {
   position: absolute;
-  top: 60%;
+  top: calc(10px + 2 * (90vh - 20px) / 4 + 15px + 4.5vh);
   left: 0;
   right: 0;
   width: 100%;
-  height: 14.7%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -296,7 +303,6 @@ section {
   padding: 0 20px;
   box-sizing: border-box;
   overflow: visible;
-  transform: translateY(-50%);
 }
 
 .planet-icon {
@@ -307,12 +313,6 @@ section {
   margin: 0;
   padding: 0;
   display: block;
-  filter: drop-shadow(0 0 8px rgba(248, 246, 242, 0.3)) drop-shadow(0 0 15px rgba(248, 246, 242, 0.15));
-  transition: filter 0.3s ease;
-}
-
-.planet-icon:hover {
-  filter: drop-shadow(0 0 12px rgba(248, 246, 242, 0.5)) drop-shadow(0 0 20px rgba(248, 246, 242, 0.25));
 }
 
 .planet-icon:nth-child(1) {
@@ -346,30 +346,48 @@ section {
 
 .hero-content {
   position: absolute;
-  top: 3.42%;
+  top: 0;
   left: 0;
   right: 0;
-  height: 64%;
+  height: 100%;
   z-index: 3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  display: block;
   text-align: center;
-  padding: 2% 40px;
-  transform: translateY(0);
+  padding: 0 40px;
 }
 
-.hero-content h1,
-.hero-content p {
+.hero-content h1 {
+  position: absolute;
+  top: calc(10px + 15px + 4.5vh);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 55px;
+  margin: 0;
+  color: var(--cream-white);
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(248, 246, 242, 0.1);
+  line-height: 1.1;
+}
+
+.hero-content p {
+  position: absolute;
+  top: calc(10px + (90vh - 20px) / 4 + 15px + 4.5vh);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  margin: 0;
+  color: var(--cream-white);
+  max-width: 800px;
+  width: 100%;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+  font-family: 'Comfortaa', sans-serif;
 }
 
 .hero-cta {
   position: absolute;
-  bottom: 40px;
+  top: calc(10px + 3 * (90vh - 20px) / 4 + 15px + 4.5vh);
   left: 50%;
   transform: translateX(-50%);
   z-index: 4;
@@ -390,25 +408,6 @@ section {
   background: var(--secondary-light);
 }
 
-.hero-content h1 {
-  font-size: 55px;
-  margin-bottom: 24px;
-  color: var(--cream-white);
-  max-width: 800px;
-  width: 100%;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(248, 246, 242, 0.1);
-}
-
-.hero-content p {
-  font-size: 24px;
-  margin-bottom: 74px;
-  color: var(--cream-white);
-  max-width: 800px;
-  width: 100%;
-  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  opacity: 0.95;
-  font-family: 'Comfortaa', sans-serif;
-}
 
 .cta {
   background: var(--secondary);
@@ -1965,7 +1964,7 @@ section {
   }
 
   .hero {
-    height: 53vh;
+    height: 60vh;
   }
 
   .hero h1 {
@@ -1973,30 +1972,19 @@ section {
   }
 
   .hero-content {
-    padding: 2% 20px;
-  }
-
-  .hero-content h1 {
-    font-size: 32px;
-    margin-bottom: 16px;
-    white-space: nowrap;
-  }
-
-  .hero-content p {
-    font-size: 16px;
-    margin-bottom: 40px;
+    padding: 0 20px;
   }
 
   .hero-cta {
+    top: calc(10px + 3 * (60vh - 20px) / 4 + 15px);
+    transform: translateX(-50%);
     font-size: 20px !important;
     padding: 16px 40px !important;
     white-space: nowrap;
-    bottom: 30px;
   }
 
   .hero-planets {
-    top: 55%;
-    transform: translateY(-50%);
+    top: calc(10px + 2 * (60vh - 20px) / 4 + 15px);
     gap: 13px;
     padding: 0 10px;
     flex-wrap: nowrap;
@@ -2007,9 +1995,21 @@ section {
   }
 
   .hero-content {
-    padding: 2% 20px;
+    padding: 0 20px;
   }
 
+  .hero-content h1 {
+    top: calc(10px + 15px);
+    font-size: 32px;
+    line-height: 1.1;
+  }
+
+  .hero-content p {
+    top: calc(10px + (60vh - 20px) / 4 + 15px);
+    font-size: 14px;
+    line-height: 1.4;
+    max-width: 90%;
+  }
 
   .hero-planets::-webkit-scrollbar {
     display: none;
