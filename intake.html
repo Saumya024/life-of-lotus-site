@@ -91,7 +91,7 @@
   
       <div class="field">
               <label>Phone Number *</label>
-              <input type="tel" name="phone" required pattern="[\d\s\+\-\(\)]+" title="Please enter a valid phone number with country code" />
+              <input type="tel" name="phone" required pattern="[\d\s\+\-\(\)]+" title="Please enter a valid phone number with country code (7-15 digits)" maxlength="20" />
               <span class="field-error" id="phone-error"></span>
             </div>
       </div>
@@ -171,6 +171,7 @@
         const today = new Date();
         const maxDate = today.toISOString().split('T')[0];
         dobInput.setAttribute('max', maxDate);
+        dobInput.max = maxDate; // Also set property directly for mobile compatibility
         // Explicitly mark DOB as empty
         if (!dobInput.value || dobInput.value === '') {
           dobInput.classList.add('required-empty');
@@ -592,15 +593,28 @@
     // Real-time validation for phone
     const phoneInput = document.querySelector('input[name="phone"]');
     if (phoneInput) {
+      // Add input event listener for real-time validation on mobile
+      phoneInput.addEventListener('input', function() {
+        // Remove non-digit characters except + for length check
+        const cleaned = this.value.replace(/[^\d+]/g, '');
+        // Limit to 20 characters total (including formatting)
+        if (this.value.length > 20) {
+          this.value = this.value.slice(0, 20);
+        }
+        // Validate if value exists
+        if (this.value && validatePhone(this.value)) {
+          clearError('phone');
+        } else if (this.value && cleaned.length > 15) {
+          showError('phone', 'Phone number should be 7-15 digits');
+        } else if (this.value && cleaned.length < 7) {
+          // Don't show error while typing, only on blur
+          clearError('phone');
+        }
+      });
       phoneInput.addEventListener('blur', function() {
         if (this.value && !validatePhone(this.value)) {
           showError('phone', 'Please enter a valid phone number with country code (7-15 digits)');
         } else {
-          clearError('phone');
-        }
-      });
-      phoneInput.addEventListener('input', function() {
-        if (this.value && validatePhone(this.value)) {
           clearError('phone');
         }
       });
@@ -609,9 +623,27 @@
     // Real-time validation for date of birth
     const dobInput = document.getElementById('dob-input');
     if (dobInput) {
+      // Set max date immediately on page load (before DOMContentLoaded if possible)
+      const today = new Date();
+      const maxDate = today.toISOString().split('T')[0];
+      dobInput.max = maxDate;
+      dobInput.setAttribute('max', maxDate);
+      
+      // Validate on change (for desktop)
       dobInput.addEventListener('change', function() {
         if (this.value && !validateDateOfBirth(this.value)) {
           showError('dob', 'Date of birth cannot be in the future');
+          this.value = ''; // Clear invalid date
+        } else {
+          clearError('dob');
+        }
+      });
+      
+      // Also validate on input (for mobile date pickers)
+      dobInput.addEventListener('input', function() {
+        if (this.value && !validateDateOfBirth(this.value)) {
+          showError('dob', 'Date of birth cannot be in the future');
+          this.value = ''; // Clear invalid date
         } else {
           clearError('dob');
         }
