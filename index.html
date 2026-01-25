@@ -33,7 +33,16 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="#pricing">Pricing</a>
-      <a href="#areas">Our Services</a>
+      <a href="#areas">Services</a>
+      <a href="insights.html">Insights</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">Healing</span>
+        <div class="nav-dropdown-menu">
+          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
+          <a href="practitioner-listings.html">Practitioner Listings</a>
+          <a href="reading-viewing.html">Reading & Viewing</a>
+        </div>
+      </div>
       <a href="faq.html">FAQ</a>
       <a href="#contact">Contact</a>
       <a href="#pricing" class="header-cta">Book a Session</a>
@@ -663,7 +672,7 @@
         I built Life of Lotus from lived experience, times shaped by loss, confusion, grief, and the long work of rebuilding. Brick by brick. Through choices made in uncertainty and the slow act of learning to trust myself again.<br><br>
         During that time, I came to astrology uncertain, searching for anything that might help. What revealed itself was a rigorous systems framework, a way to see life clearly. To move through events, whether favourable or difficult, with awareness and responsibility, without surrendering agency.<br><br>
         That understanding defines how I practice today. My work draws from years of high-stakes decision-making in product management, formal training in social sciences and business, over a decade of Vipassana practice, and sustained inquiry into how planetary movements mirror human experience.<br><br>
-        Astrology is neither belief nor entertainment. It is a rigorous knowledge system that combines intuition with precision. When practiced without discipline, it does not merely lose credibility. It loses power. It loses power. When reduced to shortcuts or irresponsible practice, it erodes trust. People walk away from something that could profoundly change how they navigate their lives.<br><br>
+        Astrology is neither belief nor entertainment. It is a rigorous knowledge system that combines intuition with precision. When practiced without discipline, it does not merely lose credibility. It loses power. When reduced to shortcuts or irresponsible practice, it erodes trust. People walk away from something that could profoundly change how they navigate their lives.<br><br>
         Watching this dilution is painful.<br><br>
         I built this practice to return astrology to its rightful place, as disciplined, ethical, transformative work that respects your intelligence and agency. It will tell you what you need to know. It will not promise escape. It will give you clarity, courage, and tools to move through life with dignity.<br><br>
         I built this work with intention.<br>I continue it with responsibility.<br>I offer it with respect, for you, and for this beautiful ancient knowledge.
@@ -1065,6 +1074,58 @@
   <!-- Mobile Menu Script -->
   <script src="js/mobile-menu.js"></script>
 
+  <!-- Navigation Dropdown Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdowns = document.querySelectorAll('.nav-dropdown');
+      
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        
+        // Desktop: hover to show
+        dropdown.addEventListener('mouseenter', function() {
+          if (window.innerWidth > 768) {
+            dropdown.classList.add('active');
+          }
+        });
+        
+        dropdown.addEventListener('mouseleave', function() {
+          if (window.innerWidth > 768) {
+            dropdown.classList.remove('active');
+          }
+        });
+        
+        // Mobile: click to toggle
+        if (toggle) {
+          toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              dropdown.classList.toggle('active');
+              
+              // Close other dropdowns
+              dropdowns.forEach(other => {
+                if (other !== dropdown) {
+                  other.classList.remove('active');
+                }
+              });
+            }
+          });
+        }
+      });
+      
+      // Close dropdowns when clicking outside
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768) {
+          if (!e.target.closest('.nav-dropdown')) {
+            dropdowns.forEach(dropdown => {
+              dropdown.classList.remove('active');
+            });
+          }
+        }
+      });
+    });
+  </script>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-content">
@@ -1075,12 +1136,14 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#areas">Our Services</a>
+        <a href="index.html#areas">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="healing-practices.html">Healing</a>
         <a href="faq.html">FAQ</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
-      <p class="footer-description">Your life is shaped as much by what goes unnoticed as by what you consciously choose.<br><span class="footer-description-italic">Life of Lotus offers a disciplined way to understand those deeper influences.</span></p>
+      <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">Life of Lotus offers a disciplined way to understand those deeper influences.</span></p>
       <a href="index.html#pricing" class="footer-cta">Book a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>

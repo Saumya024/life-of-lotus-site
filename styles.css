@@ -39,8 +39,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  text-transform: uppercase;
-  margin-bottom: 48px;
+  font-size: 36px;
+  font-weight: 500;
+  text-transform: none;
+  margin-bottom: 32px;
+  text-align: center;
 }
 
 section {
@@ -85,7 +88,7 @@ section {
 .nav a {
   color: var(--primary);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   transition: opacity 0.3s;
 }
 
@@ -100,7 +103,7 @@ section {
   border-radius: 200px;
   text-decoration: none;
   font-family: 'Brygada 1918', serif;
-  font-size: 12px;
+  font-size: 16px;
   display: inline-block !important;
   margin-left: 8px;
   transition: background-color 0.3s;
@@ -110,6 +113,76 @@ section {
 
 .nav .header-cta:hover {
   background: var(--secondary-light);
+}
+
+/* Navigation Dropdown */
+.nav-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s;
+}
+
+.nav-dropdown-toggle:hover {
+  opacity: 0.7;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.3s;
+}
+
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--cream-white);
+  min-width: 220px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  padding: 8px 0;
+  margin-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.active .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 12px 20px;
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.2s;
+  border-bottom: none;
+}
+
+.nav-dropdown-menu a:hover {
+  background-color: rgba(67, 16, 57, 0.05);
+  opacity: 1;
 }
 
 /* Header Mobile Actions */
@@ -1572,7 +1645,7 @@ section {
 .footer-nav a {
   color: var(--cream-white);
   text-decoration: none;
-  font-size: 18px;
+  font-size: 16px;
   opacity: 0.8;
   transition: opacity 0.3s;
   font-family: 'Brygada 1918', serif;
@@ -1599,6 +1672,10 @@ section {
   line-height: 1.6;
   margin-bottom: 12px;
   max-width: 600px;
+}
+
+.footer-description > span:first-of-type {
+  white-space: nowrap;
 }
 
 .footer-description-italic {
@@ -1945,7 +2022,7 @@ section {
     width: 100%;
     padding: 16px 0;
     border-bottom: 1px solid rgba(67, 16, 57, 0.1);
-    font-size: 14px;
+    font-size: 12px;
     transition: opacity 0.2s ease, padding-left 0.2s ease;
   }
 
@@ -1961,13 +2038,55 @@ section {
     margin-top: 8px;
     border-bottom: none;
     padding: 10px 16px;
-    font-size: 11px;
+    font-size: 12px;
     white-space: nowrap;
   }
 
   .nav a:last-child {
     border-bottom: none;
     margin-top: 8px;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(67, 16, 57, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+    font-size: 12px;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    display: none;
+    min-width: auto;
+  }
+
+  .nav-dropdown.active .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 12px 0 12px 24px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(67, 16, 57, 0.1);
+  }
+
+  .nav-dropdown-menu a:last-child {
+    border-bottom: none;
   }
 
   body.menu-open {
@@ -2153,7 +2272,7 @@ section {
   }
 
   .footer-nav a {
-    font-size: 14px;
+    font-size: 12px;
     white-space: nowrap;
   }
 
@@ -2413,7 +2532,7 @@ section {
   .cal-modal-close {
     top: 12px;
     right: 12px;
-    font-size: 28px;
+  font-size: 28px;
     width: 36px;
     height: 36px;
   }
@@ -2981,4 +3100,1121 @@ section {
 
 .privacy-content li {
   margin-bottom: 8px;
+}
+
+/* Insights Page */
+.insights-landing {
+  background-color: var(--cream-white);
+  padding: 95px 40px;
+}
+
+.insights-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.insights-landing h1 {
+  font-size: 48px;
+  margin-bottom: 24px;
+  color: var(--primary);
+}
+
+.insights-intro {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 48px;
+  opacity: 0.9;
+  line-height: 1.8;
+}
+
+.insights-search-filter {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.insights-search {
+  flex: 1;
+}
+
+.insights-search-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid rgba(67, 16, 57, 0.2);
+  border-radius: 200px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--primary);
+  background-color: var(--white);
+  transition: border-color 0.3s;
+}
+
+.insights-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.insights-search-input::placeholder {
+  color: var(--primary);
+  opacity: 0.5;
+}
+
+.insights-filter {
+  flex-shrink: 0;
+}
+
+.insights-filter-select {
+  padding: 14px 40px 14px 20px;
+  border: 1px solid rgba(67, 16, 57, 0.2);
+  border-radius: 200px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--primary);
+  background-color: var(--white);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23431039' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+  transition: border-color 0.3s;
+}
+
+.insights-filter-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.insights-filter-select:hover {
+  border-color: var(--primary);
+}
+
+.blog-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.blog-post-card {
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.1);
+  border-radius: 8px;
+  padding: 32px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(67, 16, 57, 0.1);
+}
+
+.blog-post-card-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 12px;
+  line-height: 1.3;
+}
+
+.blog-post-card-excerpt {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  opacity: 0.8;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.blog-post-card-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--primary);
+  opacity: 0.6;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+/* Blog Post Template */
+.blog-post-section {
+  background-color: var(--cream-white);
+  padding: 95px 40px;
+}
+
+.blog-post-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.blog-post {
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.1);
+  border-radius: 8px;
+  padding: 48px;
+}
+
+.blog-post-header {
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(67, 16, 57, 0.1);
+}
+
+.blog-back-link {
+  display: inline-block;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  margin-bottom: 16px;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.blog-back-link:hover {
+  opacity: 1;
+}
+
+.blog-post-title {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 16px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.blog-post-meta {
+  display: flex;
+  gap: 24px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  opacity: 0.7;
+}
+
+.blog-post-date,
+.blog-post-category {
+  display: inline-block;
+}
+
+.blog-post-content {
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--primary);
+}
+
+.blog-post-content p {
+  margin-bottom: 24px;
+}
+
+.blog-post-content h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 48px;
+  margin-bottom: 24px;
+  text-align: left;
+  text-transform: none;
+}
+
+.blog-post-content h3 {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  text-align: left;
+  text-transform: none;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+  margin-left: 24px;
+  margin-bottom: 24px;
+}
+
+.blog-post-content li {
+  margin-bottom: 12px;
+}
+
+.blog-post-footer {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(67, 16, 57, 0.1);
+  text-align: center;
+}
+
+.blog-cta {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--primary);
+  padding: 16px 40px;
+  border-radius: 200px;
+  text-decoration: none;
+  font-family: 'Brygada 1918', serif;
+  font-weight: 500;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.blog-cta:hover {
+  background: var(--secondary-light);
+}
+
+@media (max-width: 768px) {
+  .insights-landing,
+  .blog-post-section {
+    padding: 80px 20px;
+  }
+
+  .insights-landing h1 {
+    font-size: 36px;
+  }
+
+  .insights-intro {
+    font-size: 14px;
+  }
+
+  .insights-search-filter {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .insights-search,
+  .insights-filter {
+    width: 100%;
+  }
+
+  .insights-filter-select {
+    width: 100%;
+  }
+
+  .blog-posts-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .blog-post {
+    padding: 32px 24px;
+  }
+
+  .blog-post-title {
+    font-size: 28px;
+  }
+
+  .blog-post-content h2 {
+    font-size: 24px;
+  }
+
+  .blog-post-content h3 {
+    font-size: 20px;
+  }
+}
+
+/* Healing Practices Page */
+.healing-practices {
+  background-color: var(--cream-white);
+  padding: 95px 40px;
+}
+
+.healing-practices-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.healing-practices h1 {
+  font-size: 48px;
+  margin-bottom: 32px;
+  color: var(--primary);
+}
+
+.healing-practices-intro {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 48px;
+  opacity: 0.9;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.healing-practices-intro p {
+  margin-bottom: 20px;
+}
+
+.healing-practices-intro p:last-child {
+  margin-bottom: 0;
+}
+
+.healing-search-filter {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 48px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.healing-search {
+  flex: 1;
+}
+
+.healing-search-input {
+  width: 100%;
+  padding: 14px 20px;
+  border: 1px solid rgba(67, 16, 57, 0.2);
+  border-radius: 200px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--primary);
+  background-color: var(--white);
+  transition: border-color 0.3s;
+}
+
+.healing-search-input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.healing-search-input::placeholder {
+  color: var(--primary);
+  opacity: 0.5;
+}
+
+.healing-filter {
+  flex-shrink: 0;
+}
+
+.healing-filter-select {
+  padding: 14px 40px 14px 20px;
+  border: 1px solid rgba(67, 16, 57, 0.2);
+  border-radius: 200px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--primary);
+  background-color: var(--white);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23431039' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+  min-width: 280px;
+}
+
+.healing-filter-select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.healing-filter-select:hover {
+  border-color: var(--primary);
+}
+
+.healing-subsection {
+  margin-bottom: 80px;
+}
+
+.healing-subsection h2 {
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 32px;
+  text-align: center;
+  text-transform: none;
+}
+
+.healing-subsection h2 a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.healing-subsection h2 a:hover {
+  opacity: 0.7;
+}
+
+.healing-content {
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--primary);
+}
+
+.healing-content p {
+  margin-bottom: 24px;
+}
+
+.healing-category {
+  margin-bottom: 64px;
+}
+
+.healing-category h2 {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 32px;
+  text-align: left;
+  text-transform: none;
+}
+
+.healing-modalities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.healing-modality-card {
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.1);
+  border-radius: 8px;
+  padding: 24px;
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.healing-modality-card:hover {
+  box-shadow: 0 4px 12px rgba(67, 16, 57, 0.1);
+  transform: translateY(-2px);
+}
+
+.healing-modality-name {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 16px;
+  font-family: 'Brygada 1918', serif;
+  text-align: center;
+}
+
+.healing-modality-ctas {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.healing-modality-cta {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  text-decoration: none;
+  border-radius: 200px;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  font-family: 'Brygada 1918', serif;
+}
+
+.healing-modality-cta:hover {
+  background-color: var(--primary);
+  color: var(--cream-white);
+  border-color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .healing-practices {
+    padding: 80px 20px;
+  }
+
+  .healing-practices h1 {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+
+  .healing-practices-intro {
+    font-size: 14px;
+    margin-bottom: 48px;
+    padding: 0 10px;
+  }
+
+  .healing-practices-intro p {
+    margin-bottom: 16px;
+  }
+
+  .healing-search-filter {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .healing-search,
+  .healing-filter {
+    width: 100%;
+  }
+
+  .healing-filter-select {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .healing-subsection {
+    margin-bottom: 64px;
+  }
+
+  .healing-subsection h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
+  }
+
+  .healing-category h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .healing-modalities-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .healing-modality-name {
+    font-size: 20px;
+  }
+
+  .healing-modality-card {
+    padding: 20px;
+  }
+}
+
+/* Modality Detail Page Styles */
+.modality-detail {
+  padding: 120px 80px 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.modality-detail h1 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 42px;
+  color: var(--primary);
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.modality-category-tag {
+  display: inline-block;
+  background-color: var(--primary-light);
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 12px;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.modality-section {
+  margin-bottom: 40px;
+}
+
+.modality-section h2 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.modality-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modality-section li {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 15px;
+  color: var(--text-dark);
+  line-height: 1.8;
+  padding-left: 24px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.modality-section li::before {
+  content: "•";
+  color: var(--primary);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.related-practices {
+  background-color: var(--cream-white);
+  border: 1px solid var(--primary-light);
+  border-radius: 12px;
+  padding: 24px 32px;
+  margin-bottom: 40px;
+}
+
+.related-practices h3 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 18px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.related-practices-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.related-practice-link {
+  background-color: var(--brand-white);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 13px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.related-practice-link:hover {
+  background-color: var(--primary);
+  color: var(--cream-white);
+}
+
+.modality-faq {
+  margin-bottom: 48px;
+}
+
+.modality-faq h2 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.modality-faq-item {
+  border-bottom: 1px solid var(--primary-light);
+  padding: 20px 0;
+}
+
+.modality-faq-item:first-of-type {
+  border-top: 1px solid var(--primary-light);
+}
+
+.modality-faq-question {
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.modality-faq-answer {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.modality-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.modality-cta-primary {
+  background-color: var(--primary);
+  color: var(--cream-white);
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.modality-cta-primary:hover {
+  background-color: var(--primary-light);
+}
+
+.modality-cta-secondary {
+  background-color: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 14px 32px;
+  border-radius: 100px;
+  font-family: 'Brygada 1918', serif;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.modality-cta-secondary:hover {
+  background-color: var(--primary);
+  color: var(--cream-white);
+}
+
+@media (max-width: 768px) {
+  .modality-detail {
+    padding: 100px 20px 60px;
+  }
+
+  .modality-detail h1 {
+    font-size: 32px;
+  }
+
+  .modality-section h2 {
+    font-size: 20px;
+  }
+
+  .modality-section li {
+    font-size: 14px;
+  }
+
+  .related-practices {
+    padding: 20px;
+  }
+
+  .related-practices-links {
+    gap: 8px;
+  }
+
+  .related-practice-link {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .modality-ctas {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .modality-cta-primary,
+  .modality-cta-secondary {
+    text-align: center;
+  }
+}
+
+/* Reading & Viewing Resource Styles */
+.reading-category {
+  margin-bottom: 64px;
+}
+
+.reading-category h2 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+.reading-modality {
+  margin-bottom: 48px;
+  padding: 24px;
+  background-color: var(--cream-white);
+  border-radius: 12px;
+}
+
+.reading-modality h3 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 22px;
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.resource-type {
+  margin-bottom: 24px;
+}
+
+.resource-type h4 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resource-type h4::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary);
+  border-radius: 50%;
+}
+
+.resource-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-item {
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 2px solid var(--primary-light);
+}
+
+.resource-title {
+  font-family: 'Brygada 1918', serif;
+  font-size: 15px;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.resource-meta {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 12px;
+  color: var(--text-dark);
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.resource-description {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 6px;
+}
+
+.resource-link {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 12px;
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}
+
+.reading-search-filter {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.reading-search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.reading-search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--primary-light);
+  border-radius: 100px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.reading-filter {
+  min-width: 200px;
+}
+
+.reading-filter-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--primary-light);
+  border-radius: 100px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  background-color: var(--brand-white);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .reading-category h2 {
+    font-size: 22px;
+  }
+  
+  .reading-modality {
+    padding: 16px;
+  }
+  
+  .reading-modality h3 {
+    font-size: 18px;
+  }
+  
+  .reading-search-filter {
+    flex-direction: column;
+  }
+  
+  .reading-search,
+  .reading-filter {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* Practitioner Listings Styles */
+.practitioner-intro {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  color: var(--text-dark);
+  line-height: 1.7;
+  margin-bottom: 40px;
+  padding: 20px;
+  background-color: var(--cream-white);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary);
+}
+
+.practitioner-region {
+  margin-bottom: 64px;
+}
+
+.practitioner-region h2 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 28px;
+  color: var(--primary);
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--primary-light);
+}
+
+.practitioner-modality {
+  margin-bottom: 48px;
+}
+
+.practitioner-modality h3 {
+  font-family: 'Brygada 1918', serif;
+  font-size: 20px;
+  color: var(--primary);
+  margin-bottom: 20px;
+  padding-left: 16px;
+  border-left: 3px solid var(--primary);
+}
+
+.practitioner-list {
+  display: grid;
+  gap: 16px;
+}
+
+.practitioner-card {
+  background-color: var(--cream-white);
+  padding: 20px;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+}
+
+.practitioner-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.practitioner-name {
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.practitioner-location {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 12px;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.practitioner-training {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 13px;
+  color: var(--text-dark);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.practitioner-link {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 12px;
+  color: var(--primary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.practitioner-link:hover {
+  text-decoration: underline;
+}
+
+.practitioner-search-filter {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.practitioner-search {
+  flex: 1;
+  min-width: 200px;
+}
+
+.practitioner-search-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--primary-light);
+  border-radius: 100px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  outline: none;
+}
+
+.practitioner-filter {
+  min-width: 180px;
+}
+
+.practitioner-filter-select {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid var(--primary-light);
+  border-radius: 100px;
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 14px;
+  background-color: var(--brand-white);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .practitioner-region h2 {
+    font-size: 22px;
+  }
+  
+  .practitioner-modality h3 {
+    font-size: 17px;
+  }
+  
+  .practitioner-card {
+    padding: 16px;
+  }
+  
+  .practitioner-search-filter {
+    flex-direction: column;
+  }
+  
+  .practitioner-search,
+  .practitioner-filter {
+    width: 100%;
+    min-width: auto;
+  }
 }
