@@ -526,6 +526,77 @@ section {
   }
 }
 
+/* Core Benefits Section */
+.core-benefits {
+  background-color: var(--cream-white);
+  padding: 60px 40px;
+}
+
+.core-benefits-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  align-items: stretch;
+}
+
+.core-benefit-block {
+  background-color: var(--white);
+  padding: 48px 32px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(67, 16, 57, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(67, 16, 57, 0.1);
+}
+
+.core-benefit-block:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(67, 16, 57, 0.12);
+}
+
+.core-benefit-title {
+  font-family: 'Brygada 1918', serif;
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.core-benefit-description {
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 16px;
+  color: var(--primary-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .core-benefits {
+    padding: 48px 20px;
+  }
+  
+  .core-benefits-container {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .core-benefit-block {
+    padding: 36px 24px;
+  }
+  
+  .core-benefit-title {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  
+  .core-benefit-description {
+    font-size: 15px;
+  }
+}
+
 /* Brand Highlights Section */
 .brand-highlights {
   background-color: var(--cream-white);
@@ -1402,25 +1473,53 @@ section {
 
 .founder-heading {
   font-size: 24px;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
   color: var(--cream-white);
 }
 
-.founder-text strong {
-  font-size: 24px;
-  font-weight: 600;
-  display: block;
-  margin-bottom: 8px;
+.founder-note-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 30px;
 }
 
-.founder-text {
+.founder-note-section {
+  text-align: left;
+}
+
+.founder-note-section-title {
+  font-family: 'Brygada 1918', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--cream-white);
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.founder-note-section-text {
   font-size: 14px;
   line-height: 1.8;
   opacity: 0.9;
   text-align: left;
   color: var(--cream-white);
   font-family: 'Comfortaa', sans-serif;
-  margin-top: 30px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .founder-note-sections {
+    gap: 28px;
+  }
+  
+  .founder-note-section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .founder-note-section-text {
+    font-size: 13px;
+  }
 }
 
 /* FAQ */
