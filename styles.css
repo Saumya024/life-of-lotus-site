@@ -528,8 +528,12 @@ section {
 
 /* Core Benefits Section */
 .core-benefits {
-  background-color: var(--cream-white);
+  background-color: var(--primary);
   padding: 60px 40px;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .core-benefits-container {
@@ -575,25 +579,31 @@ section {
 
 @media (max-width: 768px) {
   .core-benefits {
-    padding: 48px 20px;
+    padding: 32px 20px;
+    height: auto;
+    min-height: auto;
   }
   
   .core-benefits-container {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 16px;
+    width: 100%;
   }
   
   .core-benefit-block {
-    padding: 36px 24px;
+    padding: 24px 20px;
+    min-height: auto;
   }
   
   .core-benefit-title {
-    font-size: 28px;
-    margin-bottom: 12px;
+    font-size: 24px;
+    margin-bottom: 8px;
+    line-height: 1.2;
   }
   
   .core-benefit-description {
-    font-size: 15px;
+    font-size: 14px;
+    line-height: 1.4;
   }
 }
 
