@@ -1,7 +1,5 @@
 // Pathway Browsing (Public - No Auth Required)
 import supabase from './supabase-client.js';
-import { isAuthenticated } from './auth.js';
-import { canStartPathway } from './pathway-auth.js';
 
 // Get all platform pathways (public)
 async function getPlatformPathways() {
@@ -183,9 +181,7 @@ function renderPathways(pathways) {
         ` : ''}
         
         <div class="pathway-cta">
-          <button class="start-pathway-btn" data-pathway-id="${pathway.pathway_id}">
-            ${isAuthenticated() ? 'Start Pathway' : 'Login to Start'}
-          </button>
+          <button class="start-pathway-btn" data-pathway-id="${pathway.pathway_id}">Start Pathway</button>
         </div>
       </div>
     `;
@@ -199,23 +195,6 @@ function renderPathways(pathways) {
       await handleStartPathway(pathwayId);
     });
   });
-}
-
-// Update UI based on authentication state
-function updateUIForAuthState() {
-  const authState = isAuthenticated();
-  
-  // Update navigation
-  const loginLink = document.getElementById('nav-login');
-  const myPathwaysLink = document.getElementById('nav-my-pathways');
-  
-  if (loginLink) {
-    loginLink.style.display = authState ? 'none' : 'block';
-  }
-  
-  if (myPathwaysLink) {
-    myPathwaysLink.style.display = authState ? 'block' : 'none';
-  }
 }
 
 export {
