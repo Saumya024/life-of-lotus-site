@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Pathways - Life of Lotus</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">
+      <img src="assets/images/Screenshot 2026-01-21 at 2.11.00 PM.png" alt="Life of Lotus" />
+    </div>
+    <div class="header-mobile-actions">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#areas">Services</a>
+      <a href="insights.html">Insights</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">Healing</span>
+        <div class="nav-dropdown-menu">
+          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
+          <a href="reading-viewing.html">Reading & Viewing</a>
+        </div>
+      </div>
+      <a href="pathways.html">Pathways</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#contact">Contact</a>
+      <a href="login.html" id="nav-login" style="display: none;">Login</a>
+      <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
+      <a href="#" id="nav-logout" style="display: none;">Logout</a>
+      <a href="index.html#pricing" class="header-cta">Book a Session</a>
+    </nav>
+  </header>
+
+  <!-- My Pathways Section -->
+  <section class="my-pathways-section">
+    <div class="my-pathways-container">
+      <h1>My Pathways</h1>
+      <div id="my-pathways-container">
+        <!-- Content will be loaded by my-pathways.js -->
+        <div class="loading-state">
+          <p>Loading your pathways...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="assets/images/Gardenia Fashion Brand Art Design Logo (5).png" alt="Life of Lotus" />
+      </div>
+      <nav class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#areas">Services</a>
+        <a href="insights.html">Insights</a>
+        <a href="healing-practices.html">Healing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
+      <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">Life of Lotus offers a disciplined way to understand those deeper influences.</span></p>
+      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <nav class="footer-nav-policies">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="reschedule.html">Rescheduling Policy</a>
+        <a href="terms.html">Terms & Conditions</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Mobile Menu Script -->
+  <script src="js/mobile-menu.js"></script>
+
+  <!-- Navigation Dropdown Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropdowns = document.querySelectorAll('.nav-dropdown');
+      dropdowns.forEach(dropdown => {
+        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+        if (toggle) {
+          toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+              e.preventDefault();
+              dropdown.classList.toggle('active');
+              dropdowns.forEach(other => {
+                if (other !== dropdown) other.classList.remove('active');
+              });
+            }
+          });
+        }
+      });
+      document.addEventListener('click', function(e) {
+        if (window.innerWidth <= 768 && !e.target.closest('.nav-dropdown')) {
+          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        }
+      });
+    });
+  </script>
+
+  <!-- Supabase Client -->
+  <script type="module" src="js/supabase-client.js"></script>
+  
+  <!-- Auth Initialization -->
+  <script type="module">
+    import { initAuth, onAuthStateChange, signOut } from './js/auth.js';
+    
+    initAuth();
+    
+    onAuthStateChange((user) => {
+      const loginLink = document.getElementById('nav-login');
+      const myPathwaysLink = document.getElementById('nav-my-pathways');
+      const logoutBtn = document.getElementById('nav-logout');
+      
+      if (user) {
+        if (loginLink) loginLink.style.display = 'none';
+        if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
+        if (logoutBtn) logoutBtn.style.display = 'inline';
+      } else {
+        if (loginLink) loginLink.style.display = 'inline';
+        if (myPathwaysLink) myPathwaysLink.style.display = 'none';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+      }
+    });
+    
+    const logoutBtn = document.getElementById('nav-logout');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        await signOut();
+        window.location.href = '/';
+      });
+    }
+  </script>
+
+  <!-- My Pathways Script -->
+  <script type="module" src="js/my-pathways.js"></script>
+
+</body>
+</html>
+

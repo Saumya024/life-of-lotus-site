@@ -37,12 +37,14 @@
         <span class="nav-dropdown-toggle">Healing</span>
         <div class="nav-dropdown-menu">
           <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="practitioner-listings.html">Practitioner Listings</a>
           <a href="reading-viewing.html">Reading & Viewing</a>
         </div>
       </div>
       <a href="faq.html">FAQ</a>
       <a href="index.html#contact">Contact</a>
+      <a href="login.html" id="nav-login" style="display: none;">Login</a>
+      <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
+      <a href="#" id="nav-logout" style="display: none;">Logout</a>
       <a href="index.html#pricing" class="header-cta">Book a Session</a>
     </nav>
   </header>
@@ -418,6 +420,41 @@
         }
       });
     });
+  </script>
+
+  <!-- Supabase Client -->
+  <script type="module" src="js/supabase-client.js"></script>
+  
+  <!-- Auth Initialization -->
+  <script type="module">
+    import { initAuth, onAuthStateChange, signOut } from './js/auth.js';
+    
+    initAuth();
+    
+    onAuthStateChange((user) => {
+      const loginLink = document.getElementById('nav-login');
+      const myPathwaysLink = document.getElementById('nav-my-pathways');
+      const logoutBtn = document.getElementById('nav-logout');
+      
+      if (user) {
+        if (loginLink) loginLink.style.display = 'none';
+        if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
+        if (logoutBtn) logoutBtn.style.display = 'inline';
+      } else {
+        if (loginLink) loginLink.style.display = 'inline';
+        if (myPathwaysLink) myPathwaysLink.style.display = 'none';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+      }
+    });
+    
+    const logoutBtn = document.getElementById('nav-logout');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        await signOut();
+        window.location.href = '/';
+      });
+    }
   </script>
 
 </body>
