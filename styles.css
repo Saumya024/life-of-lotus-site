@@ -2904,6 +2904,23 @@ section {
     opacity: 1;
     visibility: visible;
   }
+
+  /* Hide header-cta from normal header view, only show in hamburger menu */
+  .nav .header-cta {
+    display: none;
+  }
+
+  /* Style header-cta to appear at bottom of hamburger menu when active */
+  .nav.active .header-cta {
+    display: block;
+    order: 999; /* Move to bottom of menu */
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(67, 16, 57, 0.1);
+    width: 100%;
+    text-align: center;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
