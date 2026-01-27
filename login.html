@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pathways - Life of Lotus</title>
-
-  <!-- Fonts -->
+  <title>Login - Life of Lotus</title>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-
-  <!-- Header -->
   <header class="header">
     <div class="logo">
       <img src="assets/images/Screenshot 2026-01-21 at 2.11.00 PM.png" alt="Life of Lotus" />
@@ -40,6 +32,7 @@
           <a href="reading-viewing.html">Reading & Viewing</a>
         </div>
       </div>
+      <!-- <a href="pathways.html">Pathways</a> Hidden for now -->
       <a href="faq.html">FAQ</a>
       <a href="index.html#contact">Contact</a>
       <a href="login.html" id="nav-login" style="display: none;">Login</a>
@@ -49,20 +42,28 @@
     </nav>
   </header>
 
-  <!-- Guided Pathways Section -->
-  <section class="guided-pathways-section">
-    <div class="guided-pathways-container">
-      <h1>Guided Pathways</h1>
-      <p class="guided-pathways-intro">Structured guidance for self-exploration and practice.</p>
-      <div id="pathways-container">
-        <div class="loading-state">
-          <p>Loading pathways...</p>
-        </div>
+  <section style="padding: 95px 40px; max-width: 400px; margin: 0 auto;">
+    <h2>Login</h2>
+    <form id="login-form" style="margin-top: 24px;">
+      <div style="margin-bottom: 16px;">
+        <label for="email" style="display: block; margin-bottom: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px;">Email</label>
+        <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid rgba(67, 16, 57, 0.2); border-radius: 4px; font-family: 'Comfortaa', sans-serif; font-size: 14px;">
       </div>
+      <div style="margin-bottom: 24px;">
+        <label for="password" style="display: block; margin-bottom: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px;">Password</label>
+        <input type="password" id="password" name="password" required style="width: 100%; padding: 12px; border: 1px solid rgba(67, 16, 57, 0.2); border-radius: 4px; font-family: 'Comfortaa', sans-serif; font-size: 14px;">
+      </div>
+      <div id="error-message" style="color: red; margin-bottom: 16px; font-family: 'Comfortaa', sans-serif; font-size: 14px; display: none;"></div>
+      <button type="submit" style="width: 100%; padding: 14px; background-color: var(--secondary); color: var(--primary); border: none; border-radius: 200px; font-family: 'Brygada 1918', serif; font-size: 16px; font-weight: 500; cursor: pointer; margin-bottom: 16px;">Continue</button>
+    </form>
+    <div style="text-align: center; margin: 24px 0;">
+      <div style="border-top: 1px solid rgba(67, 16, 57, 0.2); margin: 24px 0; position: relative;">
+        <span style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: white; padding: 0 12px; font-family: 'Comfortaa', sans-serif; font-size: 14px; color: var(--primary-light);">or</span>
+      </div>
+      <button id="google-signin" style="width: 100%; padding: 14px; background-color: white; color: var(--primary); border: 1px solid rgba(67, 16, 57, 0.2); border-radius: 200px; font-family: 'Brygada 1918', serif; font-size: 16px; font-weight: 500; cursor: pointer;">Continue with Google</button>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
@@ -74,7 +75,7 @@
         <a href="index.html#pricing">Pricing</a>
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
-        <a href="healing-practices.html">Healing</a>
+        <a href="alternative-healing-practices.html">Healing</a>
         <a href="faq.html">FAQ</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -90,10 +91,7 @@
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
   <script src="js/mobile-menu.js"></script>
-
-  <!-- Navigation Dropdown Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const dropdowns = document.querySelectorAll('.nav-dropdown');
@@ -119,14 +117,24 @@
     });
   </script>
 
-  <!-- Supabase Client -->
   <script type="module" src="js/supabase-client.js"></script>
-  
-  <!-- Auth Initialization -->
   <script type="module">
-    import { initAuth, onAuthStateChange, signOut } from './js/auth.js';
+    import supabase from './js/supabase-client.js';
+    import { initAuth, onAuthStateChange, signIn, signUp, signOut, getRedirectUrl } from './js/auth.js';
     
     initAuth();
+    
+    // Handle OAuth callback
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('code')) {
+      // Wait for auth to complete, then redirect
+      onAuthStateChange((user) => {
+        if (user) {
+          const redirectUrl = getRedirectUrl();
+          window.location.href = redirectUrl || 'index.html';
+        }
+      });
+    }
     
     onAuthStateChange((user) => {
       const loginLink = document.getElementById('nav-login');
@@ -142,11 +150,6 @@
         if (myPathwaysLink) myPathwaysLink.style.display = 'none';
         if (logoutBtn) logoutBtn.style.display = 'none';
       }
-      
-      // Re-render pathways to update CTA buttons
-      if (window.pathwayBrowseInitialized) {
-        window.initPathwayBrowse();
-      }
     });
     
     const logoutBtn = document.getElementById('nav-logout');
@@ -154,25 +157,66 @@
       logoutBtn.addEventListener('click', async (e) => {
         e.preventDefault();
         await signOut();
-        window.location.href = '/';
+        window.location.href = 'index.html';
       });
     }
-  </script>
-
-  <!-- Pathway Browse Script -->
-  <script type="module">
-    import { initPathwayBrowse } from './js/pathway-browse.js';
     
-    window.initPathwayBrowse = initPathwayBrowse;
-    window.pathwayBrowseInitialized = true;
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
+    const googleSigninBtn = document.getElementById('google-signin');
     
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initPathwayBrowse);
-    } else {
-      initPathwayBrowse();
-    }
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorMessage.style.display = 'none';
+      
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      
+      // Try sign in first
+      let { data, error } = await signIn(email, password);
+      
+      // If user doesn't exist, try signup
+      if (error && (error.message.includes('Invalid login credentials') || error.message.includes('User not found'))) {
+        const name = email.split('@')[0];
+        const signupResult = await signUp(email, password, name);
+        if (signupResult.error) {
+          errorMessage.textContent = signupResult.error.message || 'Failed to create account. Please try again.';
+          errorMessage.style.display = 'block';
+          return;
+        }
+        data = signupResult.data;
+        error = null;
+      }
+      
+      if (error) {
+        errorMessage.textContent = error.message || 'Login failed. Please try again.';
+        errorMessage.style.display = 'block';
+        return;
+      }
+      
+      if (data) {
+        const redirectUrl = getRedirectUrl();
+        window.location.href = redirectUrl || 'index.html';
+      }
+    });
+    
+    googleSigninBtn.addEventListener('click', async () => {
+      errorMessage.style.display = 'none';
+      
+      const redirectUrl = getRedirectUrl() || 'index.html';
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/login.html?redirect=${encodeURIComponent(redirectUrl)}`
+        }
+      });
+      
+      if (error) {
+        errorMessage.textContent = error.message || 'Google sign in failed. Please try again.';
+        errorMessage.style.display = 'block';
+      }
+    });
   </script>
-
 </body>
 </html>
 

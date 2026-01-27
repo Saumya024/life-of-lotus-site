@@ -13,3 +13,4 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 // Export the client
 export default supabase;
 
+

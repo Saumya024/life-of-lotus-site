@@ -1,6 +1,7 @@
 // Start Pathway Logic
 import { isAuthenticated, requireAuth } from './auth.js';
 import supabase from './supabase-client.js';
+import { ENABLE_AUTH } from './feature-flags.js';
 
 // Fetch pathway requirements
 async function fetchPathwayRequirements(pathwayId) {
@@ -276,12 +277,16 @@ async function activatePathway(pathwayId, materialsAcknowledged) {
 
 // Main start pathway handler
 async function handleStartPathway(pathwayId) {
+  if (!ENABLE_AUTH) {
+    return;
+  }
+  
   try {
     // Check if user is logged in
     if (!isAuthenticated()) {
       // Redirect to login with return URL
       const currentPath = window.location.pathname + window.location.search;
-      window.location.href = `/login.html?redirect=${encodeURIComponent(currentPath)}`;
+      window.location.href = `login.html?redirect=${encodeURIComponent(currentPath)}`;
       return;
     }
 
@@ -293,7 +298,7 @@ async function handleStartPathway(pathwayId) {
     if (existingAssignment) {
       // User already has this pathway active
       if (confirm('You already have this pathway active. Would you like to view it?')) {
-        window.location.href = '/my-pathways.html';
+        window.location.href = 'my-pathways.html';
       }
       return;
     }
@@ -313,7 +318,7 @@ async function handleStartPathway(pathwayId) {
     const assignment = await activatePathway(pathwayId, true);
 
     // Redirect to my-pathways
-    window.location.href = '/my-pathways.html';
+    window.location.href = 'my-pathways.html';
   } catch (error) {
     console.error('Error starting pathway:', error);
     alert('Error starting pathway: ' + error.message);
@@ -322,6 +327,10 @@ async function handleStartPathway(pathwayId) {
 
 // Initialize start pathway buttons on page
 function initStartPathwayButtons() {
+  if (!ENABLE_AUTH) {
+    return;
+  }
+  
   // Find all start pathway buttons
   const startButtons = document.querySelectorAll('[data-start-pathway], .start-pathway-btn');
 
@@ -341,10 +350,12 @@ function initStartPathwayButtons() {
 }
 
 // Initialize on page load
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initStartPathwayButtons);
-} else {
-  initStartPathwayButtons();
+if (ENABLE_AUTH) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initStartPathwayButtons);
+  } else {
+    initStartPathwayButtons();
+  }
 }
 
 export {

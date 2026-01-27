@@ -229,3 +229,5 @@ Should return empty array (RLS blocks practitioner pathways for non-authenticate
 - Verify `responsibility_confirmed = "true"` in attribution
 - Check practitioner_id in attribution matches `created_by_practitioner_id`
 
+
+

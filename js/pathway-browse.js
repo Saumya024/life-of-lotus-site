@@ -1,5 +1,6 @@
 // Pathway Browsing (Public - No Auth Required)
 import supabase from './supabase-client.js';
+import { ENABLE_DYNAMIC_PATHWAYS, ENABLE_AUTH } from './feature-flags.js';
 
 // Get all platform pathways (public)
 async function getPlatformPathways() {
@@ -48,6 +49,10 @@ async function getPathwayRequirements(pathwayId) {
 
 // Initialize pathway browsing page
 async function initPathwayBrowse() {
+  if (!ENABLE_DYNAMIC_PATHWAYS) {
+    return;
+  }
+  
   const container = document.getElementById('pathways-container');
   if (!container) return;
   
@@ -181,20 +186,36 @@ function renderPathways(pathways) {
         ` : ''}
         
         <div class="pathway-cta">
-          <button class="start-pathway-btn" data-pathway-id="${pathway.pathway_id}">Start Pathway</button>
+          ${ENABLE_AUTH ? 
+            `<button class="start-pathway-btn" data-pathway-id="${pathway.pathway_id}">Start Pathway</button>` :
+            `<button class="read-journey-btn" data-pathway-id="${pathway.pathway_id}">Read the Journey</button>`
+          }
         </div>
       </div>
     `;
   }).join('');
 
   // Add event listeners
-  container.querySelectorAll('.start-pathway-btn').forEach(btn => {
-    btn.addEventListener('click', async (e) => {
-      e.preventDefault();
-      const pathwayId = btn.dataset.pathwayId;
-      await handleStartPathway(pathwayId);
+  if (ENABLE_AUTH) {
+    container.querySelectorAll('.start-pathway-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const pathwayId = btn.dataset.pathwayId;
+        await handleStartPathway(pathwayId);
+      });
     });
-  });
+  } else {
+    container.querySelectorAll('.read-journey-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // Scroll to pathway content or remain on page
+        const pathwayCard = btn.closest('.guided-pathway-card');
+        if (pathwayCard) {
+          pathwayCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
 }
 
 export {

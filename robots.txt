@@ -1,0 +1,19 @@
+# robots.txt for Life of Lotus
+# https://lifeoflotus.in
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://lifeoflotus.in/sitemap.xml
+
+# Disallow admin/utility pages
+Disallow: /login.html
+Disallow: /my-pathways.html
+Disallow: /confirm.html
+Disallow: /schedule.html
+Disallow: /reserved.html
+
+# Disallow JS directory (not content)
+Disallow: /js/
+

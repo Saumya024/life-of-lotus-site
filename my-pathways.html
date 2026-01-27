@@ -55,9 +55,8 @@
     <div class="my-pathways-container">
       <h1>My Pathways</h1>
       <div id="my-pathways-container">
-        <!-- Content will be loaded by my-pathways.js -->
-        <div class="loading-state">
-          <p>Loading your pathways...</p>
+        <div class="empty-state">
+          <p>This feature will be available in the future.</p>
         </div>
       </div>
     </div>
@@ -75,7 +74,7 @@
         <a href="index.html#pricing">Pricing</a>
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
-        <a href="healing-practices.html">Healing</a>
+        <a href="alternative-healing-practices.html">Healing</a>
         <a href="faq.html">FAQ</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -125,38 +124,48 @@
   
   <!-- Auth Initialization -->
   <script type="module">
-    import { initAuth, onAuthStateChange, signOut } from './js/auth.js';
+    import { ENABLE_AUTH } from './js/feature-flags.js';
     
-    initAuth();
-    
-    onAuthStateChange((user) => {
-      const loginLink = document.getElementById('nav-login');
-      const myPathwaysLink = document.getElementById('nav-my-pathways');
-      const logoutBtn = document.getElementById('nav-logout');
+    if (ENABLE_AUTH) {
+      const { initAuth, onAuthStateChange, signOut } = await import('./js/auth.js');
       
-      if (user) {
-        if (loginLink) loginLink.style.display = 'none';
-        if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
-        if (logoutBtn) logoutBtn.style.display = 'inline';
-      } else {
-        if (loginLink) loginLink.style.display = 'inline';
-        if (myPathwaysLink) myPathwaysLink.style.display = 'none';
-        if (logoutBtn) logoutBtn.style.display = 'none';
-      }
-    });
-    
-    const logoutBtn = document.getElementById('nav-logout');
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        await signOut();
-        window.location.href = '/';
+      initAuth();
+      
+      onAuthStateChange((user) => {
+        const loginLink = document.getElementById('nav-login');
+        const myPathwaysLink = document.getElementById('nav-my-pathways');
+        const logoutBtn = document.getElementById('nav-logout');
+        
+        if (user) {
+          if (loginLink) loginLink.style.display = 'none';
+          if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
+          if (logoutBtn) logoutBtn.style.display = 'inline';
+        } else {
+          if (loginLink) loginLink.style.display = 'inline';
+          if (myPathwaysLink) myPathwaysLink.style.display = 'none';
+          if (logoutBtn) logoutBtn.style.display = 'none';
+        }
       });
+      
+      const logoutBtn = document.getElementById('nav-logout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          await signOut();
+          window.location.href = '/';
+        });
+      }
     }
   </script>
 
   <!-- My Pathways Script -->
-  <script type="module" src="js/my-pathways.js"></script>
+  <script type="module">
+    import { ENABLE_AUTH } from './js/feature-flags.js';
+    
+    if (ENABLE_AUTH) {
+      import('./js/my-pathways.js');
+    }
+  </script>
 
 </body>
 </html>

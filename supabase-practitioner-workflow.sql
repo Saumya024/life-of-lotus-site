@@ -211,3 +211,5 @@ WHERE type = 'practitioner'
 -- Test via API: GET /rest/v1/pathways?pathway_id=eq.PATHWAY_ID
 -- Should return empty array for logged-out requests
 
+
+

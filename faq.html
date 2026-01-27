@@ -4,7 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ - Life of Lotus</title>
+  <title>FAQ | Vedic Astrology Consultation Questions Answered | Life of Lotus</title>
+  <meta name="description" content="Common questions about Vedic astrology consultations answered. Learn about session format, birth details needed, pricing, techniques used, and what to expect from your reading." />
+  <link rel="canonical" href="https://lifeoflotus.in/faq" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/icons8-lotus-64.png">
+  <link rel="apple-touch-icon" href="assets/images/icons8-lotus-64.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="FAQ | Vedic Astrology Questions Answered | Life of Lotus" />
+  <meta property="og:description" content="Common questions about Vedic astrology consultations answered. Learn about sessions, pricing, and what to expect." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://lifeoflotus.in/faq" />
+  <meta property="og:image" content="https://lifeoflotus.in/assets/images/lotus%20image.webp" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
@@ -95,14 +108,16 @@
         <button class="faq-question">Who is this consultation suitable for?</button>
         <div class="faq-answer">
           This work is for people who take their decisions and patterns seriously.<br><br>
-          This is suitable if you are:<br><br>
-          Navigating major transitions, career changes, relationships, relocations, business ventures<br><br>
-          Facing recurring patterns you want to understand structurally, not just manage symptomatically<br><br>
-          Making high-stakes decisions where timing and preparation carry real consequences<br><br>
-          In leadership roles, running businesses, or managing significant professional responsibilities<br><br>
-          Experiencing confusion, crisis, or stagnation and need clarity beyond surface explanations<br><br>
-          Dealing with health concerns, family dynamics, or relationship difficulties that keep repeating<br><br>
-          Willing to examine your life honestly and take responsibility for how you use the information
+          This is suitable if you are:
+          <ul>
+            <li>Navigating major transitions, career changes, relationships, relocations, business ventures</li>
+            <li>Facing recurring patterns you want to understand structurally, not just manage symptomatically</li>
+            <li>Making high-stakes decisions where timing and preparation carry real consequences</li>
+            <li>In leadership roles, running businesses, or managing significant professional responsibilities</li>
+            <li>Experiencing confusion, crisis, or stagnation and need clarity beyond surface explanations</li>
+            <li>Dealing with health concerns, family dynamics, or relationship difficulties that keep repeating</li>
+            <li>Willing to examine your life honestly and take responsibility for how you use the information</li>
+          </ul>
         </div>
       </div>
 
@@ -356,7 +371,7 @@
         <a href="index.html#pricing">Pricing</a>
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
-        <a href="healing-practices.html">Healing</a>
+        <a href="alternative-healing-practices.html">Healing</a>
         <a href="faq.html">FAQ</a>
         <a href="index.html#contact">Contact</a>
       </nav>
@@ -427,34 +442,104 @@
   
   <!-- Auth Initialization -->
   <script type="module">
-    import { initAuth, onAuthStateChange, signOut } from './js/auth.js';
+    import { ENABLE_AUTH } from './js/feature-flags.js';
     
-    initAuth();
-    
-    onAuthStateChange((user) => {
-      const loginLink = document.getElementById('nav-login');
-      const myPathwaysLink = document.getElementById('nav-my-pathways');
-      const logoutBtn = document.getElementById('nav-logout');
+    if (ENABLE_AUTH) {
+      const { initAuth, onAuthStateChange, signOut } = await import('./js/auth.js');
       
-      if (user) {
-        if (loginLink) loginLink.style.display = 'none';
-        if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
-        if (logoutBtn) logoutBtn.style.display = 'inline';
-      } else {
-        if (loginLink) loginLink.style.display = 'inline';
-        if (myPathwaysLink) myPathwaysLink.style.display = 'none';
-        if (logoutBtn) logoutBtn.style.display = 'none';
-      }
-    });
-    
-    const logoutBtn = document.getElementById('nav-logout');
-    if (logoutBtn) {
-      logoutBtn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        await signOut();
-        window.location.href = '/';
+      initAuth();
+      
+      onAuthStateChange((user) => {
+        const loginLink = document.getElementById('nav-login');
+        const myPathwaysLink = document.getElementById('nav-my-pathways');
+        const logoutBtn = document.getElementById('nav-logout');
+        
+        if (user) {
+          if (loginLink) loginLink.style.display = 'none';
+          if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
+          if (logoutBtn) logoutBtn.style.display = 'inline';
+        } else {
+          if (loginLink) loginLink.style.display = 'inline';
+          if (myPathwaysLink) myPathwaysLink.style.display = 'none';
+          if (logoutBtn) logoutBtn.style.display = 'none';
+        }
       });
+      
+      const logoutBtn = document.getElementById('nav-logout');
+      if (logoutBtn) {
+        logoutBtn.addEventListener('click', async (e) => {
+          e.preventDefault();
+          await signOut();
+          window.location.href = '/';
+        });
+      }
     }
+  </script>
+
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What happens in a typical Vedic astrology consultation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A consultation begins with your birth details: date, time, and place. I examine your chart to identify active patterns, underlying themes, and the timing of significant phases. We then discuss what you are experiencing, how it connects to these patterns, and what response supports clarity rather than repetition. Sessions are structured but conversational."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What birth details do I need for a Vedic astrology reading?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You need three things: your date of birth, exact time of birth (as precise as possible), and place of birth (city/town). Birth time accuracy matters significantly. Even a 10-15 minute difference can shift key indicators in your chart."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is Vedic astrology different from Western astrology?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vedic astrology examines long-term karmic patterns, life timing, and recurring themes that shape your experiences over years and decades. Western astrology focuses more on psychological traits, current transits, and temporary life phases. The technical difference: Vedic uses the sidereal zodiac (based on fixed star positions), while Western uses the tropical zodiac (based on seasons)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a Vedic astrology consultation cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three consultation formats are offered: 30-minute session (Quick Clarity) at ₹900-1,100, 60-minute session (Deep Insight) at ₹1,800-2,000, and 90-minute session (Holistic Guidance) at ₹2,700-3,000. Three-session packages are available with savings of ₹300–₹900."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Who is Vedic astrology consultation suitable for?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This work is for people who take their decisions and patterns seriously. Suitable for those navigating major transitions, facing recurring patterns, making high-stakes decisions, in leadership roles, experiencing confusion or stagnation, or dealing with health concerns, family dynamics, or relationship difficulties that keep repeating."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is astrology evidence-based?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Vedic astrology is evidence-based in the sense that it relies on systematic observation of patterns over centuries, but it's not evidence-based in the way modern medical or scientific research uses controlled studies. The system's validity depends on whether the patterns it identifies match your lived experience and help you make better decisions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need to believe in astrology for a session to be useful?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Belief is not a requirement. Many people come in curious, uncertain, or skeptical. The session focuses on patterns you already recognize in your own life and uses astrology as a structured lens to examine them. You are encouraged to question, reflect, and engage actively."
+        }
+      }
+    ]
+  }
   </script>
 
 </body>
