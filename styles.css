@@ -1023,7 +1023,7 @@ section {
   z-index: 4;
   background: var(--secondary);
   color: var(--primary);
-  padding: 24px 64px;
+  padding: 30px 64px;
   border-radius: 200px;
   border: 2px solid var(--tertiary);
   text-decoration: none;
@@ -3122,7 +3122,7 @@ section {
     top: calc(10px + 3 * (100vh - 20px) / 4 + 15px);
     transform: translateX(-50%);
     font-size: 22px !important;
-    padding: 18px 44px !important;
+    padding: 22.5px 44px !important;
     white-space: nowrap;
   }
 
