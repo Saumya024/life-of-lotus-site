@@ -3286,6 +3286,10 @@ section {
 
   .footer-content {
     gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .footer-logo img {
@@ -3293,39 +3297,61 @@ section {
   }
 
   .footer-nav {
-    gap: 16px;
+    gap: 12px;
     padding-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .footer-nav a {
     font-size: 12px;
-    white-space: nowrap;
+    white-space: normal;
+    padding: 4px 8px;
   }
 
   .footer-heading {
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .footer-description {
-    font-size: 13px;
+    font-size: 12px;
     margin-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    line-height: 1.5;
+  }
+
+  .footer-description > span:first-of-type {
+    white-space: normal;
   }
 
   .footer-cta {
     font-size: 14px;
     padding: 12px 24px;
     margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .footer-nav-policies {
-    gap: 16px;
+    gap: 12px;
     padding-top: 20px;
     margin-top: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .footer-nav-policies a {
     font-size: 11px;
+    white-space: normal;
+    padding: 4px 6px;
   }
 
   .intake-grid {
