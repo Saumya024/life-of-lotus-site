@@ -627,12 +627,20 @@ section {
   font-size: 24px;
   font-weight: 500;
   color: var(--primary);
+  overflow: hidden;
+  height: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .logo img {
-  height: 40px;
+  height: 150px;
   width: auto;
   display: block;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(0.7);
+  transform-origin: left center;
 }
 
 .nav {
@@ -2952,10 +2960,15 @@ section {
     min-width: 0;
   }
 
-  .logo img {
+  .logo {
     height: 32px;
+  }
+
+  .logo img {
+    height: 120px;
     width: auto;
-    max-width: 100%;
+    transform: scale(0.6);
+    transform-origin: left center;
   }
 
   .header-mobile-actions {
