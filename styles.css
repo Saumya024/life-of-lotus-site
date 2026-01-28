@@ -3118,7 +3118,7 @@ section {
 
   .hero {
     height: 100vh;
-    margin: 0;
+    margin-top: -64px;
     padding: 0;
     width: 100%;
     left: 0;
