@@ -32,9 +32,20 @@
     });
 
     // Close menu when clicking on a nav link
+    let isClosing = false;
     nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
+      link.addEventListener('click', function(e) {
+        if (isClosing) {
+          e.preventDefault();
+          return;
+        }
+        e.stopPropagation();
+        isClosing = true;
         closeMenu();
+        // Reset flag after navigation
+        setTimeout(() => {
+          isClosing = false;
+        }, 300);
       });
     });
 
