@@ -3686,6 +3686,23 @@
 
       // If URL has modality parameter, filter to that modality
       if (urlModality) {
+        // Find the matching modality and its category
+        let matchingCategory = null;
+        modalities.forEach(modality => {
+          const modalityType = modality.dataset.modality;
+          if (modalityType === urlModality) {
+            const category = modality.closest('.reading-category');
+            if (category) {
+              matchingCategory = category.dataset.category;
+            }
+          }
+        });
+        
+        // Set the filter dropdown to the correct category
+        if (matchingCategory && filterSelect) {
+          filterSelect.value = matchingCategory;
+        }
+        
         // Hide all categories and modalities first
         categories.forEach(cat => cat.style.display = 'none');
         modalities.forEach(mod => mod.style.display = 'none');
@@ -3715,6 +3732,12 @@
         const selectedCategory = filterSelect.value;
         const urlModalityParam = new URLSearchParams(window.location.search).get('modality');
 
+        // If "all" is selected, clear the URL parameter
+        if (selectedCategory === 'all' && urlModalityParam) {
+          const newUrl = window.location.pathname + (searchTerm ? '?search=' + encodeURIComponent(searchTerm) : '');
+          window.history.replaceState({}, '', newUrl);
+        }
+
         categories.forEach(category => {
           const categoryType = category.dataset.category;
           let categoryHasVisibleModalities = false;
@@ -3727,7 +3750,8 @@
             
             const matchesSearch = searchTerm === '' || modalityContent.includes(searchTerm);
             const matchesCategory = selectedCategory === 'all' || categoryType === selectedCategory;
-            const matchesModality = !urlModalityParam || modalityType === urlModalityParam;
+            // Only filter by modality if URL parameter exists AND category is not "all"
+            const matchesModality = selectedCategory === 'all' || !urlModalityParam || modalityType === urlModalityParam;
 
             if (matchesSearch && matchesCategory && matchesModality) {
               modality.style.display = 'block';
