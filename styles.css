@@ -2933,6 +2933,8 @@ section {
     width: 100%;
     text-align: center;
     margin-left: 0;
+    line-height: 1;
+    padding: 12px 28px;
   }
 }
 
@@ -3063,6 +3065,7 @@ section {
     padding: 10px 16px;
     font-size: 12px;
     white-space: nowrap;
+    line-height: 1;
   }
 
   .nav a:last-child {
