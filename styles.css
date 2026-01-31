@@ -2945,7 +2945,7 @@ section {
     box-sizing: border-box;
   }
   
-  section:first-of-type {
+  section:first-of-type:not(.hero) {
     margin-top: -56px;
   }
 
@@ -3128,9 +3128,10 @@ section {
   }
 
   .hero {
-    height: 100vh;
+    height: calc(100vh + 56px);
     margin-top: -56px;
     padding: 0;
+    padding-top: 56px;
     width: 100%;
     left: 0;
     right: 0;
