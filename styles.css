@@ -3150,10 +3150,19 @@ section {
 
   .hero-content {
     padding: 0 20px;
+    top: 56px;
+  }
+  
+  .hero-content h1 {
+    top: calc(10px + 15px + 4.5vh + 56px);
+  }
+  
+  .hero-content p {
+    top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 24px + 56px);
   }
 
   .hero-cta {
-    top: calc(10px + 3 * (100vh - 20px) / 4 + 15px);
+    top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px);
     transform: translateX(-50%);
     font-size: 22px !important;
     padding: 22.5px 44px !important;
@@ -3161,7 +3170,7 @@ section {
   }
 
   .hero-planets {
-    top: calc(10px + 2 * (100vh - 20px) / 4 + 15px + 4.5vh * 0.65);
+    top: calc(10px + 2 * (100vh - 20px) / 4 + 15px + 4.5vh * 0.65 + 56px);
     gap: 13px;
     padding: 0 10px;
     flex-wrap: nowrap;
