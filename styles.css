@@ -639,7 +639,7 @@ section {
   display: block;
   object-fit: cover;
   object-position: center;
-  transform: scale(0.63);
+  transform: scale(0.6);
   transform-origin: left center;
 }
 
@@ -2975,7 +2975,7 @@ section {
   .logo img {
     height: 120px;
     width: auto;
-    transform: scale(0.58);
+    transform: scale(0.55);
     transform-origin: left center;
   }
 
