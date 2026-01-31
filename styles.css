@@ -2944,6 +2944,10 @@ section {
     max-width: 100%;
     box-sizing: border-box;
   }
+  
+  section:first-of-type {
+    margin-top: -56px;
+  }
 
   body {
     padding-top: 56px;
