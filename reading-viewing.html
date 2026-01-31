@@ -3727,15 +3727,20 @@
         }
       }
 
+      // Track if user has manually changed the filter
+      let userChangedFilter = false;
+
       function filterContent() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCategory = filterSelect.value;
         const urlModalityParam = new URLSearchParams(window.location.search).get('modality');
 
-        // If "all" is selected, clear the URL parameter
-        if (selectedCategory === 'all' && urlModalityParam) {
-          const newUrl = window.location.pathname + (searchTerm ? '?search=' + encodeURIComponent(searchTerm) : '');
-          window.history.replaceState({}, '', newUrl);
+        // If user manually changes the filter dropdown, mark it and clear URL parameter
+        if (userChangedFilter || selectedCategory !== 'all') {
+          if (urlModalityParam) {
+            const newUrl = window.location.pathname + (searchTerm ? '?search=' + encodeURIComponent(searchTerm) : '');
+            window.history.replaceState({}, '', newUrl);
+          }
         }
 
         categories.forEach(category => {
@@ -3750,8 +3755,17 @@
             
             const matchesSearch = searchTerm === '' || modalityContent.includes(searchTerm);
             const matchesCategory = selectedCategory === 'all' || categoryType === selectedCategory;
-            // Only filter by modality if URL parameter exists AND category is not "all"
-            const matchesModality = selectedCategory === 'all' || !urlModalityParam || modalityType === urlModalityParam;
+            
+            // Only filter by URL modality if:
+            // - "all" is selected AND URL has modality parameter AND user hasn't changed filter
+            // - Otherwise, show all modalities in the selected category
+            let matchesModality = true;
+            if (urlModalityParam && selectedCategory === 'all' && !userChangedFilter) {
+              matchesModality = modalityType === urlModalityParam;
+            } else if (selectedCategory !== 'all') {
+              // When a specific category is selected, show all modalities in that category
+              matchesModality = true;
+            }
 
             if (matchesSearch && matchesCategory && matchesModality) {
               modality.style.display = 'block';
@@ -3770,8 +3784,13 @@
         });
       }
 
+      // Track when user manually changes the filter
+      filterSelect.addEventListener('change', function() {
+        userChangedFilter = true;
+        filterContent();
+      });
+
       searchInput.addEventListener('input', filterContent);
-      filterSelect.addEventListener('change', filterContent);
     });
   </script>
 

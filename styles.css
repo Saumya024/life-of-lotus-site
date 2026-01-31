@@ -2923,7 +2923,9 @@ section {
 
   /* Style header-cta to appear at bottom of hamburger menu when active */
   .nav.active .header-cta {
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     order: 999; /* Move to bottom of menu */
     margin-top: 16px;
     padding-top: 16px;
@@ -3047,6 +3049,9 @@ section {
 
   .nav .header-cta {
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     margin-left: 0;
     margin-top: 8px;
