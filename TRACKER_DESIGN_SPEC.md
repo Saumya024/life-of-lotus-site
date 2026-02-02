@@ -13,7 +13,7 @@ A printable A4 tracker for the Night & Morning Rituals program. Users print this
 
 ---
 
-## Color Palette (Life of Lotus)
+## Color Palette (I Read Space)
 | Name | Hex | Usage |
 |------|-----|-------|
 | Primary (Deep Purple) | #431039 | Headers, text, accents |
@@ -217,7 +217,7 @@ For the website preview image:
 
 ### Canva
 1. Create A4 Landscape document
-2. Use "Life of Lotus" brand kit colors
+2. Use "I Read Space" brand kit colors
 3. Add custom fonts (Brygada 1918, Comfortaa)
 4. Export as PDF Print (300 DPI)
 
@@ -250,7 +250,7 @@ Track:
 
 ---
 
-*Design spec created for Life of Lotus — Night & Morning Rituals Program*
+*Design spec created for I Read Space — Night & Morning Rituals Program*
 
 
 

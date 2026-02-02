@@ -1,4 +1,4 @@
-# robots.txt for Life of Lotus
+# robots.txt for I Read Space
 # https://lifeoflotus.in
 
 User-agent: *

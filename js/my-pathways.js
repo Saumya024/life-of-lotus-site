@@ -148,7 +148,7 @@ function renderAttributionBanner(attribution) {
   const credentials = attribution.credentials || '';
   const jurisdiction = attribution.jurisdiction || '';
   const responsibilityStatement = attribution.responsibility_statement || 
-    'This recommendation is made solely by the practitioner named above. Life of Lotus provides the delivery platform only and assumes no responsibility for practitioner recommendations.';
+    'This recommendation is made solely by the practitioner named above. I Read Space provides the delivery platform only and assumes no responsibility for practitioner recommendations.';
   
   return `
     <div class="attribution-banner">

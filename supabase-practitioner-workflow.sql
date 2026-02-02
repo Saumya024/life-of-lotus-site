@@ -64,7 +64,7 @@ INSERT INTO public.pathways (
       "practitioner_name": "Practitioner Name",
       "credentials": "Certified Astrologer",
       "jurisdiction": "India",
-      "responsibility_statement": "This recommendation is made solely by the practitioner named above. Life of Lotus provides the delivery platform only and assumes no responsibility for practitioner recommendations.",
+      "responsibility_statement": "This recommendation is made solely by the practitioner named above. I Read Space provides the delivery platform only and assumes no responsibility for practitioner recommendations.",
       "responsibility_confirmed": "true"
     }
   }'::jsonb
