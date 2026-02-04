@@ -744,65 +744,75 @@
       const packageCard = document.getElementById('package-card');
       const isPackage = packageCard && packageCard.style.display !== 'none';
       
-      // Submit to Google Sheets
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwoPrRkBRXD1opSoV74GOadKyNNBVCiv_ZjQTTf9GoqEHj4Av45ia8msI6Jpil1ICMg/exec';
-      
-      const submissionData = {
-        name: name,
-        email: email,
-        phone: phone,
-        dob: dob,
-        tob: tob || '',
-        pob: pob || '',
-        area: area || '',
-        unclear: unclear || '',
-        sessionType: sessionType,
-        duration: duration.toString(),
-        isPackage: isPackage
-      };
-      
-      // Log for debugging
-      console.log('Submitting to Google Sheets:', submissionData);
-      
-      // Send data to Google Sheets using hidden iframe method (most reliable for Google Apps Script)
-      const iframe = document.createElement('iframe');
-      iframe.style.display = 'none';
-      iframe.style.width = '0';
-      iframe.style.height = '0';
-      iframe.name = 'google-sheets-submit-' + Date.now();
-      document.body.appendChild(iframe);
-      
-      const form = document.createElement('form');
-      form.method = 'POST';
-      form.action = GOOGLE_SCRIPT_URL;
-      form.target = iframe.name;
-      form.style.display = 'none';
-      
-      // Add JSON data as a single field
-      const jsonInput = document.createElement('input');
-      jsonInput.type = 'hidden';
-      jsonInput.name = 'data';
-      jsonInput.value = JSON.stringify(submissionData);
-      form.appendChild(jsonInput);
-      
-      document.body.appendChild(form);
-      
-      // Submit form
-      form.submit();
-      
-      // Clean up after a delay
+      // Submit to Google Sheets asynchronously (don't block form submission)
+      // Use setTimeout to ensure this runs after the modal opens
       setTimeout(() => {
         try {
-          if (form.parentNode) {
-            form.parentNode.removeChild(form);
-          }
-          if (iframe.parentNode) {
-            iframe.parentNode.removeChild(iframe);
-          }
-        } catch (e) {
-          console.error('Error cleaning up form:', e);
+          const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwoPrRkBRXD1opSoV74GOadKyNNBVCiv_ZjQTTf9GoqEHj4Av45ia8msI6Jpil1ICMg/exec';
+          
+          const submissionData = {
+            name: name,
+            email: email,
+            phone: phone,
+            dob: dob,
+            tob: tob || '',
+            pob: pob || '',
+            area: area || '',
+            unclear: unclear || '',
+            sessionType: sessionType,
+            duration: duration.toString(),
+            isPackage: isPackage
+          };
+          
+          // Log for debugging
+          console.log('Submitting to Google Sheets:', submissionData);
+          
+          // Send data to Google Sheets using hidden iframe method
+          const sheetsIframe = document.createElement('iframe');
+          sheetsIframe.style.display = 'none';
+          sheetsIframe.style.width = '0';
+          sheetsIframe.style.height = '0';
+          sheetsIframe.style.position = 'absolute';
+          sheetsIframe.style.left = '-9999px';
+          sheetsIframe.name = 'google-sheets-submit-' + Date.now();
+          document.body.appendChild(sheetsIframe);
+          
+          const sheetsForm = document.createElement('form');
+          sheetsForm.method = 'POST';
+          sheetsForm.action = GOOGLE_SCRIPT_URL;
+          sheetsForm.target = sheetsIframe.name;
+          sheetsForm.style.display = 'none';
+          
+          // Add JSON data as a single field
+          const jsonInput = document.createElement('input');
+          jsonInput.type = 'hidden';
+          jsonInput.name = 'data';
+          jsonInput.value = JSON.stringify(submissionData);
+          sheetsForm.appendChild(jsonInput);
+          
+          document.body.appendChild(sheetsForm);
+          
+          // Submit form
+          sheetsForm.submit();
+          
+          // Clean up after a delay
+          setTimeout(() => {
+            try {
+              if (sheetsForm.parentNode) {
+                sheetsForm.parentNode.removeChild(sheetsForm);
+              }
+              if (sheetsIframe.parentNode) {
+                sheetsIframe.parentNode.removeChild(sheetsIframe);
+              }
+            } catch (e) {
+              console.error('Error cleaning up Google Sheets form:', e);
+            }
+          }, 3000);
+        } catch (sheetsError) {
+          // Don't block form submission if Google Sheets fails
+          console.error('Error submitting to Google Sheets:', sheetsError);
         }
-      }, 3000);
+      }, 100);
       
       // Get modal elements
       const modalOverlay = document.getElementById('cal-modal-overlay');
