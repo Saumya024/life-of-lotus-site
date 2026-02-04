@@ -167,6 +167,16 @@ function doPost(e) {
   }
 }
 
+// doGet function for testing (when accessing URL directly)
+function doGet(e) {
+  return ContentService.createTextOutput(JSON.stringify({
+    success: true,
+    message: 'Google Apps Script is working. Use POST to submit form data.',
+    sheetName: SHEET_NAME,
+    spreadsheetId: '1JAJh_uGHo6VBHtWtiiOMzWc0zTnSNX7DPKvbl5e2r68'
+  })).setMimeType(ContentService.MimeType.JSON);
+}
+
 // Test function (optional - for testing in Apps Script editor)
 function testDoPost() {
   const mockEvent = {
