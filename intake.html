@@ -718,26 +718,71 @@
         }
       }
       
+      // Get additional form values
+      const tob = formData.get('tob');
+      const pob = formData.get('pob');
+      const area = formData.get('area');
+      
+      // Get session type (audio/video) from active toggle button
+      const activeToggle = document.querySelector('.toggle-btn.active');
+      const sessionType = activeToggle ? activeToggle.dataset.type : 'audio';
+      
+      // Determine duration from pricing card or package card
+      const pricingDurationElement = document.querySelector('.pricing-duration');
+      const packageDurationElement = document.querySelector('.package-duration');
+      const durationElement = pricingDurationElement || packageDurationElement;
+      let duration = 60; // Default to 60 minutes
+      if (durationElement) {
+        const durationText = durationElement.textContent.trim();
+        const durationMatch = durationText.match(/(\d+)/);
+        if (durationMatch) {
+          duration = parseInt(durationMatch[1], 10);
+        }
+      }
+      
+      // Check if it's a package
+      const packageCard = document.getElementById('package-card');
+      const isPackage = packageCard && packageCard.style.display !== 'none';
+      
+      // Submit to Google Sheets
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwoPrRkBRXD1opSoV74GOadKyNNBVCiv_ZjQTTf9GoqEHj4Av45ia8msI6Jpil1ICMg/exec';
+      
+      const submissionData = {
+        name: name,
+        email: email,
+        phone: phone,
+        dob: dob,
+        tob: tob || '',
+        pob: pob || '',
+        area: area || '',
+        unclear: unclear || '',
+        sessionType: sessionType,
+        duration: duration.toString(),
+        isPackage: isPackage
+      };
+      
+      // Send data to Google Sheets (non-blocking, don't wait for response)
+      if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors', // Required for Google Apps Script
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(submissionData)
+        }).catch(error => {
+          // Silently handle errors - don't block user flow
+          console.error('Error submitting to Google Sheets:', error);
+        });
+      }
+      
       // Get modal elements
       const modalOverlay = document.getElementById('cal-modal-overlay');
       const modalContent = document.getElementById('cal-modal-content');
       
       // Only create iframe once per page load
       if (!calIframeCreated && modalContent) {
-        // Determine duration from pricing card or package card
-        const pricingDurationElement = document.querySelector('.pricing-duration');
-        const packageDurationElement = document.querySelector('.package-duration');
-        const durationElement = pricingDurationElement || packageDurationElement;
-        let duration = 60; // Default to 60 minutes
-        if (durationElement) {
-          const durationText = durationElement.textContent.trim();
-          const durationMatch = durationText.match(/(\d+)/);
-          if (durationMatch) {
-            duration = parseInt(durationMatch[1], 10);
-          }
-        }
-        
-        // Get the matching Cal.com URL
+        // Get the matching Cal.com URL (duration already determined above)
         let calUrl;
         if (duration === 30) {
           calUrl = CAL_30_URL;
