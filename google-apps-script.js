@@ -65,52 +65,84 @@ function doPost(e) {
       })).setMimeType(ContentService.MimeType.JSON);
     }
     
-    // Get headers from the first row
-    const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    // Check if sheet is empty or has headers
+    const lastRow = sheet.getLastRow();
+    let headers = [];
+    let rowData = [];
     
-    // Prepare the row data in the same order as headers
-    const rowData = headers.map(header => {
-      // Normalize header names (remove extra spaces, convert to lowercase for matching)
-      const normalizedHeader = header.toString().toLowerCase().trim();
+    if (lastRow === 0) {
+      // Sheet is empty - create headers and add data
+      headers = ['Name', 'Email', 'Phone', 'Date of Birth', 'Time of Birth', 'Place of Birth', 'Primary Area', 'Unclear Question', 'Session Type', 'Duration', 'Package', 'Timestamp'];
+      rowData = [
+        data.name || '',
+        data.email || '',
+        data.phone || '',
+        data.dob || '',
+        data.tob || '',
+        data.pob || '',
+        data.area || '',
+        data.unclear || '',
+        data.sessionType || '',
+        data.duration || '',
+        data.isPackage ? 'Yes' : 'No',
+        new Date()
+      ];
       
-      // Map form fields to sheet headers (case-insensitive matching)
-      if (normalizedHeader.includes('name') || normalizedHeader === 'name') {
-        return data.name || '';
-      } else if (normalizedHeader.includes('email') || normalizedHeader === 'email') {
-        return data.email || '';
-      } else if (normalizedHeader.includes('phone') || normalizedHeader === 'phone' || normalizedHeader.includes('phone number')) {
-        return data.phone || '';
-      } else if (normalizedHeader.includes('date of birth') || normalizedHeader.includes('dob') || normalizedHeader.includes('birth date')) {
-        return data.dob || '';
-      } else if (normalizedHeader.includes('time of birth') || normalizedHeader.includes('tob') || normalizedHeader.includes('birth time')) {
-        return data.tob || '';
-      } else if (normalizedHeader.includes('place of birth') || normalizedHeader.includes('pob') || normalizedHeader.includes('birth place')) {
-        return data.pob || '';
-      } else if (normalizedHeader.includes('area') || normalizedHeader.includes('primary area') || normalizedHeader.includes('guidance')) {
-        return data.area || '';
-      } else if (normalizedHeader.includes('unclear') || normalizedHeader.includes('what feels') || normalizedHeader.includes('question')) {
-        return data.unclear || '';
-      } else if (normalizedHeader.includes('session type') || normalizedHeader.includes('type') || normalizedHeader.includes('audio/video')) {
-        return data.sessionType || '';
-      } else if (normalizedHeader.includes('duration') || normalizedHeader.includes('minutes')) {
-        return data.duration || '';
-      } else if (normalizedHeader.includes('package') || normalizedHeader.includes('is package')) {
-        return data.isPackage ? 'Yes' : 'No';
-      } else if (normalizedHeader.includes('timestamp') || normalizedHeader.includes('date submitted') || normalizedHeader.includes('submitted')) {
-        return new Date();
-      } else {
-        // If header doesn't match any known field, return empty string
-        return '';
-      }
-    });
+      // Add headers as first row
+      sheet.appendRow(headers);
+      // Add data as second row
+      sheet.appendRow(rowData);
+      
+      Logger.log('Sheet was empty - created headers and added first row');
+    } else {
+      // Sheet has data - get headers from first row
+      headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+      
+      // Prepare the row data in the same order as headers
+      rowData = headers.map(header => {
+        // Normalize header names (remove extra spaces, convert to lowercase for matching)
+        const normalizedHeader = header.toString().toLowerCase().trim();
+        
+        // Map form fields to sheet headers (case-insensitive matching)
+        if (normalizedHeader.includes('name') && !normalizedHeader.includes('phone')) {
+          return data.name || '';
+        } else if (normalizedHeader.includes('email')) {
+          return data.email || '';
+        } else if (normalizedHeader.includes('phone')) {
+          return data.phone || '';
+        } else if (normalizedHeader.includes('date of birth') || normalizedHeader.includes('dob')) {
+          return data.dob || '';
+        } else if (normalizedHeader.includes('time of birth') || normalizedHeader.includes('tob')) {
+          return data.tob || '';
+        } else if (normalizedHeader.includes('place of birth') || normalizedHeader.includes('pob')) {
+          return data.pob || '';
+        } else if (normalizedHeader.includes('area') || normalizedHeader.includes('primary area') || normalizedHeader.includes('guidance')) {
+          return data.area || '';
+        } else if (normalizedHeader.includes('unclear') || normalizedHeader.includes('what feels') || normalizedHeader.includes('question')) {
+          return data.unclear || '';
+        } else if (normalizedHeader.includes('session type') || normalizedHeader.includes('type')) {
+          return data.sessionType || '';
+        } else if (normalizedHeader.includes('duration') || normalizedHeader.includes('minutes')) {
+          return data.duration || '';
+        } else if (normalizedHeader.includes('package')) {
+          return data.isPackage ? 'Yes' : 'No';
+        } else if (normalizedHeader.includes('timestamp') || normalizedHeader.includes('date submitted') || normalizedHeader.includes('submitted')) {
+          return new Date();
+        } else {
+          // If header doesn't match any known field, return empty string
+          return '';
+        }
+      });
+      
+      // Append the row to the sheet
+      sheet.appendRow(rowData);
+    }
     
     // Log the data being processed (for debugging - check Apps Script execution log)
     Logger.log('Received data: ' + JSON.stringify(data));
     Logger.log('Headers: ' + JSON.stringify(headers));
     Logger.log('Row data: ' + JSON.stringify(rowData));
-    
-    // Append the row to the sheet
-    sheet.appendRow(rowData);
+    Logger.log('Sheet last row before append: ' + lastRow);
     
     // Log success
     Logger.log('Row appended successfully');
