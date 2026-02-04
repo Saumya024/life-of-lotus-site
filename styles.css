@@ -3165,11 +3165,14 @@ section {
   }
 
   .hero-cta {
-    top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px);
+    top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px - 5vh);
     transform: translateX(-50%);
-    font-size: 22px !important;
-    padding: 22.5px 44px !important;
+    font-size: 24px !important;
+    padding: 26px 48px !important;
     white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(67, 16, 57, 0.25), 0 2px 4px rgba(64, 192, 197, 0.3);
+    border-width: 3px;
+    z-index: 10;
   }
 
   .hero-planets {
