@@ -761,20 +761,48 @@
         isPackage: isPackage
       };
       
-      // Send data to Google Sheets (non-blocking, don't wait for response)
-      if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL') {
-        fetch(GOOGLE_SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors', // Required for Google Apps Script
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(submissionData)
-        }).catch(error => {
-          // Silently handle errors - don't block user flow
-          console.error('Error submitting to Google Sheets:', error);
-        });
-      }
+      // Log for debugging
+      console.log('Submitting to Google Sheets:', submissionData);
+      
+      // Send data to Google Sheets using hidden iframe method (most reliable for Google Apps Script)
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.style.width = '0';
+      iframe.style.height = '0';
+      iframe.name = 'google-sheets-submit-' + Date.now();
+      document.body.appendChild(iframe);
+      
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = GOOGLE_SCRIPT_URL;
+      form.target = iframe.name;
+      form.style.display = 'none';
+      
+      // Add JSON data as a single field
+      const jsonInput = document.createElement('input');
+      jsonInput.type = 'hidden';
+      jsonInput.name = 'data';
+      jsonInput.value = JSON.stringify(submissionData);
+      form.appendChild(jsonInput);
+      
+      document.body.appendChild(form);
+      
+      // Submit form
+      form.submit();
+      
+      // Clean up after a delay
+      setTimeout(() => {
+        try {
+          if (form.parentNode) {
+            form.parentNode.removeChild(form);
+          }
+          if (iframe.parentNode) {
+            iframe.parentNode.removeChild(iframe);
+          }
+        } catch (e) {
+          console.error('Error cleaning up form:', e);
+        }
+      }, 3000);
       
       // Get modal elements
       const modalOverlay = document.getElementById('cal-modal-overlay');

@@ -22,8 +22,36 @@ const SHEET_NAME = 'Sheet1';
 
 function doPost(e) {
   try {
-    // Parse the incoming JSON data
-    const data = JSON.parse(e.postData.contents);
+    let data;
+    
+    // Handle both JSON and form data
+    if (e.postData && e.postData.contents) {
+      // Try to parse as JSON first
+      try {
+        data = JSON.parse(e.postData.contents);
+      } catch (jsonError) {
+        // If not JSON, try to get from form data
+        if (e.parameter && e.parameter.data) {
+          data = JSON.parse(e.parameter.data);
+        } else {
+          // Use parameters directly if they exist
+          data = e.parameter || {};
+        }
+      }
+    } else if (e.parameter) {
+      // Handle form data with 'data' field containing JSON
+      if (e.parameter.data) {
+        data = JSON.parse(e.parameter.data);
+      } else {
+        // Use parameters directly
+        data = e.parameter;
+      }
+    } else {
+      return ContentService.createTextOutput(JSON.stringify({
+        success: false,
+        error: 'No data received'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
     
     // Open the spreadsheet by ID
     const spreadsheetId = '1JAJh_uGHo6VBHtWtiiOMzWc0zTnSNX7DPKvbl5e2r68';
@@ -76,8 +104,16 @@ function doPost(e) {
       }
     });
     
+    // Log the data being processed (for debugging - check Apps Script execution log)
+    Logger.log('Received data: ' + JSON.stringify(data));
+    Logger.log('Headers: ' + JSON.stringify(headers));
+    Logger.log('Row data: ' + JSON.stringify(rowData));
+    
     // Append the row to the sheet
     sheet.appendRow(rowData);
+    
+    // Log success
+    Logger.log('Row appended successfully');
     
     // Return success response
     return ContentService.createTextOutput(JSON.stringify({
@@ -86,10 +122,15 @@ function doPost(e) {
     })).setMimeType(ContentService.MimeType.JSON);
     
   } catch (error) {
+    // Log error details
+    Logger.log('Error: ' + error.toString());
+    Logger.log('Stack: ' + error.stack);
+    
     // Return error response
     return ContentService.createTextOutput(JSON.stringify({
       success: false,
-      error: error.toString()
+      error: error.toString(),
+      stack: error.stack
     })).setMimeType(ContentService.MimeType.JSON);
   }
 }
