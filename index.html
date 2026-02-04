@@ -1625,19 +1625,7 @@
         if (content) {
           const isActive = content.classList.contains('active');
           
-          // Close all other expandable sections
-          document.querySelectorAll('.pricing-expand-content').forEach(expanded => {
-            if (expanded !== content) {
-              expanded.classList.remove('active');
-              const otherToggle = expanded.previousElementSibling;
-              if (otherToggle && otherToggle.classList.contains('pricing-expand-toggle')) {
-                otherToggle.classList.remove('active');
-                otherToggle.textContent = 'What\'s Included';
-              }
-            }
-          });
-          
-          // Toggle current section
+          // Toggle current section only (allow multiple sections to be open)
           if (isActive) {
             content.classList.remove('active');
             this.classList.remove('active');
