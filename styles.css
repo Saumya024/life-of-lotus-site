@@ -3869,11 +3869,17 @@ section {
     box-sizing: border-box !important;
   }
   
+  .birth-details-block {
+    padding: 24px 20px;
+  }
+  
   .birth-details-block .field input[type="date"],
   .birth-details-block .field input[type="time"] {
     width: 100% !important;
     max-width: 100% !important;
     box-sizing: border-box !important;
+    padding: 12px 14px !important;
+    padding-right: 36px !important;
   }
   
   /* Additional charts wrapper and blocks - full width on mobile */
@@ -3890,6 +3896,7 @@ section {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    padding: 24px 20px;
   }
   
   .additional-chart-block .field {
@@ -3915,6 +3922,8 @@ section {
     max-width: 100% !important;
     display: block !important;
     box-sizing: border-box !important;
+    padding: 12px 14px !important;
+    padding-right: 36px !important;
   }
 
   /* Mobile Date and Time Input Fixes - Native Appearance Preserved */
@@ -3922,10 +3931,9 @@ section {
   .field input[type="time"] {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 12px 16px !important;
-    padding-right: 40px !important; /* Space for native calendar/time picker icon */
+    padding: 12px 14px !important;
+    padding-right: 36px !important; /* Space for native calendar/time picker icon */
     box-sizing: border-box !important;
-    overflow: hidden !important;
     border: 1px solid rgba(67, 16, 57, 0.2) !important;
     border-radius: 8px !important;
     font-family: 'Brygada 1918', serif !important;
