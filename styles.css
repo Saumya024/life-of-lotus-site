@@ -3444,8 +3444,20 @@ section {
   }
 
   .areas-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .area-item {
+    padding: 24px 16px;
+  }
+
+  .area-title {
+    font-size: 15px;
+  }
+
+  .area-detail {
+    font-size: 13px;
   }
 
   .pricing-grid,
