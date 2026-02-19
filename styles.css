@@ -2715,7 +2715,7 @@ section {
 
 .intake-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 2fr;
   gap: 32px;
   margin-bottom: 48px;
 }
@@ -2735,6 +2735,33 @@ section {
   border: none;
   padding: 0;
   box-shadow: none;
+}
+
+.intake-section-personal {
+  grid-column: 2;
+}
+
+/* Birth Details Section: Full-width at bottom, styled like additional charts */
+.birth-details-section {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 48px;
+  box-sizing: border-box;
+}
+
+.birth-details-block {
+  padding: 32px;
+  background-color: var(--white);
+  border: 1px solid rgba(67, 16, 57, 0.12);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.birth-details-block .field {
+  margin-bottom: 0;
+  width: 100%;
 }
 
 .intake-form {
@@ -2766,6 +2793,12 @@ section {
   background-color: var(--white);
   border: 1px solid rgba(67, 16, 57, 0.12);
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .additional-chart-block:first-child {
@@ -2782,9 +2815,9 @@ section {
 
 #additional-charts-wrapper {
   width: 100%;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 #additional-charts {
@@ -2821,13 +2854,34 @@ section {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 24px;
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(67, 16, 57, 0.12);
+  margin-bottom: 0;
 }
 
 .additional-chart-block .field {
-  margin-bottom: 24px;
+  margin-bottom: 0;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.additional-chart-block .field input,
+.additional-chart-block .field select,
+.additional-chart-block .field textarea,
+.additional-chart-block .field .autocomplete-wrapper {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+.additional-chart-block .field input[type="date"],
+.additional-chart-block .field input[type="time"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block !important;
 }
 
 .additional-chart-heading {
@@ -3166,14 +3220,24 @@ section {
     min-height: 88px;
   }
   
-  /* Keep intake grid at 3 columns on tablet for full-width sections */
+  /* Keep intake grid at 2 columns on tablet (package card + personal info) */
   .intake-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 2fr;
     gap: 32px;
   }
   
   .intake-section {
     min-height: auto;
+  }
+  
+  .birth-details-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .birth-details-block .field {
+    width: 100%;
   }
 
   /* Hero section: prevent planet clipping on tablet */
@@ -3705,6 +3769,59 @@ section {
   .intake-grid {
     grid-template-columns: 1fr;
     gap: 32px;
+  }
+  
+  .intake-section-personal {
+    grid-column: 1;
+  }
+  
+  .birth-details-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .birth-details-block .field {
+    width: 100%;
+  }
+  
+  /* Additional charts wrapper and blocks - full width on mobile */
+  #additional-charts-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+  
+  .additional-chart-block {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .additional-chart-block .field {
+    width: 100%;
+    display: block;
+    flex-shrink: 0;
+  }
+  
+  .additional-chart-block .field input,
+  .additional-chart-block .field select,
+  .additional-chart-block .field textarea,
+  .additional-chart-block .field .autocomplete-wrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    box-sizing: border-box !important;
+  }
+  
+  .additional-chart-block .field input[type="date"],
+  .additional-chart-block .field input[type="time"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
   }
 
   /* Mobile Date and Time Input Fixes - Native Appearance Preserved */
