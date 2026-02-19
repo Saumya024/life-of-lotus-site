@@ -3142,7 +3142,18 @@ section {
   .core-benefits-container {
     max-width: 100%;
     padding: 0;
-    gap: 120px;
+    gap: 180px;
+  }
+
+  /* Ensure all shapes are the same size in tablet view */
+  .core-benefit-block::before {
+    width: 160px;
+    height: 160px;
+  }
+
+  .core-benefit-block:hover::before {
+    width: 180px;
+    height: 180px;
   }
 }
 
