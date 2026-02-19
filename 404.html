@@ -3,20 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Practice Overview - I Read Space</title>
-  <meta name="description" content="Practice overview of healing practices from I Read Space." />
-  <link rel="canonical" href="https://lifeoflotus.in/practice-overview" />
-
+  <title>404 - Lost in the Cosmos | I Read Space</title>
+  <meta name="description" content="Page not found. Return to I Read Space for Vedic astrology consultations." />
+  
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
   <link rel="apple-touch-icon" href="assets/images/Radicle (4).png">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Practice Overview - I Read Space" />
-  <meta property="og:description" content="Practice overview of healing practices." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://lifeoflotus.in/practice-overview" />
-  <meta property="og:image" content="https://lifeoflotus.in/assets/images/lotus%20image.webp" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
@@ -24,14 +16,13 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
   <!-- Header -->
   <header class="header">
     <div class="logo">
       <a href="index.html"><img src="assets/images/22.png" alt="I Read Space" /></a>
-      </div>
+    </div>
     <div class="header-mobile-actions">
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
@@ -43,13 +34,12 @@
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="index.html#pricing">Pricing</a>
-        <a href="index.html#areas">Services</a>
+      <a href="index.html#areas">Services</a>
       <a href="insights.html">Insights</a>
       <div class="nav-dropdown">
         <span class="nav-dropdown-toggle">Healing</span>
         <div class="nav-dropdown-menu">
           <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="practitioner-listings.html">Practitioner Listings</a>
           <a href="reading-viewing.html">Reading & Viewing</a>
         </div>
       </div>
@@ -59,14 +49,13 @@
     </nav>
   </header>
 
-  <!-- Practice Overview Section -->
-  <section class="healing-practices">
-    <div class="healing-practices-container">
-      <h1>Practice Overview</h1>
-      
-      <div class="healing-content">
-        <!-- Content will be added here -->
-      </div>
+  <!-- 404 Section -->
+  <section class="error-404" style="min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 120px 40px; text-align: center; background-color: var(--cream-white);">
+    <div style="max-width: 600px;">
+      <h1 style="font-size: 72px; font-weight: 500; color: var(--primary); margin-bottom: 16px; font-family: 'Brygada 1918', serif;">404</h1>
+      <h2 style="font-size: 32px; font-weight: 500; color: var(--primary); margin-bottom: 24px; font-family: 'Brygada 1918', serif;">Lost in the cosmos</h2>
+      <p style="font-size: 18px; color: var(--primary-light); margin-bottom: 48px; line-height: 1.7; font-family: 'Comfortaa', sans-serif;">You've drifted past the edge of our galaxy. There's nothing here but stardust and silence.</p>
+      <a href="index.html" class="error-404-cta" style="display: inline-block; padding: 16px 32px; border: 2px solid var(--primary); color: var(--primary); text-decoration: none; border-radius: 8px; font-family: 'Brygada 1918', serif; font-size: 16px; font-weight: 500; transition: all 0.3s ease;">Exit the black hole</a>
     </div>
   </section>
 
@@ -74,7 +63,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="assets/images/23.png" alt="I Read Space" />
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -109,24 +98,16 @@
         const toggle = dropdown.querySelector('.nav-dropdown-toggle');
         if (toggle) {
           toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-              e.preventDefault();
-              dropdown.classList.toggle('active');
-              dropdowns.forEach(other => {
-                if (other !== dropdown) other.classList.remove('active');
-              });
-            }
+            e.stopPropagation();
+            this.parentElement.classList.toggle('active');
           });
         }
       });
-      document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && !e.target.closest('.nav-dropdown')) {
-          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-        }
+      document.addEventListener('click', function() {
+        document.querySelectorAll('.nav-dropdown').forEach(dropdown => dropdown.classList.remove('active'));
       });
     });
   </script>
 
 </body>
 </html>
-

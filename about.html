@@ -114,12 +114,12 @@
   <!-- About Section 1: What You Can Expect -->
   <section class="about-section about-section-1 collapsible-section">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="true" aria-controls="about-section-content-1">
         <h2>What You Can Expect from a Session</h2>
         <span class="toggle-icon">▼</span>
       </button>
       
-      <div class="about-section-content">
+      <div class="about-section-content" id="about-section-content-1">
         <p>A consultation addresses questions people often struggle to resolve on their own: whether to change jobs now or wait, why the same relationship dynamics repeat despite new partners, why family pressure intensifies at certain ages, or why health issues flare during specific periods.</p>
         
         <p>Sessions are collaborative. I work with you to make sense of what you're experiencing. You're encouraged to ask questions, challenge interpretations, and engage actively rather than receive answers passively.</p>
@@ -134,12 +134,12 @@
   <!-- About Section 2: My Path to Astrology -->
   <section class="about-section about-section-2 collapsible-section">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="true" aria-controls="about-section-content-2">
         <h2>My Path to Astrology</h2>
         <span class="toggle-icon">▼</span>
       </button>
       
-      <div class="about-section-content">
+      <div class="about-section-content" id="about-section-content-2">
         <p>I didn't come to Vedic astrology as an intellectual pursuit. I came because the same questions kept repeating in my own life, and conventional answers stopped working.</p>
         
         <p>Loss, prolonged uncertainty, and periods of internal conflict shaped important phases of my life. During those years, decisions felt heavier than situations warranted. Relationships carried familiar tensions despite changing circumstances. I kept wondering: <em>why does this keep happening?</em></p>
@@ -154,7 +154,7 @@
   </section>
 
   <!-- About Section 3: What Is Vedic Astrology -->
-  <section class="about-section about-section-3 collapsible-section">
+  <section class="about-section about-section-3 collapsible-section" id="what-is-vedic-astrology">
     <div class="about-content">
       <button class="about-section-toggle" aria-label="Toggle section">
         <h2>What Is Vedic Astrology</h2>
@@ -176,12 +176,12 @@
   <!-- About Section 4: How I Practice -->
   <section class="about-section about-section-4 collapsible-section">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-4">
         <h2>How I Practice</h2>
         <span class="toggle-icon">▼</span>
       </button>
       
-      <div class="about-section-content">
+      <div class="about-section-content" id="about-section-content-4">
         <p>My work focuses on identifying patterns that repeat unless addressed, periods when life pushes for change, and phases where restraint prevents damage.</p>
         
         <p>I use <a href="insights/planetary-remedies.html" style="color: inherit; text-decoration: underline;">planetary periods</a>, transits, and focused question-based techniques to understand what's likely to unfold, how intensely it may express, and what response reduces unnecessary loss. Charts point to specific periods, triggers, and outcomes, not just themes. This allows people to prepare rather than react.</p>
@@ -198,12 +198,12 @@
   <!-- About Section 5: The Lens I Bring -->
   <section class="about-section about-section-5 collapsible-section">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-5">
         <h2>The Lens I Bring</h2>
         <span class="toggle-icon">▼</span>
       </button>
       
-      <div class="about-section-content">
+      <div class="about-section-content" id="about-section-content-5">
         <p>My approach is shaped by how I've lived and worked.</p>
         
         <p>Years in product management trained me to evaluate trade-offs, long-term consequences, and imperfect decisions made under pressure. Training in social sciences and business deepened my understanding of power dynamics, emotional conditioning, and behavioural patterns. Over a decade of Vipassana practice strengthened my ability to observe without reacting and to sit with complexity without forcing answers.</p>
@@ -261,7 +261,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="assets/images/23.png" alt="I Read Space" />
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -384,7 +384,10 @@
         if (toggle) {
           toggle.addEventListener('click', function() {
             if (window.innerWidth <= 768) {
+              const isCollapsed = section.classList.contains('collapsed');
               section.classList.toggle('collapsed');
+              // Update aria-expanded attribute
+              toggle.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
             }
           });
         }
@@ -399,6 +402,8 @@
             // On desktop, expand all sections
             collapsibleSections.forEach(section => {
               section.classList.remove('collapsed');
+              const toggle = section.querySelector('.about-section-toggle');
+              if (toggle) toggle.setAttribute('aria-expanded', 'true');
             });
           } else {
             // On mobile, collapse sections 3, 4, 5
@@ -407,6 +412,8 @@
                   section.classList.contains('about-section-4') || 
                   section.classList.contains('about-section-5')) {
                 section.classList.add('collapsed');
+                const toggle = section.querySelector('.about-section-toggle');
+                if (toggle) toggle.setAttribute('aria-expanded', 'false');
               } else {
                 section.classList.remove('collapsed');
               }
