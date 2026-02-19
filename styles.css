@@ -2762,6 +2762,24 @@ section {
 .birth-details-block .field {
   margin-bottom: 0;
   width: 100%;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+.birth-details-block .field input,
+.birth-details-block .field select,
+.birth-details-block .field textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.birth-details-block .field input[type="date"],
+.birth-details-block .field input[type="time"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  overflow: hidden;
 }
 
 .intake-form {
@@ -2799,6 +2817,7 @@ section {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .additional-chart-block:first-child {
@@ -2862,9 +2881,11 @@ section {
 .additional-chart-block .field {
   margin-bottom: 0;
   width: 100%;
+  min-width: 0;
   display: block;
   box-sizing: border-box;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .additional-chart-block .field input,
@@ -2882,6 +2903,8 @@ section {
   width: 100% !important;
   max-width: 100% !important;
   display: block !important;
+  box-sizing: border-box !important;
+  overflow: hidden;
 }
 
 .additional-chart-heading {
@@ -2926,11 +2949,13 @@ section {
 .field select,
 .field textarea {
   width: 100%;
+  max-width: 100%;
   padding: 12px 16px;
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
   font-family: 'Brygada 1918', serif;
   font-size: 16px;
+  box-sizing: border-box;
   color: var(--primary);
   background-color: var(--white);
 }
@@ -2982,11 +3007,13 @@ section {
 .field input[type="date"],
 .field input[type="time"] {
   width: 100%;
+  max-width: 100%;
   box-sizing: border-box;
   padding: 12px 16px;
   padding-right: 40px; /* Space for native calendar/time picker icon */
   height: auto;
   min-height: 44px;
+  overflow: hidden;
 }
 
 .field input[type="date"].required-empty,
@@ -3234,10 +3261,29 @@ section {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    overflow: hidden;
   }
   
   .birth-details-block .field {
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+  
+  .birth-details-block .field input,
+  .birth-details-block .field select,
+  .birth-details-block .field textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .birth-details-block .field input[type="date"],
+  .birth-details-block .field input[type="time"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   /* Hero section: prevent planet clipping on tablet */
@@ -3781,8 +3827,30 @@ section {
     gap: 24px;
   }
   
+  .birth-details-block {
+    overflow: hidden;
+  }
+  
   .birth-details-block .field {
     width: 100%;
+    min-width: 0;
+    overflow: hidden;
+  }
+  
+  .birth-details-block .field input,
+  .birth-details-block .field select,
+  .birth-details-block .field textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .birth-details-block .field input[type="date"],
+  .birth-details-block .field input[type="time"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
   
   /* Additional charts wrapper and blocks - full width on mobile */
@@ -3799,12 +3867,15 @@ section {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
+    overflow: hidden;
   }
   
   .additional-chart-block .field {
     width: 100%;
+    min-width: 0;
     display: block;
     flex-shrink: 0;
+    overflow: hidden;
   }
   
   .additional-chart-block .field input,
@@ -3822,6 +3893,8 @@ section {
     width: 100% !important;
     max-width: 100% !important;
     display: block !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
   }
 
   /* Mobile Date and Time Input Fixes - Native Appearance Preserved */
@@ -3832,6 +3905,7 @@ section {
     padding: 12px 16px !important;
     padding-right: 40px !important; /* Space for native calendar/time picker icon */
     box-sizing: border-box !important;
+    overflow: hidden !important;
     border: 1px solid rgba(67, 16, 57, 0.2) !important;
     border-radius: 8px !important;
     font-family: 'Brygada 1918', serif !important;
