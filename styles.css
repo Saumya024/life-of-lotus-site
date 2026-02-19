@@ -633,6 +633,12 @@ section {
   align-items: center;
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
 .logo img {
   height: 150px;
   width: auto;
