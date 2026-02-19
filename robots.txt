@@ -1,11 +1,11 @@
 # robots.txt for I Read Space
-# https://lifeoflotus.in
+# https://ireadspace.com
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://lifeoflotus.in/sitemap.xml
+Sitemap: https://ireadspace.com/sitemap.xml
 
 # Disallow admin/utility pages
 Disallow: /login.html

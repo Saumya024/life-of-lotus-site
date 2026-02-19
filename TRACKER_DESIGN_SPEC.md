@@ -64,7 +64,7 @@ A printable A4 tracker for the Night & Morning Rituals program. Users print this
 │  Reflection: ___________________________│  Reflection: __________________________   │
 │                                                                                     │
 ├─────────────────────────────────────────────────────────────────────────────────────┤
-│  ☾ = Night ritual complete    ☀ = Morning ritual complete    lifeoflotus.in        │
+│  ☾ = Night ritual complete    ☀ = Morning ritual complete    ireadspace.com        │
 └─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -123,7 +123,7 @@ These can appear as very light watermarks or small text under each week label.
 ### Footer Section
 - **Legend:** "☾ = Night ritual complete    ☀ = Morning ritual complete"
   - Comfortaa, 9pt, #431039 at 70%
-- **URL:** "lifeoflotus.in"
+- **URL:** "ireadspace.com"
   - Comfortaa, 8pt, #40c0c5
   - Right-aligned
 
@@ -173,7 +173,7 @@ Week 4: What do I want to carry forward?
 After 30 days, ask yourself:
 "What has changed?"
 
-lifeoflotus.in
+ireadspace.com
 ```
 
 ---
