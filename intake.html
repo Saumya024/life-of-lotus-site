@@ -60,7 +60,7 @@
                 <button type="button" class="toggle-btn active" data-type="audio">Audio</button>
                 <button type="button" class="toggle-btn" data-type="video">Video</button>
               </div>
-              <div class="pricing-price" data-audio-price="₹1,800" data-video-price="₹2,000">₹1,800</div>
+              <div class="pricing-price" data-audio-price="₹2,100" data-video-price="₹2,400">₹2,100</div>
               <div class="pricing-details">
                 <div class="pricing-detail-item">Up to 3 related topics allowed</div>
                 <div class="pricing-detail-item">2 charts covered</div>
@@ -74,8 +74,8 @@
                 <button type="button" class="toggle-btn active" data-type="audio">Audio</button>
                 <button type="button" class="toggle-btn" data-type="video">Video</button>
               </div>
-              <div class="package-original-price" data-audio-original="₹5,400" data-video-original="₹6,000">₹5,400</div>
-              <div class="package-price" data-audio-price="₹4,800" data-video-price="₹5,400">₹4,800</div>
+              <div class="package-original-price" data-audio-original="₹6,300" data-video-original="₹7,200">₹6,300</div>
+              <div class="package-price" data-audio-price="₹5,700" data-video-price="₹6,600">₹5,700</div>
               <div class="package-savings" data-audio-savings="Save ₹600" data-video-savings="Save ₹600">Save ₹600</div>
               <div class="package-note">No expiry on sessions.</div>
             </div>
@@ -137,6 +137,17 @@
             </div>
           </div>
       </div>
+
+        <!-- Add a chart: full-width, centered button (not in grid) -->
+        <div class="add-chart-cta-wrap" id="add-chart-area" style="display: none;">
+          <button type="button" class="add-chart-btn" id="add-chart-btn-1">Add a chart</button>
+        </div>
+        <div id="additional-charts-wrapper" style="display: none;">
+          <div id="additional-charts"></div>
+          <div class="add-chart-cta-wrap" id="add-chart-btn-2-wrap" style="display: none;">
+            <button type="button" class="add-chart-btn" id="add-chart-btn-2">Add a chart</button>
+          </div>
+        </div>
   
         <!-- Optional Section -->
         <div class="intake-optional">
@@ -250,8 +261,8 @@
         duration: '30-Minutes',
         name: 'Quick Clarity',
         bestFor: 'Follow-up sessions | Focused queries | Quick clarity',
-        audioPrice: '₹900',
-        videoPrice: '₹1,100',
+        audioPrice: '₹1,200',
+        videoPrice: '₹1,500',
         details: [
           '1 key topic allowed',
           '1 chart covered'
@@ -261,8 +272,8 @@
         duration: '60-Minutes',
         name: 'Deep Insight',
         bestFor: 'Root-cause analysis | First-time consultations',
-        audioPrice: '₹1,800',
-        videoPrice: '₹2,000',
+        audioPrice: '₹2,100',
+        videoPrice: '₹2,400',
         details: [
           'Up to 3 related topics allowed',
           '2 charts covered'
@@ -272,8 +283,8 @@
         duration: '90-Minutes',
         name: 'Holistic Guidance',
         bestFor: 'In-depth life themes | Remedies & planning',
-        audioPrice: '₹2,700',
-        videoPrice: '₹2,900',
+        audioPrice: '₹3,000',
+        videoPrice: '₹3,300',
         details: [
           'Multiple life areas allowed',
           'Multiple charts covered'
@@ -286,30 +297,30 @@
       30: {
         duration: '30-Minutes',
         name: 'Quick Clarity',
-        audioOriginal: '₹2,700',
-        videoOriginal: '₹3,300',
-        audioPrice: '₹2,400',
-        videoPrice: '₹3,000',
+        audioOriginal: '₹3,600',
+        videoOriginal: '₹4,500',
+        audioPrice: '₹3,300',
+        videoPrice: '₹4,200',
         audioSavings: 'Save ₹300',
         videoSavings: 'Save ₹300'
       },
       60: {
         duration: '60-Minutes',
         name: 'Deep Insight',
-        audioOriginal: '₹5,400',
-        videoOriginal: '₹6,000',
-        audioPrice: '₹4,800',
-        videoPrice: '₹5,400',
+        audioOriginal: '₹6,300',
+        videoOriginal: '₹7,200',
+        audioPrice: '₹5,700',
+        videoPrice: '₹6,600',
         audioSavings: 'Save ₹600',
         videoSavings: 'Save ₹600'
       },
       90: {
         duration: '90-Minutes',
         name: 'Holistic Guidance',
-        audioOriginal: '₹8,100',
-        videoOriginal: '₹8,700',
-        audioPrice: '₹7,200',
-        videoPrice: '₹7,800',
+        audioOriginal: '₹9,000',
+        videoOriginal: '₹9,900',
+        audioPrice: '₹8,100',
+        videoPrice: '₹9,000',
         audioSavings: 'Save ₹900',
         videoSavings: 'Save ₹900'
       }
@@ -428,6 +439,98 @@
       });
     }
 
+    // Create one additional chart block (Name, Date, Time, Place only) with close option
+    function createAdditionalChartBlock(chartNum, duration) {
+      const prefix = 'chart' + chartNum;
+      const today = new Date().toISOString().split('T')[0];
+      const block = document.createElement('div');
+      block.className = 'additional-chart-block';
+      block.setAttribute('data-chart-index', chartNum);
+      block.innerHTML =
+        '<div class="additional-chart-block-header">' +
+        '<h4 class="additional-chart-heading">Chart ' + chartNum + '</h4>' +
+        '<button type="button" class="additional-chart-close" aria-label="Remove this chart">Remove</button>' +
+        '</div>' +
+        '<div class="field"><label>Name *</label><input type="text" name="' + prefix + '_name" required /></div>' +
+        '<div class="field"><label>Date of Birth *</label><input type="date" name="' + prefix + '_dob" required id="' + prefix + '-dob" max="' + today + '" /><span class="field-error" id="' + prefix + '-dob-error"></span></div>' +
+        '<div class="field"><label>Time of Birth *</label><input type="time" name="' + prefix + '_tob" required /></div>' +
+        '<div class="field"><label>Place of Birth *</label><div class="autocomplete-wrapper">' +
+        '<input type="text" name="' + prefix + '_pob" id="' + prefix + '-pob" class="place-of-birth-input" autocomplete="off" required />' +
+        '<div class="autocomplete-suggestions" id="place-suggestions-' + chartNum + '"></div></div></div>';
+      const closeBtn = block.querySelector('.additional-chart-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          block.remove();
+          updateAddChartButtonsAfterRemove(duration);
+        });
+      }
+      return block;
+    }
+
+    function initPlaceAutocompleteForBlock(block) {
+      const input = block.querySelector('.place-of-birth-input');
+      const chartNum = input && input.name.match(/chart(\d+)/)?.[1];
+      const suggestionsEl = chartNum ? document.getElementById('place-suggestions-' + chartNum) : null;
+      if (input && suggestionsEl) initPlaceAutocomplete(input, suggestionsEl);
+    }
+
+    function updateAddChartButtonsAfterRemove(duration) {
+      const addChartArea = document.getElementById('add-chart-area');
+      const btn2Wrap = document.getElementById('add-chart-btn-2-wrap');
+      const container = document.getElementById('additional-charts');
+      if (!container) return;
+      const remaining = container.querySelectorAll('.additional-chart-block').length;
+      if (remaining === 0) {
+        if (addChartArea) addChartArea.style.display = 'block';
+        if (btn2Wrap) btn2Wrap.style.display = 'none';
+      } else if (remaining === 1 && duration === 90 && btn2Wrap) {
+        btn2Wrap.style.display = 'block';
+      }
+    }
+
+    // 60 min: one "Add a chart" button below main form. 90 min: first button below main, second button below first added block.
+    function setupAddChartButtons(duration) {
+      const addChartArea = document.getElementById('add-chart-area');
+      const wrapper = document.getElementById('additional-charts-wrapper');
+      const container = document.getElementById('additional-charts');
+      const btn2Wrap = document.getElementById('add-chart-btn-2-wrap');
+      if (!addChartArea || !wrapper || !container || !btn2Wrap) return;
+
+      container.innerHTML = '';
+      btn2Wrap.style.display = 'none';
+
+      if (duration === 30) {
+        addChartArea.style.display = 'none';
+        wrapper.style.display = 'none';
+        return;
+      }
+
+      addChartArea.style.display = 'block';
+      wrapper.style.display = 'block';
+
+      const btn1 = document.getElementById('add-chart-btn-1');
+      const btn2 = document.getElementById('add-chart-btn-2');
+
+      if (btn1) {
+        btn1.onclick = function() {
+          const block = createAdditionalChartBlock(2, duration);
+          container.appendChild(block);
+          initPlaceAutocompleteForBlock(block);
+          addChartArea.style.display = 'none';
+          if (duration === 90 && btn2Wrap) btn2Wrap.style.display = 'block';
+        };
+      }
+
+      if (btn2) {
+        btn2.onclick = function() {
+          const block = createAdditionalChartBlock(3, duration);
+          container.appendChild(block);
+          initPlaceAutocompleteForBlock(block);
+          btn2Wrap.style.display = 'none';
+        };
+      }
+    }
+
     // Initialize page based on URL parameters
     // Ensure DOM is ready before updating
     function initializeCard() {
@@ -451,6 +554,8 @@
           updatePricingCard(duration);
         }
       }
+
+      setupAddChartButtons(duration);
     }
 
     if (document.readyState === 'loading') {
@@ -665,6 +770,10 @@
       clearError('phone');
       clearError('dob');
       clearError('unclear');
+      document.querySelectorAll('#additional-charts .field-error').forEach(function(el) {
+        el.textContent = '';
+        el.style.display = 'none';
+      });
       
       // Validate form first
       const form = document.getElementById('intake-form');
@@ -722,6 +831,23 @@
       const tob = formData.get('tob');
       const pob = formData.get('pob');
       const area = formData.get('area');
+
+      // Validate additional chart blocks when user has added any
+      const additionalCharts = form.querySelectorAll('.additional-chart-block');
+      for (let i = 0; i < additionalCharts.length; i++) {
+        const block = additionalCharts[i];
+        const dobInput = block.querySelector('input[type="date"]');
+        if (dobInput && dobInput.value && !validateDateOfBirth(dobInput.value)) {
+          const prefix = dobInput.name.replace('_dob', '');
+          showError(prefix + '-dob', 'Date of birth cannot be in the future');
+          dobInput.focus();
+          return;
+        }
+      }
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
       
       // Get session type (audio/video) from active toggle button
       const activeToggle = document.querySelector('.toggle-btn.active');
@@ -763,6 +889,18 @@
             duration: duration.toString(),
             isPackage: isPackage
           };
+          if (formData.get('chart2_name')) {
+            submissionData.chart2_name = formData.get('chart2_name') || '';
+            submissionData.chart2_dob = formData.get('chart2_dob') || '';
+            submissionData.chart2_tob = formData.get('chart2_tob') || '';
+            submissionData.chart2_pob = formData.get('chart2_pob') || '';
+          }
+          if (formData.get('chart3_name')) {
+            submissionData.chart3_name = formData.get('chart3_name') || '';
+            submissionData.chart3_dob = formData.get('chart3_dob') || '';
+            submissionData.chart3_tob = formData.get('chart3_tob') || '';
+            submissionData.chart3_pob = formData.get('chart3_pob') || '';
+          }
           
           // Log for debugging
           console.log('Submitting to Google Sheets:', submissionData);
@@ -893,102 +1031,67 @@
       }
     });
 
-    // Place of Birth Autocomplete using Nominatim (OpenStreetMap)
-    (function() {
-      const input = document.getElementById('place-of-birth');
-      const suggestionsContainer = document.getElementById('place-suggestions');
+    // Place of Birth Autocomplete using Nominatim (OpenStreetMap) – reusable for main and additional charts
+    function initPlaceAutocomplete(input, suggestionsContainer) {
+      if (!input || !suggestionsContainer) return;
       let debounceTimer;
       let currentSuggestions = [];
       let selectedIndex = -1;
 
-      if (!input || !suggestionsContainer) return;
-
-      // Fetch suggestions from Nominatim API
       function fetchSuggestions(query) {
         if (query.length < 2) {
           suggestionsContainer.innerHTML = '';
           suggestionsContainer.style.display = 'none';
           return;
         }
-
-        // Use Nominatim API (free, no API key required)
         const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5&addressdetails=1`;
-        
-        fetch(url, {
-          headers: {
-            'User-Agent': 'I Read Space Website'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          currentSuggestions = data;
-          displaySuggestions(data);
-        })
-        .catch(error => {
-          console.error('Error fetching location suggestions:', error);
-          suggestionsContainer.innerHTML = '';
-          suggestionsContainer.style.display = 'none';
-        });
+        fetch(url, { headers: { 'User-Agent': 'I Read Space Website' } })
+          .then(response => response.json())
+          .then(data => {
+            currentSuggestions = data;
+            suggestionsContainer.innerHTML = data.length === 0 ? '' : data.map((place, index) => {
+              const displayName = place.display_name.split(',')[0] + ', ' +
+                (place.address?.city || place.address?.town || place.address?.village || place.address?.state || place.address?.country || '');
+              return `<div class="autocomplete-suggestion" data-index="${index}" data-place="${place.display_name}">${displayName}</div>`;
+            }).join('');
+            suggestionsContainer.style.display = data.length === 0 ? 'none' : 'block';
+            selectedIndex = -1;
+          })
+          .catch(() => {
+            suggestionsContainer.innerHTML = '';
+            suggestionsContainer.style.display = 'none';
+          });
       }
 
-      // Display suggestions
-      function displaySuggestions(suggestions) {
-        if (suggestions.length === 0) {
-          suggestionsContainer.innerHTML = '';
-          suggestionsContainer.style.display = 'none';
-          return;
-        }
-
-        suggestionsContainer.innerHTML = suggestions.map((place, index) => {
-          const displayName = place.display_name.split(',')[0] + ', ' + 
-                             (place.address?.city || place.address?.town || place.address?.village || place.address?.state || place.address?.country || '');
-          return `<div class="autocomplete-suggestion" data-index="${index}" data-place="${place.display_name}">${displayName}</div>`;
-        }).join('');
-
-        suggestionsContainer.style.display = 'block';
-        selectedIndex = -1;
-      }
-
-      // Handle input typing with debounce
-      input.addEventListener('input', function(e) {
+      input.addEventListener('input', function() {
         clearTimeout(debounceTimer);
-        const query = e.target.value.trim();
-        
-        debounceTimer = setTimeout(() => {
-          fetchSuggestions(query);
-        }, 300);
+        debounceTimer = setTimeout(() => fetchSuggestions(this.value.trim()), 300);
       });
 
-      // Handle suggestion click
       suggestionsContainer.addEventListener('click', function(e) {
         const suggestion = e.target.closest('.autocomplete-suggestion');
         if (suggestion) {
-          const placeName = suggestion.getAttribute('data-place');
-          input.value = placeName;
+          input.value = suggestion.getAttribute('data-place');
           suggestionsContainer.innerHTML = '';
           suggestionsContainer.style.display = 'none';
           input.focus();
         }
       });
 
-      // Handle keyboard navigation
       input.addEventListener('keydown', function(e) {
-        if (suggestionsContainer.style.display === 'none' || currentSuggestions.length === 0) {
-          return;
-        }
-
+        if (suggestionsContainer.style.display === 'none' || currentSuggestions.length === 0) return;
         if (e.key === 'ArrowDown') {
           e.preventDefault();
           selectedIndex = Math.min(selectedIndex + 1, currentSuggestions.length - 1);
-          updateSelectedSuggestion();
+          suggestionsContainer.querySelectorAll('.autocomplete-suggestion').forEach((el, i) => { el.classList.toggle('selected', i === selectedIndex); });
+          if (selectedIndex >= 0) suggestionsContainer.querySelectorAll('.autocomplete-suggestion')[selectedIndex]?.scrollIntoView({ block: 'nearest' });
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
           selectedIndex = Math.max(selectedIndex - 1, -1);
-          updateSelectedSuggestion();
+          suggestionsContainer.querySelectorAll('.autocomplete-suggestion').forEach((el, i) => { el.classList.toggle('selected', i === selectedIndex); });
         } else if (e.key === 'Enter' && selectedIndex >= 0) {
           e.preventDefault();
-          const placeName = currentSuggestions[selectedIndex].display_name;
-          input.value = placeName;
+          input.value = currentSuggestions[selectedIndex].display_name;
           suggestionsContainer.innerHTML = '';
           suggestionsContainer.style.display = 'none';
         } else if (e.key === 'Escape') {
@@ -998,31 +1101,21 @@
         }
       });
 
-      function updateSelectedSuggestion() {
-        const suggestions = suggestionsContainer.querySelectorAll('.autocomplete-suggestion');
-        suggestions.forEach((suggestion, index) => {
-          if (index === selectedIndex) {
-            suggestion.classList.add('selected');
-            suggestion.scrollIntoView({ block: 'nearest' });
-          } else {
-            suggestion.classList.remove('selected');
-          }
-        });
-      }
+      input.addEventListener('blur', function() {
+        setTimeout(() => { suggestionsContainer.style.display = 'none'; }, 200);
+      });
 
-      // Close suggestions when clicking outside
-      document.addEventListener('click', function(e) {
+      document.addEventListener('click', function closeSuggestions(e) {
         if (!input.contains(e.target) && !suggestionsContainer.contains(e.target)) {
           suggestionsContainer.style.display = 'none';
         }
       });
+    }
 
-      // Hide suggestions on blur (with delay to allow clicks)
-      input.addEventListener('blur', function() {
-        setTimeout(() => {
-          suggestionsContainer.style.display = 'none';
-        }, 200);
-      });
+    (function() {
+      const input = document.getElementById('place-of-birth');
+      const suggestionsContainer = document.getElementById('place-suggestions');
+      if (input && suggestionsContainer) initPlaceAutocomplete(input, suggestionsContainer);
     })();
   </script>
 

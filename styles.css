@@ -1045,7 +1045,7 @@ section {
   z-index: 4;
   background: var(--secondary);
   color: var(--primary);
-  padding: 30px 64px;
+  padding: 27px 64px;
   border-radius: 200px;
   border: 2px solid var(--tertiary);
   text-decoration: none;
@@ -2294,6 +2294,14 @@ section {
   z-index: 3;
 }
 
+.founder-name {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--cream-white);
+  font-family: 'Brygada 1918', serif;
+}
+
 .founder-heading {
   font-size: 24px;
   margin-bottom: 40px;
@@ -2711,6 +2719,97 @@ section {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.intake-subsection-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.additional-chart-block {
+  margin-bottom: 32px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(67, 16, 57, 0.12);
+}
+
+.additional-chart-block:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Add a chart: full-width row, button centered on page (no white box) */
+.add-chart-cta-wrap {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+#additional-charts-wrapper {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-chart-btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid var(--primary);
+  border-radius: 200px;
+  background: transparent;
+  color: var(--primary);
+  font-family: 'Brygada 1918', serif;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.add-chart-btn:hover {
+  background: rgba(67, 16, 57, 0.06);
+}
+
+#add-chart-btn-2-wrap.add-chart-cta-wrap {
+  margin-top: 16px;
+}
+
+/* Additional chart block: header with Remove */
+.additional-chart-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.additional-chart-heading {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--primary);
+  margin: 0;
+  text-align: left;
+}
+
+.additional-chart-close {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border: 1px solid rgba(67, 16, 57, 0.3);
+  border-radius: 200px;
+  background: transparent;
+  color: var(--primary);
+  font-family: 'Comfortaa', sans-serif;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.additional-chart-close:hover {
+  background: rgba(67, 16, 57, 0.06);
+  border-color: var(--primary);
 }
 
 .field {
@@ -3240,7 +3339,7 @@ section {
     top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px - 5vh);
     transform: translateX(-50%);
     font-size: 24px !important;
-    padding: 26px 48px !important;
+    padding: 23px 48px !important;
     white-space: nowrap;
     box-shadow: 0 4px 12px rgba(67, 16, 57, 0.25), 0 2px 4px rgba(64, 192, 197, 0.3);
     border-width: 3px;
@@ -4041,6 +4140,7 @@ section {
 
 .about-hero-intro {
   flex: 1;
+  text-align: left;
 }
 
 .about-hero-intro h1 {
@@ -4058,6 +4158,7 @@ section {
   color: var(--tertiary);
   margin: 0 0 20px 0;
   letter-spacing: 0.5px;
+  text-align: center;
 }
 
 .about-hero-text {
@@ -4066,6 +4167,7 @@ section {
   line-height: 1.8;
   color: rgba(248, 246, 242, 0.9);
   margin: 0;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
@@ -4075,7 +4177,7 @@ section {
   
   .about-hero-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     gap: 30px;
   }
   
