@@ -3106,6 +3106,38 @@ section {
     min-width: 0;
     overflow: visible;
   }
+
+  /* Hero section: prevent planet clipping on tablet */
+  .hero {
+    overflow-x: visible;
+    overflow-y: hidden;
+  }
+
+  .hero-planets {
+    gap: 24px;
+    padding: 0 24px;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .planet-icon {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+  }
+
+  /* Core benefits section: ensure no clipping */
+  .core-benefits {
+    padding: 80px 24px;
+    overflow: visible;
+  }
+
+  .core-benefits-container {
+    max-width: 100%;
+    padding: 0;
+    gap: 120px;
+  }
 }
 
 @media (max-width: 768px) {

@@ -140,18 +140,34 @@
       <div class="faq-item">
         <button class="faq-question">How much does a consultation cost and how do I book?</button>
         <div class="faq-answer">
-          I currently offer three consultation formats:<br><br>
-          <strong>30-minute session (Quick Clarity)</strong><br>
-          ₹1,200 (Audio) / ₹1,500 (Video)<br>
-          Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.<br><br>
-          <strong>60-minute session (Deep Insight)</strong><br>
-          ₹2,100 (Audio) / ₹2,400 (Video)<br>
-          Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.<br><br>
-          <strong>90-minute session (Holistic Guidance)</strong><br>
-          ₹3,000 (Audio) / ₹3,300 (Video)<br>
-          Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.<br><br>
-          <strong>Session packages</strong><br>
-          Three-session packages are available with savings of ₹300–₹900. Sessions do not expire.<br><br>
+          <div id="faq-pricing-indian">
+            I currently offer three consultation formats:<br><br>
+            <strong>30-minute session (Quick Clarity)</strong><br>
+            ₹1,200 (Audio) / ₹1,500 (Video)<br>
+            Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.<br><br>
+            <strong>60-minute session (Deep Insight)</strong><br>
+            ₹2,100 (Audio) / ₹2,400 (Video)<br>
+            Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.<br><br>
+            <strong>90-minute session (Holistic Guidance)</strong><br>
+            ₹3,000 (Audio) / ₹3,300 (Video)<br>
+            Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.<br><br>
+            <strong>Session packages</strong><br>
+            Three-session packages are available with savings of ₹300–₹900. Sessions do not expire.<br><br>
+          </div>
+          <div id="faq-pricing-international" style="display: none;">
+            I currently offer three consultation formats:<br><br>
+            <strong>30-minute session (Quick Clarity)</strong><br>
+            $27 (Audio) / $33 (Video)<br>
+            Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.<br><br>
+            <strong>60-minute session (Deep Insight)</strong><br>
+            $54 (Audio) / $66 (Video)<br>
+            Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.<br><br>
+            <strong>90-minute session (Holistic Guidance)</strong><br>
+            $81 (Audio) / $99 (Video)<br>
+            Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.<br><br>
+            <strong>Session packages</strong><br>
+            Three-session packages are available with savings of $9–$27. Sessions do not expire.<br><br>
+          </div>
           <strong>Booking process</strong><br>
           Consultations are conducted online. To book, select your preferred session, share the required birth details, choose an available slot, and complete payment. Payment is required in advance to confirm the appointment.<br><br>
           Rescheduling is possible with 48 hours' notice. Sessions are confidential.
@@ -540,6 +556,98 @@
       }
     ]
   }
+  </script>
+
+  <script>
+    // Location-based FAQ pricing detection
+    (function() {
+      let isIndia = false;
+      let detectionMethod = 'none';
+
+      // Method 1: Try IP-based geolocation
+      async function detectLocationByIP() {
+        try {
+          const response = await fetch('https://ipapi.co/json/');
+          const data = await response.json();
+          if (data.country_code === 'IN') {
+            isIndia = true;
+            detectionMethod = 'ip';
+            return true;
+          } else if (data.country_code) {
+            isIndia = false;
+            detectionMethod = 'ip';
+            return true;
+          }
+        } catch (error) {
+          console.log('IP geolocation failed, trying fallback methods');
+          return false;
+        }
+      }
+
+      // Method 2: Check browser timezone (India Standard Time)
+      function detectLocationByTimezone() {
+        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        if (timezone === 'Asia/Kolkata') {
+          isIndia = true;
+          detectionMethod = 'timezone';
+          return true;
+        }
+        return false;
+      }
+
+      // Method 3: Check browser locale
+      function detectLocationByLocale() {
+        const locale = navigator.language || navigator.userLanguage;
+        if (locale.startsWith('en-IN') || locale.startsWith('hi-IN')) {
+          isIndia = true;
+          detectionMethod = 'locale';
+          return true;
+        }
+        return false;
+      }
+
+      // Main detection function
+      async function detectLocation() {
+        // Try IP first (most accurate)
+        const ipSuccess = await detectLocationByIP();
+        if (ipSuccess) {
+          return;
+        }
+
+        // Fallback to timezone
+        if (detectLocationByTimezone()) {
+          return;
+        }
+
+        // Fallback to locale
+        if (detectLocationByLocale()) {
+          return;
+        }
+
+        // Default to Indian pricing if all methods fail
+        isIndia = true;
+        detectionMethod = 'default';
+      }
+
+      // Show FAQ pricing by geo
+      function showFAQPricing() {
+        const faqPricingIndian = document.getElementById('faq-pricing-indian');
+        const faqPricingInternational = document.getElementById('faq-pricing-international');
+
+        if (isIndia) {
+          if (faqPricingIndian) faqPricingIndian.style.display = 'block';
+          if (faqPricingInternational) faqPricingInternational.style.display = 'none';
+        } else {
+          if (faqPricingIndian) faqPricingIndian.style.display = 'none';
+          if (faqPricingInternational) faqPricingInternational.style.display = 'block';
+        }
+      }
+
+      // Initialize
+      detectLocation().then(() => {
+        showFAQPricing();
+      });
+    })();
   </script>
 
 </body>

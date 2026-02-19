@@ -1014,18 +1014,34 @@
       <div class="faq-item">
         <button class="faq-question">How much does a consultation cost and how do I book?</button>
         <div class="faq-answer">
-          I currently offer three consultation formats:<br><br>
-          <strong>30-minute session (Quick Clarity)</strong><br>
-          ₹1,200 (Audio) / ₹1,500 (Video)<br>
-          Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.<br><br>
-          <strong>60-minute session (Deep Insight)</strong><br>
-          ₹2,100 (Audio) / ₹2,400 (Video)<br>
-          Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.<br><br>
-          <strong>90-minute session (Holistic Guidance)</strong><br>
-          ₹3,000 (Audio) / ₹3,300 (Video)<br>
-          Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.<br><br>
-          <strong>Session packages</strong><br>
-          Three-session packages are available with savings of ₹300–₹900. Sessions do not expire.<br><br>
+          <div id="faq-pricing-indian">
+            I currently offer three consultation formats:<br><br>
+            <strong>30-minute session (Quick Clarity)</strong><br>
+            ₹1,200 (Audio) / ₹1,500 (Video)<br>
+            Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.<br><br>
+            <strong>60-minute session (Deep Insight)</strong><br>
+            ₹2,100 (Audio) / ₹2,400 (Video)<br>
+            Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.<br><br>
+            <strong>90-minute session (Holistic Guidance)</strong><br>
+            ₹3,000 (Audio) / ₹3,300 (Video)<br>
+            Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.<br><br>
+            <strong>Session packages</strong><br>
+            Three-session packages are available with savings of ₹300–₹900. Sessions do not expire.<br><br>
+          </div>
+          <div id="faq-pricing-international" style="display: none;">
+            I currently offer three consultation formats:<br><br>
+            <strong>30-minute session (Quick Clarity)</strong><br>
+            $27 (Audio) / $33 (Video)<br>
+            Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.<br><br>
+            <strong>60-minute session (Deep Insight)</strong><br>
+            $54 (Audio) / $66 (Video)<br>
+            Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.<br><br>
+            <strong>90-minute session (Holistic Guidance)</strong><br>
+            $81 (Audio) / $99 (Video)<br>
+            Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.<br><br>
+            <strong>Session packages</strong><br>
+            Three-session packages are available with savings of $9–$27. Sessions do not expire.<br><br>
+          </div>
           <strong>Booking process</strong><br>
           Consultations are conducted online. To book, select your preferred session, share the required birth details, choose an available slot, and complete payment. Payment is required in advance to confirm the appointment.<br><br>
           Rescheduling is possible with 48 hours' notice. Sessions are confidential.
@@ -1175,17 +1191,23 @@
         const internationalPricing = document.getElementById('international-pricing');
         const indianPackages = document.getElementById('indian-packages');
         const internationalPackages = document.getElementById('international-packages');
+        const faqPricingIndian = document.getElementById('faq-pricing-indian');
+        const faqPricingInternational = document.getElementById('faq-pricing-international');
 
         if (isIndia) {
           if (indianPricing) indianPricing.style.display = 'grid';
           if (internationalPricing) internationalPricing.style.display = 'none';
           if (indianPackages) indianPackages.style.display = 'grid';
           if (internationalPackages) internationalPackages.style.display = 'none';
+          if (faqPricingIndian) faqPricingIndian.style.display = 'block';
+          if (faqPricingInternational) faqPricingInternational.style.display = 'none';
         } else {
           if (indianPricing) indianPricing.style.display = 'none';
           if (internationalPricing) internationalPricing.style.display = 'grid';
           if (indianPackages) indianPackages.style.display = 'none';
           if (internationalPackages) internationalPackages.style.display = 'grid';
+          if (faqPricingIndian) faqPricingIndian.style.display = 'none';
+          if (faqPricingInternational) faqPricingInternational.style.display = 'block';
         }
       }
 
