@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reset Now | Emotional Reset Tool | I Read Space</title>
+  <title>Regain Balance | Emotional Reset Tool | I Read Space</title>
   <meta name="description" content="Take a moment to reset. Guided breathing and movement exercises to help you find steadiness and clarity." />
   <link rel="canonical" href="https://ireadspace.com/reset-now" />
 
@@ -428,6 +428,66 @@
       justify-content: center;
       flex-wrap: wrap;
       margin-top: 32px;
+      border-top: none;
+    }
+
+    .anxiety-slider-container {
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .anxiety-slider-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .anxiety-slider {
+      width: 100%;
+      max-width: 400px;
+      height: 8px;
+      border-radius: 4px;
+      background: var(--primary-light);
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .anxiety-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid var(--tertiary);
+    }
+
+    .anxiety-slider::-moz-range-thumb {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--primary);
+      cursor: pointer;
+      border: 2px solid var(--tertiary);
+    }
+
+    .anxiety-labels {
+      display: flex;
+      justify-content: space-between;
+      max-width: 400px;
+      margin: 8px auto 0;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 14px;
+      color: var(--primary-light);
+    }
+
+    .anxiety-value-display {
+      font-family: 'Brygada 1918', serif;
+      font-size: 48px;
+      font-weight: 500;
+      color: var(--primary);
+      margin: 24px 0;
     }
 
     .ready-section {
@@ -522,7 +582,7 @@
       <div class="nav-dropdown">
         <span class="nav-dropdown-toggle">Practice</span>
         <div class="nav-dropdown-menu">
-          <a href="reset-now.html">Reset Now</a>
+          <a href="reset-now.html">Regain Balance</a>
         </div>
       </div>
       <a href="index.html#contact">Contact</a>
@@ -536,7 +596,7 @@
   <!-- Reset Now Page -->
   <section class="reset-now-page">
     <div class="reset-container">
-      <h1 class="reset-title">Reset Now</h1>
+      <h1 class="reset-title">Regain Balance</h1>
       <p class="reset-subtitle">How are you feeling right now?</p>
 
       <!-- Emotion Selection -->
@@ -550,6 +610,30 @@
           <div class="emotion-option" data-emotion="angry" onclick="handleEmotionClick('angry')">Angry</div>
           <div class="emotion-option" data-emotion="guilty" onclick="handleEmotionClick('guilty')">Guilty</div>
           <div class="emotion-option" data-emotion="self-doubt" onclick="handleEmotionClick('self-doubt')">Self Doubt</div>
+        </div>
+      </div>
+
+      <!-- Initial Anxiety Level -->
+      <div id="initial-anxiety-level" class="reset-content">
+        <div class="reset-step">
+          <h3>Rate your anxiety level</h3>
+          <p>On a scale of 1 to 10, how anxious are you feeling right now?</p>
+          <div class="anxiety-slider-container">
+            <div class="anxiety-slider-wrapper">
+              <input type="range" id="initial-anxiety-slider" min="1" max="10" value="10" class="anxiety-slider" style="direction: rtl;">
+              <div class="anxiety-labels">
+                <span>10</span>
+                <span>5</span>
+                <span>1</span>
+              </div>
+            </div>
+            <div class="anxiety-value-display">
+              <span id="initial-anxiety-value">10</span>
+            </div>
+          </div>
+          <div class="ready-section">
+            <button class="action-button" id="continue-after-anxiety">Continue</button>
+          </div>
         </div>
       </div>
 
@@ -726,14 +810,26 @@
         </div>
       </div>
 
-      <!-- Final Check -->
-      <div id="final-check" class="reset-content">
+      <!-- Final Anxiety Level -->
+      <div id="final-anxiety-level" class="reset-content">
         <div class="reset-step">
-          <h3>Feel Better?</h3>
-          <p>Take a moment to notice how you feel now compared to when you started.</p>
-          <div class="yes-no-buttons">
-            <button class="action-button yes-no-button" id="yes-feel-better">Yes</button>
-            <button class="action-button yes-no-button" id="no-feel-better">No</button>
+          <h3>Rate your anxiety level now</h3>
+          <p>On a scale of 1 to 10, how anxious are you feeling now?</p>
+          <div class="anxiety-slider-container">
+            <div class="anxiety-slider-wrapper">
+              <input type="range" id="final-anxiety-slider" min="1" max="10" value="10" class="anxiety-slider" style="direction: rtl;">
+              <div class="anxiety-labels">
+                <span>10</span>
+                <span>5</span>
+                <span>1</span>
+              </div>
+            </div>
+            <div class="anxiety-value-display">
+              <span id="final-anxiety-value">10</span>
+            </div>
+          </div>
+          <div class="ready-section">
+            <button class="action-button" id="submit-final-anxiety">Continue</button>
           </div>
         </div>
       </div>
@@ -741,20 +837,20 @@
       <!-- Final Messages -->
       <div id="final-message-no" class="reset-content">
         <div class="reset-step">
-          <p class="final-message">Sometimes emotions require deeper restructuring.</p>
+          <p class="final-message">Sometimes a feeling needs more than a quick reset.</p>
+          <p class="final-message">It may be asking for deeper work and alignment.</p>
           <div class="cta-buttons">
             <a href="index.html#pricing" class="action-button">Book a Session</a>
-            <a href="#" class="action-button secondary" id="daily-sun-training">Begin Daily Sun Training</a>
           </div>
         </div>
       </div>
 
       <div id="final-message-yes" class="reset-content">
         <div class="reset-step">
-          <p class="final-message">Great! You are more powerful than you think. If these patterns repeat, consider deeper restructuring.</p>
+          <p class="final-message" id="anxiety-change-message"></p>
+          <p class="final-message">If this pattern repeats, it deserves decoding and your birth chart can reveal its root.</p>
           <div class="cta-buttons">
             <a href="index.html#pricing" class="action-button">Book a Session</a>
-            <a href="#" class="action-button secondary" id="daily-sun-training-yes">Begin Daily Sun Training</a>
           </div>
         </div>
       </div>
@@ -851,7 +947,7 @@
       console.log('handleEmotionClick called with:', emotion);
       currentEmotion = emotion;
       if (emotion === 'anxious') {
-        showSection('intro-screen');
+        showSection('initial-anxiety-level');
       } else {
         alert('This emotion will be available soon. Please try "Anxious" for now.');
       }
@@ -878,13 +974,61 @@
           
           // Only handle anxious for now
           if (currentEmotion === 'anxious') {
-            console.log('Showing intro screen');
-            showSection('intro-screen');
+            console.log('Showing initial anxiety level');
+            showSection('initial-anxiety-level');
           } else {
             alert('This emotion will be available soon. Please try "Anxious" for now.');
           }
         }
       });
+
+      // Initial anxiety level slider
+      const initialAnxietySlider = document.getElementById('initial-anxiety-slider');
+      const initialAnxietyValue = document.getElementById('initial-anxiety-value');
+      if (initialAnxietySlider && initialAnxietyValue) {
+        initialAnxietySlider.addEventListener('input', (e) => {
+          const value = e.target.value;
+          initialAnxietyValue.textContent = value;
+        });
+      }
+
+      const continueAfterAnxietyBtn = document.getElementById('continue-after-anxiety');
+      if (continueAfterAnxietyBtn) {
+        continueAfterAnxietyBtn.addEventListener('click', () => {
+          initialAnxietyLevel = parseInt(initialAnxietySlider.value);
+          showSection('intro-screen');
+        });
+      }
+
+      // Final anxiety level slider
+      const finalAnxietySlider = document.getElementById('final-anxiety-slider');
+      const finalAnxietyValue = document.getElementById('final-anxiety-value');
+      if (finalAnxietySlider && finalAnxietyValue) {
+        finalAnxietySlider.addEventListener('input', (e) => {
+          const value = e.target.value;
+          finalAnxietyValue.textContent = value;
+        });
+      }
+
+      const submitFinalAnxietyBtn = document.getElementById('submit-final-anxiety');
+      if (submitFinalAnxietyBtn) {
+        submitFinalAnxietyBtn.addEventListener('click', () => {
+          finalAnxietyLevel = parseInt(finalAnxietySlider.value);
+          const difference = initialAnxietyLevel - finalAnxietyLevel;
+          
+          if (difference > 0) {
+            // Anxiety decreased
+            const changeMessage = document.getElementById('anxiety-change-message');
+            if (changeMessage) {
+              changeMessage.textContent = `You shifted yourself by ${difference} point${difference > 1 ? 's' : ''} in under 5 minutes!`;
+            }
+            showSection('final-message-yes');
+          } else {
+            // No change or increased
+            showSection('final-message-no');
+          }
+        });
+      }
 
       // Ready buttons
       const readyBreathingBtn = document.getElementById('ready-breathing');
@@ -1547,7 +1691,7 @@
               if (masterTimerDeeperEl) masterTimerDeeperEl.classList.remove('active');
               if (masterTimer) clearInterval(masterTimer);
               setTimeout(() => {
-                showSection('final-check');
+                showSection('final-anxiety-level');
               }, 1000);
             }
           }
@@ -1555,25 +1699,7 @@
       }, 300);
     }
 
-    // Final check
-    document.getElementById('yes-feel-better').addEventListener('click', () => {
-      showSection('final-message-yes');
-    });
 
-    document.getElementById('no-feel-better').addEventListener('click', () => {
-      showSection('final-message-no');
-    });
-
-    // Daily Sun Training links (placeholder for now)
-    document.getElementById('daily-sun-training').addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Daily Sun Training coming soon!');
-    });
-
-    document.getElementById('daily-sun-training-yes').addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('Daily Sun Training coming soon!');
-    });
   </script>
 
   <!-- Supabase Client -->
