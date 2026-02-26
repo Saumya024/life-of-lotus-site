@@ -121,7 +121,8 @@
   
             <div class="field">
               <label>Time of Birth *</label>
-              <input type="time" name="tob" required />
+              <input type="time" name="tob" required id="tob-input" />
+              <label class="tob-unknown-label"><input type="checkbox" name="tob_unknown" id="tob-unknown" value="1" /> Don't know the time of birth</label>
             </div>
   
             <div class="field">
@@ -209,6 +210,48 @@
       if (tobInput && (!tobInput.value || tobInput.value === '')) {
         tobInput.classList.add('required-empty');
       }
+      
+      // "Don't know the time of birth" – main chart
+      const tobUnknownCheckbox = document.getElementById('tob-unknown');
+      if (tobUnknownCheckbox && tobInput) {
+        function syncMainTobUnknown() {
+          if (tobUnknownCheckbox.checked) {
+            tobInput.removeAttribute('required');
+            tobInput.disabled = true;
+            tobInput.value = '';
+            tobInput.classList.remove('required-empty', 'required-filled');
+          } else {
+            tobInput.disabled = false;
+            tobInput.setAttribute('required', 'required');
+            if (!tobInput.value || tobInput.value === '') {
+              tobInput.classList.add('required-empty');
+            }
+          }
+        }
+        tobUnknownCheckbox.addEventListener('change', syncMainTobUnknown);
+      }
+      
+      // "Don't know the time of birth" – additional charts (event delegation)
+      document.addEventListener('change', function(e) {
+        if (e.target && e.target.classList.contains('chart-tob-unknown')) {
+          const name = e.target.getAttribute('data-tob-for');
+          if (!name) return;
+          const timeInput = document.querySelector('input[name="' + name + '"]');
+          if (!timeInput) return;
+          if (e.target.checked) {
+            timeInput.removeAttribute('required');
+            timeInput.disabled = true;
+            timeInput.value = '';
+            timeInput.classList.remove('required-empty', 'required-filled');
+          } else {
+            timeInput.disabled = false;
+            timeInput.setAttribute('required', 'required');
+            if (!timeInput.value || timeInput.value === '') {
+              timeInput.classList.add('required-empty');
+            }
+          }
+        }
+      });
       
       // Mark all required fields as empty on page load
       const requiredFields = document.querySelectorAll('.field input[required], .field select[required]');
@@ -462,7 +505,7 @@
         '</div>' +
         '<div class="field"><label>Name *</label><input type="text" name="' + prefix + '_name" required /></div>' +
         '<div class="field"><label>Date of Birth *</label><input type="date" name="' + prefix + '_dob" required id="' + prefix + '-dob" max="' + today + '" /><span class="field-error" id="' + prefix + '-dob-error"></span></div>' +
-        '<div class="field"><label>Time of Birth *</label><input type="time" name="' + prefix + '_tob" required /></div>' +
+        '<div class="field"><label>Time of Birth *</label><input type="time" name="' + prefix + '_tob" required id="' + prefix + '-tob" /><label class="tob-unknown-label"><input type="checkbox" name="' + prefix + '_tob_unknown" value="1" class="chart-tob-unknown" data-tob-for="' + prefix + '_tob" /> Don\'t know the time of birth</label></div>' +
         '<div class="field"><label>Place of Birth *</label><div class="autocomplete-wrapper">' +
         '<input type="text" name="' + prefix + '_pob" id="' + prefix + '-pob" class="place-of-birth-input" autocomplete="off" required />' +
         '<div class="autocomplete-suggestions" id="place-suggestions-' + chartNum + '"></div></div></div>';
@@ -896,20 +939,18 @@
             unclear: unclear || '',
             sessionType: sessionType,
             duration: duration.toString(),
-            isPackage: isPackage
+            isPackage: isPackage,
+            // Additional chart 2 – always send; empty if not added
+            chart2_name: formData.get('chart2_name') || '',
+            chart2_dob: formData.get('chart2_dob') || '',
+            chart2_tob: formData.get('chart2_tob') || '',
+            chart2_pob: formData.get('chart2_pob') || '',
+            // Additional chart 3 – always send; empty if not added
+            chart3_name: formData.get('chart3_name') || '',
+            chart3_dob: formData.get('chart3_dob') || '',
+            chart3_tob: formData.get('chart3_tob') || '',
+            chart3_pob: formData.get('chart3_pob') || ''
           };
-          if (formData.get('chart2_name')) {
-            submissionData.chart2_name = formData.get('chart2_name') || '';
-            submissionData.chart2_dob = formData.get('chart2_dob') || '';
-            submissionData.chart2_tob = formData.get('chart2_tob') || '';
-            submissionData.chart2_pob = formData.get('chart2_pob') || '';
-          }
-          if (formData.get('chart3_name')) {
-            submissionData.chart3_name = formData.get('chart3_name') || '';
-            submissionData.chart3_dob = formData.get('chart3_dob') || '';
-            submissionData.chart3_tob = formData.get('chart3_tob') || '';
-            submissionData.chart3_pob = formData.get('chart3_pob') || '';
-          }
           
           // Log for debugging
           console.log('Submitting to Google Sheets:', submissionData);
