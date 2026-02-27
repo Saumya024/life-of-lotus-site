@@ -10,7 +10,7 @@ const SIGNS = {
     signLabel: 'Gemini',
     color: '#06A77D',
     ctaTextColor: 'var(--cream-white)',
-    hook: "You don't lack ideas.<br>You lack completion.",
+    hook: "Attention shifts quickly.<br>Structure restores focus.",
     chips1: ['Work focus', 'Communication clarity', 'Financial consistency', 'Health discipline', 'Relationship presence'],
     chips2: ['Multitasking instead of finishing', 'Over-explaining', 'Starting but not completing', 'Scattered spending', 'Avoiding depth'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -26,7 +26,7 @@ const SIGNS = {
     signLabel: 'Cancer',
     color: '#F5E6D3',
     ctaTextColor: 'var(--primary)',
-    hook: "You don't lack feeling.<br>You lack structure.",
+    hook: "Emotion responds quickly.<br>Structure stabilizes reaction.",
     chips1: ['Emotional boundaries', 'Work consistency', 'Spending control', 'Health stability', 'Family dynamics'],
     chips2: ['Overreacting emotionally', 'Avoiding confrontation', 'Comfort spending', 'Skipping routines', "Absorbing others' moods"],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -42,7 +42,7 @@ const SIGNS = {
     signLabel: 'Leo',
     color: '#FF6B35',
     ctaTextColor: 'var(--cream-white)',
-    hook: "You don't lack presence.<br>You lack discipline.",
+    hook: "Expression is strong.<br>Structure sustains impact.",
     chips1: ['Public image', 'Work leadership', 'Spending control', 'Health discipline', 'Relationship ego'],
     chips2: ['Reacting to criticism', 'Overspending for image', 'Avoiding feedback', 'Over-dominating conversations', 'Procrastinating when not praised'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -58,7 +58,7 @@ const SIGNS = {
     signLabel: 'Virgo',
     color: '#06A77D',
     ctaTextColor: 'var(--cream-white)',
-    hook: "You don't lack standards.<br>You lack release.",
+    hook: "Detail comes naturally.<br>Structure prevents over-control.",
     chips1: ['Work efficiency', 'Health routines', 'Financial tracking', 'Communication clarity', 'Relationship expectations'],
     chips2: ['Overthinking', 'Micromanaging', 'Criticizing others', 'Avoiding imperfect action', 'Obsessive checking'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -74,7 +74,7 @@ const SIGNS = {
     signLabel: 'Libra',
     color: '#E3F2FD',
     ctaTextColor: 'var(--primary)',
-    hook: "You don't lack balance.<br>You lack decision.",
+    hook: "Balance is instinctive.<br>Structure sharpens decisions.",
     chips1: ['Decision-making', 'Work assertiveness', 'Spending habits', 'Health discipline', 'Relationship balance'],
     chips2: ['Avoiding confrontation', 'Indecision', 'Spending to maintain harmony', 'Skipping routines', 'People-pleasing'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -90,7 +90,7 @@ const SIGNS = {
     signLabel: 'Scorpio',
     color: '#E63946',
     ctaTextColor: 'var(--cream-white)',
-    hook: "You don't lack depth.<br>You lack transparency.",
+    hook: "Intensity runs deep.<br>Structure directs power.",
     chips1: ['Emotional intensity', 'Work control', 'Financial secrecy', 'Health discipline', 'Relationship boundaries'],
     chips2: ['Withholding communication', 'Over-controlling', 'Avoiding vulnerability', 'Obsessive thinking', 'Extreme reactions'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -106,7 +106,7 @@ const SIGNS = {
     signLabel: 'Sagittarius',
     color: '#F7B801',
     ctaTextColor: 'var(--primary)',
-    hook: "You don't lack vision.<br>You lack follow-through.",
+    hook: "Expansion comes easily.<br>Structure secures follow-through.",
     chips1: ['Work follow-through', 'Spending discipline', 'Health consistency', 'Communication bluntness', 'Travel/restlessness'],
     chips2: ['Starting without finishing', 'Overspending', 'Skipping routines', 'Speaking bluntly', 'Avoiding responsibility'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -122,7 +122,7 @@ const SIGNS = {
     signLabel: 'Capricorn',
     color: '#1A1A1A',
     ctaTextColor: 'var(--cream-white)',
-    hook: "You don't lack drive.<br>You lack recovery.",
+    hook: "Responsibility is strong.<br>Structure protects balance.",
     chips1: ['Work-life balance', 'Financial habits', 'Health discipline', 'Emotional expression', 'Delegation'],
     chips2: ['Overworking', 'Avoiding rest', 'Controlling outcomes', 'Withholding emotion', 'Delaying delegation'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -138,7 +138,7 @@ const SIGNS = {
     signLabel: 'Aquarius',
     color: '#1A1A1A',
     ctaTextColor: 'var(--cream-white)',
-    hook: "You don't lack ideas.<br>You lack routine.",
+    hook: "Ideas move quickly.<br>Structure grounds execution.",
     chips1: ['Work consistency', 'Social detachment', 'Financial habits', 'Health routine', 'Communication tone'],
     chips2: ['Ignoring emotional cues', 'Over-intellectualizing', 'Skipping routines', 'Avoiding intimacy', 'Being inconsistent'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -154,7 +154,7 @@ const SIGNS = {
     signLabel: 'Pisces',
     color: '#F7B801',
     ctaTextColor: 'var(--primary)',
-    hook: "You don't lack sensitivity.<br>You lack grounding.",
+    hook: "Sensitivity is high.<br>Structure creates clarity.",
     chips1: ['Emotional regulation', 'Work consistency', 'Spending clarity', 'Health routine', 'Boundary setting'],
     chips2: ['Avoiding reality', 'Escaping responsibility', 'Emotional overspending', 'Skipping routines', 'Blurred boundaries'],
     chips2Helper: 'Be specific. One behavior only. Choose something visible. Not emotional.',
@@ -214,7 +214,7 @@ function run(signKey) {
   html = html.replace(new RegExp(escapeRegex('class="aries-cta-wrap"'), 'g'), `class="${signKey}-cta-wrap"`);
   html = html.replace(new RegExp(escapeRegex('class="aries-cta"'), 'g'), `class="${signKey}-cta"`);
   html = html.replace(new RegExp(escapeRegex('Aries Ascendant: 43-Day Reset</h1>'), 'g'), `${signLabel} Ascendant: 43-Day Reset</h1>`);
-  html = html.replace(new RegExp(escapeRegex("You don't lack drive.<br>You lack containment."), 'g'), d.hook);
+  html = html.replace(new RegExp(`<p class="${signKey}-hook">[\\s\\S]*?</p>`), `<p class="${signKey}-hook">${d.hook}</p>`);
   html = html.replace(new RegExp(escapeRegex('class="aries-accordions"'), 'g'), `class="${signKey}-accordions"`);
 
   // Chips - step 1

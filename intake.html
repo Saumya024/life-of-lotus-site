@@ -196,7 +196,7 @@
   <div id="cal-modal-overlay" style="display: none;">
     <div id="cal-modal">
       <button id="cal-modal-close" class="cal-modal-close" aria-label="Close">×</button>
-      <p class="cal-modal-instruction"><strong>Please Note:</strong> Kindly ensure you select your time zone to book the right slot.</p>
+      <p class="cal-modal-instruction"><strong>Please Note: Kindly ensure you select your time zone to book the right slot.</strong></p>
       <div id="cal-modal-content"></div>
     </div>
   </div>
@@ -1036,8 +1036,11 @@
         const encodedName = encodeURIComponent(name);
         const encodedEmail = encodeURIComponent(email);
         
-        // Construct Cal.com URL with query parameters
-        const calUrlWithParams = `${calUrl}?name=${encodedName}&email=${encodedEmail}`;
+        // Default timezone to Asia/Kolkata (IST)
+        const timeZone = encodeURIComponent('Asia/Kolkata');
+        
+        // Construct Cal.com URL with query parameters (name, email, timeZone)
+        const calUrlWithParams = `${calUrl}?name=${encodedName}&email=${encodedEmail}&timeZone=${timeZone}`;
         
         // Create and inject Cal.com iframe (only once)
         const iframe = document.createElement('iframe');

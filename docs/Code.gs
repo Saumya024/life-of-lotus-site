@@ -30,26 +30,41 @@ function doPost(e) {
 
     // Handle both JSON and form data
     if (e.postData && e.postData.contents) {
-      // Try to parse as JSON first
+      var raw = e.postData.contents;
+      // Try to parse as JSON first (e.g. fetch with JSON body)
       try {
-        data = JSON.parse(e.postData.contents);
+        data = JSON.parse(raw);
       } catch (jsonError) {
-        // If not JSON, try to get from form data
+        // Form-encoded body (e.g. form POST): data=...&sheetName=Sheet2
         if (e.parameter && e.parameter.data) {
           data = JSON.parse(e.parameter.data);
+          if (e.parameter.sheetName) sheetName = e.parameter.sheetName;
         } else {
-          // Use parameters directly if they exist
-          data = e.parameter || {};
+          // Manual parse form-encoded in case e.parameter not set
+          try {
+            var decoded = decodeURIComponent(raw.replace(/\+/g, ' '));
+            var parts = decoded.split('&');
+            var params = {};
+            for (var i = 0; i < parts.length; i++) {
+              var kv = parts[i].split('=');
+              if (kv.length >= 2) {
+                params[kv[0]] = kv.slice(1).join('=').trim();
+              }
+            }
+            if (params.data) data = JSON.parse(params.data);
+            if (params.sheetName) sheetName = params.sheetName;
+          } catch (parseErr) {}
+          if (!data) data = e.parameter || {};
         }
       }
     } else if (e.parameter) {
-      // Handle form data with 'data' field containing JSON
+      // GET-style or form params only
       if (e.parameter.data) {
         data = JSON.parse(e.parameter.data);
       } else {
-        // Use parameters directly
         data = e.parameter;
       }
+      if (e.parameter.sheetName) sheetName = e.parameter.sheetName;
     } else {
       return ContentService.createTextOutput(JSON.stringify({
         success: false,
@@ -74,9 +89,12 @@ function doPost(e) {
     let headers = [];
     let rowData = [];
 
-    // Simple email capture (e.g. tracker / insight) – only email and source
-    var isSimpleCapture = data && typeof data.email === 'string' && !data.name && !data.phone;
-    if (isSimpleCapture && (lastRow === 0 || sheetName === 'Sheet2')) {
+    // Simple email capture (e.g. tracker / insight) – only email and source.
+    // When target is Sheet2, always treat as email+source if payload has email (so Sheet2 always fills).
+    var isSheet2 = (sheetName === 'Sheet2');
+    var hasEmailOnly = data && typeof data.email === 'string' && data.email.trim() !== '' && !data.name && !data.phone;
+    var isSimpleCapture = hasEmailOnly || (isSheet2 && data && typeof data.email === 'string' && data.email.trim() !== '');
+    if (isSimpleCapture && (lastRow === 0 || isSheet2)) {
       if (lastRow === 0) {
         headers = ['Email', 'Source', 'Timestamp'];
         sheet.appendRow(headers);
@@ -85,8 +103,8 @@ function doPost(e) {
       }
       rowData = headers.map(function(header) {
         var h = header.toString().toLowerCase().trim();
-        if (h.indexOf('email') !== -1) return data.email || '';
-        if (h.indexOf('source') !== -1) return data.source || '';
+        if (h.indexOf('email') !== -1) return (data.email || '').trim();
+        if (h.indexOf('source') !== -1) return (data.source || '').trim();
         if (h.indexOf('timestamp') !== -1 || h.indexOf('date') !== -1) return new Date();
         return '';
       });
