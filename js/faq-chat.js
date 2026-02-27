@@ -3,118 +3,123 @@
 
 const FAQ_DATA = [
   {
-    question: "I Want to Book a Consultation",
-    answer: "To book a consultation, follow these steps:<br><br><strong>1. Choose your session type:</strong><ul><li>30-minute session (Quick Clarity) — ₹1,200 (Audio) / ₹1,500 (Video)</li><li>60-minute session (Deep Insight) — ₹2,400 (Audio) / ₹2,700 (Video)</li><li>90-minute session (Holistic Guidance) — ₹3,600 (Audio) / ₹3,900 (Video)</li></ul><strong>2. Prepare your birth details:</strong><ul><li>Exact date of birth</li><li>Precise time of birth (as accurate as possible)</li><li>Place of birth (city and state/country)</li></ul><strong>3. Book online:</strong><br>Visit the <a href='intake.html' target='_blank'>booking page</a>, select your preferred session, share your birth details, choose an available slot, and complete payment. Payment is required in advance to confirm the appointment.<br><br>Consultations are conducted online. Rescheduling is possible with 48 hours' notice. Sessions are confidential.",
+    question: "How do I book a Vedic astrology consultation?",
+    answer: "You can book a Vedic astrology consultation online by selecting a session type, sharing your birth details, and choosing an available slot.<br><br><strong>1. Choose your session type:</strong><ul><li>30-minute session (Quick Clarity) — ₹1,200 (Audio) / ₹1,500 (Video)</li><li>60-minute session (Deep Insight) — ₹2,400 (Audio) / ₹2,700 (Video)</li><li>90-minute session (Holistic Guidance) — ₹3,600 (Audio) / ₹3,900 (Video)</li></ul><strong>2. Prepare your birth details:</strong><ul><li>Exact date of birth</li><li>Precise time of birth (as accurate as possible)</li><li>Place of birth (city and state/country)</li></ul><strong>3. Book online:</strong><br>Visit the <a href='intake.html' target='_blank'>booking page</a>, select your preferred session, share your birth details, choose an available slot, and complete payment. Payment is required in advance to confirm the appointment.<br><br>Consultations are conducted online. Rescheduling is possible with 48 hours' notice. Sessions are confidential.",
     category: "getting-started"
   },
   {
-    question: "Help Me Choose the Right Service",
-    answer: "I offer consultations across multiple life areas. Here's how to choose:<br><br><strong>Areas of Guidance:</strong><ul><li><strong>Career & Professional Direction</strong> — Work decisions, career transitions, stagnation or burnout</li><li><strong>Relationships & Marriage</strong> — Emotional patterns, compatibility, long-term relationship choices</li><li><strong>Health & Wellbeing</strong> — Mental stress patterns, emotional balance, phases calling for rest</li><li><strong>Finances & Stability</strong> — Financial decision-making, risk periods, long-term planning</li><li><strong>Family & Children</strong> — Family dynamics, parenting phases, children's concerns</li><li><strong>Life Transitions & Timing</strong> — Major life changes, relocation, role shifts</li><li><strong>Personal & Spiritual Growth</strong> — Inner patterns, belief shifts, spiritual realignment</li><li><strong>Karmic Patterns & Cycles</strong> — Repeating themes and long-term cycles</li><li><strong>Open Session</strong> — Questions across multiple areas or that don't fit a category</li></ul><strong>Session Length:</strong><ul><li>30-minute: One primary concern, urgent questions</li><li>60-minute: Up to three related themes, layered issues</li><li>90-minute: Multiple life areas, broader view</li></ul>If you're unsure, start with a 60-minute session or an Open Session. You can always book follow-ups as needed.",
+    question: "Which Vedic astrology session should I choose?",
+    answer: "Choose your session based on the life area you need clarity on and how many concerns you want to cover.<br><br><strong>Areas of Guidance:</strong><ul><li><strong>Career & Professional Direction</strong> — Work decisions, career transitions, stagnation or burnout</li><li><strong>Relationships & Marriage</strong> — Emotional patterns, compatibility, long-term relationship choices</li><li><strong>Health & Wellbeing</strong> — Mental stress patterns, emotional balance, phases calling for rest</li><li><strong>Finances & Stability</strong> — Financial decision-making, risk periods, long-term planning</li><li><strong>Family & Children</strong> — Family dynamics, parenting phases, children's concerns</li><li><strong>Life Transitions & Timing</strong> — Major life changes, relocation, role shifts</li><li><strong>Personal & Spiritual Growth</strong> — Inner patterns, belief shifts, spiritual realignment</li><li><strong>Karmic Patterns & Cycles</strong> — Repeating themes and long-term cycles</li><li><strong>Open Session</strong> — Questions across multiple areas or that don't fit a category</li></ul><strong>Session Length:</strong><ul><li>30-minute: One primary concern, urgent questions</li><li>60-minute: Up to three related themes, layered issues</li><li>90-minute: Multiple life areas, broader view</li></ul>If you're unsure, start with a 60-minute session or an Open Session.",
     category: "getting-started"
   },
   {
-    question: "What's the Pricing and Session Details",
-    answer: "I currently offer three consultation formats:<br><br><ul><li><strong>30-minute session (Quick Clarity)</strong> — ₹1,200 (Audio) / ₹1,500 (Video). Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.</li><li><strong>60-minute session (Deep Insight)</strong> — ₹2,400 (Audio) / ₹2,700 (Video). Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making.</li><li><strong>90-minute session (Holistic Guidance)</strong> — ₹3,600 (Audio) / ₹3,900 (Video). Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.</li></ul><strong>Session packages</strong><br>Three-session packages are available with savings of ₹300–₹900. Sessions do not expire.<br><br><strong>Session Details:</strong><ul><li>Consultations are conducted online</li><li>Sessions are structured but conversational</li><li>You're encouraged to ask questions and engage actively</li><li>Most sessions run 60-90 minutes depending on complexity</li><li>Rescheduling is possible with 48 hours' notice</li><li>Sessions are confidential</li><li>Payment is required in advance to confirm the appointment</li></ul>",
+    question: "How much does a Vedic astrology consultation cost?",
+    answer: "Vedic astrology consultations at I Read Space range from ₹1,200 to ₹3,900, depending on session length and format (audio or video).<br><br><ul><li><strong>30-minute session (Quick Clarity)</strong> — ₹1,200 (Audio) / ₹1,500 (Video). One primary concern using one chart.</li><li><strong>60-minute session (Deep Insight)</strong> — ₹2,400 (Audio) / ₹2,700 (Video). Up to three related themes using two charts.</li><li><strong>90-minute session (Holistic Guidance)</strong> — ₹3,600 (Audio) / ₹3,900 (Video). Multiple life areas and charts.</li></ul><strong>Session packages</strong><br>Three-session packages are available with savings of ₹300–₹900. Sessions do not expire.<br><br>Payment is required in advance. Rescheduling possible with 48 hours' notice.",
     category: "getting-started"
   },
   {
-    question: "What details do I need to give for a Vedic Astrology reading?",
-    answer: "You need three essential details for a Vedic astrology reading:<br><br><strong>1. Date of birth</strong><br>Your exact date of birth (day, month, year).<br><br><strong>2. Time of birth</strong><br>Exact time of birth (as precise as possible). Birth time accuracy matters significantly—even a 10-15 minute difference can shift key indicators in your chart. If you don't have your exact time, check:<ul><li>Birth certificates</li><li>Hospital records</li><li>Ask family members who were present</li></ul>If you have an approximate time (morning, afternoon, evening), we can work within that range, though predictive accuracy may be limited.<br><br><strong>3. Place of birth</strong><br>City/town and state/country where you were born.<br><br>These three details are essential for accurate chart calculation. The more precise your birth time, the more accurate the reading will be.",
+    question: "What details do I need for a Vedic astrology reading?",
+    answer: "You need three essential details for a Vedic astrology reading:<br><br><strong>1. Date of birth</strong> — Your exact date of birth (day, month, year).<br><br><strong>2. Time of birth</strong> — Exact time of birth (as precise as possible). Even a 10-15 minute difference can shift key indicators.<br><br><strong>3. Place of birth</strong> — City/town and state/country where you were born.<br><br>The more precise your birth time, the more accurate the reading.",
     category: "getting-started"
   },
   {
-    question: "Who is this consultation suitable for?",
-    answer: "This work is for people who take their decisions and patterns seriously.<br><br>This consultation is suitable if you are:<ul><li>Navigating major transitions, career changes, relationships, relocations, business ventures</li><li>Facing recurring patterns you want to understand structurally, not just manage symptomatically</li><li>Making high-stakes decisions where timing and preparation carry real consequences</li><li>In leadership roles, running businesses, or managing significant professional responsibilities</li><li>Experiencing confusion, crisis, or stagnation and need clarity beyond surface explanations</li><li>Dealing with health concerns, family dynamics, or relationship difficulties that keep repeating</li><li>Willing to examine your life honestly and take responsibility for how you use the information</li></ul>This is particularly valuable for:<ul><li>People stuck despite effort — when hard work and planning exist, yet progress feels blocked</li><li>Those experiencing recurring life patterns across different circumstances</li><li>Individuals where conventional approaches have fallen short</li><li>Anyone facing critical life transitions or high-stakes decisions</li><li>Leaders and those with complex responsibilities affecting many</li></ul>",
+    question: "Who is a Vedic astrology consultation suitable for?",
+    answer: "Vedic astrology consultations are suitable for anyone navigating major life transitions, recurring patterns, or high-stakes decisions where timing and preparation matter.<br><br>This is particularly relevant if you are:<ul><li>Navigating major transitions — career changes, relationships, relocations, business ventures</li><li>Facing recurring patterns you want to understand structurally</li><li>Making high-stakes decisions where timing carries real consequences</li><li>In leadership roles or managing significant professional responsibilities</li><li>Experiencing confusion, crisis, or stagnation</li><li>Dealing with health concerns, family dynamics, or relationship difficulties that keep repeating</li></ul>",
     category: "getting-started"
   },
   {
-    question: "What happens in a session?",
-    answer: "Each session follows a structured yet flexible format designed to maximize clarity and practical value. We begin by confirming your birth details and any specific questions or concerns you want to address. I then analyze your chart using relevant Vedic astrology techniques—examining your birth chart, current planetary periods (dashas), transits, and any divisional charts needed for your specific areas of concern.<br><br>During the discussion, I share what the chart reveals about patterns, timing, and underlying themes. You're invited to share your experiences, ask questions, and challenge interpretations that don't resonate. This interactive approach ensures the reading connects with your actual life rather than remaining abstract.<br><br>The session concludes with clear takeaways: what patterns are active, what timing to be aware of, and what responses support your goals. You'll leave with actionable insights, not just information. If follow-up is recommended, we discuss appropriate timing based on your chart's cycles.",
+    question: "What happens in a Vedic astrology session?",
+    answer: "A Vedic astrology consultation examines your birth chart, active planetary periods, and transits to identify life patterns, timing, and actionable clarity.<br><br>We begin by confirming your birth details and any specific questions you want to address. During the session, I share what the chart reveals — you're invited to ask questions, challenge interpretations, and engage actively.<br><br>The session concludes with clear takeaways: what patterns are active, what timing to be aware of, and what responses support your goals. You leave with actionable insights, not just information.",
     category: "getting-started"
   },
   {
-    question: "How long is the session for?",
-    answer: "I offer three session lengths to suit different needs:<br><br><ul><li><strong>30-minute session (Quick Clarity)</strong> — Focused on one primary concern using one chart. Suitable for urgent questions or immediate direction.</li><li><strong>60-minute session (Deep Insight)</strong> — Covers up to three related themes using a maximum of two charts. Suitable for layered issues or decision-making. Most standard sessions run 60-90 minutes depending on complexity.</li><li><strong>90-minute session (Holistic Guidance)</strong> — Allows exploration of multiple life areas and charts, offering a broader view of patterns, timing, and long-term direction.</li></ul>The actual duration may vary slightly based on the complexity of your chart and the depth of discussion needed. Sessions are structured but conversational, and you're encouraged to engage actively throughout.",
+    question: "How long is a Vedic astrology session?",
+    answer: "Vedic astrology sessions at I Read Space are available in 30-minute, 60-minute, and 90-minute formats.<br><br><ul><li><strong>30-minute session (Quick Clarity)</strong> — One primary concern using one chart. Suitable for urgent questions.</li><li><strong>60-minute session (Deep Insight)</strong> — Up to three related themes using two charts. Most standard sessions.</li><li><strong>90-minute session (Holistic Guidance)</strong> — Multiple life areas and charts for a broader view.</li></ul>Sessions are structured but conversational, and you're encouraged to engage actively.",
     category: "getting-started"
   },
   {
-    question: "I have a career issue",
-    answer: "Career & Professional Direction consultations provide clarity on work decisions, career transitions, and periods of stagnation or burnout.<br><br>Vedic astrology can help you understand:<ul><li>Natural strengths and areas of resistance in your professional life</li><li>Timing for career changes, job transitions, or new opportunities</li><li>Periods when effort yields results versus when it meets obstacles</li><li>Whether your current direction aligns with your chart's natural momentum</li><li>When to push forward versus when to consolidate and wait</li></ul>This is particularly valuable if you're experiencing:<ul><li>Stuck despite effort — hard work and planning exist, yet progress feels blocked</li><li>Recurring career obstacles across different jobs or strategies</li><li>High-stakes professional decisions where timing matters</li><li>Leadership challenges or business decisions affecting many</li></ul>I can help you navigate career transitions, assess timing for major moves, and understand the deeper patterns behind professional challenges.",
+    question: "Can Vedic astrology help with career decisions?",
+    answer: "Yes, career consultations help you understand natural professional strengths, timing for career changes, and periods when effort yields results versus meets obstacles.<br><br>Vedic astrology can help you understand:<ul><li>Natural strengths and areas of resistance in your professional life</li><li>Timing for career changes, job transitions, or new opportunities</li><li>Whether your current direction aligns with your chart's natural momentum</li><li>When to push forward versus when to consolidate and wait</li></ul>This is particularly valuable if you're stuck despite effort, facing recurring career obstacles, or navigating high-stakes professional decisions.",
     category: "life-situation"
   },
   {
-    question: "I have a relationships issue",
-    answer: "Relationships & Marriage consultations focus on understanding emotional patterns, compatibility dynamics, and long-term relationship choices.<br><br>Vedic astrology can help you understand:<ul><li>Emotional patterns that repeat in relationships</li><li>Compatibility dynamics and how two people's charts interact over time</li><li>Timing for commitment, marriage, or relationship transitions</li><li>Where friction is likely and whether it's manageable or destructive</li><li>Long-term patterns that shape relationship experiences</li></ul>This is particularly valuable if you're experiencing:<ul><li>Recurring relationship dynamics across different partners</li><li>Questions about marriage timing or partnership compatibility</li><li>Relationship difficulties that keep repeating</li><li>High-stakes decisions about commitment or separation</li><li>Confusion about relationship patterns you can't understand</li></ul>I can help you see patterns clearly before committing, guide timing for better structural support, and understand the deeper themes behind relationship challenges.",
+    question: "Can Vedic astrology help with relationship problems?",
+    answer: "Yes, Vedic astrology can help with relationship problems by revealing emotional patterns, compatibility dynamics, and timing cycles that shape long-term relationship experiences.<br><br>Vedic astrology can help you understand:<ul><li>Emotional patterns that repeat across relationships</li><li>Compatibility dynamics and how two charts interact over time</li><li>Timing for commitment, marriage, or relationship transitions</li><li>Where friction is likely and whether it's manageable or destructive</li></ul>This is particularly valuable for recurring relationship dynamics, marriage timing questions, or high-stakes decisions about commitment.",
     category: "life-situation"
   },
   {
-    question: "I have a health issue",
-    answer: "Health & Wellbeing consultations provide insight into mental stress patterns, emotional balance, and phases that call for rest or restraint.<br><br>Important: Astrology does not diagnose or replace medical care. What it can do is highlight tendencies and periods of vulnerability.<br><br>Vedic astrology can help you understand:<ul><li>Stress patterns that, if ignored, may manifest emotionally or physically</li><li>Periods of heightened physical or emotional vulnerability</li><li>Timing when self-care, rest, or medical attention may be especially important</li><li>Patterns that suggest when to be more cautious or prioritize wellness</li></ul>This is particularly valuable if you're experiencing:<ul><li>Recurring health concerns that keep repeating</li><li>Mental stress patterns or emotional cycles</li><li>Need for clarity on when to prioritize rest or medical attention</li><li>Phases calling for lifestyle adjustments or restraint</li></ul>Used responsibly, astrology supports awareness and prevention, not fear or medical advice. If your situation requires medical intervention, astrology supports that—it does not replace it.",
+    question: "Can Vedic astrology help with health concerns?",
+    answer: "Astrology does not diagnose or replace medical care. It can highlight tendencies and periods of vulnerability, allowing for timely intervention.<br><br>Vedic astrology can help you understand:<ul><li>Stress patterns that may manifest emotionally or physically</li><li>Periods of heightened physical or emotional vulnerability</li><li>Timing when self-care, rest, or medical attention may be important</li><li>Patterns suggesting when to be more cautious or prioritize wellness</li></ul>Used responsibly, astrology supports awareness and prevention — it does not replace medical advice.",
     category: "life-situation"
   },
   {
-    question: "I have a finances issue",
-    answer: "Finances & Stability consultations offer perspective on financial decision-making, risk periods, and sustainable long-term planning.<br><br>Vedic astrology can help you understand:<ul><li>Timing for financial decisions, investments, or major purchases</li><li>Risk periods when caution is especially important</li><li>Natural patterns around money, resources, and material stability</li><li>When effort in financial matters yields results versus when it meets obstacles</li><li>Long-term cycles affecting financial stability</li></ul>This is particularly valuable if you're experiencing:<ul><li>Financial challenges that keep repeating despite different strategies</li><li>High-stakes financial decisions where timing matters</li><li>Stuck despite effort in financial planning or earning</li><li>Need for clarity on when to invest, save, or make major financial moves</li><li>Business financial decisions affecting many</li></ul>I can help you assess risk periods, understand timing for financial moves, and recognize patterns that affect your relationship with money and resources.",
+    question: "Can Vedic astrology help with financial decisions?",
+    answer: "Yes, Vedic astrology can help with financial decisions by identifying risk periods, timing for investments, and long-term cycles affecting financial stability.<br><br>Vedic astrology can help you understand:<ul><li>Timing for financial decisions, investments, or major purchases</li><li>Risk periods when caution is especially important</li><li>Natural patterns around money, resources, and material stability</li><li>Long-term cycles affecting financial stability</li></ul>This is particularly valuable for recurring financial challenges, high-stakes decisions where timing matters, or clarity on when to invest versus save.",
     category: "life-situation"
   },
   {
-    question: "I have a family issue",
-    answer: "Family & Children consultations provide guidance around family dynamics, parenting phases, and concerns related to children and responsibilities.<br><br>Vedic astrology can help you understand:<ul><li>Family dynamics and patterns that repeat across generations</li><li>Parenting phases and timing for family-related decisions</li><li>Concerns related to children's development or challenges</li><li>Family responsibilities and how to navigate them consciously</li><li>Timing for family transitions or major family decisions</li></ul>This is particularly valuable if you're experiencing:<ul><li>Family dynamics that keep repeating</li><li>Parenting challenges or concerns about children</li><li>High-stakes family decisions affecting many</li><li>Confusion about family patterns you can't understand</li><li>Need for clarity on family responsibilities or transitions</li></ul>I can help you understand the deeper patterns behind family dynamics, recognize timing for family decisions, and navigate family responsibilities with greater clarity.",
+    question: "Can Vedic astrology help with family issues?",
+    answer: "Yes, Vedic astrology can help with family issues by revealing generational patterns, timing for family decisions, and dynamics around parenting, children, and responsibilities.<br><br>Vedic astrology can help you understand:<ul><li>Family dynamics and patterns that repeat across generations</li><li>Parenting phases and timing for family-related decisions</li><li>Concerns related to children's development or challenges</li><li>Family responsibilities and how to navigate them consciously</li></ul>",
     category: "life-situation"
   },
   {
-    question: "I'm stuck despite effort",
-    answer: "When you're stuck despite effort, it often indicates a timing or pattern issue that conventional approaches can't address. Hard work, planning, and intention exist, yet progress feels blocked, misdirected, or out of sync.<br><br>Vedic astrology can help you understand:<ul><li>Why effort isn't yielding results despite genuine work and planning</li><li>Timing cycles that affect when effort is effective versus when it meets obstacles</li><li>Deeper patterns that create resistance despite different strategies</li><li>What phase you're in and how long it's likely to last</li><li>What responses support progress versus create more resistance</li></ul>This is particularly valuable if you're experiencing:<ul><li>Career stagnation despite hard work and planning</li><li>Relationship challenges that persist despite different approaches</li><li>Financial obstacles that don't respond to conventional solutions</li><li>Personal growth that feels blocked despite inner work</li><li>Any area where effort exists but results don't align</li></ul>I can help you understand the timing and patterns behind being stuck, recognize what phase you're in, and identify responses that support progress rather than resistance.",
+    question: "Why am I stuck despite effort? Can astrology help?",
+    answer: "Feeling stuck despite effort often indicates a timing or pattern issue visible in your Vedic astrology chart — planetary periods can create phases where progress is blocked regardless of strategy.<br><br>Vedic astrology can help you understand:<ul><li>Why effort isn't yielding results despite genuine work and planning</li><li>Timing cycles that affect when effort is effective versus when it meets obstacles</li><li>What phase you're in and how long it's likely to last</li><li>What responses support progress versus create more resistance</li></ul>Recognizing these cycles reveals when and how to respond differently.",
     category: "life-situation"
+  },
+  {
+    question: "What is Vedic astrology?",
+    answer: "Vedic astrology (Jyotish) is an ancient Indian system that uses your birth chart — calculated from your exact date, time, and place of birth — to reveal life patterns, timing cycles, and karmic themes. Unlike Western astrology, it uses the sidereal zodiac based on fixed star positions.<br><br>The system maps life into planetary periods (dashas) that determine which themes are active at any given time. This makes Vedic astrology particularly strong in timing and prediction — it's used for understanding recurring patterns, making better-timed decisions, and navigating transitions.",
+    category: "understanding"
+  },
+  {
+    question: "What is a dasha in Vedic astrology?",
+    answer: "A dasha is a planetary period that determines which planet governs a specific phase of your life. The Vimshottari Dasha system divides life into major periods of 6 to 20 years each, with sub-periods within them.<br><br>Each dasha activates themes associated with its ruling planet — a Jupiter dasha may bring expansion and opportunity, while a Saturn dasha may emphasize discipline and restructuring. Understanding your active dasha explains why certain themes dominate your current experience and when significant shifts are likely.",
+    category: "understanding"
   },
   {
     question: "How is Vedic astrology different from Western astrology?",
-    answer: "Vedic astrology examines long-term karmic patterns, life timing, and recurring themes that shape your experiences over years and decades. Western astrology focuses more on psychological traits, current transits, and temporary life phases.<br><br>The technical difference: Vedic uses the sidereal zodiac (based on fixed star positions), while Western uses the tropical zodiac (based on seasons). This means your Vedic sun sign is often different from your Western one.<br><br>But the deeper difference is philosophical. Western astrology asks \"What is happening right now?\" and \"How do I feel about it?\" Vedic astrology asks \"Why does this keep happening?\" and \"What is the root structure behind these events?\" By addressing underlying patterns rather than surface symptoms, Vedic astrology works on causes, not just consequences.",
+    answer: "Vedic astrology uses the sidereal zodiac (fixed star positions) while Western astrology uses the tropical zodiac (seasons), meaning your Vedic sun sign is often different from your Western one.<br><br>Vedic astrology examines long-term karmic patterns and life timing through planetary periods (dashas), while Western astrology focuses more on psychological traits and current transits. The deeper difference is philosophical: Western astrology asks \"What is happening now?\" while Vedic astrology asks \"Why does this keep happening?\"",
     category: "understanding"
   },
   {
-    question: "What techniques do you use?",
-    answer: "I use classical Vedic astrology techniques, chosen based on your chart structure and the nature of your question. No single technique explains everything, and methods are applied with discretion.<br><br><strong>Core techniques include:</strong><ul><li><strong>Birth Chart (Rāśi Chart):</strong> The foundation. Reveals core life patterns, strengths, challenges, and karmic themes.</li><li><strong>Vimśottarī Daśā:</strong> The primary predictive system, mapping life into planetary periods and timing when themes activate.</li><li><strong>Transits (Gochara):</strong> Show how current planetary movements trigger what the dashas indicate.</li><li><strong>Divisional Charts (Varga Charts):</strong> Used for specific areas like marriage (D9) and career (D10).</li><li><strong>Nakṣatras:</strong> Add psychological and karmic depth, especially emotional and behavioral patterns.</li><li><strong>Praśna (Horary Astrology):</strong> Used for focused, time-sensitive questions or when birth time is uncertain.</li></ul>Techniques are selected based on relevance, not routine.<br><br>You don't need to understand the methods, only what they reveal and how to act on that clarity.",
+    question: "Is Vedic astrology compatible with my religion?",
+    answer: "Yes. Vedic astrology emerged from Hindu philosophical traditions but functions as a technical system, not a religious practice. You don't need to adopt Hindu beliefs, worship deities, or change your worldview.<br><br>Many clients practice Christianity, Islam, Buddhism, or hold secular perspectives. The consultation focuses on observable patterns in your life, not spiritual conversion. The core work — understanding patterns and making conscious choices — stands independent of any belief system.",
     category: "understanding"
   },
   {
-    question: "Is this religious?",
-    answer: "No, Vedic astrology is not a religious practice. While it emerged from Hindu philosophical traditions, it functions as a technical system for understanding patterns and timing in life.<br><br>You don't need to adopt Hindu beliefs, worship deities, or change your worldview to engage with it. Many clients practice Christianity, Islam, Buddhism, or hold secular perspectives. The consultation focuses on observable patterns in your life, not spiritual conversion.<br><br>The core work—understanding patterns and making conscious choices—stands independent of any belief system. It's a practical tool for clarity and decision-making, not a religious practice.",
+    question: "Are Vedic astrology remedies religious?",
+    answer: "No, Vedic astrology remedies are not inherently religious. While some (like mantras) have origins in spiritual traditions, they function as practical tools for awareness, discipline, and alignment.<br><br>Remedies may include:<ul><li>Mantras (sound-based practices)</li><li>Gemstones (for specific planetary influences)</li><li>Charitable acts (balance and giving back)</li><li>Timing adjustments (knowing when to act or wait)</li><li>Behavioral modifications (conscious changes in approach)</li></ul>These are suggested as practical supports, not religious requirements.",
     category: "understanding"
   },
   {
-    question: "Are the remedies given religious?",
-    answer: "Remedies are not inherently religious. While some remedies (like mantras) may have origins in spiritual traditions, they function as practical tools for supporting awareness, discipline, and internal alignment during specific phases.<br><br>Remedies may include:<ul><li>Mantras (sound-based practices)</li><li>Gemstones (worn for specific planetary influences)</li><li>Charitable acts (giving back as a form of balance)</li><li>Timing adjustments (knowing when to act or wait)</li><li>Behavioral modifications (conscious changes in approach)</li></ul>These are suggested as practical supports, not religious requirements. You can engage with them from any perspective—spiritual, psychological, or simply as structured practices. The focus is on what supports clarity and better decision-making, not on adopting any particular belief system.<br><br>If remedies are suggested, they work best when combined with conscious choices and realistic effort, not when treated as magical fixes.",
+    question: "How many Vedic astrology sessions do I need?",
+    answer: "There is no fixed number of sessions required. Many people find one session sufficient for immediate clarity on active patterns, timing, and responses.<br><br>Others return periodically when:<ul><li>Major transitions occur (career changes, relocations, relationship decisions)</li><li>New patterns activate in their chart</li><li>They need to understand how longer cycles are unfolding</li></ul>Follow-up timing is discussed at the end of each session. The goal is clarity that supports better decisions, not dependency.",
     category: "understanding"
   },
   {
-    question: "How many sessions would I have to take to resolve my issue?",
-    answer: "There's no fixed number of sessions required to resolve an issue. The answer depends on the nature of your concern, the complexity of patterns involved, and your specific chart and life context.<br><br><strong>Some people find one session sufficient</strong> for their immediate needs. A single consultation can provide clarity on patterns, timing, and responses that support better decisions. Many people experience immediate relief from confusion as patterns they've sensed but couldn't name become visible and understandable.<br><br><strong>Others return periodically</strong> when:<ul><li>Major transitions occur (career changes, relocations, relationship decisions)</li><li>New patterns activate in their chart</li><li>They need to understand how longer cycles are unfolding</li><li>Significant shifts happen that require updated perspective</li></ul><strong>Follow-up timing is discussed</strong> at the end of your session based on your chart and life context. The goal is clarity that supports better decisions, not dependency on constant consultation.",
-    category: "understanding"
-  },
-  {
-    question: "What can I expect after the first session?",
-    answer: "After your first Vedic astrology consultation, you'll have a clearer understanding of the patterns active in your life, the timing cycles you're navigating, and how to respond more consciously to what's unfolding. Many people experience immediate relief from confusion, as patterns they've sensed but couldn't name become visible and understandable.<br><br>You'll receive specific insights about your current planetary periods, what themes are likely to surface, and when significant shifts may occur. This knowledge helps you prepare rather than react, make decisions with better timing, and understand why certain efforts work while others don't.<br><br>Some people find one session sufficient for their immediate needs. Others return periodically—during major transitions, when new patterns activate, or to understand how longer cycles are unfolding. We typically discuss appropriate follow-up timing at the end of your session based on your chart and life context. The goal is clarity that supports better decisions, not dependency on constant consultation.",
+    question: "What can I expect after my first session?",
+    answer: "After your first consultation, you'll have a clearer understanding of the patterns active in your life, the timing cycles you're navigating, and how to respond more consciously. Many people experience immediate relief from confusion, as patterns they've sensed but couldn't name become visible.<br><br>You'll receive specific insights about current planetary periods, themes likely to surface, and when significant shifts may occur. Follow-up timing is discussed based on your chart's cycles.",
     category: "practical"
   },
   {
-    question: "What information do I need before booking?",
-    answer: "Before booking your Vedic astrology consultation, gather your birth details: exact date of birth, precise time of birth (as accurate as possible), and place of birth (city and state/country). Birth time accuracy is crucial—even a 10-15 minute difference can significantly alter chart calculations.<br><br>Beyond birth details, consider what questions or concerns you want to explore. While you don't need to have everything figured out, having a sense of your primary areas of focus—whether career decisions, relationship patterns, health concerns, or life transitions—helps tailor the session to your needs.<br><br>You may also want to reflect on recurring patterns you've noticed, major life events that feel significant, or decisions you're currently facing. This preparation isn't required, but it helps you engage more actively during the consultation and get maximum value from the session.",
+    question: "What do I need before booking?",
+    answer: "You need three things to book a Vedic astrology consultation: your exact date of birth, precise time of birth, and place of birth (city and state/country). Birth time accuracy is crucial — even a 10-15 minute difference can alter chart calculations.<br><br>Also consider what questions or life areas you want to explore. Having 2-3 primary concerns helps tailor the session. No prior knowledge of astrology is needed.",
     category: "practical"
   },
   {
     question: "What if my birth time is unknown?",
-    answer: "If your birth time is completely unknown, some techniques become unavailable. If you have an approximate time (morning, afternoon, evening), we can narrow possibilities and work within that range. In some cases, chart rectification techniques may help, though this requires detailed life event history and is not always conclusive.<br><br>It's better to be honest about uncertainty than to guess a time. Inaccurate data produces unreliable readings. If you're unsure, check:<ul><li>Birth certificates</li><li>Hospital records</li><li>Ask family members who were present</li></ul>",
+    answer: "If your birth time is completely unknown, some techniques become unavailable.<br><br>It's better to be honest about uncertainty than to guess.",
     category: "practical"
   },
   {
-    question: "How often should I consult?",
-    answer: "There is no fixed frequency.<br><br>Some people consult during major transitions: career changes, relocations, relationship decisions, health crises. Others return periodically (annually or every few years) to understand how longer cycles are unfolding.<br><br>We usually discuss appropriate follow-up timing at the end of your session based on your chart and life context.",
+    question: "How often should I consult a Vedic astrologer?",
+    answer: "There is no fixed frequency. Most people consult during major transitions — career changes, relocations, relationship decisions, health crises. Others return periodically (annually or every few years) to understand longer cycles.<br><br>Follow-up timing is discussed at the end of each session based on your chart and life context.",
     category: "practical"
   },
   {
     question: "Browse All FAQs",
-    answer: "For a complete list of all frequently asked questions, please visit our <a href='faq.html' target='_blank'>FAQ page</a>. It contains detailed answers to questions about consultations, Vedic astrology, pricing, and more.",
+    answer: "For a complete list of all frequently asked questions, please visit our <a href='faq.html' target='_blank'>FAQ page</a>. It covers consultations, Vedic astrology concepts, pricing, remedies, and more.",
     category: "more-help"
   },
   {
@@ -130,46 +135,47 @@ const FAQ_CATEGORIES = {
     title: "Getting Started",
     shortTitle: "Getting Started",
     options: [
-      { label: "Book Consultation", question: "I Want to Book a Consultation" },
-      { label: "Choose Service", question: "Help Me Choose the Right Service" },
-      { label: "Pricing", question: "What's the Pricing and Session Details" },
-      { label: "Birth Details", question: "What details do I need to give for a Vedic Astrology reading?" },
-      { label: "Suitable For", question: "Who is this consultation suitable for?" },
-      { label: "Session Format", question: "What happens in a session?" },
-      { label: "Session Length", question: "How long is the session for?" }
+      { label: "Book Consultation", question: "How do I book a Vedic astrology consultation?" },
+      { label: "Choose Session", question: "Which Vedic astrology session should I choose?" },
+      { label: "Pricing", question: "How much does a Vedic astrology consultation cost?" },
+      { label: "Birth Details", question: "What details do I need for a Vedic astrology reading?" },
+      { label: "Suitable For", question: "Who is a Vedic astrology consultation suitable for?" },
+      { label: "Session Format", question: "What happens in a Vedic astrology session?" },
+      { label: "Session Length", question: "How long is a Vedic astrology session?" }
     ]
   },
   "life-situation": {
     title: "My Life Situation",
     shortTitle: "Life Situation",
     options: [
-      { label: "Career", question: "I have a career issue" },
-      { label: "Relationships", question: "I have a relationships issue" },
-      { label: "Health", question: "I have a health issue" },
-      { label: "Finances", question: "I have a finances issue" },
-      { label: "Family", question: "I have a family issue" },
-      { label: "Stuck", question: "I'm stuck despite effort" }
+      { label: "Career", question: "Can Vedic astrology help with career decisions?" },
+      { label: "Relationships", question: "Can Vedic astrology help with relationship problems?" },
+      { label: "Health", question: "Can Vedic astrology help with health concerns?" },
+      { label: "Finances", question: "Can Vedic astrology help with financial decisions?" },
+      { label: "Family", question: "Can Vedic astrology help with family issues?" },
+      { label: "Stuck Despite Effort", question: "Why am I stuck despite effort? Can astrology help?" }
     ]
   },
   "understanding": {
-    title: "Understanding the Process",
+    title: "Understanding Vedic Astrology",
     shortTitle: "Understanding",
     options: [
+      { label: "What is Vedic Astrology?", question: "What is Vedic astrology?" },
+      { label: "What is a Dasha?", question: "What is a dasha in Vedic astrology?" },
       { label: "Vedic vs Western", question: "How is Vedic astrology different from Western astrology?" },
-      { label: "Techniques", question: "What techniques do you use?" },
-      { label: "Religious?", question: "Is this religious?" },
-      { label: "Remedies Religious?", question: "Are the remedies given religious?" },
-      { label: "How Many Sessions", question: "How many sessions would I have to take to resolve my issue?" }
+      { label: "Religious?", question: "Is Vedic astrology compatible with my religion?" },
+      { label: "Remedies Religious?", question: "Are Vedic astrology remedies religious?" },
+      { label: "How Many Sessions", question: "How many Vedic astrology sessions do I need?" }
     ]
   },
   "practical": {
     title: "Practical Concerns",
     shortTitle: "Practical",
     options: [
-      { label: "After Session", question: "What can I expect after the first session?" },
-      { label: "Before Booking", question: "What information do I need before booking?" },
+      { label: "After Session", question: "What can I expect after my first session?" },
+      { label: "Before Booking", question: "What do I need before booking?" },
       { label: "Unknown Birth Time", question: "What if my birth time is unknown?" },
-      { label: "Frequency", question: "How often should I consult?" }
+      { label: "Frequency", question: "How often should I consult a Vedic astrologer?" }
     ]
   },
   "more-help": {
@@ -242,10 +248,20 @@ function initFAQChat() {
             answerContainer.classList.remove('active');
             answerContainer.dataset.question = '';
           } else {
-            // Show answer for this option
-            const faq = FAQ_DATA.find(f => f.question === option.question);
-            if (faq) {
-              answerContainer.innerHTML = `<div class="faq-answer-text">${faq.answer}</div>`;
+            // On faq.html, use the page's own FAQ answer for "Birth Details" so one source of truth
+            let answerHtml = null;
+            if (option.question === "What details do I need for a Vedic astrology reading?") {
+              const pageAnswer = document.getElementById('faq-answer-faq-6');
+              if (pageAnswer && pageAnswer.innerHTML && pageAnswer.innerHTML.trim()) {
+                answerHtml = pageAnswer.innerHTML.trim();
+              }
+            }
+            if (answerHtml == null) {
+              const faq = FAQ_DATA.find(f => f.question === option.question);
+              answerHtml = faq ? faq.answer : '';
+            }
+            if (answerHtml) {
+              answerContainer.innerHTML = `<div class="faq-answer-text">${answerHtml}</div>`;
               answerContainer.dataset.question = option.question;
               answerContainer.classList.add('active');
             }
