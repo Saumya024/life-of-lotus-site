@@ -3138,6 +3138,7 @@ section {
 .intake {
   background-color: var(--cream-white);
   padding: 160px 40px;
+  box-sizing: border-box;
 }
 
 .intake-container {
@@ -3859,6 +3860,12 @@ section {
     padding-top: 56px;
   }
 
+  /* Ascendant reset pages: remove white gap between header and page on mobile */
+  main[class$="-page"] {
+    margin-top: -56px;
+    padding-top: 56px;
+  }
+
   .hero-planet-circle {
     opacity: 0.10;
   }
@@ -4463,6 +4470,16 @@ section {
     padding: 4px 6px;
   }
 
+  .intake {
+    padding: 120px 16px;
+  }
+
+  .intake-container {
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
   .intake-grid {
     grid-template-columns: 1fr;
     gap: 32px;
@@ -4472,15 +4489,25 @@ section {
     grid-column: 1;
   }
   
+  .birth-details-section {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
   .birth-details-block {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    overflow: hidden;
   }
   
   .birth-details-block .field {
     width: 100%;
     min-width: 0;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   
   .birth-details-block .field input,
@@ -4492,16 +4519,20 @@ section {
   }
   
   .birth-details-block {
-    padding: 24px 20px;
+    padding: 24px 16px;
   }
   
   .birth-details-block .field input[type="date"],
   .birth-details-block .field input[type="time"] {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     box-sizing: border-box !important;
     padding: 12px 14px !important;
     padding-right: 36px !important;
+    overflow: hidden !important;
   }
   
   /* Additional charts wrapper and blocks - full width on mobile */
@@ -4511,6 +4542,8 @@ section {
     margin-left: 0;
     margin-right: 0;
     padding: 0;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   
   .additional-chart-block {
@@ -4518,14 +4551,17 @@ section {
     max-width: 100%;
     margin-left: 0;
     margin-right: 0;
-    padding: 24px 20px;
+    padding: 24px 16px;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   
   .additional-chart-block .field {
     width: 100%;
     min-width: 0;
     display: block;
-    flex-shrink: 0;
+    overflow: hidden;
+    box-sizing: border-box;
   }
   
   .additional-chart-block .field input,
@@ -4540,21 +4576,28 @@ section {
   
   .additional-chart-block .field input[type="date"],
   .additional-chart-block .field input[type="time"] {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     display: block !important;
     box-sizing: border-box !important;
     padding: 12px 14px !important;
     padding-right: 36px !important;
+    overflow: hidden !important;
   }
 
-  /* Mobile Date and Time Input Fixes - Native Appearance Preserved */
+  /* Mobile Date and Time Input Fixes */
   .field input[type="date"],
   .field input[type="time"] {
+    -webkit-appearance: none;
+    appearance: none;
     width: 100% !important;
     max-width: 100% !important;
+    min-width: 0 !important;
     padding: 12px 14px !important;
-    padding-right: 36px !important; /* Space for native calendar/time picker icon */
+    padding-right: 36px !important;
     box-sizing: border-box !important;
     border: 1px solid rgba(67, 16, 57, 0.2) !important;
     border-radius: 8px !important;
@@ -4566,6 +4609,7 @@ section {
     min-height: 44px;
     line-height: 1.5;
     margin: 0;
+    overflow: hidden;
   }
 
   .field input[type="date"]::-webkit-calendar-picker-indicator,
