@@ -3,8 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alternative Healing & Consciousness Practices - I Read Space</title>
-  <meta name="description" content="Explore alternative healing and consciousness practices including meditation, yoga, somatic therapies, traditional medicine systems, and more. Comprehensive guides from I Read Space." />
+  <title>Healing Practices | Curated Guides | I Read Space</title>
+  <meta name="description" content="Concise, practical overviews of healing modalities — personally explored or deeply trusted. Meditation, bodywork, traditional medicine, somatic therapies, and more." />
+  <meta property="og:title" content="Healing Practices | Curated Guides | I Read Space" />
+  <meta property="og:description" content="Concise, practical overviews of healing modalities — personally explored or deeply trusted. Meditation, bodywork, traditional medicine, somatic therapies, and more." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ireadspace.com/alternative-healing-practices" />
+  <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Healing Practices | Curated Guides | I Read Space" />
+  <meta name="twitter:description" content="Concise, practical overviews of healing modalities — personally explored or deeply trusted. Meditation, bodywork, traditional medicine, somatic therapies, and more." />
+  <link rel="canonical" href="https://ireadspace.com/alternative-healing-practices" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
@@ -18,6 +27,8 @@
 </head>
 
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header class="header">
@@ -37,29 +48,23 @@
       <a href="index.html#pricing">Pricing</a>
         <a href="index.html#areas">Services</a>
       <a href="insights.html">Insights</a>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">Healing</span>
-        <div class="nav-dropdown-menu">
-          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="reading-viewing.html">Reading & Viewing</a>
-        </div>
-      </div>
-      <a href="faq.html">FAQ</a>
+      <a href="alternative-healing-practices.html">Healing</a>
       <a href="index.html#contact">Contact</a>
       <a href="login.html" id="nav-login" style="display: none;">Login</a>
       <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
       <a href="#" id="nav-logout" style="display: none;">Logout</a>
-      <a href="index.html#pricing" class="header-cta">Book a Session</a>
+      <a href="index.html#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
   <!-- Practice Overview Section -->
-  <section class="healing-practices">
+  <section class="healing-practices" id="main-content">
     <div class="healing-practices-container">
       <h1>Alternative Healing & Consciousness Practices</h1>
       <div class="healing-practices-intro">
-        <p>Healing takes many forms. Some work through the body, others through breath, sound, or stillness. Some are rooted in ancient traditions, others in modern research. What they share is a respect for the body's capacity to restore itself when given the right conditions.</p>
-        <p>This section offers clear, practical overviews of practices I've encountered and found valuable, either through personal experience or through practitioners I trust. Use it to orient yourself, ask better questions, and find what resonates with where you are now. For <a href="about.html#what-is-vedic-astrology" style="color: inherit; text-decoration: underline;">Vedic astrology consultations</a>, <a href="index.html#pricing" style="color: inherit; text-decoration: underline;">book a session</a>.</p>
+        <p>These are practices I've personally explored or trust deeply — each one written to help you orient yourself, ask sharper questions, and choose what aligns with where you are now.</p>
+        <p>Some are ancient. Others are grounded in modern research. All honour the body's capacity to restore itself under the right conditions.</p>
+        <p>For Vedic astrology consultations, <a href="index.html#pricing" style="color: inherit; text-decoration: underline;">request a session</a>.</p>
       </div>
       
       <!-- Search and Filter Section -->
@@ -1282,12 +1287,12 @@
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
       <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">I Read Space offers a disciplined way to understand those deeper influences.</span></p>
-      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <a href="index.html#pricing" class="footer-cta">Request a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>
         <a href="refund.html">Refund Policy</a>
@@ -1404,6 +1409,16 @@
     }
   </script>
 
+  <!-- FAQ Chat Widget -->
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">?</button>
+  <div id="faq-chat-panel" class="faq-chat-panel">
+    <div class="faq-chat-header">
+      <h3>Have a Question?</h3>
+      <button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div id="faq-chat-content" class="faq-chat-content"></div>
+  </div>
+  <script src="js/faq-chat.js"></script>
 </body>
 </html>
 

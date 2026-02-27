@@ -3,9 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Lost in the Cosmos | I Read Space</title>
+  <title>404 - Page Not Found | I Read Space</title>
   <meta name="description" content="Page not found. Return to I Read Space for Vedic astrology consultations." />
-  
+  <link rel="canonical" href="https://ireadspace.com/404.html" />
+  <meta name="robots" content="noindex, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="404 - Page Not Found | I Read Space" />
+  <meta property="og:description" content="This page doesn't exist. Return to I Read Space for Vedic astrology consultations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ireadspace.com/404.html" />
+  <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="404 - Page Not Found | I Read Space" />
+  <meta name="twitter:description" content="Page not found. Return to I Read Space for Vedic astrology consultations." />
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
   <link rel="apple-touch-icon" href="assets/images/Radicle (4).png">
@@ -17,6 +31,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header class="header">
@@ -36,26 +52,20 @@
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#areas">Services</a>
       <a href="insights.html">Insights</a>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">Healing</span>
-        <div class="nav-dropdown-menu">
-          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="reading-viewing.html">Reading & Viewing</a>
-        </div>
-      </div>
-      <a href="faq.html">FAQ</a>
+      <a href="alternative-healing-practices.html">Healing</a>
+      <a href="reset-now.html">Reset</a>
       <a href="index.html#contact">Contact</a>
-      <a href="index.html#pricing" class="header-cta">Book a Session</a>
+      <a href="index.html#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
   <!-- 404 Section -->
-  <section class="error-404" style="min-height: 70vh; display: flex; align-items: center; justify-content: center; padding: 120px 40px; text-align: center; background-color: var(--cream-white);">
-    <div style="max-width: 600px;">
-      <h1 style="font-size: 72px; font-weight: 500; color: var(--primary); margin-bottom: 16px; font-family: 'Brygada 1918', serif;">404</h1>
-      <h2 style="font-size: 32px; font-weight: 500; color: var(--primary); margin-bottom: 24px; font-family: 'Brygada 1918', serif;">Lost in the cosmos</h2>
-      <p style="font-size: 18px; color: var(--primary-light); margin-bottom: 48px; line-height: 1.7; font-family: 'Comfortaa', sans-serif;">You've drifted past the edge of our galaxy. There's nothing here but stardust and silence.</p>
-      <a href="index.html" class="error-404-cta" style="display: inline-block; padding: 16px 32px; border: 2px solid var(--primary); color: var(--primary); text-decoration: none; border-radius: 8px; font-family: 'Brygada 1918', serif; font-size: 16px; font-weight: 500; transition: all 0.3s ease;">Exit the black hole</a>
+  <section class="error-404" id="main-content">
+    <div class="error-404-inner">
+      <h1>404</h1>
+      <h2>This page doesn't exist.</h2>
+      <p>Whatever brought you here — a broken link, an old bookmark, or a mistyped URL — the page you're looking for isn't available.</p>
+      <a href="index.html" class="error-404-cta">Return to Home</a>
     </div>
   </section>
 
@@ -72,12 +82,12 @@
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
       <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">I Read Space offers a disciplined way to understand those deeper influences.</span></p>
-      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <a href="index.html#pricing" class="footer-cta">Request a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>
         <a href="refund.html">Refund Policy</a>
@@ -108,6 +118,18 @@
       });
     });
   </script>
+
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">
+    ?
+  </button>
+  <div id="faq-chat-panel" class="faq-chat-panel">
+    <div class="faq-chat-header">
+      <h3>Have a Question?</h3>
+      <button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div id="faq-chat-content" class="faq-chat-content"></div>
+  </div>
+  <script src="js/faq-chat.js"></script>
 
 </body>
 </html>

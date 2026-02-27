@@ -16,6 +16,12 @@
   <meta property="og:description" content="Login to your I Read Space account to access your astrology consultation history and pathways." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ireadspace.com/login" />
+  <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Login - I Read Space" />
+  <meta name="twitter:description" content="Login to your I Read Space account to access your astrology consultation history and pathways." />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
@@ -39,25 +45,18 @@
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#areas">Services</a>
       <a href="insights.html">Insights</a>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">Healing</span>
-        <div class="nav-dropdown-menu">
-          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="reading-viewing.html">Reading & Viewing</a>
-        </div>
-      </div>
-      <!-- <a href="pathways.html">Pathways</a> Hidden for now -->
-      <a href="faq.html">FAQ</a>
+      <a href="alternative-healing-practices.html">Healing</a>
+      <a href="reset-now.html">Reset</a>
       <a href="index.html#contact">Contact</a>
       <a href="login.html" id="nav-login" style="display: none;">Login</a>
       <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
       <a href="#" id="nav-logout" style="display: none;">Logout</a>
-      <a href="index.html#pricing" class="header-cta">Book a Session</a>
+      <a href="index.html#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
   <section style="padding: 95px 40px; max-width: 400px; margin: 0 auto;">
-    <h2>Login</h2>
+    <h1>Login</h1>
     <form id="login-form" style="margin-top: 24px;">
       <div style="margin-bottom: 16px;">
         <label for="email" style="display: block; margin-bottom: 8px; font-family: 'Comfortaa', sans-serif; font-size: 14px;">Email</label>
@@ -81,7 +80,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="assets/images/23.png" alt="I Read Space" />
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -90,12 +89,12 @@
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
       <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">I Read Space offers a disciplined way to understand those deeper influences.</span></p>
-      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <a href="index.html#pricing" class="footer-cta">Request a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>
         <a href="refund.html">Refund Policy</a>
@@ -231,6 +230,17 @@
       }
     });
   </script>
+
+  <!-- FAQ Chat Widget -->
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">?</button>
+  <div id="faq-chat-panel" class="faq-chat-panel">
+    <div class="faq-chat-header">
+      <h3>Have a Question?</h3>
+      <button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div id="faq-chat-content" class="faq-chat-content"></div>
+  </div>
+  <script src="js/faq-chat.js"></script>
 </body>
 </html>
 

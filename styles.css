@@ -12,6 +12,171 @@
   --cream-white: #F8F6F2;
   --gold: #ba9751;
   --white: #FFFFFF;
+
+  /* Typography */
+  --font-heading: 'Brygada 1918', serif;
+  --font-body: 'Comfortaa', sans-serif;
+  --text-display: 72px;
+  --text-h1-hero: 55px;
+  --text-h1-page: 42px;
+  --text-h2: 34px;
+  --text-h3: 24px;
+  --text-h4: 20px;
+  --text-h5: 18px;
+  --text-body: 16px;
+  --text-small: 14px;
+  --text-caption: 12px;
+  --line-tight: 1.1;
+  --line-snug: 1.3;
+  --line-normal: 1.6;
+  --line-relaxed: 1.8;
+  --weight-light: 300;
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Spacing scale */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+  --spacing-4xl: 80px;
+  --spacing-5xl: 120px;
+  --section-padding: 95px 40px;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 100px;
+  --radius-pill: 200px;
+  --radius-circle: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(67, 16, 57, 0.08);
+  --shadow-md: 0 4px 12px rgba(67, 16, 57, 0.1);
+  --shadow-lg: 0 8px 24px rgba(67, 16, 57, 0.1);
+  --shadow-xl: 0 12px 32px rgba(67, 16, 57, 0.2);
+
+  /* Letter spacing */
+  --letter-tight: -0.5px;
+  --letter-normal: 0;
+  --letter-wide: 0.5px;
+  --letter-wider: 1px;
+  --letter-widest: 2px;
+}
+
+/* Skip link (a11y) - visible on focus */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 8px;
+  z-index: 10000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Visually hidden but available to screen readers (a11y) */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Global focus visible for keyboard users (a11y) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+/* Ensure form fields keep visible focus when outline was removed for :focus */
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible,
+.insights-search-input:focus-visible,
+.healing-search-input:focus-visible,
+.insight-email-form input:focus-visible,
+.ritual-email-input:focus-visible,
+.insights-filter-select:focus-visible,
+.healing-filter-select:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 2px;
+}
+
+/* 404 page section (moved from inline styles for consistency and a11y) */
+.error-404 {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 40px;
+  text-align: center;
+  background-color: var(--cream-white);
+}
+.error-404-inner {
+  max-width: 600px;
+}
+.error-404 h1 {
+  font-size: 72px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 16px;
+  font-family: var(--font-heading);
+}
+.error-404 h2 {
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 24px;
+  font-family: var(--font-heading);
+}
+.error-404 p {
+  font-size: 18px;
+  color: var(--primary-light);
+  margin-bottom: 48px;
+  line-height: 1.7;
+  font-family: var(--font-body);
+}
+.error-404-cta {
+  display: inline-block;
+  padding: 16px 32px;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.error-404-cta:hover {
+  background-color: var(--primary);
+  color: var(--cream-white);
 }
 
 /* Base Styles */
@@ -23,23 +188,30 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   color: var(--primary);
   line-height: 1.6;
   padding-top: 72px;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
   text-align: center;
 }
 
 h2 {
-  font-size: 34px;
+  font-size: var(--text-h2);
   font-weight: 500;
   text-transform: none;
   margin-bottom: 32px;
@@ -47,13 +219,13 @@ h2 {
 }
 
 section {
-  padding: 95px 40px;
+  padding: var(--section-padding);
   width: 100%;
 }
 
 /* Guided Pathways Section */
 .guided-pathways-section {
-  padding: 95px 40px;
+  padding: var(--section-padding);
   min-height: 60vh;
 }
 
@@ -63,15 +235,15 @@ section {
 }
 
 .guided-pathways-container h1 {
-  font-size: 34px;
+  font-size: var(--text-h2);
   margin-bottom: 24px;
   text-align: center;
   color: var(--primary);
 }
 
 .guided-pathways-intro {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary-light);
   text-align: center;
   margin-bottom: 48px;
@@ -95,11 +267,11 @@ section {
   display: inline-block;
   background-color: var(--secondary);
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   font-weight: 500;
   padding: 6px 16px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -107,20 +279,20 @@ section {
 
 .featured-pathway-card h2 {
   color: var(--white);
-  font-size: 34px;
+  font-size: var(--text-h2);
   margin-bottom: 12px;
 }
 
 .featured-pathway-subtitle {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--secondary-lighter);
   margin-bottom: 20px;
 }
 
 .featured-pathway-desc {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: rgba(255, 255, 255, 0.8);
   max-width: 500px;
   margin: 0 auto 24px;
@@ -136,8 +308,8 @@ section {
 }
 
 .featured-pathway-meta span {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -146,9 +318,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   padding: 16px 32px;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -210,7 +382,7 @@ section {
 }
 
 .pathway-card-title {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 500;
   color: var(--primary);
@@ -218,8 +390,8 @@ section {
 }
 
 .pathway-primary-pillar {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary-light);
   margin-bottom: 16px;
   font-weight: 500;
@@ -230,8 +402,8 @@ section {
 }
 
 .pathway-overview p {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   line-height: 1.6;
 }
@@ -241,8 +413,8 @@ section {
 .pathway-suitability-not,
 .pathway-requirements-preview {
   margin-bottom: 16px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
 }
 
@@ -271,8 +443,8 @@ section {
   flex-wrap: wrap;
   gap: 16px;
   margin-bottom: 20px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary-light);
 }
 
@@ -281,7 +453,7 @@ section {
 .pathway-intensity {
   padding: 4px 12px;
   background-color: rgba(67, 16, 57, 0.05);
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
 }
 
 .pathway-cta {
@@ -295,9 +467,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   border: none;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s;
@@ -313,7 +485,7 @@ section {
 .error-state {
   text-align: center;
   padding: 60px 20px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   color: var(--primary-light);
   grid-column: 1 / -1;
@@ -321,7 +493,7 @@ section {
 
 /* My Pathways Section */
 .my-pathways-section {
-  padding: 95px 40px;
+  padding: var(--section-padding);
   min-height: 60vh;
 }
 
@@ -331,7 +503,7 @@ section {
 }
 
 .my-pathways-container h1 {
-  font-size: 34px;
+  font-size: var(--text-h2);
   margin-bottom: 48px;
   text-align: center;
   color: var(--primary);
@@ -351,7 +523,7 @@ section {
 }
 
 .pathway-title {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 32px;
   font-weight: 500;
   color: var(--primary);
@@ -362,8 +534,8 @@ section {
   display: flex;
   gap: 24px;
   margin-bottom: 20px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary-light);
 }
 
@@ -378,8 +550,8 @@ section {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
 }
 
@@ -410,8 +582,8 @@ section {
 }
 
 .pathway-blocks-container h3 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 24px;
@@ -432,7 +604,7 @@ section {
 }
 
 .day-header {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 500;
   color: var(--primary);
@@ -443,8 +615,8 @@ section {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   cursor: pointer;
 }
@@ -468,15 +640,15 @@ section {
 }
 
 .block-time {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   font-weight: 500;
   color: var(--primary-light);
 }
 
 .block-content {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
 }
 
@@ -507,16 +679,16 @@ section {
 }
 
 .attribution-header {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 8px;
 }
 
 .attribution-content {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   line-height: 1.6;
 }
@@ -548,8 +720,8 @@ section {
 }
 
 .materials-acknowledgment p {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   margin-bottom: 12px;
 }
@@ -557,8 +729,8 @@ section {
 .materials-list,
 .environment-requirements {
   margin-top: 12px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
 }
 
@@ -576,7 +748,7 @@ section {
 .error-state {
   text-align: center;
   padding: 60px 20px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   color: var(--primary-light);
 }
@@ -588,9 +760,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   text-decoration: none;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   transition: background-color 0.3s;
 }
 
@@ -599,8 +771,8 @@ section {
 }
 
 .no-blocks {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary-light);
   font-style: italic;
   text-align: center;
@@ -623,8 +795,8 @@ section {
 }
 
 .logo {
-  font-family: 'Brygada 1918', serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--primary);
   overflow: hidden;
@@ -658,7 +830,7 @@ section {
 .nav a {
   color: var(--primary);
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--text-body);
   transition: opacity 0.3s;
 }
 
@@ -670,10 +842,10 @@ section {
   background: var(--secondary);
   color: var(--primary) !important;
   padding: 12px 28px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   display: inline-block !important;
   margin-left: 8px;
   transition: background-color 0.3s;
@@ -699,7 +871,7 @@ section {
   cursor: pointer;
   color: var(--primary);
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--text-body);
   transition: opacity 0.3s;
 }
 
@@ -746,7 +918,7 @@ section {
   padding: 12px 20px;
   color: var(--primary);
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--text-body);
   transition: background-color 0.2s;
   border-bottom: none;
 }
@@ -768,9 +940,9 @@ section {
   background: var(--secondary);
   color: var(--primary) !important;
   padding: 10px 20px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 13px;
   transition: background-color 0.3s;
   white-space: nowrap;
@@ -936,6 +1108,9 @@ section {
   opacity: 1;
 }
 
+/* Large, soft planetary circles in hero background */
+/* (hero background circles removed) */
+
 @keyframes starTwinkle {
   0%, 100% {
     opacity: 0.3;
@@ -971,7 +1146,7 @@ section {
   margin: 0;
   padding: 0;
   display: block;
-  opacity: 0.6;
+  opacity: 1;
 }
 
 .planet-icon:nth-child(1) {
@@ -1013,6 +1188,7 @@ section {
   display: block;
   text-align: center;
   padding: 0 40px;
+  overflow: visible;
 }
 
 .hero-content h1 {
@@ -1020,11 +1196,12 @@ section {
   top: calc(10px + 15px + 4.5vh);
   left: 50%;
   transform: translateX(-50%);
-  font-size: 55px;
+  font-size: var(--text-h1-hero);
   margin: 0;
   color: var(--cream-white);
   max-width: 800px;
   width: 100%;
+  text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(248, 246, 242, 0.1);
   line-height: 1.1;
   white-space: nowrap;
@@ -1032,25 +1209,34 @@ section {
 
 .hero-content p {
   position: absolute;
-  top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 24px);
+  top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 8px - 10vh);
   left: 50%;
   transform: translateX(-50%);
   font-size: 28px;
   margin: 0;
-  line-height: 1.1;
+  line-height: 1.25;
   color: var(--cream-white);
-  max-width: 800px;
-  width: 100%;
+  width: 94%;
+  max-width: 820px;
+  box-sizing: border-box;
   text-align: center;
   text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
   opacity: 0.95;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
+  padding: 0 16px;
+  overflow: visible;
 }
 
 .hero-content p span {
   display: block;
-  white-space: nowrap;
-  line-height: 1.1;
+  white-space: normal;
+  line-height: 1.3;
+  margin: 0;
+  text-align: center;
+}
+
+.hero-content p span:first-child {
+  margin-bottom: 0;
 }
 
 .hero-cta {
@@ -1062,10 +1248,10 @@ section {
   background: var(--secondary);
   color: var(--primary);
   padding: 27px 64px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   border: 2px solid var(--tertiary);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
   font-size: 30px;
   white-space: nowrap;
@@ -1081,10 +1267,10 @@ section {
   background: var(--secondary);
   color: var(--primary);
   padding: 14px 32px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   border: 2px solid var(--tertiary);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   display: inline-block;
   transition: background-color 0.3s;
 }
@@ -1123,7 +1309,7 @@ section {
 /* Core Benefits Section */
 .core-benefits {
   background-color: var(--primary);
-  padding: 95px 40px;
+  padding: var(--section-padding);
   height: 45vh;
   display: flex;
   align-items: center;
@@ -1173,7 +1359,7 @@ section {
 }
 
 .core-benefit-title {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 32px;
   font-weight: 500;
   color: var(--cream-white);
@@ -1188,8 +1374,8 @@ section {
 }
 
 .core-benefit-description {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: rgba(248, 246, 242, 0.9);
   line-height: 1.6;
   margin: 0;
@@ -1232,13 +1418,13 @@ section {
   }
   
   .core-benefit-title {
-    font-size: 24px;
+    font-size: var(--text-h3);
     margin: 0;
     white-space: nowrap;
   }
   
   .core-benefit-description {
-    font-size: 14px;
+    font-size: var(--text-small);
     line-height: 1.6;
     margin: 0;
     text-align: center;
@@ -1249,7 +1435,7 @@ section {
 /* Brand Highlights Section */
 .brand-highlights {
   background-color: var(--cream-white);
-  padding: 95px 40px;
+  padding: var(--section-padding);
   border-top: 1px solid rgba(67, 16, 57, 0.12);
 }
 
@@ -1270,7 +1456,7 @@ section {
 }
 
 .brand-subsection-heading {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 500;
   color: var(--primary);
@@ -1290,30 +1476,30 @@ section {
   background-color: var(--primary);
   color: var(--cream-white);
   border: none;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
   font-weight: 400;
   white-space: nowrap;
 }
 
 .brand-stars {
-  font-size: 24px;
+  font-size: var(--text-h3);
   color: var(--tertiary);
   letter-spacing: 2px;
   margin-bottom: 8px;
 }
 
 .brand-stars-text {
-  font-family: 'Brygada 1918', serif;
-  font-size: 14px;
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
   color: var(--primary);
   margin: 0;
 }
 
 .brand-google {
   font-weight: 600;
-  font-size: 16px;
+  font-size: var(--text-body);
 }
 
 .brand-principles {
@@ -1329,9 +1515,9 @@ section {
   background-color: var(--primary);
   color: var(--cream-white);
   border: none;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
   font-weight: 400;
   white-space: nowrap;
   text-align: center;
@@ -1348,7 +1534,7 @@ section {
   }
   
   .brand-subsection-heading {
-    font-size: 16px;
+    font-size: var(--text-body);
     margin-bottom: 20px;
   }
   
@@ -1409,8 +1595,8 @@ section {
 }
 
 .reach-out-bullets li {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--cream-white);
   line-height: 1.6;
   padding-left: 24px;
@@ -1496,7 +1682,7 @@ section {
 }
 
 .reach-out-text {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   color: var(--cream-white);
   margin: 0 0 8px 0;
@@ -1506,8 +1692,8 @@ section {
 }
 
 .reach-out-subtext {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--cream-white);
   margin: 0;
   line-height: 1.5;
@@ -1515,8 +1701,8 @@ section {
 }
 
 .reach-out-detail {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--cream-white);
   line-height: 1.5;
   margin: 0;
@@ -1588,11 +1774,11 @@ section {
 }
 
 .area-detail {
-  font-size: 14px;
+  font-size: var(--text-small);
   color: rgba(67, 16, 57, 0.7);
   margin-bottom: 24px;
   flex-grow: 1;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .area-card-bullets {
@@ -1605,8 +1791,8 @@ section {
 }
 
 .area-card-bullets li {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: rgba(67, 16, 57, 0.7);
   line-height: 1.5;
   padding-left: 20px;
@@ -1623,14 +1809,14 @@ section {
   position: absolute;
   left: 0;
   color: var(--primary);
-  font-size: 16px;
+  font-size: var(--text-body);
   line-height: 1.5;
 }
 
 .area-cta {
   color: var(--secondary);
   text-decoration: none;
-  font-size: 14px;
+  font-size: var(--text-small);
   font-weight: 500;
 }
 
@@ -1681,7 +1867,7 @@ section {
   color: var(--primary);
   padding: 4px 16px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: var(--text-caption);
   font-weight: 500;
 }
 
@@ -1690,7 +1876,7 @@ section {
   font-weight: 700;
   margin-bottom: 12px;
   color: rgba(67, 16, 57, 0.7);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .pricing-name {
@@ -1701,11 +1887,11 @@ section {
 }
 
 .pricing-best-for {
-  font-size: 16px;
+  font-size: var(--text-body);
   margin-bottom: 24px;
   font-style: italic;
   color: var(--secondary);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   min-height: 48px;
   display: flex;
   align-items: center;
@@ -1723,12 +1909,12 @@ section {
 .toggle-btn {
   padding: 8px 16px;
   border: none;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   background: rgba(67, 16, 57, 0.1);
   color: var(--primary);
   cursor: pointer;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   transition: all 0.3s;
 }
 
@@ -1749,7 +1935,7 @@ section {
   color: var(--primary);
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(67, 16, 57, 0.12);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .pricing-details {
@@ -1763,7 +1949,7 @@ section {
 }
 
 .pricing-detail-item {
-  font-size: 12px;
+  font-size: var(--text-caption);
   margin-bottom: 8px;
   position: relative;
   color: rgba(67, 16, 57, 0.85);
@@ -1779,9 +1965,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   padding: 12px 32px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
   margin-top: auto;
   margin-bottom: 16px;
@@ -1801,8 +1987,8 @@ section {
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
@@ -1843,7 +2029,7 @@ section {
 }
 
 .pricing-expand-section h4 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 500;
   color: var(--primary);
@@ -1858,8 +2044,8 @@ section {
 }
 
 .pricing-expand-section li {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.7;
   color: var(--primary-light);
   margin-bottom: 10px;
@@ -1894,8 +2080,8 @@ section {
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
@@ -1936,7 +2122,7 @@ section {
 }
 
 .pricing-expand-section h4 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 500;
   color: var(--primary);
@@ -1951,8 +2137,8 @@ section {
 }
 
 .pricing-expand-section li {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.7;
   color: var(--primary-light);
   margin-bottom: 10px;
@@ -2003,11 +2189,11 @@ section {
 }
 
 .safe-space-text {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.8;
   margin-bottom: 40px;
   color: var(--cream-white);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .safe-space-lotus {
@@ -2021,7 +2207,7 @@ section {
 .testimonial {
   background-color: var(--white);
   text-align: center;
-  padding: 95px 40px;
+  padding: var(--section-padding);
   position: relative;
   overflow: hidden;
   border-top: 1px solid rgba(67, 16, 57, 0.08);
@@ -2114,7 +2300,7 @@ section {
   line-height: 1;
   color: rgba(67, 16, 57, 0.2);
   margin-bottom: -28px;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 600;
 }
 
@@ -2126,16 +2312,16 @@ section {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
   letter-spacing: 0.01em;
 }
 
 .testimonial-attribution {
-  font-size: 16px;
+  font-size: var(--text-body);
   color: rgba(67, 16, 57, 0.88);
   font-style: italic;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-weight: 600;
 }
 
@@ -2181,7 +2367,7 @@ section {
   font-weight: 700;
   margin-bottom: 12px;
   color: rgba(67, 16, 57, 0.7);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .package-sessions {
@@ -2211,7 +2397,7 @@ section {
   text-decoration: line-through;
   margin-bottom: 8px;
   color: rgba(67, 16, 57, 0.6);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .package-price {
@@ -2221,14 +2407,14 @@ section {
   color: var(--primary);
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(67, 16, 57, 0.12);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .package-savings {
-  font-size: 16px;
+  font-size: var(--text-body);
   color: rgba(67, 16, 57, 0.6);
   margin-bottom: 32px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .package-cta {
@@ -2236,10 +2422,10 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   padding: 12px 32px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   margin-top: auto;
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
   margin-bottom: 16px;
   transition: background-color 0.3s;
@@ -2250,7 +2436,7 @@ section {
 }
 
 .package-note {
-  font-size: 12px;
+  font-size: var(--text-caption);
   color: rgba(67, 16, 57, 0.6);
 }
 
@@ -2265,8 +2451,8 @@ section {
 }
 
 .process-intro {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.8;
   color: var(--cream-white);
   text-align: center;
@@ -2277,13 +2463,13 @@ section {
 
 .process-cta {
   display: inline-block;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   color: var(--cream-white);
   background-color: transparent;
   border: 1px solid rgba(248, 246, 242, 0.3);
   padding: 12px 28px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
   transition: all 0.3s ease;
   font-weight: 400;
@@ -2328,11 +2514,11 @@ section {
 }
 
 .process-text {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.8;
   opacity: 0.85;
   color: var(--cream-white);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .process-divider {
@@ -2354,8 +2540,8 @@ section {
 }
 
 .about-saumya-title {
-  font-family: 'Brygada 1918', serif;
-  font-size: 34px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h2);
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 32px;
@@ -2364,8 +2550,8 @@ section {
 
 .about-saumya-name {
   display: block;
-  font-family: 'Brygada 1918', serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   font-weight: 500;
   margin-top: 4px;
   color: var(--primary);
@@ -2412,8 +2598,8 @@ section {
 }
 
 .about-saumya-text p {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 24px;
@@ -2435,7 +2621,7 @@ section {
   }
 
   .about-saumya-name {
-    font-size: 24px;
+    font-size: var(--text-h3);
   }
 
   .about-saumya-photo-wrapper {
@@ -2443,7 +2629,7 @@ section {
   }
 
   .about-saumya-text p {
-    font-size: 13px;
+    font-size: var(--text-small);
     margin-bottom: 20px;
   }
 }
@@ -2461,15 +2647,15 @@ section {
 }
 
 .about-preview h2 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 32px;
   color: var(--primary);
   margin-bottom: 24px;
 }
 
 .about-preview-text {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 28px;
@@ -2487,13 +2673,13 @@ section {
 
 .about-preview-cta {
   display: inline-block;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   color: var(--primary);
   background-color: transparent;
   border: 1px solid rgba(67, 16, 57, 0.35);
   padding: 12px 28px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -2568,11 +2754,11 @@ section {
   font-weight: 500;
   margin-bottom: 8px;
   color: var(--cream-white);
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
 }
 
 .founder-heading {
-  font-size: 24px;
+  font-size: var(--text-h3);
   margin-bottom: 40px;
   color: var(--cream-white);
 }
@@ -2589,7 +2775,7 @@ section {
 }
 
 .founder-note-section-title {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 500;
   color: var(--cream-white);
@@ -2598,12 +2784,12 @@ section {
 }
 
 .founder-note-section-text {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.8;
   opacity: 0.9;
   text-align: left;
   color: var(--cream-white);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   margin: 0;
 }
 
@@ -2635,7 +2821,7 @@ section {
 }
 
 .faq-group-heading {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 500;
   color: var(--primary);
@@ -2660,7 +2846,7 @@ section {
 .faq-cta-link {
   color: var(--primary);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 500;
   font-style: italic;
@@ -2689,8 +2875,8 @@ section {
   border: none;
   padding: 20px 0;
   text-align: left;
-  font-size: 16px;
-  font-family: 'Brygada 1918', serif;
+  font-size: var(--text-body);
+  font-family: var(--font-heading);
   color: var(--primary);
   cursor: pointer;
   position: relative;
@@ -2713,7 +2899,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: var(--text-caption);
   color: var(--primary);
   transition: transform 0.3s ease, opacity 0.3s ease;
   z-index: 1;
@@ -2735,7 +2921,7 @@ section {
   padding: 0;
   color: rgba(67, 16, 57, 0.8);
   line-height: 1.6;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
 }
 
@@ -2811,8 +2997,8 @@ section {
 }
 
 .contact-label {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--secondary);
   margin-top: 8px;
 }
@@ -2864,10 +3050,10 @@ section {
 .footer-nav a {
   color: var(--cream-white);
   text-decoration: none;
-  font-size: 16px;
+  font-size: var(--text-body);
   opacity: 0.8;
   transition: opacity 0.3s;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
 }
 
 .footer-nav a:hover {
@@ -2875,7 +3061,7 @@ section {
 }
 
 .footer-heading {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 21px;
   color: var(--cream-white);
   margin-bottom: 8px;
@@ -2884,8 +3070,8 @@ section {
 }
 
 .footer-description {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--cream-white);
   opacity: 0.9;
   line-height: 1.6;
@@ -2903,13 +3089,13 @@ section {
 
 .footer-cta {
   display: inline-block;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   color: var(--cream-white);
   background-color: transparent;
   border: 1px solid rgba(248, 246, 242, 0.3);
   padding: 12px 28px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
   margin-bottom: 24px;
   transition: all 0.3s ease;
@@ -2936,8 +3122,8 @@ section {
 }
 
 .footer-nav-policies a {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--cream-white);
   opacity: 0.6;
   text-decoration: none;
@@ -3044,7 +3230,7 @@ section {
 .tob-unknown-label {
   display: block;
   margin-top: 8px;
-  font-size: 14px;
+  font-size: var(--text-small);
   font-weight: 400;
   color: var(--primary);
   cursor: pointer;
@@ -3121,11 +3307,11 @@ section {
   display: inline-block;
   padding: 14px 32px;
   border: 1px solid var(--primary);
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--primary);
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
@@ -3202,10 +3388,10 @@ section {
   flex-shrink: 0;
   padding: 6px 14px;
   border: 1px solid rgba(67, 16, 57, 0.3);
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   background: transparent;
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   cursor: pointer;
   transition: background 0.3s, border-color 0.3s;
@@ -3223,7 +3409,7 @@ section {
 .field label {
   display: block;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: var(--text-small);
   font-weight: 500;
   color: var(--primary);
 }
@@ -3236,8 +3422,8 @@ section {
   padding: 12px 16px;
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   box-sizing: border-box;
   color: var(--primary);
   background-color: var(--white);
@@ -3266,16 +3452,16 @@ section {
 .field-error {
   display: none;
   color: #d32f2f;
-  font-size: 12px;
+  font-size: var(--text-caption);
   margin-top: 4px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .word-count {
-  font-size: 12px;
+  font-size: var(--text-caption);
   color: rgba(67, 16, 57, 0.6);
   margin-top: 4px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   text-align: right;
 }
 
@@ -3354,8 +3540,8 @@ section {
 .autocomplete-suggestion {
   padding: 12px 16px;
   cursor: pointer;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--primary);
   border-bottom: 1px solid rgba(67, 16, 57, 0.1);
   transition: background-color 0.2s ease;
@@ -3404,10 +3590,9 @@ section {
     padding: 80px 24px;
   }
 
-  /* Prevent left/right cut-off: allow content to be visible (no overflow-x: hidden) */
   html,
   body {
-    overflow-x: visible;
+    overflow-x: hidden;
     max-width: 100vw;
   }
 
@@ -3456,19 +3641,22 @@ section {
     height: 2.5px;
   }
 
+  /* Mobile nav: slide in smoothly from the right – brand primary frame, cream text */
   .nav {
     display: none;
     position: fixed;
     top: 72px;
-    left: 0;
     right: 0;
-    background-color: var(--cream-white);
+    width: 100%;
+    max-width: 100%;
+    bottom: 0;
+    background-color: var(--primary);
     flex-direction: column;
     align-items: flex-start;
     padding: 24px 20px;
     gap: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transform: translateY(-100%);
+    transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
@@ -3480,17 +3668,45 @@ section {
 
   .nav.active {
     display: flex;
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
+  }
+
+  /* All links in the open panel: full-width tappable rows with dividers */
+  .nav a {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(248, 246, 242, 0.2);
+    font-size: var(--text-small);
+    color: var(--cream-white) !important;
+    transition: opacity 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav a:hover,
+  .nav a:active {
+    opacity: 0.9;
+    padding-left: 8px;
+    color: var(--secondary-lighter) !important;
+  }
+
+  .nav a:active {
+    transition: none;
+  }
+
+  .nav a:last-child {
+    border-bottom: none;
   }
 
   /* Hide header-cta from normal header view, only show in hamburger menu */
   .nav .header-cta {
     display: none;
+    border-bottom: none;
   }
 
-  /* Style header-cta to appear at bottom of hamburger menu when active */
+  /* Style header-cta to appear at bottom of hamburger menu when active – secondary CTA */
   .nav.active .header-cta {
     display: flex;
     justify-content: center;
@@ -3498,12 +3714,19 @@ section {
     order: 999; /* Move to bottom of menu */
     margin-top: 16px;
     padding-top: 16px;
-    border-top: 1px solid rgba(67, 16, 57, 0.1);
+    border-top: 1px solid rgba(248, 246, 242, 0.25);
     width: 100%;
     text-align: center;
     margin-left: 0;
     line-height: 1;
     padding: 12px 28px;
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+  }
+
+  .nav.active .header-cta:hover {
+    background-color: var(--secondary-light);
+    color: var(--primary) !important;
   }
 }
 
@@ -3636,6 +3859,57 @@ section {
     padding-top: 56px;
   }
 
+  .hero-planet-circle {
+    opacity: 0.10;
+  }
+
+  .hero-planet-circle--sun,
+  .hero-planet-circle--moon,
+  .hero-planet-circle--mercury,
+  .hero-planet-circle--venus,
+  .hero-planet-circle--mars,
+  .hero-planet-circle--jupiter,
+  .hero-planet-circle--saturn {
+    width: 260px;
+    height: 260px;
+  }
+
+  .hero-planet-circle--sun {
+    top: -18%;
+    left: -20%;
+  }
+
+  .hero-planet-circle--moon {
+    top: -18%;
+    right: -22%;
+  }
+
+  .hero-planet-circle--mercury {
+    top: 38%;
+    left: -22%;
+  }
+
+  .hero-planet-circle--mars {
+    top: 40%;
+    right: -24%;
+  }
+
+  .hero-planet-circle--venus {
+    bottom: -10%;
+    left: -18%;
+  }
+
+  .hero-planet-circle--jupiter {
+    bottom: -14%;
+    right: -18%;
+  }
+
+  .hero-planet-circle--saturn {
+    width: 320px;
+    height: 320px;
+    top: 48%;
+  }
+
   h2 {
     font-size: 28px;
   }
@@ -3672,7 +3946,7 @@ section {
   .header-mobile-cta {
     display: inline-block;
     padding: 8px 16px;
-    font-size: 12px;
+    font-size: var(--text-caption);
   }
 
   .hamburger {
@@ -3687,18 +3961,21 @@ section {
     height: 2.5px;
   }
 
+  /* Small screens: right-slide nav matching tablet behavior */
   .nav {
     position: fixed;
     top: 56px;
-    left: 0;
     right: 0;
-    background-color: var(--cream-white);
+    width: 100%;
+    max-width: 100%;
+    bottom: 0;
+    background-color: var(--primary);
     flex-direction: column;
     align-items: flex-start;
     padding: 24px 20px;
     gap: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transform: translateY(-100%);
+    transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
@@ -3709,7 +3986,7 @@ section {
   }
 
   .nav.active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
     visibility: visible;
   }
@@ -3717,17 +3994,19 @@ section {
   .nav a {
     width: 100%;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(67, 16, 57, 0.1);
-    font-size: 12px;
-    transition: opacity 0.2s ease, padding-left 0.2s ease;
+    border-bottom: 1px solid rgba(248, 246, 242, 0.2);
+    font-size: var(--text-caption);
+    color: var(--cream-white) !important;
+    transition: opacity 0.2s ease, padding-left 0.2s ease, color 0.2s ease;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
 
   .nav a:hover,
   .nav a:active {
-    opacity: 0.7;
+    opacity: 0.9;
     padding-left: 8px;
+    color: var(--secondary-lighter) !important;
   }
 
   .nav a:active {
@@ -3744,9 +4023,16 @@ section {
     margin-top: 8px;
     border-bottom: none;
     padding: 10px 16px;
-    font-size: 12px;
+    font-size: var(--text-caption);
     white-space: nowrap;
     line-height: 1;
+    background-color: var(--secondary);
+    color: var(--primary) !important;
+  }
+
+  .nav .header-cta:hover {
+    background-color: var(--secondary-light);
+    color: var(--primary) !important;
   }
 
   .nav a:last-child {
@@ -3766,7 +4052,7 @@ section {
     justify-content: space-between;
     align-items: center;
     color: var(--primary);
-    font-size: 12px;
+    font-size: var(--text-caption);
   }
 
   .nav-dropdown-menu {
@@ -3788,7 +4074,7 @@ section {
 
   .nav-dropdown-menu a {
     padding: 12px 0 12px 24px;
-    font-size: 14px;
+    font-size: var(--text-small);
     border-bottom: 1px solid rgba(67, 16, 57, 0.1);
   }
 
@@ -3831,6 +4117,7 @@ section {
 
   .hero h1 {
     font-size: 36px;
+    text-align: center;
   }
 
   .hero-content {
@@ -3840,10 +4127,13 @@ section {
   
   .hero-content h1 {
     top: calc(10px + 15px + 4.5vh + 56px);
+    white-space: normal;
+    text-align: center;
   }
   
   .hero-content p {
-    top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 24px + 56px);
+    top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 8px + 56px - 10vh);
+    text-align: center;
   }
 
   .hero-cta {
@@ -3876,15 +4166,29 @@ section {
     top: calc(10px + 15px);
     font-size: 40px;
     line-height: 1.15;
+    white-space: normal;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
 
   .hero-content p {
-    top: calc(10px + (100vh - 20px) / 4 + 15px + 20px);
+    top: calc(10px + (100vh - 20px) / 4 + 15px + 4px - 10vh);
     font-size: 22px;
-    line-height: 1.1;
-    max-width: 90%;
+    line-height: 1.3;
+    width: 94%;
+    max-width: 100%;
     padding: 0 16px;
     box-sizing: border-box;
+    text-align: center;
+  }
+
+  .hero-content p span {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .hero-content p span:first-child {
+    margin-bottom: 0;
   }
 
   .hero-planets::-webkit-scrollbar {
@@ -3900,19 +4204,49 @@ section {
 
   /* Small screens: allow hero body to wrap so it isn't cut off */
   @media (max-width: 540px) {
+    .hero-content h1 {
+      font-size: 32px;
+      padding: 0 12px;
+      white-space: normal;
+      text-align: center;
+    }
     .hero-content p {
       font-size: 17px;
-      max-width: 95%;
+      width: 94%;
+      max-width: 100%;
       padding: 0 12px;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
     }
     .hero-content p span {
       white-space: normal;
+      line-height: 1.35;
+      text-align: center;
+    }
+    .hero-content p span:first-child {
+      margin-bottom: 0;
     }
   }
 
   @media (max-width: 380px) {
+    .hero-content h1 {
+      font-size: 28px;
+      white-space: normal;
+      text-align: center;
+    }
     .hero-content p {
       font-size: 15px;
+      width: 96%;
+      max-width: 100%;
+      padding: 0 8px;
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .hero-content p span {
+      line-height: 1.35;
+      text-align: center;
     }
   }
 
@@ -3927,7 +4261,7 @@ section {
   }
 
   .reach-out-text {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 
   .reach-out-subtext {
@@ -3966,7 +4300,7 @@ section {
   }
 
   .reach-out-text {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 
   .reach-out-bullets {
@@ -3974,7 +4308,7 @@ section {
   }
 
   .reach-out-bullets li {
-    font-size: 14px;
+    font-size: var(--text-small);
     padding-left: 20px;
   }
 
@@ -4006,7 +4340,7 @@ section {
   }
 
   .pricing-expand-section h4 {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 
   .pricing-expand-section li {
@@ -4045,7 +4379,7 @@ section {
   }
 
   .contact-section h2 {
-    font-size: 24px;
+    font-size: var(--text-h3);
   }
 
   .contact-icons {
@@ -4081,7 +4415,7 @@ section {
   }
 
   .footer-nav a {
-    font-size: 12px;
+    font-size: var(--text-caption);
     white-space: normal;
     padding: 4px 8px;
   }
@@ -4094,7 +4428,7 @@ section {
   }
 
   .footer-description {
-    font-size: 12px;
+    font-size: var(--text-caption);
     margin-bottom: 10px;
     padding-left: 20px;
     padding-right: 20px;
@@ -4106,7 +4440,7 @@ section {
   }
 
   .footer-cta {
-    font-size: 14px;
+    font-size: var(--text-small);
     padding: 12px 24px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -4224,7 +4558,7 @@ section {
     box-sizing: border-box !important;
     border: 1px solid rgba(67, 16, 57, 0.2) !important;
     border-radius: 8px !important;
-    font-family: 'Brygada 1918', serif !important;
+    font-family: var(--font-heading) !important;
     font-size: 16px !important;
     color: var(--primary) !important;
     background-color: var(--white) !important;
@@ -4274,22 +4608,22 @@ section {
   font-size: 48px;
   color: var(--primary);
   margin-bottom: 24px;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
 }
 
 .confirmation-message {
   font-size: 20px;
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   margin-bottom: 16px;
 }
 
 .confirmation-next-step {
-  font-size: 16px;
+  font-size: var(--text-body);
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   margin-bottom: 32px;
   opacity: 0.8;
@@ -4304,10 +4638,10 @@ section {
   background: var(--secondary);
   color: var(--primary);
   padding: 14px 32px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   transition: background-color 0.3s;
   margin-top: 24px;
 }
@@ -4317,16 +4651,16 @@ section {
 }
 
 .redirect-message {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary);
   margin-top: 24px;
   opacity: 0.8;
 }
 
 .redirect-message {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary);
   margin-top: 24px;
   opacity: 0.8;
@@ -4379,7 +4713,7 @@ section {
   border-radius: 50%;
   transition: background-color 0.2s;
   z-index: 10;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   line-height: 1;
   padding: 0;
 }
@@ -4389,8 +4723,8 @@ section {
 }
 
 .cal-modal-instruction {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: rgba(67, 16, 57, 0.7);
   text-align: center;
   padding: 24px 48px 16px 24px;
@@ -4462,7 +4796,7 @@ section {
 }
 
 .reserved-heading {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 36px;
   font-weight: 500;
   color: var(--primary);
@@ -4471,8 +4805,8 @@ section {
 }
 
 .reserved-subheading {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
   font-weight: 400;
   color: var(--primary);
   margin-bottom: 16px;
@@ -4481,8 +4815,8 @@ section {
 
 .reserved-message,
 .reserved-next-step {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 24px;
@@ -4494,9 +4828,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   padding: 16px 42px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 500;
   margin-top: 32px;
@@ -4513,7 +4847,7 @@ section {
   }
 
   .reserved-heading {
-    font-size: 34px;
+    font-size: var(--text-h2);
   }
 
   .reserved-subheading {
@@ -4521,7 +4855,7 @@ section {
   }
 
   .reserved-cta {
-    font-size: 16px;
+    font-size: var(--text-body);
     padding: 14px 32px;
   }
 }
@@ -4530,7 +4864,7 @@ section {
 /* About Transition Section */
 .about-transition {
   background-color: var(--primary);
-  padding: 95px 40px;
+  padding: var(--section-padding);
   width: 100%;
   position: relative;
   display: flex;
@@ -4628,7 +4962,7 @@ section {
 }
 
 .transition-text {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 22px;
   line-height: 1.8;
   color: var(--cream-white);
@@ -4779,8 +5113,8 @@ section {
 }
 
 .about-hero-intro h1 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 42px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h1-page);
   font-weight: 500;
   color: var(--cream-white);
   margin: 0 0 12px 0;
@@ -4788,8 +5122,8 @@ section {
 }
 
 .about-hero-tagline {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--tertiary);
   margin: 0 0 20px 0;
   letter-spacing: 0.5px;
@@ -4797,7 +5131,7 @@ section {
 }
 
 .about-hero-text {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.8;
   color: rgba(248, 246, 242, 0.9);
@@ -4831,18 +5165,18 @@ section {
   }
   
   .about-hero-tagline {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   
   .about-hero-text {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
 }
 
 /* About Page Sections */
 .about-section {
   width: 100%;
-  padding: 95px 40px;
+  padding: var(--section-padding);
 }
 
 .about-section-1 {
@@ -4894,10 +5228,10 @@ section {
 }
 
 .about-content p {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.8;
   margin-bottom: 24px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .about-content ul {
@@ -4906,10 +5240,10 @@ section {
 }
 
 .about-content li {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.8;
   margin-bottom: 12px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 .about-section-1 p,
@@ -4949,7 +5283,7 @@ section {
 }
 
 .toggle-icon {
-  font-size: 16px;
+  font-size: var(--text-body);
   transition: transform 0.3s ease;
   margin-left: 16px;
   flex-shrink: 0;
@@ -5035,7 +5369,7 @@ section {
   background-color: var(--primary);
   color: var(--cream-white);
   width: 100%;
-  padding: 95px 40px;
+  padding: var(--section-padding);
 }
 
 .about-cta-content {
@@ -5045,7 +5379,7 @@ section {
 }
 
 .about-cta-text {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 28px;
   font-weight: 500;
   margin-bottom: 16px;
@@ -5058,7 +5392,7 @@ section {
   font-weight: 400;
   margin-bottom: 32px;
   color: rgba(248, 246, 242, 0.85);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   line-height: 1.7;
 }
 
@@ -5069,11 +5403,11 @@ section {
 
 @media (max-width: 768px) {
   .about-cta-text {
-    font-size: 24px;
+    font-size: var(--text-h3);
   }
   
   .about-cta-subtext {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
 }
 
@@ -5085,12 +5419,12 @@ section {
 /* Privacy Policy Page (for other pages using this class) */
 .privacy-policy {
   background-color: var(--cream-white);
-  padding: 95px 40px;
+  padding: var(--section-padding);
   min-height: calc(100vh - 72px);
 }
 
 .privacy-policy h1 {
-  font-size: 34px;
+  font-size: var(--text-h2);
   text-align: center;
   margin-bottom: 48px;
   color: var(--primary);
@@ -5111,23 +5445,23 @@ section {
   margin-top: 32px;
   margin-bottom: 16px;
   color: var(--primary);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   text-align: left;
   text-transform: none;
 }
 
 .privacy-content p,
 .privacy-content li {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 16px;
 }
 
 .privacy-intro {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 24px;
@@ -5145,7 +5479,7 @@ section {
 /* Insights Page */
 .insights-landing {
   background-color: var(--cream-white);
-  padding: 95px 40px;
+  padding: var(--section-padding);
 }
 
 .insights-container {
@@ -5160,7 +5494,7 @@ section {
 }
 
 .insights-intro {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   color: var(--primary-light);
   text-align: center;
@@ -5187,9 +5521,9 @@ section {
   width: 100%;
   padding: 14px 20px;
   border: 1px solid rgba(67, 16, 57, 0.2);
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--primary);
   background-color: var(--white);
   transition: border-color 0.3s;
@@ -5212,9 +5546,9 @@ section {
 .insights-filter-select {
   padding: 14px 40px 14px 20px;
   border: 1px solid rgba(67, 16, 57, 0.2);
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--primary);
   background-color: var(--white);
   cursor: pointer;
@@ -5257,7 +5591,7 @@ section {
 }
 
 .blog-post-card-title {
-  font-size: 24px;
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 12px;
@@ -5265,8 +5599,8 @@ section {
 }
 
 .blog-post-card-excerpt {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   opacity: 0.8;
   line-height: 1.6;
@@ -5279,13 +5613,13 @@ section {
   font-size: 13px;
   color: var(--primary);
   opacity: 0.6;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
 }
 
 /* Blog Post Template */
 .blog-post-section {
   background-color: var(--cream-white);
-  padding: 95px 40px;
+  padding: var(--section-padding);
 }
 
 .blog-post-container {
@@ -5308,8 +5642,8 @@ section {
 
 .blog-back-link {
   display: inline-block;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   text-decoration: none;
   margin-bottom: 16px;
@@ -5333,8 +5667,8 @@ section {
 .blog-post-meta {
   display: flex;
   gap: 24px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   opacity: 0.7;
 }
@@ -5345,8 +5679,8 @@ section {
 }
 
 .blog-post-content {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   line-height: 1.8;
   color: var(--primary);
 }
@@ -5395,9 +5729,9 @@ section {
   background: var(--secondary);
   color: var(--primary);
   padding: 16px 40px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-decoration: none;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-weight: 500;
   font-size: 18px;
   transition: background-color 0.3s;
@@ -5418,7 +5752,7 @@ section {
   }
 
   .insights-intro {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 
   .insights-search-filter {
@@ -5449,7 +5783,7 @@ section {
   }
 
   .blog-post-content h2 {
-    font-size: 24px;
+    font-size: var(--text-h3);
   }
 
   .blog-post-content h3 {
@@ -5460,7 +5794,7 @@ section {
 /* Healing Practices Page */
 .healing-practices {
   background-color: var(--cream-white);
-  padding: 95px 40px;
+  padding: var(--section-padding);
 }
 
 .healing-practices-container {
@@ -5475,8 +5809,8 @@ section {
 }
 
 .healing-practices-intro {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary-light);
   text-align: center;
   margin-bottom: 48px;
@@ -5513,9 +5847,9 @@ section {
   width: 100%;
   padding: 14px 20px;
   border: 1px solid rgba(67, 16, 57, 0.2);
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--primary);
   background-color: var(--white);
   transition: border-color 0.3s;
@@ -5538,9 +5872,9 @@ section {
 .healing-filter-select {
   padding: 14px 40px 14px 20px;
   border: 1px solid rgba(67, 16, 57, 0.2);
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--primary);
   background-color: var(--white);
   cursor: pointer;
@@ -5566,7 +5900,7 @@ section {
 }
 
 .healing-subsection h2 {
-  font-size: 34px;
+  font-size: var(--text-h2);
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 32px;
@@ -5585,8 +5919,8 @@ section {
 }
 
 .healing-content {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   line-height: 1.8;
   color: var(--primary);
 }
@@ -5629,11 +5963,11 @@ section {
 }
 
 .healing-modality-name {
-  font-size: 24px;
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 16px;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   text-align: center;
 }
 
@@ -5650,11 +5984,11 @@ section {
   color: var(--primary);
   border: 2px solid var(--primary);
   text-decoration: none;
-  border-radius: 200px;
-  font-size: 14px;
+  border-radius: var(--radius-pill);
+  font-size: var(--text-small);
   text-align: center;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
 }
 
 .healing-modality-cta:hover {
@@ -5674,7 +6008,7 @@ section {
   }
 
   .healing-practices-intro {
-    font-size: 16px;
+    font-size: var(--text-body);
     margin-bottom: 48px;
     padding: 0 10px;
   }
@@ -5708,7 +6042,7 @@ section {
   }
 
   .healing-category h2 {
-    font-size: 24px;
+    font-size: var(--text-h3);
     margin-bottom: 24px;
   }
 
@@ -5734,8 +6068,8 @@ section {
 }
 
 .modality-detail h1 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 42px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h1-page);
   color: var(--primary);
   margin-bottom: 16px;
   text-align: center;
@@ -5747,8 +6081,8 @@ section {
   color: var(--white);
   padding: 6px 16px;
   border-radius: 100px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   margin-bottom: 40px;
   text-align: center;
   width: 100%;
@@ -5759,8 +6093,8 @@ section {
 }
 
 .modality-section h2 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   color: var(--primary);
   margin-bottom: 20px;
   text-align: left;
@@ -5773,7 +6107,7 @@ section {
 }
 
 .modality-section li {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   color: var(--text-dark);
   line-height: 1.8;
@@ -5799,7 +6133,7 @@ section {
 }
 
 .related-practices h3 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   color: var(--primary);
   margin-bottom: 16px;
@@ -5817,7 +6151,7 @@ section {
   color: var(--primary);
   padding: 8px 20px;
   border-radius: 100px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   text-decoration: none;
   transition: all 0.3s;
@@ -5833,8 +6167,8 @@ section {
 }
 
 .modality-faq h2 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   color: var(--primary);
   margin-bottom: 24px;
   text-align: left;
@@ -5850,16 +6184,16 @@ section {
 }
 
 .modality-faq-question {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--text-dark);
   margin-bottom: 12px;
   font-weight: 600;
 }
 
 .modality-faq-answer {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--text-dark);
   line-height: 1.7;
 }
@@ -5876,7 +6210,7 @@ section {
   color: var(--cream-white);
   padding: 14px 32px;
   border-radius: 100px;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   text-decoration: none;
   transition: all 0.3s;
@@ -5892,7 +6226,7 @@ section {
   color: var(--primary);
   padding: 14px 32px;
   border-radius: 100px;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   text-decoration: none;
   transition: all 0.3s;
@@ -5917,7 +6251,7 @@ section {
   }
 
   .modality-section li {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
 
   .related-practices {
@@ -5929,7 +6263,7 @@ section {
   }
 
   .related-practice-link {
-    font-size: 12px;
+    font-size: var(--text-caption);
     padding: 6px 14px;
   }
 
@@ -5950,7 +6284,7 @@ section {
 }
 
 .reading-category h2 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 28px;
   color: var(--primary);
   margin-bottom: 32px;
@@ -5966,7 +6300,7 @@ section {
 }
 
 .reading-modality h3 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 22px;
   color: var(--primary);
   margin-bottom: 20px;
@@ -5977,8 +6311,8 @@ section {
 }
 
 .resource-type h4 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--text-dark);
   margin-bottom: 12px;
   display: flex;
@@ -6008,7 +6342,7 @@ section {
 }
 
 .resource-title {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 15px;
   color: var(--text-dark);
   font-weight: 600;
@@ -6016,15 +6350,15 @@ section {
 }
 
 .resource-meta {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--text-dark);
   opacity: 0.8;
   margin-bottom: 4px;
 }
 
 .resource-description {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--text-dark);
   line-height: 1.6;
@@ -6032,8 +6366,8 @@ section {
 }
 
 .resource-link {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--primary);
   text-decoration: none;
   display: inline-flex;
@@ -6062,8 +6396,8 @@ section {
   padding: 12px 16px;
   border: 1px solid var(--primary-light);
   border-radius: 100px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   outline: none;
 }
 
@@ -6076,8 +6410,8 @@ section {
   padding: 12px 16px;
   border: 1px solid var(--primary-light);
   border-radius: 100px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   background-color: var(--brand-white);
   cursor: pointer;
 }
@@ -6108,8 +6442,8 @@ section {
 
 /* Practitioner Listings Styles */
 .practitioner-intro {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--text-dark);
   line-height: 1.7;
   margin-bottom: 40px;
@@ -6124,7 +6458,7 @@ section {
 }
 
 .practitioner-region h2 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 28px;
   color: var(--primary);
   margin-bottom: 32px;
@@ -6137,7 +6471,7 @@ section {
 }
 
 .practitioner-modality h3 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 20px;
   color: var(--primary);
   margin-bottom: 20px;
@@ -6162,22 +6496,22 @@ section {
 }
 
 .practitioner-name {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--text-dark);
   font-weight: 600;
   margin-bottom: 4px;
 }
 
 .practitioner-location {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--primary);
   margin-bottom: 8px;
 }
 
 .practitioner-training {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--text-dark);
   line-height: 1.5;
@@ -6185,8 +6519,8 @@ section {
 }
 
 .practitioner-link {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--primary);
   text-decoration: none;
   display: inline-flex;
@@ -6215,8 +6549,8 @@ section {
   padding: 12px 16px;
   border: 1px solid var(--primary-light);
   border-radius: 100px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   outline: none;
 }
 
@@ -6229,8 +6563,8 @@ section {
   padding: 12px 16px;
   border: 1px solid var(--primary-light);
   border-radius: 100px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   background-color: var(--brand-white);
   cursor: pointer;
 }
@@ -6293,8 +6627,8 @@ section {
 }
 
 .modal-header h3 {
-  font-family: 'Brygada 1918', serif;
-  font-size: 24px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--primary);
   margin: 0;
@@ -6321,8 +6655,8 @@ section {
 
 .modal-content {
   padding: 24px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   line-height: 1.6;
 }
@@ -6339,7 +6673,7 @@ section {
 
 .materials-section h4,
 .environment-section h4 {
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 500;
   color: var(--primary);
@@ -6377,8 +6711,8 @@ section {
 }
 
 .acknowledgment-checkbox span {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   line-height: 1.6;
 }
@@ -6394,9 +6728,9 @@ section {
 .btn-cancel,
 .btn-confirm {
   padding: 12px 24px;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   cursor: pointer;
   border: none;
@@ -6447,8 +6781,8 @@ section {
 }
 
 .ritual-hero-subhead {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 24px;
+  font-family: var(--font-body);
+  font-size: var(--text-h3);
   color: var(--primary-light);
   font-weight: 300;
 }
@@ -6487,7 +6821,7 @@ section {
 }
 
 .ritual-promise-text {
-  font-size: 24px;
+  font-size: var(--text-h3);
   color: var(--white);
   font-weight: 400;
 }
@@ -6536,7 +6870,7 @@ section {
 }
 
 .ritual-column-header h3 {
-  font-size: 24px;
+  font-size: var(--text-h3);
   margin-bottom: 4px;
 }
 
@@ -6551,8 +6885,8 @@ section {
 }
 
 .ritual-time {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   opacity: 0.8;
 }
 
@@ -6583,7 +6917,7 @@ section {
   align-items: center;
   justify-content: center;
   font-weight: 500;
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 
 .ritual-card-content h4 {
@@ -6594,16 +6928,16 @@ section {
 }
 
 .ritual-card-content p {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   line-height: 1.6;
   margin-bottom: 12px;
 }
 
 .ritual-card-why {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--secondary);
   font-style: italic;
 }
@@ -6654,8 +6988,8 @@ section {
 }
 
 .ritual-tracker-intro {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary-light);
   text-align: center;
   margin-bottom: 48px;
@@ -6706,7 +7040,7 @@ section {
 }
 
 .ritual-tracker-placeholder-sub {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px !important;
   color: var(--primary-light) !important;
 }
@@ -6716,8 +7050,8 @@ section {
 }
 
 .ritual-tracker-includes {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary);
   margin-bottom: 24px;
 }
@@ -6734,8 +7068,8 @@ section {
   padding: 16px 20px;
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   color: var(--primary);
   outline: none;
   transition: border-color 0.2s ease;
@@ -6754,9 +7088,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   border: none;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -6773,8 +7107,8 @@ section {
 }
 
 .ritual-form-note {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--primary-lighter);
   margin-top: 12px;
 }
@@ -6803,8 +7137,8 @@ section {
 }
 
 .ritual-week-number {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -6820,8 +7154,8 @@ section {
 }
 
 .ritual-week p {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary-light);
   line-height: 1.5;
 }
@@ -6850,8 +7184,8 @@ section {
 }
 
 .ritual-consultation-link {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--secondary);
   text-decoration: none;
   font-weight: 500;
@@ -6894,8 +7228,8 @@ section {
 }
 
 .ritual-faq-answer {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary-light);
   line-height: 1.7;
 }
@@ -6946,7 +7280,7 @@ section {
   }
   
   .ritual-card-content h4 {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
   
   .ritual-tracker-preview {
@@ -6980,7 +7314,7 @@ section {
   }
   
   .ritual-faq-question {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 }
 
@@ -7002,6 +7336,7 @@ section {
 .insight-article {
   padding: 100px 40px 80px;
   background-color: var(--white);
+  overflow-x: clip;
 }
 
 .insight-container {
@@ -7019,8 +7354,8 @@ section {
 
 .insight-category {
   display: inline-block;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   color: var(--secondary);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -7035,14 +7370,21 @@ section {
 }
 
 .insight-subtitle {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   color: var(--primary-light);
 }
 
 /* Sections */
 .insight-section {
-  margin-bottom: 48px;
+  padding: 32px 0 24px;
+  margin-bottom: 6px;
+}
+
+/* Automatic mini break between any two sections that don’t have an explicit
+   .insight-break between them (covers remaining “gap” points across articles) */
+.insight-section + .insight-section {
+  margin-top: 12px;
 }
 
 .insight-section h2 {
@@ -7075,11 +7417,152 @@ section {
 }
 
 .insight-section p {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 16px;
+}
+
+/* Visual page breaks (shapes only, no lines) – outside container, centered in gap */
+.insight-break {
+  margin: 18px 0;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.insight-break--planet {
+  margin: 24px 0;
+  min-height: 600px;
+  width: 100%;
+  margin-left: 0;
+}
+
+.insight-break--planet .insight-break-circle {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Tablet: scale down large planet so it doesn’t overwhelm layout */
+@media (max-width: 1024px) {
+  .insight-break--planet {
+    min-height: 360px;
+  }
+
+  .insight-break--planet .insight-break-circle {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+.insight-break--planet.insight-break--sun .insight-break-circle { background-color: #FF6B35; }
+.insight-break--planet.insight-break--moon .insight-break-circle { background-color: #F5E6D3; border: 1px solid rgba(67,16,57,0.12); }
+.insight-break--planet.insight-break--mars .insight-break-circle { background-color: #E63946; }
+.insight-break--planet.insight-break--mercury .insight-break-circle { background-color: #06A77D; }
+.insight-break--planet.insight-break--jupiter .insight-break-circle { background-color: #F7B801; }
+.insight-break--planet.insight-break--venus .insight-break-circle { background-color: #E3F2FD; border: 1px solid rgba(67,16,57,0.12); }
+.insight-break--planet.insight-break--saturn .insight-break-circle { background-color: #1A1A1A; }
+.insight-break--planet.insight-break--rahu .insight-break-circle { background-color: #4A4A4A; }
+.insight-break--planet.insight-break--ketu .insight-break-circle { background-color: #6C757D; }
+.insight-break--planet.insight-break--featured .insight-break-circle { background-color: #E3F2FD; border: 1px solid rgba(67,16,57,0.12); }
+
+/* Neutral 1: Steel blue – 3 sets of 4 shapes (circle, pill, diamond, triangle) */
+.insight-break--neutral-1 {
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.insight-break--neutral-1 .insight-break-circle {
+  flex-shrink: 0;
+}
+
+.insight-break--neutral-1 .insight-break-circle:nth-child(4n+1) {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #4682B4;
+}
+
+/* center shape = soft pill */
+.insight-break--neutral-1 .insight-break-circle:nth-child(4n+2) {
+  width: 68px;
+  height: 21px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #6BA3D1, #8FB8DC);
+}
+
+/* right shape = small “star” (diamond) */
+.insight-break--neutral-1 .insight-break-circle:nth-child(4n+3) {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #8FB8DC;
+  transform: rotate(45deg);
+}
+
+.insight-break--neutral-1 .insight-break-circle:nth-child(4n) {
+  width: 35px;
+  height: 30px;
+  background-color: #6BA3D1;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-radius: 0;
+}
+
+/* Neutral 2: Plum – 3 sets of 4 shapes (circle, pill, diamond, triangle) */
+.insight-break--neutral-2 {
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.insight-break--neutral-2 .insight-break-circle {
+  flex-shrink: 0;
+}
+
+.insight-break--neutral-2 .insight-break-circle:nth-child(4n+1) {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #DDA0DD;
+}
+
+.insight-break--neutral-2 .insight-break-circle:nth-child(4n+2) {
+  width: 68px;
+  height: 21px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #E6C4E6, #F0D8F0);
+}
+
+.insight-break--neutral-2 .insight-break-circle:nth-child(4n+3) {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  background-color: #F0D8F0;
+  transform: rotate(45deg);
+}
+
+.insight-break--neutral-2 .insight-break-circle:nth-child(4n) {
+  width: 35px;
+  height: 30px;
+  background-color: #E6C4E6;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-radius: 0;
+}
+
+/* Hide neutral decorative breaks entirely – keep only planet breaks in articles */
+.insight-break--neutral-1,
+.insight-break--neutral-2 {
+  display: none;
 }
 
 /* Lists */
@@ -7090,7 +7573,7 @@ section {
 }
 
 .insight-list li {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.7;
   color: var(--primary);
@@ -7126,7 +7609,7 @@ section {
 }
 
 .insight-numbered li {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 15px;
   line-height: 1.7;
   color: var(--primary);
@@ -7140,7 +7623,7 @@ section {
   content: counter(insight-counter);
   color: var(--white);
   background-color: var(--secondary);
-  font-size: 12px;
+  font-size: var(--text-caption);
   font-weight: 500;
   width: 24px;
   height: 24px;
@@ -7195,7 +7678,7 @@ section {
 }
 
 .insight-faq h4 {
-  font-size: 16px;
+  font-size: var(--text-body);
   margin-bottom: 12px;
   color: var(--primary);
 }
@@ -7213,13 +7696,13 @@ section {
 }
 
 .related-links a {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--secondary);
   text-decoration: none;
   padding: 12px 20px;
   border: 1px solid var(--secondary);
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   transition: all 0.3s ease;
 }
 
@@ -7254,8 +7737,8 @@ section {
   padding: 12px 20px;
   border-radius: 8px;
   text-decoration: none;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   font-weight: 500;
   transition: all 0.3s ease;
   color: var(--white);
@@ -7312,7 +7795,7 @@ section {
 }
 
 .insight-email-cta h3 {
-  font-size: 24px;
+  font-size: var(--text-h3);
   margin-bottom: 12px;
   text-align: center;
 }
@@ -7334,8 +7817,8 @@ section {
   padding: 14px 20px;
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   outline: none;
 }
 
@@ -7348,9 +7831,9 @@ section {
   background-color: var(--secondary);
   color: var(--primary);
   border: none;
-  border-radius: 200px;
-  font-family: 'Brygada 1918', serif;
-  font-size: 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -7374,8 +7857,8 @@ section {
 }
 
 .insight-consult-link {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--secondary);
   text-decoration: none;
   font-weight: 500;
@@ -7388,8 +7871,8 @@ section {
 /* Back Link */
 .insight-back-link {
   display: inline-block;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   color: var(--primary-light);
   text-decoration: none;
   margin-bottom: 32px;
@@ -7436,7 +7919,7 @@ section {
 
 .insight-series-tag {
   display: inline-block;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -7452,16 +7935,16 @@ section {
 }
 
 .insight-series-card p {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-body);
+  font-size: var(--text-body);
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 20px;
 }
 
 .insight-series-cta {
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   color: var(--secondary);
 }
 
@@ -7471,9 +7954,10 @@ section {
   background-color: var(--white);
   border: 1px solid rgba(67, 16, 57, 0.1);
   border-radius: 12px;
-  padding: 28px;
+  padding: 36px 28px;
   text-decoration: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
 }
 
 .blog-post-card:hover {
@@ -7482,28 +7966,43 @@ section {
 }
 
 .blog-post-card-icon {
-  font-size: 32px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
   display: block;
-  margin-bottom: 16px;
+  margin: 0 auto 20px;
+  flex-shrink: 0;
 }
+/* Planet colour circles (Insights article covers) */
+.blog-post-card-icon--featured { background-color: #E3F2FD; border: 1px solid rgba(255,255,255,0.5); }
+.blog-post-card-icon--sun { background-color: #FF6B35; }
+.blog-post-card-icon--moon { background-color: #F5E6D3; border: 1px solid rgba(67,16,57,0.12); }
+.blog-post-card-icon--mars { background-color: #E63946; }
+.blog-post-card-icon--mercury { background-color: #06A77D; }
+.blog-post-card-icon--jupiter { background-color: #F7B801; }
+.blog-post-card-icon--venus { background-color: #E3F2FD; border: 1px solid rgba(67,16,57,0.12); }
+.blog-post-card-icon--saturn { background-color: #1A1A1A; }
+.blog-post-card-icon--rahu { background-color: #4A4A4A; }
+.blog-post-card-icon--ketu { background-color: #6C757D; }
 
 .blog-post-card-title {
   font-size: 20px;
   color: var(--primary);
   margin-bottom: 12px;
-  text-align: left;
+  text-align: center;
 }
 
 .blog-post-card-excerpt {
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
   line-height: 1.6;
   color: var(--primary-light);
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .blog-post-card-category {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -7511,10 +8010,11 @@ section {
 }
 
 .blog-post-card-cta {
-  font-family: 'Brygada 1918', serif;
-  font-size: 14px;
+  font-family: var(--font-heading);
+  font-size: var(--text-small);
   color: var(--secondary);
   font-weight: 500;
+  display: inline-block;
 }
 
 .blog-post-card-featured {
@@ -7557,7 +8057,7 @@ section {
   }
   
   .insight-series-card h2 {
-    font-size: 24px;
+    font-size: var(--text-h3);
   }
 }
 
@@ -7585,19 +8085,33 @@ section {
 }
 
 .planet-card-icon {
-  font-size: 48px;
-  margin-bottom: 16px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
   display: block;
+  flex-shrink: 0;
 }
+/* Planet colour circles (Planetary Remedies hub) */
+.planet-card-icon--sun { background-color: #FF6B35; }
+.planet-card-icon--moon { background-color: #F5E6D3; border: 1px solid rgba(67,16,57,0.12); }
+.planet-card-icon--mars { background-color: #E63946; }
+.planet-card-icon--mercury { background-color: #06A77D; }
+.planet-card-icon--jupiter { background-color: #F7B801; }
+.planet-card-icon--venus { background-color: #E3F2FD; border: 1px solid rgba(67,16,57,0.12); }
+.planet-card-icon--saturn { background-color: #1A1A1A; }
+.planet-card-icon--rahu { background-color: #4A4A4A; }
+.planet-card-icon--ketu { background-color: #6C757D; }
 
 .planet-card h3 {
   font-size: 20px;
   color: var(--primary);
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .planet-card p {
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--primary-light);
   line-height: 1.5;
@@ -7607,7 +8121,7 @@ section {
 .planet-card-cta {
   display: inline-block;
   margin-top: 16px;
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: var(--secondary);
 }
@@ -7623,11 +8137,11 @@ section {
   }
   
   .insight-subtitle {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
   
   .insight-section h2 {
-    font-size: 24px;
+    font-size: var(--text-h3);
   }
   
   .insight-section h3 {
@@ -7662,6 +8176,51 @@ section {
   .planet-card {
     padding: 24px 20px;
   }
+
+  .planet-card-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* scale down decorative breaks on smaller screens */
+  .insight-break {
+    margin: 14px 0;
+    min-height: 64px;
+  }
+
+  .insight-break--planet {
+    margin: 20px 0;
+    min-height: 220px;
+  }
+
+  .insight-break--planet .insight-break-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .insight-break--neutral-1 .insight-break-circle:nth-child(4n+1),
+  .insight-break--neutral-2 .insight-break-circle:nth-child(4n+1) {
+    width: 45px;
+    height: 45px;
+  }
+
+  .insight-break--neutral-1 .insight-break-circle:nth-child(4n+2),
+  .insight-break--neutral-2 .insight-break-circle:nth-child(4n+2) {
+    width: 64px;
+    height: 19px;
+  }
+
+  .insight-break--neutral-1 .insight-break-circle:nth-child(4n+3),
+  .insight-break--neutral-2 .insight-break-circle:nth-child(4n+3) {
+    width: 32px;
+    height: 32px;
+  }
+
+  .insight-break--neutral-1 .insight-break-circle:nth-child(4n),
+  .insight-break--neutral-2 .insight-break-circle:nth-child(4n) {
+    width: 32px;
+    height: 28px;
+  }
 }
 
 /* FAQ Chat Widget */
@@ -7684,7 +8243,7 @@ section {
   box-shadow: 0 4px 12px rgba(67, 16, 57, 0.2);
   z-index: 1000;
   transition: all 0.3s ease;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
 }
 
 .faq-chat-button:hover {
@@ -7719,7 +8278,7 @@ section {
   visibility: hidden;
   transform: translateY(20px) scale(0.95);
   transition: all 0.3s ease;
-  font-family: 'Brygada 1918', serif;
+  font-family: var(--font-heading);
 }
 
 .faq-chat-panel.active {
@@ -7755,7 +8314,7 @@ section {
   background: none;
   border: none;
   color: var(--cream-white);
-  font-size: 24px;
+  font-size: var(--text-h3);
   cursor: pointer;
   padding: 0;
   width: 32px;
@@ -7798,8 +8357,8 @@ section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Brygada 1918', serif;
-  font-size: 16px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
   font-weight: 500;
   color: var(--primary);
   transition: color 0.3s ease;
@@ -7810,7 +8369,7 @@ section {
 }
 
 .faq-category-arrow {
-  font-size: 12px;
+  font-size: var(--text-caption);
   transition: transform 0.3s ease;
   color: var(--primary);
 }
@@ -7844,11 +8403,11 @@ section {
   color: var(--cream-white);
   border: 2px solid var(--tertiary);
   padding: 8px 16px;
-  border-radius: 200px;
+  border-radius: var(--radius-pill);
   text-align: center;
   cursor: pointer;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   transition: all 0.3s ease;
   line-height: 1.4;
   white-space: nowrap;
@@ -7882,7 +8441,7 @@ section {
 .faq-answer-container p {
   margin: 0;
   color: var(--cream-white);
-  font-family: 'Comfortaa', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.6;
   word-wrap: break-word;
@@ -7923,8 +8482,8 @@ section {
   border-radius: 6px;
   text-align: left;
   cursor: pointer;
-  font-family: 'Comfortaa', sans-serif;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: var(--text-caption);
   transition: all 0.3s ease;
   margin-top: 4px;
 }
@@ -7975,11 +8534,11 @@ section {
     right: 16px;
     width: 40px;
     height: 40px;
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 
   .faq-category-header {
-    font-size: 14px;
+    font-size: var(--text-small);
     padding: 10px 0;
   }
 
@@ -7989,7 +8548,7 @@ section {
   }
 
   .faq-option-answer {
-    font-size: 12px;
+    font-size: var(--text-caption);
   }
 
   .faq-answer-container.active {
@@ -8016,7 +8575,7 @@ section {
   }
 
   .faq-chat-panel .faq-chat-header h3 {
-    font-size: 16px;
+    font-size: var(--text-body);
   }
 
   .faq-chat-close {

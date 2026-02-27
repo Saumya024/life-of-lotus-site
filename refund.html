@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Refund Policy - I Read Space</title>
   <meta name="description" content="I Read Space refund policy for Vedic astrology consultations. All session bookings are non-refundable." />
+  <meta property="og:title" content="Refund Policy - I Read Space" />
+  <meta property="og:description" content="I Read Space refund policy for Vedic astrology consultations. All session bookings are non-refundable." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ireadspace.com/refund" />
+  <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Refund Policy - I Read Space" />
+  <meta name="twitter:description" content="I Read Space refund policy for Vedic astrology consultations. All session bookings are non-refundable." />
+  <link rel="canonical" href="https://ireadspace.com/refund" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
@@ -19,6 +28,8 @@
 </head>
 
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header class="header">
@@ -38,21 +49,15 @@
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#areas">Services</a>
       <a href="insights.html">Insights</a>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">Healing</span>
-        <div class="nav-dropdown-menu">
-          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="reading-viewing.html">Reading & Viewing</a>
-        </div>
-      </div>
-      <a href="faq.html">FAQ</a>
+      <a href="alternative-healing-practices.html">Healing</a>
+      <a href="reset-now.html">Reset</a>
       <a href="index.html#contact">Contact</a>
-      <a href="index.html#pricing" class="header-cta">Book a Session</a>
+      <a href="index.html#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
   <!-- Refund Policy Section -->
-  <section class="privacy-policy">
+  <section class="privacy-policy" id="main-content">
     <h1>Refund Policy</h1>
     
     <div class="privacy-content">
@@ -62,7 +67,7 @@
 
       <p>We encourage you to review the session details carefully and ensure your availability before confirming a booking. If you have any questions or need clarification about the nature of the sessions, you are welcome to reach out before booking.</p>
 
-      <p>For concerns related to scheduling, please refer to the Rescheduling Policy.</p>
+      <p>For concerns related to scheduling, please refer to the <a href="reschedule.html">Rescheduling Policy</a>.</p>
 
       <p>By completing a booking, you acknowledge and agree to this refund policy.</p>
 
@@ -80,7 +85,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="assets/images/23.png" alt="I Read Space" />
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -89,12 +94,12 @@
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
       <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">I Read Space offers a disciplined way to understand those deeper influences.</span></p>
-      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <a href="index.html#pricing" class="footer-cta">Request a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>
         <a href="refund.html">Refund Policy</a>
@@ -133,5 +138,15 @@
     });
   </script>
 
+  <!-- FAQ Chat Widget -->
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">?</button>
+  <div id="faq-chat-panel" class="faq-chat-panel">
+    <div class="faq-chat-header">
+      <h3>Have a Question?</h3>
+      <button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div id="faq-chat-content" class="faq-chat-content"></div>
+  </div>
+  <script src="js/faq-chat.js"></script>
 </body>
 </html>

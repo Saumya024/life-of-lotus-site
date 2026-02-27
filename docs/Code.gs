@@ -22,7 +22,10 @@ var SHEET_NAME = 'Sheet1';
 
 function doPost(e) {
   try {
-    var sheetName = (typeof SHEET_NAME !== 'undefined' && SHEET_NAME) ? SHEET_NAME : 'Sheet1';
+    // Allow overriding the target sheet via a `sheetName` parameter (e.g. 'Sheet2')
+    var sheetNameFromParam = (e && e.parameter && e.parameter.sheetName) ? e.parameter.sheetName : null;
+    var defaultSheetName = (typeof SHEET_NAME !== 'undefined' && SHEET_NAME) ? SHEET_NAME : 'Sheet1';
+    var sheetName = sheetNameFromParam || defaultSheetName;
     let data;
 
     // Handle both JSON and form data

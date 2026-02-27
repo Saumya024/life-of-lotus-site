@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Regain Balance | Emotional Reset Tool | I Read Space</title>
-  <meta name="description" content="Take a moment to reset. Guided breathing and movement exercises to help you find steadiness and clarity." />
+  <title>43-Day Ascendant / Moon Sign Reset | I Read Space</title>
+  <meta name="description" content="43-day discipline reset by ascendant or moon sign. Choose your sign, complete a short reflection, commit to one daily action. No scoring—just a clear contract." />
+  <meta property="og:title" content="43-Day Ascendant / Moon Sign Reset | I Read Space" />
+  <meta property="og:description" content="43-day discipline reset by ascendant or moon sign. Choose your sign, complete a short reflection, commit to one daily action. No scoring—just a clear contract." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ireadspace.com/reset-now" />
+  <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="43-Day Ascendant / Moon Sign Reset | I Read Space" />
+  <meta name="twitter:description" content="43-day discipline reset by ascendant or moon sign. Choose your sign, complete a short reflection, commit to one daily action. No scoring—just a clear contract." />
   <link rel="canonical" href="https://ireadspace.com/reset-now" />
 
   <!-- Favicon -->
@@ -13,49 +20,56 @@
   <link rel="apple-touch-icon" href="assets/images/Radicle (4).png">
 
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css" />
-  
+
   <style>
-    .reset-now-page {
-      min-height: 100vh;
-      padding: 120px 20px 60px;
+    .ascendant-reset-page {
+      min-height: 60vh;
+      padding: 48px 24px 80px;
       background: var(--cream-white);
     }
-
-    .reset-container {
-      max-width: 800px;
+    .ascendant-reset-container {
+      max-width: 900px;
       margin: 0 auto;
     }
-
-    .reset-title {
-      font-family: 'Brygada 1918', serif;
-      font-size: 48px;
-      font-weight: 500;
+    .ascendant-reset-page h1 {
+      font-size: 38px;
+      margin-bottom: 24px;
       color: var(--primary);
-      text-align: center;
-      margin-bottom: 16px;
     }
-
-    .reset-subtitle {
+    .ascendant-reset-intro {
       font-family: 'Comfortaa', sans-serif;
-      font-size: 24px;
+      font-size: 17px;
       color: var(--primary-light);
       text-align: center;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .ascendant-reset-subtext {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 16px;
+      color: var(--primary);
+      text-align: center;
       margin-bottom: 48px;
     }
-
-    .emotion-grid {
+    .ascendant-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      justify-items: center;
+      margin-bottom: 0;
     }
-
-    .emotion-option {
-      aspect-ratio: 1;
+    .ascendant-option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 168px;
+      height: 168px;
       border-radius: 50%;
       background: var(--primary-light);
       color: var(--cream-white);
@@ -63,497 +77,138 @@
       font-family: 'Brygada 1918', serif;
       font-size: 20px;
       font-weight: 500;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       text-align: center;
+      text-decoration: none;
       transition: all 0.3s ease;
-      padding: 20px;
-      pointer-events: auto;
-      position: relative;
-      z-index: 1;
+      padding: 12px;
     }
-
-    .emotion-option:hover {
+    .ascendant-option:hover {
       background: var(--primary);
       transform: scale(1.05);
       border-color: var(--secondary);
+      color: var(--cream-white);
     }
 
-    .reset-content {
-      display: none;
+    @media (max-width: 768px) {
+      .ascendant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-bottom: 16px;
+      }
+      .ascendant-reset-page {
+        padding: 32px 20px 64px;
+      }
+      .ascendant-reset-subtext {
+        margin-bottom: 40px;
+      }
     }
 
-    .reset-content.active {
-      display: block;
-      animation: fadeIn 0.5s ease;
+    /* Spacer so the whole FAQ block (border + container) sits lower */
+    .ascendant-faq-spacer {
+      height: 95px;
+      min-height: 95px;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .reset-step {
+    /* Below-fold accordions */
+    .ascendant-faq {
+      padding: 48px 24px 80px;
       background: var(--white);
-      border: 2px solid var(--tertiary);
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 24px;
-      text-align: center;
+      border-top: 1px solid var(--primary-lighter);
     }
-
-    .reset-step h3 {
-      font-family: 'Brygada 1918', serif;
+    @media (max-width: 768px) {
+      .ascendant-faq-spacer {
+        height: 81px;
+        min-height: 81px;
+      }
+      .ascendant-faq {
+        padding: 36px 16px 56px;
+      }
+      .ascendant-faq h2 {
+        margin-bottom: 28px;
+        font-size: 24px;
+      }
+      .ascendant-accordion {
+        margin-bottom: 16px;
+      }
+    }
+    .ascendant-faq-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .ascendant-faq h2 {
       font-size: 28px;
       color: var(--primary);
-      margin-bottom: 24px;
+      margin-bottom: 28px;
+      text-align: center;
     }
-
-    .reset-step p {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 18px;
-      color: var(--primary-light);
-      margin-bottom: 32px;
-      line-height: 1.6;
+    .ascendant-accordion {
+      border: 1px solid var(--primary-lighter);
+      border-radius: 10px;
+      margin-bottom: 12px;
+      overflow: hidden;
     }
-
-    .reset-step .intro-info p {
-      color: var(--cream-white) !important;
-    }
-
-    .intro-info {
-      text-align: left;
-      background: var(--primary-light);
-      color: var(--cream-white);
-      padding: 32px;
-      border-radius: 12px;
-      margin-bottom: 32px;
-    }
-
-    .intro-info h4 {
-      font-family: 'Brygada 1918', serif;
-      font-size: 22px;
-      margin-bottom: 16px;
-      color: var(--cream-white);
-    }
-
-    .intro-info p {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 16px;
-      color: var(--cream-white);
-      margin-bottom: 16px;
-      line-height: 1.6;
-    }
-
-    .intro-info p:last-child {
+    .ascendant-accordion:last-child {
       margin-bottom: 0;
     }
-
-    .intro-info ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .intro-info li {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 16px;
-      margin-bottom: 12px;
-      padding-left: 24px;
-      position: relative;
-    }
-
-    .intro-info li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--secondary);
-      font-size: 20px;
-    }
-
-    .time-estimate {
+    .ascendant-accordion-toggle {
+      width: 100%;
+      padding: 18px 20px;
+      text-align: left;
       font-family: 'Brygada 1918', serif;
       font-size: 18px;
-      color: var(--cream-white);
-      background: var(--primary);
-      padding: 16px 24px;
-      border-radius: 200px;
-      display: inline-block;
-      margin-bottom: 32px;
-    }
-
-    .master-timer {
-      text-align: center;
-      margin-bottom: 32px;
-      font-family: 'Brygada 1918', serif;
-      display: none;
-    }
-
-    .master-timer.active {
-      display: block;
-    }
-
-    .master-timer-label {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 14px;
-      color: var(--primary-light);
-      margin-bottom: 8px;
-    }
-
-    .master-timer-value {
-      font-size: 32px;
       font-weight: 500;
       color: var(--primary);
-    }
-
-    .breathing-circle-wrapper {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      margin: 0 auto 32px;
-    }
-
-    .breathing-circle {
-      width: 250px;
-      height: 250px;
-      border-radius: 50%;
-      margin: 0 auto;
+      background: var(--cream-white);
+      border: none;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-family: 'Brygada 1918', serif;
-      font-size: 32px;
-      color: var(--primary);
-      transition: all 1s ease;
-      position: relative;
-      background: var(--white);
+      justify-content: space-between;
+      gap: 12px;
+      transition: background 0.2s;
     }
-
-    .breathing-circle svg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transform: rotate(-90deg);
+    .ascendant-accordion-toggle:hover {
+      background: var(--cream-white);
+      color: var(--primary-dark);
     }
-
-    .breathing-circle svg circle {
-      transition: stroke-dashoffset 0.3s ease-out;
+    .ascendant-accordion-toggle:focus {
+      outline: 2px solid var(--tertiary);
+      outline-offset: 2px;
     }
-
-    .movement-timer-circle circle {
-      transition: stroke-dashoffset 0.3s ease-out;
-    }
-
-    .breathing-circle.breathing-in {
-      transform: scale(1);
-      background: var(--primary-light);
-      color: var(--cream-white);
-    }
-
-    .breathing-circle.breathing-in svg circle {
-      stroke: var(--primary);
-    }
-
-    .breathing-circle.holding {
-      transform: scale(1);
-      background: var(--primary);
-      color: var(--cream-white);
-    }
-
-    .breathing-circle.holding svg circle {
-      stroke: var(--secondary);
-    }
-
-    .breathing-circle.breathing-out {
-      transform: scale(1);
-      background: var(--secondary);
-      color: var(--primary);
-    }
-
-    .breathing-circle.breathing-out svg circle {
-      stroke: var(--tertiary);
-    }
-
-    .breathing-text {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-    }
-
-    .timer-display {
-      font-family: 'Brygada 1918', serif;
-      font-size: 56px;
-      font-weight: 500;
-      color: var(--primary);
-      margin-bottom: 16px;
-    }
-
-    .timer-label {
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 18px;
-      color: var(--primary-light);
-      margin-bottom: 24px;
-    }
-
-    .cycle-counter {
-      font-family: 'Brygada 1918', serif;
-      font-size: 28px;
-      font-weight: 500;
-      color: var(--primary);
-      margin-top: 32px;
-      margin-bottom: 16px;
-      display: block;
-    }
-
-    .action-button {
-      background: var(--secondary);
-      color: var(--primary);
-      border: 2px solid var(--tertiary);
-      padding: 16px 32px;
-      border-radius: 200px;
-      font-family: 'Brygada 1918', serif;
-      font-size: 20px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin: 12px;
-      display: inline-block;
-      min-width: 160px;
-    }
-
-    .action-button:hover {
-      background: var(--secondary-light);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(67, 16, 57, 0.2);
-    }
-
-    .action-button.secondary {
-      background: var(--secondary);
-      color: var(--primary);
-    }
-
-    .action-button.secondary:hover {
-      background: var(--secondary-light);
-    }
-
-    .action-button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
-    .yes-no-buttons {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      margin-top: 32px;
-    }
-
-    .yes-no-button {
-      min-width: 120px;
-    }
-
-    .pause-button {
-      background: transparent;
-      border: 2px solid var(--primary);
-      color: var(--primary);
-      padding: 12px 24px;
-      border-radius: 200px;
-      font-family: 'Comfortaa', sans-serif;
+    .ascendant-accordion-toggle .accordion-icon {
+      flex-shrink: 0;
       font-size: 14px;
-      cursor: pointer;
-      margin-top: 16px;
-      transition: all 0.3s ease;
+      transition: transform 0.25s ease;
     }
-
-    .pause-button:hover {
-      background: var(--primary);
-      color: var(--cream-white);
+    .ascendant-accordion.expanded .accordion-icon {
+      transform: rotate(180deg);
     }
-
-    .movement-timer-wrapper {
-      position: relative;
-      width: 250px;
-      height: 250px;
-      margin: 0 auto 32px;
+    .ascendant-accordion-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
     }
-
-    .movement-step {
-      padding: 32px 0;
-      margin: 32px 0;
-      border-top: 2px solid var(--tertiary);
-      border-bottom: 2px solid var(--tertiary);
+    .ascendant-accordion.expanded .ascendant-accordion-panel {
+      max-height: 700px;
     }
-
-    .movement-step p strong {
-      font-family: 'Brygada 1918', serif;
-      font-size: 24px;
-      font-weight: 500;
-      color: var(--primary);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .movement-step:first-child {
-      border-top: none;
-    }
-
-    .movement-step:last-child {
-      border-bottom: none;
-    }
-
-    .total-time {
-      font-family: 'Brygada 1918', serif;
-      font-size: 24px;
-      color: var(--primary);
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 2px solid var(--tertiary);
-    }
-
-    .final-message {
+    .ascendant-accordion-content {
+      padding: 0 20px 20px;
       font-family: 'Comfortaa', sans-serif;
-      font-size: 20px;
+      font-size: 15px;
       color: var(--primary-light);
-      margin: 32px 0;
       line-height: 1.6;
     }
-
-    .cta-buttons {
-      display: flex;
-      gap: 24px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 32px;
-      border-top: none;
+    .ascendant-accordion-content p {
+      margin: 0 0 12px;
     }
-
-    .anxiety-slider-container {
-      margin: 40px 0;
-      text-align: center;
-    }
-
-    .anxiety-slider-wrapper {
-      position: relative;
-      margin-bottom: 16px;
-    }
-
-    .anxiety-slider {
-      width: 100%;
-      max-width: 400px;
-      height: 8px;
-      border-radius: 4px;
-      background: var(--primary-light);
-      outline: none;
-      -webkit-appearance: none;
-      appearance: none;
-    }
-
-    .anxiety-slider::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      cursor: pointer;
-      border: 2px solid var(--tertiary);
-    }
-
-    .anxiety-slider::-moz-range-thumb {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      background: var(--primary);
-      cursor: pointer;
-      border: 2px solid var(--tertiary);
-    }
-
-    .anxiety-labels {
-      display: flex;
-      justify-content: space-between;
-      max-width: 400px;
-      margin: 8px auto 0;
-      font-family: 'Comfortaa', sans-serif;
-      font-size: 14px;
-      color: var(--primary-light);
-    }
-
-    .anxiety-value-display {
-      font-family: 'Brygada 1918', serif;
-      font-size: 48px;
-      font-weight: 500;
-      color: var(--primary);
-      margin: 24px 0;
-    }
-
-    .ready-section {
-      margin: 48px 0;
-    }
-
-      @media (max-width: 768px) {
-      .reset-title {
-        font-size: 36px;
-      }
-
-      .reset-subtitle {
-        font-size: 20px;
-      }
-
-      .emotion-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-      }
-
-      .emotion-option {
-        font-size: 16px;
-        padding: 16px;
-      }
-
-      .breathing-circle-wrapper,
-      .breathing-circle {
-        width: 200px;
-        height: 200px;
-      }
-
-      .breathing-circle {
-        font-size: 24px;
-      }
-
-      .reset-step {
-        padding: 24px;
-      }
-
-      .reset-step h3 {
-        font-size: 24px;
-      }
-
-      .yes-no-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .action-button {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .master-timer-value {
-        font-size: 28px;
-      }
+    .ascendant-accordion-content p:last-child {
+      margin-bottom: 0;
     }
   </style>
 </head>
-
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Header -->
   <header class="header">
     <div class="logo">
@@ -572,288 +227,97 @@
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#areas">Services</a>
       <a href="insights.html">Insights</a>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">Healing</span>
-        <div class="nav-dropdown-menu">
-          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="reading-viewing.html">Reading & Viewing</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle">Practice</span>
-        <div class="nav-dropdown-menu">
-          <a href="reset-now.html">Regain Balance</a>
-        </div>
-      </div>
+      <a href="alternative-healing-practices.html">Healing</a>
+      <a href="reset-now.html">Reset</a>
       <a href="index.html#contact">Contact</a>
       <a href="login.html" id="nav-login" style="display: none;">Login</a>
       <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
       <a href="#" id="nav-logout" style="display: none;">Logout</a>
-      <a href="index.html#pricing" class="header-cta">Book a Session</a>
+      <a href="index.html#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
-  <!-- Reset Now Page -->
-  <section class="reset-now-page">
-    <div class="reset-container">
-      <h1 class="reset-title">Regain Balance</h1>
-      <p class="reset-subtitle">How are you feeling right now?</p>
+  <section class="ascendant-reset-page" id="main-content">
+    <div class="ascendant-reset-container">
+      <h1>43-Day Ascendant / Moon Sign Reset</h1>
+      <p class="ascendant-reset-subtext">Structured behavioral reset using psychological astrology.<br>Choose your Ascendant or Moon sign. Build one disciplined intervention. Follow it for 43 days.</p>
 
-      <!-- Emotion Selection -->
-      <div id="emotion-selection" class="reset-content active">
-        <div class="emotion-grid" id="emotion-grid">
-          <div class="emotion-option" data-emotion="anxious" onclick="handleEmotionClick('anxious')">Anxious</div>
-          <div class="emotion-option" data-emotion="ashamed" onclick="handleEmotionClick('ashamed')">Ashamed</div>
-          <div class="emotion-option" data-emotion="overwhelmed" onclick="handleEmotionClick('overwhelmed')">Overwhelmed</div>
-          <div class="emotion-option" data-emotion="lonely" onclick="handleEmotionClick('lonely')">Lonely</div>
-          <div class="emotion-option" data-emotion="sad" onclick="handleEmotionClick('sad')">Sad</div>
-          <div class="emotion-option" data-emotion="angry" onclick="handleEmotionClick('angry')">Angry</div>
-          <div class="emotion-option" data-emotion="guilty" onclick="handleEmotionClick('guilty')">Guilty</div>
-          <div class="emotion-option" data-emotion="self-doubt" onclick="handleEmotionClick('self-doubt')">Self Doubt</div>
-        </div>
+      <div class="ascendant-grid" role="list">
+        <a href="practice/ascendant-reset/aries.html" class="ascendant-option" role="listitem">Aries</a>
+        <a href="practice/ascendant-reset/taurus.html" class="ascendant-option" role="listitem">Taurus</a>
+        <a href="practice/ascendant-reset/gemini.html" class="ascendant-option" role="listitem">Gemini</a>
+        <a href="practice/ascendant-reset/cancer.html" class="ascendant-option" role="listitem">Cancer</a>
+        <a href="practice/ascendant-reset/leo.html" class="ascendant-option" role="listitem">Leo</a>
+        <a href="practice/ascendant-reset/virgo.html" class="ascendant-option" role="listitem">Virgo</a>
+        <a href="practice/ascendant-reset/libra.html" class="ascendant-option" role="listitem">Libra</a>
+        <a href="practice/ascendant-reset/scorpio.html" class="ascendant-option" role="listitem">Scorpio</a>
+        <a href="practice/ascendant-reset/sagittarius.html" class="ascendant-option" role="listitem">Sagittarius</a>
+        <a href="practice/ascendant-reset/capricorn.html" class="ascendant-option" role="listitem">Capricorn</a>
+        <a href="practice/ascendant-reset/aquarius.html" class="ascendant-option" role="listitem">Aquarius</a>
+        <a href="practice/ascendant-reset/pisces.html" class="ascendant-option" role="listitem">Pisces</a>
       </div>
 
-      <!-- Initial Anxiety Level -->
-      <div id="initial-anxiety-level" class="reset-content">
-        <div class="reset-step">
-          <h3>Rate your anxiety level</h3>
-          <p>On a scale of 1 to 10, how anxious are you feeling right now?</p>
-          <div class="anxiety-slider-container">
-            <div class="anxiety-slider-wrapper">
-              <input type="range" id="initial-anxiety-slider" min="1" max="10" value="10" class="anxiety-slider" style="direction: rtl;">
-              <div class="anxiety-labels">
-                <span>10</span>
-                <span>5</span>
-                <span>1</span>
+      <div class="ascendant-faq-spacer" aria-hidden="true"></div>
+      <!-- Below fold: accordions -->
+      <section class="ascendant-faq" id="ascendant-faq">
+        <div class="ascendant-faq-inner">
+          <h2>Learn more</h2>
+
+          <div class="ascendant-accordion" id="accordion-what">
+            <button type="button" class="ascendant-accordion-toggle" aria-expanded="false" aria-controls="panel-what" id="toggle-what">
+              <span>What This Is</span>
+              <span class="accordion-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="ascendant-accordion-panel" id="panel-what" role="region" aria-labelledby="toggle-what">
+              <div class="ascendant-accordion-content">
+                <p>A structured behavioral reset built from psychological astrology.</p>
+                <p>It doesn't diagnose you or predict events. It helps you identify one repeating friction pattern and design a small, disciplined interruption around it — sustained for 43 days.</p>
+                <p>No grand promises. Just a clear structure and a commitment to follow it.</p>
               </div>
             </div>
-            <div class="anxiety-value-display">
-              <span id="initial-anxiety-value">10</span>
+          </div>
+
+          <div class="ascendant-accordion" id="accordion-why">
+            <button type="button" class="ascendant-accordion-toggle" aria-expanded="false" aria-controls="panel-why" id="toggle-why">
+              <span>Why 43 Days</span>
+              <span class="accordion-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="ascendant-accordion-panel" id="panel-why" role="region" aria-labelledby="toggle-why">
+              <div class="ascendant-accordion-content">
+                <p>Short bursts create motivation. Sustained repetition creates change.</p>
+                <p>Forty-three days is long enough to outlast enthusiasm, resistance, and distraction — but short enough to commit to without drama. Most people quit between Day 12 and Day 21. This structure pushes beyond that drop-off point.</p>
+                <p>It's behavioral, not symbolic.</p>
+              </div>
             </div>
           </div>
-          <div class="ready-section">
-            <button class="action-button" id="continue-after-anxiety">Continue</button>
+
+          <div class="ascendant-accordion" id="accordion-how">
+            <button type="button" class="ascendant-accordion-toggle" aria-expanded="false" aria-controls="panel-how" id="toggle-how">
+              <span>How This Works</span>
+              <span class="accordion-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="ascendant-accordion-panel" id="panel-how" role="region" aria-labelledby="toggle-how">
+              <div class="ascendant-accordion-content">
+                <p>You identify one domain. You define one daily action (15 minutes or less). You set a fixed time and minimum standard. You follow it for 43 days. You recalibrate on Day 7.</p>
+                <p>The action is small on purpose. Consistency builds structural force. Momentum comes from repetition, not motivation.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ascendant-accordion" id="accordion-who-not">
+            <button type="button" class="ascendant-accordion-toggle" aria-expanded="false" aria-controls="panel-who-not" id="toggle-who-not">
+              <span>Who This Is Not For</span>
+              <span class="accordion-icon" aria-hidden="true">▼</span>
+            </button>
+            <div class="ascendant-accordion-panel" id="panel-who-not" role="region" aria-labelledby="toggle-who-not">
+              <div class="ascendant-accordion-content">
+                <p>This is not for people looking for astrological prediction, personality validation, or inspiration without follow-through. It requires a willingness to follow a daily structure — even on the days you don't feel like it.</p>
+                <p>If you prefer reflection without action, this won't be useful to you.</p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Intro Screen -->
-      <div id="intro-screen" class="reset-content">
-        <div class="reset-step">
-          <h3>What to Expect</h3>
-          <div class="intro-info">
-            <ul>
-              <li>This reset will take approximately 5 minutes</li>
-              <li>Find a comfortable space where you can move freely</li>
-              <li>Sit with your spine erect for breathing exercises</li>
-              <li>You can pause and resume anytime in the same session</li>
-              <li>Each step will be revealed as we go, so you can focus on what's happening right now</li>
-              <li>The practices will help you find steadiness, release tension and restore your energy</li>
-            </ul>
-          </div>
-          <div class="time-estimate">⏱ Total Time: ~5 minutes</div>
-          <div class="ready-section">
-            <button class="action-button" id="ready-breathing">Ready</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Breathing Exercise -->
-      <div id="breathing-exercise" class="reset-content">
-        <div class="reset-step">
-          <h3>Let's start with a 2 minute micro reset</h3>
-          <div class="master-timer" id="master-timer">
-            <div class="master-timer-label">Time Remaining</div>
-            <div class="master-timer-value" id="master-timer-value">5:00</div>
-          </div>
-          <div class="breathing-circle-wrapper">
-            <div class="breathing-circle" id="breathing-circle">
-              <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                        stroke-dasharray="283" stroke-dashoffset="283" id="breathing-progress-circle"/>
-              </svg>
-              <div class="breathing-text">
-                <div id="breathing-text">Breathe In</div>
-              </div>
-            </div>
-          </div>
-          <div class="timer-display" id="breathing-timer">6</div>
-          <div class="timer-label" id="breathing-instruction">Feel your heart and belly expand</div>
-          <div class="cycle-counter" id="cycle-counter">Cycle 1 of 4</div>
-          <button class="pause-button" id="pause-breathing">Pause</button>
-        </div>
-      </div>
-
-      <!-- Deeper Reset -->
-      <div id="deeper-reset" class="reset-content">
-        <div class="reset-step">
-          <h3>Deeper Reset</h3>
-          <div class="master-timer" id="master-timer-deeper">
-            <div class="master-timer-label">Time Remaining</div>
-            <div class="master-timer-value" id="master-timer-value-deeper">5:00</div>
-          </div>
-          
-          <!-- Shake Arms -->
-          
-          <!-- Shake Arms -->
-          <div id="shake-arms-step" class="movement-step">
-            <p><strong>Shake your arms</strong></p>
-            <p class="timer-label">Release tension from your upper body</p>
-            <div class="breathing-circle-wrapper">
-              <div class="breathing-circle" id="shake-arms-circle">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                          stroke-dasharray="283" stroke-dashoffset="283" id="shake-arms-progress"/>
-                </svg>
-                <div class="breathing-text">
-                  <div class="timer-display" id="shake-arms-timer">30</div>
-                </div>
-              </div>
-            </div>
-            <button class="pause-button" id="pause-shake-arms">Pause</button>
-          </div>
-
-          <!-- Shake Legs -->
-          <div id="shake-legs-step" class="movement-step" style="display: none;">
-            <p><strong>Shake your legs</strong></p>
-            <p class="timer-label">Release tension from your lower body</p>
-            <div class="breathing-circle-wrapper">
-              <div class="breathing-circle" id="shake-legs-circle">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                          stroke-dasharray="283" stroke-dashoffset="283" id="shake-legs-progress"/>
-                </svg>
-                <div class="breathing-text">
-                  <div class="timer-display" id="shake-legs-timer">30</div>
-                </div>
-              </div>
-            </div>
-            <button class="pause-button" id="pause-shake-legs">Pause</button>
-          </div>
-
-          <!-- Shake Body -->
-          <div id="shake-body-step" class="movement-step" style="display: none;">
-            <p><strong>Shake your entire body</strong></p>
-            <p class="timer-label">Full body release</p>
-            <div class="breathing-circle-wrapper">
-              <div class="breathing-circle" id="shake-body-circle">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                          stroke-dasharray="283" stroke-dashoffset="283" id="shake-body-progress"/>
-                </svg>
-                <div class="breathing-text">
-                  <div class="timer-display" id="shake-body-timer">30</div>
-                </div>
-              </div>
-            </div>
-            <button class="pause-button" id="pause-shake-body">Pause</button>
-          </div>
-
-          <!-- Breathing with Sigh -->
-          <div id="sigh-breathing-step" class="movement-step" style="display: none;">
-            <p><strong>Breathe in deeply, then give a big sigh</strong></p>
-            <div class="breathing-circle-wrapper">
-              <div class="breathing-circle" id="sigh-circle">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                          stroke-dasharray="283" stroke-dashoffset="283" id="sigh-progress-circle"/>
-                </svg>
-                <div class="breathing-text">
-                  <div id="sigh-text">Breathe In</div>
-                </div>
-              </div>
-            </div>
-            <div class="timer-display" id="sigh-timer">6</div>
-            <div class="timer-label" id="sigh-instruction">Breathe in deeply</div>
-            <div class="cycle-counter" id="sigh-counter">Round 1 of 3</div>
-            <button class="pause-button" id="pause-sigh">Pause</button>
-          </div>
-
-          <!-- Swimming Arms -->
-          <div id="swimming-step" class="movement-step" style="display: none;">
-            <p><strong>Spread your arms to the side and "swim" making full circles</strong></p>
-            <p class="timer-label">If possible, move around your entire space</p>
-            <div class="breathing-circle-wrapper">
-              <div class="breathing-circle" id="swimming-circle">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                          stroke-dasharray="283" stroke-dashoffset="283" id="swimming-progress"/>
-                </svg>
-                <div class="breathing-text">
-                  <div class="timer-display" id="swimming-timer">60</div>
-                </div>
-              </div>
-            </div>
-            <button class="pause-button" id="pause-swimming">Pause</button>
-          </div>
-
-          <!-- Smile -->
-          <div id="smile-step" class="movement-step" style="display: none;">
-            <p><strong>Make a big smile, almost reaching your eyes</strong></p>
-            <p class="timer-label">Shift your energy</p>
-            <div class="breathing-circle-wrapper">
-              <div class="breathing-circle" id="smile-circle">
-                <svg viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="45" fill="none" stroke="var(--primary)" stroke-width="8" 
-                          stroke-dasharray="283" stroke-dashoffset="283" id="smile-progress"/>
-                </svg>
-                <div class="breathing-text">
-                  <div class="timer-display" id="smile-timer">5</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="total-time" id="total-time" style="display: none;">
-            Total time: <span id="total-time-value">0</span> minutes
-          </div>
-        </div>
-      </div>
-
-      <!-- Final Anxiety Level -->
-      <div id="final-anxiety-level" class="reset-content">
-        <div class="reset-step">
-          <h3>Rate your anxiety level now</h3>
-          <p>On a scale of 1 to 10, how anxious are you feeling now?</p>
-          <div class="anxiety-slider-container">
-            <div class="anxiety-slider-wrapper">
-              <input type="range" id="final-anxiety-slider" min="1" max="10" value="10" class="anxiety-slider" style="direction: rtl;">
-              <div class="anxiety-labels">
-                <span>10</span>
-                <span>5</span>
-                <span>1</span>
-              </div>
-            </div>
-            <div class="anxiety-value-display">
-              <span id="final-anxiety-value">10</span>
-            </div>
-          </div>
-          <div class="ready-section">
-            <button class="action-button" id="submit-final-anxiety">Continue</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Final Messages -->
-      <div id="final-message-no" class="reset-content">
-        <div class="reset-step">
-          <p class="final-message">Sometimes a feeling needs more than a quick reset.</p>
-          <p class="final-message">It may be asking for deeper work and alignment.</p>
-          <div class="cta-buttons">
-            <a href="index.html#pricing" class="action-button">Book a Session</a>
-          </div>
-        </div>
-      </div>
-
-      <div id="final-message-yes" class="reset-content">
-        <div class="reset-step">
-          <p class="final-message" id="anxiety-change-message"></p>
-          <p class="final-message">If this pattern repeats, it deserves decoding and your birth chart can reveal its root.</p>
-          <div class="cta-buttons">
-            <a href="index.html#pricing" class="action-button">Book a Session</a>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   </section>
 
@@ -870,12 +334,12 @@
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
       <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">I Read Space offers a disciplined way to understand those deeper influences.</span></p>
-      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <a href="index.html#pricing" class="footer-cta">Request a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>
         <a href="refund.html">Refund Policy</a>
@@ -885,861 +349,46 @@
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
   <script src="js/mobile-menu.js"></script>
-
-  <!-- Navigation Dropdown Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const dropdowns = document.querySelectorAll('.nav-dropdown');
-      dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
+      var dropdowns = document.querySelectorAll('.nav-dropdown');
+      dropdowns.forEach(function(dropdown) {
+        var toggle = dropdown.querySelector('.nav-dropdown-toggle');
         if (toggle) {
           toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-              e.preventDefault();
-              dropdown.classList.toggle('active');
-              dropdowns.forEach(other => {
-                if (other !== dropdown) other.classList.remove('active');
-              });
-            }
+            e.stopPropagation();
+            this.parentElement.classList.toggle('active');
           });
         }
       });
-      document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && !e.target.closest('.nav-dropdown')) {
-          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-        }
+      document.addEventListener('click', function() {
+        document.querySelectorAll('.nav-dropdown').forEach(function(d) { d.classList.remove('active'); });
+      });
+
+      // Accordions: collapsed by default, one open at a time optional
+      var accordions = document.querySelectorAll('.ascendant-accordion');
+      accordions.forEach(function(acc) {
+        var btn = acc.querySelector('.ascendant-accordion-toggle');
+        var panel = acc.querySelector('.ascendant-accordion-panel');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', function() {
+          var expanded = acc.classList.toggle('expanded');
+          btn.setAttribute('aria-expanded', expanded);
+        });
       });
     });
   </script>
 
-  <!-- Reset Now Script -->
-  <script>
-    let currentEmotion = null;
-    let breathingCycle = 0;
-    let totalSeconds = 0;
-    let totalTimer = null;
-    let masterTimer = null;
-    let masterTimeRemaining = 300; // 5 minutes in seconds
-    let isPaused = false;
-    let currentInterval = null;
-    let currentProgressCircle = null;
-    let currentTotalTime = 0;
-    let currentMaxTime = 0;
-
-    function showSection(sectionId) {
-      document.querySelectorAll('.reset-content').forEach(section => {
-        section.classList.remove('active');
-      });
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.classList.add('active');
-        } else {
-          console.error('Section not found:', sectionId);
-        }
-      }, 100);
-    }
-
-    // Global function for inline onclick handlers
-    function handleEmotionClick(emotion) {
-      console.log('handleEmotionClick called with:', emotion);
-      currentEmotion = emotion;
-      if (emotion === 'anxious') {
-        showSection('initial-anxiety-level');
-      } else {
-        alert('This emotion will be available soon. Please try "Anxious" for now.');
-      }
-    }
-
-    // Initialize all event listeners
-    function initResetNow() {
-      // Emotion selection - use event delegation
-      const emotionGrid = document.getElementById('emotion-grid');
-      if (!emotionGrid) {
-        console.error('Emotion grid not found!');
-        setTimeout(initResetNow, 100);
-        return;
-      }
-      
-      console.log('Initializing emotion grid click handler');
-      emotionGrid.addEventListener('click', function(e) {
-        const option = e.target.closest('.emotion-option');
-        if (option) {
-          e.preventDefault();
-          e.stopPropagation();
-          currentEmotion = option.dataset.emotion;
-          console.log('Emotion clicked:', currentEmotion);
-          
-          // Only handle anxious for now
-          if (currentEmotion === 'anxious') {
-            console.log('Showing initial anxiety level');
-            showSection('initial-anxiety-level');
-          } else {
-            alert('This emotion will be available soon. Please try "Anxious" for now.');
-          }
-        }
-      });
-
-      // Initial anxiety level slider
-      const initialAnxietySlider = document.getElementById('initial-anxiety-slider');
-      const initialAnxietyValue = document.getElementById('initial-anxiety-value');
-      if (initialAnxietySlider && initialAnxietyValue) {
-        initialAnxietySlider.addEventListener('input', (e) => {
-          const value = e.target.value;
-          initialAnxietyValue.textContent = value;
-        });
-      }
-
-      const continueAfterAnxietyBtn = document.getElementById('continue-after-anxiety');
-      if (continueAfterAnxietyBtn) {
-        continueAfterAnxietyBtn.addEventListener('click', () => {
-          initialAnxietyLevel = parseInt(initialAnxietySlider.value);
-          showSection('intro-screen');
-        });
-      }
-
-      // Final anxiety level slider
-      const finalAnxietySlider = document.getElementById('final-anxiety-slider');
-      const finalAnxietyValue = document.getElementById('final-anxiety-value');
-      if (finalAnxietySlider && finalAnxietyValue) {
-        finalAnxietySlider.addEventListener('input', (e) => {
-          const value = e.target.value;
-          finalAnxietyValue.textContent = value;
-        });
-      }
-
-      const submitFinalAnxietyBtn = document.getElementById('submit-final-anxiety');
-      if (submitFinalAnxietyBtn) {
-        submitFinalAnxietyBtn.addEventListener('click', () => {
-          finalAnxietyLevel = parseInt(finalAnxietySlider.value);
-          const difference = initialAnxietyLevel - finalAnxietyLevel;
-          
-          if (difference > 0) {
-            // Anxiety decreased
-            const changeMessage = document.getElementById('anxiety-change-message');
-            if (changeMessage) {
-              changeMessage.textContent = `You shifted yourself by ${difference} point${difference > 1 ? 's' : ''} in under 5 minutes!`;
-            }
-            showSection('final-message-yes');
-          } else {
-            // No change or increased
-            showSection('final-message-no');
-          }
-        });
-      }
-
-      // Ready buttons
-      const readyBreathingBtn = document.getElementById('ready-breathing');
-      if (readyBreathingBtn) {
-        readyBreathingBtn.addEventListener('click', () => {
-          startMasterTimer();
-          showSection('breathing-exercise');
-          startBreathingExercise();
-        });
-      }
-
-    }
-
-    // Run initialization - try multiple approaches
-    function runInit() {
-      try {
-        initResetNow();
-      } catch (error) {
-        console.error('Init error:', error);
-        setTimeout(runInit, 100);
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', runInit);
-    } else {
-      // DOM already loaded, run immediately
-      setTimeout(runInit, 0);
-    }
-
-
-    function startMasterTimer() {
-      const masterTimerEl = document.getElementById('master-timer');
-      const masterTimerDeeperEl = document.getElementById('master-timer-deeper');
-      
-      if (masterTimerEl) masterTimerEl.classList.add('active');
-      
-      masterTimer = setInterval(() => {
-        if (!isPaused) {
-          masterTimeRemaining--;
-          if (masterTimeRemaining <= 0) {
-            masterTimeRemaining = 0;
-            clearInterval(masterTimer);
-          }
-          updateMasterTimer();
-        }
-      }, 1000);
-    }
-    
-    function switchToDeeperTimer() {
-      const masterTimerEl = document.getElementById('master-timer');
-      const masterTimerDeeperEl = document.getElementById('master-timer-deeper');
-      
-      if (masterTimerEl) masterTimerEl.classList.remove('active');
-      if (masterTimerDeeperEl) masterTimerDeeperEl.classList.add('active');
-    }
-
-    function updateMasterTimer() {
-      const minutes = Math.floor(masterTimeRemaining / 60);
-      const seconds = masterTimeRemaining % 60;
-      const timeString = `${minutes}:${seconds.toString().padStart(2, '0')}`;
-      
-      const masterTimerValue = document.getElementById('master-timer-value');
-      if (masterTimerValue) masterTimerValue.textContent = timeString;
-      
-      const masterTimerValueDeeper = document.getElementById('master-timer-value-deeper');
-      if (masterTimerValueDeeper) masterTimerValueDeeper.textContent = timeString;
-    }
-
-    function updateProgressCircle(circleId, current, max, circumference = 283) {
-      const circle = document.getElementById(circleId);
-      if (!circle) return;
-      const progress = current / max;
-      const offset = circumference * (1 - progress);
-      // Use requestAnimationFrame for smoother updates
-      requestAnimationFrame(() => {
-        circle.style.strokeDashoffset = offset;
-      });
-    }
-
-    // Smooth progress updater that runs more frequently
-    function startSmoothProgress(circleId, maxTime, circumference = 283, onTick = null) {
-      let elapsed = 0;
-      const startTime = Date.now();
-      const updateInterval = 50; // Update every 50ms for smoothness
-      
-      const smoothInterval = setInterval(() => {
-        if (!isPaused) {
-          elapsed = (Date.now() - startTime) / 1000;
-          const remaining = Math.max(0, maxTime - elapsed);
-          const progress = elapsed / maxTime;
-          const offset = circumference * (1 - progress);
-          
-          const circle = document.getElementById(circleId);
-          if (circle) {
-            circle.style.strokeDashoffset = offset;
-          }
-          
-          if (onTick) {
-            onTick(Math.ceil(remaining));
-          }
-          
-          if (remaining <= 0) {
-            clearInterval(smoothInterval);
-          }
-        }
-      }, updateInterval);
-      
-      return smoothInterval;
-    }
-
-    function startBreathingExercise() {
-      breathingCycle = 0;
-      runBreathingCycle();
-    }
-
-    function runBreathingCycle() {
-      if (breathingCycle >= 4) {
-        // Continue directly to deeper reset practices
-        switchToDeeperTimer();
-        showSection('deeper-reset');
-        startShakeArms();
-        return;
-      }
-
-      breathingCycle++;
-      document.getElementById('cycle-counter').textContent = `Cycle ${breathingCycle} of 4`;
-
-      breatheIn();
-    }
-
-    function breatheIn() {
-      const circle = document.getElementById('breathing-circle');
-      const timer = document.getElementById('breathing-timer');
-      const text = document.getElementById('breathing-text');
-      const instruction = document.getElementById('breathing-instruction');
-      const progressCircle = document.getElementById('breathing-progress-circle');
-
-      circle.classList.remove('breathing-out', 'holding');
-      circle.classList.add('breathing-in');
-      text.textContent = 'Breathe In';
-      instruction.textContent = 'Feel your heart and belly expand';
-
-      // Smoothly reset progress circle
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 6;
-      timer.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 6;
-      currentProgressCircle = progressCircle;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      // Small delay to allow reset animation to complete
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(6 - elapsed));
-            timer.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 6);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              hold();
-            }
-          }
-        }, 50);
-      }, 300);
-    }
-
-    function hold() {
-      const circle = document.getElementById('breathing-circle');
-      const timer = document.getElementById('breathing-timer');
-      const text = document.getElementById('breathing-text');
-      const instruction = document.getElementById('breathing-instruction');
-
-      circle.classList.remove('breathing-in', 'breathing-out');
-      circle.classList.add('holding');
-      text.textContent = 'Hold';
-      instruction.textContent = 'Hold';
-
-      // Smoothly reset progress circle
-      const progressCircle = document.getElementById('breathing-progress-circle');
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 4;
-      timer.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 4;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(4 - elapsed));
-            timer.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 4);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              breatheOut();
-            }
-          }
-        }, 50);
-      }, 300);
-    }
-
-    function breatheOut() {
-      const circle = document.getElementById('breathing-circle');
-      const timer = document.getElementById('breathing-timer');
-      const text = document.getElementById('breathing-text');
-      const instruction = document.getElementById('breathing-instruction');
-
-      circle.classList.remove('breathing-in', 'holding');
-      circle.classList.add('breathing-out');
-      text.textContent = 'Breathe Out (Mouth)';
-      instruction.textContent = 'Feel your heart and belly contract fully';
-
-      // Smoothly reset progress circle
-      const progressCircle = document.getElementById('breathing-progress-circle');
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 8;
-      timer.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 8;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(8 - elapsed));
-            timer.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 8);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              runBreathingCycle();
-            }
-          }
-        }, 50);
-      }, 300);
-    }
-
-    // Pause functionality
-    function setupPauseButton(buttonId, resumeFunction) {
-      const button = document.getElementById(buttonId);
-      if (!button) return;
-      
-      button.addEventListener('click', () => {
-        isPaused = !isPaused;
-        if (isPaused) {
-          button.textContent = 'Resume';
-        } else {
-          button.textContent = 'Pause';
-          if (resumeFunction) resumeFunction();
-        }
-      });
-    }
-
-    setupPauseButton('pause-breathing', () => {
-      // Resume current breathing phase
-    });
-
-    // Removed steady check - go directly to deeper reset
-
-    function startShakeArms() {
-      document.querySelectorAll('.movement-step').forEach(step => {
-        step.style.display = 'none';
-      });
-      document.getElementById('shake-arms-step').style.display = 'block';
-
-      let count = 30;
-      document.getElementById('shake-arms-timer').textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 30;
-
-      updateProgressCircle('shake-arms-progress', 0, 30);
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      const startTime = Date.now();
-      currentInterval = setInterval(() => {
-        if (!isPaused) {
-          const elapsed = (Date.now() - startTime) / 1000;
-          count = Math.max(0, Math.ceil(30 - elapsed));
-          const timerEl = document.getElementById('shake-arms-timer');
-          if (timerEl) timerEl.textContent = count;
-          
-          const progress = Math.min(1, elapsed / 30);
-          const offset = 283 * (1 - progress);
-          requestAnimationFrame(() => {
-            const circle = document.getElementById('shake-arms-progress');
-            if (circle) {
-              circle.style.transition = 'stroke-dashoffset 0.1s linear';
-              circle.style.strokeDashoffset = offset;
-            }
-          });
-          
-          if (count <= 0) {
-            clearInterval(currentInterval);
-            startShakeLegs();
-          }
-        }
-      }, 50);
-
-      setupPauseButton('pause-shake-arms');
-    }
-
-    function startShakeLegs() {
-      document.getElementById('shake-arms-step').style.display = 'none';
-      document.getElementById('shake-legs-step').style.display = 'block';
-
-      const progressCircle = document.getElementById('shake-legs-progress');
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 30;
-      const timerEl = document.getElementById('shake-legs-timer');
-      if (timerEl) timerEl.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 30;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(30 - elapsed));
-            if (timerEl) timerEl.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 30);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              startShakeBody();
-            }
-          }
-        }, 50);
-      }, 300);
-
-      setupPauseButton('pause-shake-legs');
-    }
-
-    function startShakeBody() {
-      document.getElementById('shake-legs-step').style.display = 'none';
-      document.getElementById('shake-body-step').style.display = 'block';
-
-      const progressCircle = document.getElementById('shake-body-progress');
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 30;
-      const timerEl = document.getElementById('shake-body-timer');
-      if (timerEl) timerEl.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 30;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(30 - elapsed));
-            if (timerEl) timerEl.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 30);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              startSighBreathing();
-            }
-          }
-        }, 50);
-      }, 300);
-
-      setupPauseButton('pause-shake-body');
-    }
-
-    let sighRound = 0;
-    function startSighBreathing() {
-      document.getElementById('shake-body-step').style.display = 'none';
-      document.getElementById('sigh-breathing-step').style.display = 'block';
-
-      sighRound = 0;
-      runSighCycle();
-    }
-
-    function runSighCycle() {
-      if (sighRound >= 3) {
-        document.getElementById('sigh-breathing-step').style.display = 'none';
-        startSwimming();
-        return;
-      }
-
-      sighRound++;
-      document.getElementById('sigh-counter').textContent = `Round ${sighRound} of 3`;
-
-      // Breathe in
-      const circle = document.getElementById('sigh-circle');
-      const timer = document.getElementById('sigh-timer');
-      const text = document.getElementById('sigh-text');
-      const progressCircle = document.getElementById('sigh-progress-circle');
-
-      circle.classList.remove('breathing-out');
-      circle.classList.add('breathing-in');
-      text.textContent = 'Breathe In';
-
-      // Smoothly reset progress circle
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 6;
-      timer.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 6;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(6 - elapsed));
-            timer.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 6);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              // Sigh
-              circle.classList.remove('breathing-in');
-              circle.classList.add('breathing-out');
-              text.textContent = 'Huhhhhh';
-              count = 8;
-              timer.textContent = count;
-              currentTotalTime = count;
-              currentMaxTime = 8;
-
-              // Smoothly reset for sigh
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-                requestAnimationFrame(() => {
-                  progressCircle.style.strokeDashoffset = '283';
-                });
-              }
-
-              setTimeout(() => {
-                const sighStartTime = Date.now();
-                const sighInterval = setInterval(() => {
-                  if (!isPaused) {
-                    const sighElapsed = (Date.now() - sighStartTime) / 1000;
-                    count = Math.max(0, Math.ceil(8 - sighElapsed));
-                    timer.textContent = count;
-                    
-                    const sighProgress = Math.min(1, sighElapsed / 8);
-                    const sighOffset = 283 * (1 - sighProgress);
-                    requestAnimationFrame(() => {
-                      if (progressCircle) {
-                        progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                        progressCircle.style.strokeDashoffset = sighOffset;
-                      }
-                    });
-                    
-                    if (count <= 0) {
-                      clearInterval(sighInterval);
-                      runSighCycle();
-                    }
-                  } else {
-                    currentInterval = sighInterval;
-                  }
-                }, 50);
-              }, 300);
-            }
-          }
-        }, 50);
-      }, 300);
-
-      setupPauseButton('pause-sigh');
-    }
-
-    function startSwimming() {
-      document.getElementById('swimming-step').style.display = 'block';
-
-      const progressCircle = document.getElementById('swimming-progress');
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 60;
-      const timerEl = document.getElementById('swimming-timer');
-      if (timerEl) timerEl.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 60;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(60 - elapsed));
-            if (timerEl) timerEl.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 60);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              startSmile();
-            }
-          }
-        }, 50);
-      }, 300);
-
-      setupPauseButton('pause-swimming');
-    }
-
-    function startSmile() {
-      document.getElementById('swimming-step').style.display = 'none';
-      document.getElementById('smile-step').style.display = 'block';
-
-      const progressCircle = document.getElementById('smile-progress');
-      if (progressCircle) {
-        progressCircle.style.transition = 'stroke-dashoffset 0.3s ease-out';
-        requestAnimationFrame(() => {
-          progressCircle.style.strokeDashoffset = '283';
-        });
-      }
-
-      let count = 5;
-      const timerEl = document.getElementById('smile-timer');
-      if (timerEl) timerEl.textContent = count;
-      currentTotalTime = count;
-      currentMaxTime = 5;
-
-      if (currentInterval) clearInterval(currentInterval);
-      
-      setTimeout(() => {
-        const startTime = Date.now();
-        currentInterval = setInterval(() => {
-          if (!isPaused) {
-            const elapsed = (Date.now() - startTime) / 1000;
-            count = Math.max(0, Math.ceil(5 - elapsed));
-            if (timerEl) timerEl.textContent = count;
-            
-            const progress = Math.min(1, elapsed / 5);
-            const offset = 283 * (1 - progress);
-            requestAnimationFrame(() => {
-              if (progressCircle) {
-                progressCircle.style.transition = 'stroke-dashoffset 0.1s linear';
-                progressCircle.style.strokeDashoffset = offset;
-              }
-            });
-            
-            if (count <= 0) {
-              clearInterval(currentInterval);
-              document.getElementById('total-time').style.display = 'block';
-              const totalMinutes = Math.floor((300 - masterTimeRemaining) / 60);
-              document.getElementById('total-time-value').textContent = totalMinutes;
-              const masterTimerEl = document.getElementById('master-timer');
-              const masterTimerDeeperEl = document.getElementById('master-timer-deeper');
-              if (masterTimerEl) masterTimerEl.classList.remove('active');
-              if (masterTimerDeeperEl) masterTimerDeeperEl.classList.remove('active');
-              if (masterTimer) clearInterval(masterTimer);
-              setTimeout(() => {
-                showSection('final-anxiety-level');
-              }, 1000);
-            }
-          }
-        }, 50);
-      }, 300);
-    }
-
-
-  </script>
-
-  <!-- Supabase Client -->
-  <script type="module" src="js/supabase-client.js"></script>
-  
-  <!-- Auth Initialization -->
-  <script type="module">
-    import { ENABLE_AUTH } from './js/feature-flags.js';
-    
-    if (ENABLE_AUTH) {
-      const { initAuth, onAuthStateChange, signOut } = await import('./js/auth.js');
-      
-      initAuth();
-      
-      onAuthStateChange((user) => {
-        const loginLink = document.getElementById('nav-login');
-        const myPathwaysLink = document.getElementById('nav-my-pathways');
-        const logoutBtn = document.getElementById('nav-logout');
-        
-        if (user) {
-          if (loginLink) loginLink.style.display = 'none';
-          if (myPathwaysLink) myPathwaysLink.style.display = 'inline';
-          if (logoutBtn) logoutBtn.style.display = 'inline';
-        } else {
-          if (loginLink) loginLink.style.display = 'inline';
-          if (myPathwaysLink) myPathwaysLink.style.display = 'none';
-          if (logoutBtn) logoutBtn.style.display = 'none';
-        }
-      });
-      
-      const logoutBtn = document.getElementById('nav-logout');
-      if (logoutBtn) {
-        logoutBtn.addEventListener('click', async (e) => {
-          e.preventDefault();
-          await signOut();
-          window.location.href = '/';
-        });
-      }
-    }
-  </script>
-
+  <!-- FAQ Chat Widget -->
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">?</button>
+  <div id="faq-chat-panel" class="faq-chat-panel">
+    <div class="faq-chat-header">
+      <h3>Have a Question?</h3>
+      <button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div id="faq-chat-content" class="faq-chat-content"></div>
+  </div>
+  <script src="js/faq-chat.js"></script>
 </body>
 </html>

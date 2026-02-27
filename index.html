@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>I Read Space | A Trusted Approach to Astrology | Birth Chart Consultation</title>
-  <meta name="description" content="I Read Space offers a disciplined approach to astrology, focused on patterns, timing, and conscious decision-making across life, career, money, business, health, love, marriage, and relationships." />
+  <title>I Read Space | Vedic Astrology for Decisions That Matter</title>
+  <meta name="description" content="Vedic astrology consultations rooted in classical principles, interpreted through systems thinking. For people navigating real decisions — career, relationships, health, timing, and life transitions." />
   <link rel="canonical" href="https://ireadspace.com/" />
 
   <!-- Favicon -->
@@ -24,6 +24,8 @@
   <meta name="twitter:description" content="Clarity for life's tough decisions. Vedic astrology consultations for career, relationships, health, and life transitions." />
 
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
 
@@ -32,6 +34,9 @@
 </head>
 
 <body>
+
+  <!-- Skip to main content (a11y) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER -->
   <header class="header">
@@ -51,25 +56,14 @@
       <a href="#pricing">Pricing</a>
       <a href="#areas">Services</a>
       <a href="insights.html">Insights</a>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Healing menu">Healing</span>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="alternative-healing-practices.html">Alternative Healing & Consciousness Practices</a>
-          <a href="reading-viewing.html">Reading & Viewing</a>
-        </div>
-      </div>
-      <div class="nav-dropdown">
-        <span class="nav-dropdown-toggle" role="button" tabindex="0" aria-expanded="false" aria-haspopup="true" aria-label="Toggle Practice menu">Practice</span>
-        <div class="nav-dropdown-menu" role="menu">
-          <a href="reset-now.html">Regain Balance</a>
-        </div>
-      </div>
+      <a href="alternative-healing-practices.html">Healing</a>
+      <a href="reset-now.html">Reset</a>
       <!-- <a href="pathways.html">Pathways</a> Hidden for now -->
       <a href="#contact">Contact</a>
       <a href="login.html" id="nav-login" style="display: none;">Login</a>
       <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
       <a href="#" id="nav-logout" style="display: none;">Logout</a>
-      <a href="#pricing" class="header-cta">Book a Session</a>
+      <a href="#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
@@ -80,86 +74,42 @@
     <div class="hero-planets">
       <!-- Sun -->
       <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sun planet icon">
-        <defs>
-          <radialGradient id="sunHalo" cx="0.5" cy="0.5">
-            <stop offset="0%" stop-color="#F5C842" stop-opacity="0.8"/>
-            <stop offset="100%" stop-color="#F5C842" stop-opacity="0.3"/>
-          </radialGradient>
-        </defs>
-        <circle cx="12" cy="12" r="7" fill="url(#sunHalo)"/>
-        <circle cx="12" cy="12" r="6.5" fill="#F5C842"/>
-        <ellipse cx="10" cy="10" rx="2" ry="1.5" fill="#FFF9C4" opacity="0.6"/>
+        <circle cx="12" cy="12" r="6.5" fill="#FF6B35"/>
       </svg>
       <!-- Moon -->
-      <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17 12c0 4-3.5 7.5-7.5 7.5S2.5 16 2.5 12 6 4.5 9.5 4.5c1.2 0 2.3.3 3.2.8-1.8 2-2.7 4.8-2.7 6.7s.9 4.7 2.7 6.7c-.9.5-2 .8-3.2.8 4 0 7.5-3.5 7.5-7.5z" fill="#D4D4D4"/>
-        <path d="M8 6c-1.5 2.5-1.5 5.5 0 8M10 7c-1 2-1 4.5 0 6.5M7 9c-0.8 1.5-0.8 3.5 0 5" stroke="#C0C0C0" stroke-width="0.5" opacity="0.5" fill="none"/>
-        <ellipse cx="9" cy="10" rx="1.5" ry="1" fill="#E8E8E8" opacity="0.4"/>
+      <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Moon planet icon">
+        <circle cx="12" cy="12" r="6.5" fill="#F5E6D3"/>
       </svg>
       <!-- Mercury -->
       <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mercury planet icon">
-        <circle cx="12" cy="12" r="6.5" fill="#8C7853"/>
-        <ellipse cx="12" cy="9" rx="5" ry="0.6" fill="#7A6B4F" opacity="0.4"/>
-        <ellipse cx="12" cy="10.5" rx="5.5" ry="0.7" fill="#7A6B4F" opacity="0.35"/>
-        <ellipse cx="12" cy="12" rx="5.5" ry="0.7" fill="#7A6B4F" opacity="0.3"/>
-        <ellipse cx="12" cy="13.5" rx="5" ry="0.6" fill="#7A6B4F" opacity="0.35"/>
-        <ellipse cx="12" cy="15" rx="4.5" ry="0.6" fill="#7A6B4F" opacity="0.4"/>
-        <ellipse cx="10" cy="10" rx="2" ry="1.5" fill="#B8A082" opacity="0.5"/>
+        <circle cx="12" cy="12" r="6.5" fill="#06A77D"/>
       </svg>
       <!-- Venus -->
       <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Venus planet icon">
-        <defs>
-          <radialGradient id="venusGlow" cx="0.5" cy="0.5">
-            <stop offset="0%" stop-color="#F0D19F" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#E6BE8A" stop-opacity="0"/>
-          </radialGradient>
-        </defs>
-        <circle cx="12" cy="12" r="6.5" fill="#E6BE8A"/>
-        <circle cx="12" cy="12" r="6.5" fill="url(#venusGlow)"/>
-        <circle cx="9" cy="10" r="1.5" fill="#F0D19F" opacity="0.4"/>
-        <circle cx="14" cy="11" r="1.2" fill="#F0D19F" opacity="0.3"/>
-        <circle cx="11" cy="13.5" r="1" fill="#F0D19F" opacity="0.35"/>
-        <ellipse cx="10" cy="10" rx="2" ry="1.5" fill="#F5D9B0" opacity="0.5"/>
+        <circle cx="12" cy="12" r="6.5" fill="#E3F2FD"/>
       </svg>
       <!-- Mars -->
       <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Mars planet icon">
-        <circle cx="12" cy="12" r="6.5" fill="#CD5C5C"/>
-        <path d="M8 9c0-0.5 0.5-1 1-1s1 0.5 1 1M8 12c0-0.5 0.5-1 1-1s1 0.5 1 1M8 15c0-0.5 0.5-1 1-1s1 0.5 1 1M13 10c0-0.5 0.5-1 1-1s1 0.5 1 1M13 13c0-0.5 0.5-1 1-1s1 0.5 1 1M13 16c0-0.5 0.5-1 1-1s1 0.5 1 1" fill="#B04545" opacity="0.5"/>
-        <path d="M10 10.5h4M10 13h4M10 15.5h3" stroke="#A83D3D" stroke-width="0.5" opacity="0.4"/>
-        <ellipse cx="10" cy="10" rx="2" ry="1.5" fill="#E69999" opacity="0.5"/>
+        <circle cx="12" cy="12" r="6.5" fill="#E63946"/>
       </svg>
       <!-- Jupiter -->
-      <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="6.5" fill="#D2AA6D"/>
-        <ellipse cx="12" cy="8.5" rx="5.5" ry="0.9" fill="#B8926A" opacity="0.5"/>
-        <ellipse cx="12" cy="9.8" rx="5.8" ry="1" fill="#C49D6B" opacity="0.4"/>
-        <ellipse cx="12" cy="11" rx="6" ry="1.1" fill="#B8926A" opacity="0.45"/>
-        <ellipse cx="12" cy="12.2" rx="6" ry="1.1" fill="#C49D6B" opacity="0.4"/>
-        <ellipse cx="12" cy="13.5" rx="5.8" ry="1" fill="#B8926A" opacity="0.45"/>
-        <ellipse cx="12" cy="14.8" rx="5.5" ry="0.9" fill="#C49D6B" opacity="0.4"/>
-        <ellipse cx="12" cy="16" rx="5" ry="0.9" fill="#B8926A" opacity="0.5"/>
-        <circle cx="9.5" cy="11" r="1" fill="#A8825A" opacity="0.6"/>
-        <ellipse cx="10" cy="10" rx="2" ry="1.5" fill="#E6C482" opacity="0.5"/>
+      <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Jupiter planet icon">
+        <circle cx="12" cy="12" r="6.5" fill="#F7B801"/>
       </svg>
       <!-- Saturn -->
       <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Saturn planet icon">
-        <circle cx="12" cy="12" r="6.5" fill="#F4C2A1"/>
-        <ellipse cx="12" cy="11.8" rx="7.5" ry="2.2" fill="none" stroke="#D4A574" stroke-width="0.9" opacity="0.7"/>
-        <ellipse cx="12" cy="11.8" rx="7" ry="2" fill="none" stroke="#C99A6A" stroke-width="0.7" opacity="0.5"/>
-        <ellipse cx="12" cy="11.8" rx="6.5" ry="1.8" fill="none" stroke="#D4A574" stroke-width="0.6" opacity="0.4"/>
-        <ellipse cx="10" cy="10" rx="2" ry="1.5" fill="#FFDAB9" opacity="0.5"/>
-        <path d="M6 11.5c1 0.5 2 1 4 1.2s4-0.2 4-0.2M6 12.2c1 0.4 2 0.8 4 1s4-0.1 4-0.1" stroke="#C99A6A" stroke-width="0.4" opacity="0.3"/>
+        <circle cx="12" cy="12" r="6.5" fill="#000000"/>
       </svg>
     </div>
     <div class="hero-content">
-      <h1>Pattern. Precision. Power.</h1>
-      <p><span>When effort stops working, the pattern takes over.</span><br><span>Astrology reveals your next best move.</span></p>
+      <h1>Why does this keep happening?</h1>
+      <p>Not because you aren't trying —<br>because something deeper is running.<br>Vedic astrology makes that structure visible,<br>so you stop guessing and start acting.</p>
     </div>
-    <a class="hero-cta" href="#pricing">Book a Session</a>
+    <a class="hero-cta" href="#pricing">Start with a Consultation</a>
   </section>
 
   <!-- CORE BENEFITS -->
-  <section class="core-benefits">
+  <section class="core-benefits" id="main-content">
     <div class="core-benefits-container">
       <div class="core-benefit-block">
         <h3 class="core-benefit-title">Clarity</h3>
@@ -181,14 +131,12 @@
     <div class="about-saumya-inner">
       <h2 class="about-saumya-title">About<br><span class="about-saumya-name">Saumya Singh</span></h2>
       <div class="about-saumya-photo-wrapper">
-        <img src="assets/images/saumya-about.png" alt="Saumya Singh" class="about-saumya-image" />
+        <img src="assets/images/saumya-about.png" alt="Saumya Singh" class="about-saumya-image" loading="lazy" />
       </div>
       <div class="about-saumya-text">
-        <p>Saumya Singh is an accomplished Vedic astrologer who spent years making high-stakes decisions in fintech — leading products at Razorpay and Airtel Payments Bank, where pattern recognition was not optional; it was survival. That same discipline now defines her work in Vedic astrology.</p>
-        <p>Her readings are rooted in classical Vedic principles, interpreted through systems thinking. Structured. Practical. Built for clarity, not only reassurance.</p>
-        <p>She brings rigorous grounding to her work: business training from the Vedica Scholars Programme for Women, a Social Sciences degree from Lady Shri Ram College, and over a decade of disciplined Vipassana practice.</p>
-        <p>Her work attracts individuals navigating meaningful decisions — across professions, life stages, and geographies — who value clarity, intellectual honesty, and disciplined action.</p>
-        <p>Recognised for its precision and intellectual honesty, her practice offers an unfiltered understanding of what is truly operating in a life, along with practical frameworks to navigate it.</p>
+        <p>Saumya Singh reads life patterns the way she once read markets — structurally, without sentiment. A decade of Vipassana practice. Formal training in social sciences and business. Years spent leading fintech products at Razorpay and Airtel Payments Bank, where misreading a pattern had real consequences. That same discipline now drives every consultation.</p>
+        <p>Her readings are rooted in classical Vedic principles, interpreted through systems thinking. Structured. Practical. Built for clarity, not reassurance.</p>
+        <p>Her work attracts individuals navigating meaningful decisions — across professions, life stages, and geographies — who value intellectual honesty and disciplined action over comfort.</p>
       </div>
     </div>
   </section>
@@ -231,7 +179,7 @@
         <div class="reach-out-icon-wrapper">
           <div class="reach-out-icon-circle-outer"></div>
           <div class="reach-out-icon-circle"></div>
-          <img src="assets/images/icons8-effort-50-1.png" alt="Icon representing effort disconnected from results" class="reach-out-icon-image" />
+          <img src="assets/images/icons8-effort-50-1.png" alt="Icon representing effort disconnected from results" class="reach-out-icon-image" loading="lazy" />
         </div>
         <p class="reach-out-text">Stuck despite effort</p>
         <p class="reach-out-detail">Progress feels blocked, misdirected, or out of sync.</p>
@@ -240,7 +188,7 @@
         <div class="reach-out-icon-wrapper">
           <div class="reach-out-icon-circle-outer"></div>
           <div class="reach-out-icon-circle"></div>
-          <img src="assets/images/icons8-listen-50.png" alt="Icon representing recurring patterns and cycles" class="reach-out-icon-image" />
+          <img src="assets/images/icons8-listen-50.png" alt="Icon representing recurring patterns and cycles" class="reach-out-icon-image" loading="lazy" />
         </div>
         <p class="reach-out-text">Recurring life patterns</p>
         <p class="reach-out-detail">Repeating themes in relationships, career, health, or emotions.</p>
@@ -249,16 +197,16 @@
         <div class="reach-out-icon-wrapper">
           <div class="reach-out-icon-circle-outer"></div>
           <div class="reach-out-icon-circle"></div>
-          <img src="assets/images/icons8-friends-50.png" alt="Icon representing limits of conventional approaches" class="reach-out-icon-image" />
+          <img src="assets/images/icons8-friends-50.png" alt="Icon representing limits of conventional approaches" class="reach-out-icon-image" loading="lazy" />
         </div>
         <p class="reach-out-text">Conventional approaches fall short</p>
-        <p class="reach-out-detail">You understand the situation intellectually but unclear on the reason and actions to overcome it.</p>
+        <p class="reach-out-detail">You understand the situation intellectually but can't see the root cause or the right response.</p>
       </a>
       <a href="#transitions" class="reach-out-item">
         <div class="reach-out-icon-wrapper">
           <div class="reach-out-icon-circle-outer"></div>
           <div class="reach-out-icon-circle"></div>
-          <img src="assets/images/icons8-leaning-against-wall-50.png" alt="Icon representing life transitions and critical moments" class="reach-out-icon-image" />
+          <img src="assets/images/icons8-leaning-against-wall-50.png" alt="Icon representing life transitions and critical moments" class="reach-out-icon-image" loading="lazy" />
         </div>
         <p class="reach-out-text">Critical life transitions</p>
         <p class="reach-out-detail">Loss, unexpected change, opportunity, or upheaval.</p>
@@ -267,7 +215,7 @@
         <div class="reach-out-icon-wrapper">
           <div class="reach-out-icon-circle-outer"></div>
           <div class="reach-out-icon-circle"></div>
-          <img src="assets/images/icons8-decision-making-50.png" alt="Icon representing high-stakes decision making" class="reach-out-icon-image" />
+          <img src="assets/images/icons8-decision-making-50.png" alt="Icon representing high-stakes decision making" class="reach-out-icon-image" loading="lazy" />
         </div>
         <p class="reach-out-text">High-stakes decisions</p>
         <p class="reach-out-detail">Career changes, marriage or separation, business moves, relocations, or investments.</p>
@@ -276,7 +224,7 @@
         <div class="reach-out-icon-wrapper">
           <div class="reach-out-icon-circle-outer"></div>
           <div class="reach-out-icon-circle"></div>
-          <img src="assets/images/icons8-leader-50.png" alt="Icon representing leadership and complex responsibilities" class="reach-out-icon-image" />
+          <img src="assets/images/icons8-leader-50.png" alt="Icon representing leadership and complex responsibilities" class="reach-out-icon-image" loading="lazy" />
         </div>
         <p class="reach-out-text">Leadership & responsibility</p>
         <p class="reach-out-detail">Managing businesses, teams, family, or public roles where clarity is non-negotiable.</p>
@@ -311,7 +259,7 @@
           <li>When to explore opportunities abroad</li>
           <li>When to expect a promotion</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="relationships">
@@ -329,7 +277,7 @@
           <li>When will my relationship stabilize</li>
           <li>Compatibility with my partner</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="health">
@@ -348,7 +296,7 @@
           <li>When to rest vs when to push</li>
           <li>Stress and burnout patterns</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="finances">
@@ -367,7 +315,7 @@
           <li>Why money slips despite effort</li>
           <li>Timing for property or business</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="family">
@@ -387,7 +335,7 @@
           <li>When will family issues ease</li>
           <li>Parenting during difficult periods</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="transitions">
@@ -403,10 +351,10 @@
           <li>Right time to relocate</li>
           <li>When to make a big change</li>
           <li>Why everything feels in flux</li>
-          <li>Timing for a major move</li>
-          <li>What this transition means for me</li>
+          <li>What this transition is really about</li>
+          <li>How long this phase will last</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="growth">
@@ -419,13 +367,13 @@
         </div>
         <span class="area-title">Personal & Spiritual Growth</span>
         <ul class="area-card-bullets">
-          <li>Why do I keep repeating the same patterns</li>
-          <li>When will I feel more aligned</li>
+          <li>Why do I feel misaligned with my own life</li>
           <li>What's blocking my growth</li>
           <li>Why this urge for change now</li>
-          <li>When to focus inward</li>
+          <li>When to focus inward vs push outward</li>
+          <li>What direction suits my nature</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item" id="karmic">
@@ -442,9 +390,9 @@
           <li>What am I meant to learn from this</li>
           <li>When will this cycle shift</li>
           <li>Why do I attract certain situations</li>
-          <li>Deeper pattern behind the repetition</li>
+          <li>What's driving the repetition</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
       <div class="area-item">
@@ -463,10 +411,10 @@
           <li>Multiple concerns at once</li>
           <li>No single category fits my question</li>
           <li>Need an overall life reading</li>
-          <li>Several areas in flux together</li>
-          <li>Want a broader picture first</li>
+          <li>Want a broader picture before going specific</li>
+          <li>First-time consultation</li>
         </ul>
-        <a href="#pricing" class="area-cta">Book a Session</a>
+        <a href="#pricing" class="area-cta">Request a Session</a>
       </div>
 
     </div>
@@ -491,7 +439,7 @@
           <div class="pricing-detail-item">1 key topic allowed</div>
           <div class="pricing-detail-item">1 chart covered</div>
         </div>
-        <a href="intake.html?duration=30" class="pricing-cta">Book Now</a>
+        <a href="intake.html?duration=30" class="pricing-cta">Begin</a>
         <button class="pricing-expand-toggle" data-card="quick-clarity-indian" aria-expanded="false" aria-controls="quick-clarity-indian">What's Included</button>
         <div class="pricing-expand-content" id="quick-clarity-indian">
           <div class="pricing-expand-section">
@@ -528,7 +476,7 @@
           <div class="pricing-detail-item">Up to 3 topics allowed</div>
           <div class="pricing-detail-item">2 charts covered</div>
         </div>
-        <a href="intake.html?duration=60" class="pricing-cta">Book Now</a>
+        <a href="intake.html?duration=60" class="pricing-cta">Begin</a>
         <button class="pricing-expand-toggle" data-card="deep-insight-indian" aria-expanded="false" aria-controls="deep-insight-indian">What's Included</button>
         <div class="pricing-expand-content" id="deep-insight-indian">
           <div class="pricing-expand-section">
@@ -565,7 +513,7 @@
           <div class="pricing-detail-item">Multiple life areas allowed</div>
           <div class="pricing-detail-item">Multiple charts covered</div>
         </div>
-        <a href="intake.html?duration=90" class="pricing-cta">Book Now</a>
+        <a href="intake.html?duration=90" class="pricing-cta">Begin</a>
         <button class="pricing-expand-toggle" data-card="holistic-guidance-indian" aria-expanded="false" aria-controls="holistic-guidance-indian">What's Included</button>
         <div class="pricing-expand-content" id="holistic-guidance-indian">
           <div class="pricing-expand-section">
@@ -605,7 +553,7 @@
           <div class="pricing-detail-item">1 key topic allowed</div>
           <div class="pricing-detail-item">1 chart covered</div>
         </div>
-        <a href="intake.html?duration=30" class="pricing-cta">Book Now</a>
+        <a href="intake.html?duration=30" class="pricing-cta">Begin</a>
         <button class="pricing-expand-toggle" data-card="quick-clarity-international" aria-expanded="false" aria-controls="quick-clarity-international">What's Included</button>
         <div class="pricing-expand-content" id="quick-clarity-international">
           <div class="pricing-expand-section">
@@ -641,7 +589,7 @@
           <div class="pricing-detail-item">Up to 3 topics allowed</div>
           <div class="pricing-detail-item">2 charts covered</div>
         </div>
-        <a href="intake.html?duration=60" class="pricing-cta">Book Now</a>
+        <a href="intake.html?duration=60" class="pricing-cta">Begin</a>
         <button class="pricing-expand-toggle" data-card="deep-insight-international" aria-expanded="false" aria-controls="deep-insight-international">What's Included</button>
         <div class="pricing-expand-content" id="deep-insight-international">
           <div class="pricing-expand-section">
@@ -677,7 +625,7 @@
           <div class="pricing-detail-item">Multiple life areas allowed</div>
           <div class="pricing-detail-item">Multiple charts covered</div>
         </div>
-        <a href="intake.html?duration=90" class="pricing-cta">Book Now</a>
+        <a href="intake.html?duration=90" class="pricing-cta">Begin</a>
         <button class="pricing-expand-toggle" data-card="holistic-guidance-international" aria-expanded="false" aria-controls="holistic-guidance-international">What's Included</button>
         <div class="pricing-expand-content" id="holistic-guidance-international">
           <div class="pricing-expand-section">
@@ -708,13 +656,10 @@
     <h2>A safe space for everyone.</h2>
     <div class="safe-space-content">
       <p class="safe-space-text">
-        Astrology belongs to no single nation, faith, or identity.<br>
-        It speaks a universal language, one written in the sky.<br>
-        Here, you are seen and honoured, irrespective of nationality, belief, age, caste, creed, gender, or orientation.<br>
-        The sun, moon, and stars shine the same on all of us.<br>
-        Let astrology be your light, now, and always.
+        This practice is for anyone willing to look honestly at their life.<br>
+        No condition on who you are, where you come from, or what you believe.
       </p>
-      <img src="assets/images/Designer_-_2024-08-13T161700.705-removebg-preview.png" alt="Abstract lotus illustration symbolizing clarity and growth" class="safe-space-lotus">
+      <img src="assets/images/Designer_-_2024-08-13T161700.705-removebg-preview.png" alt="Abstract lotus illustration symbolizing clarity and growth" class="safe-space-lotus" loading="lazy">
     </div>
   </section>
 
@@ -761,7 +706,7 @@
 <div class="package-original-price" data-audio-original="₹3,600" data-video-original="₹4,500">₹3,600</div>
               <div class="package-price" data-audio-price="₹3,300" data-video-price="₹4,200">₹3,300</div>
               <div class="package-savings" data-audio-savings="Save ₹300" data-video-savings="Save ₹300">Save ₹300</div>
-        <a href="intake.html?duration=30&type=package" class="package-cta">Book Package</a>
+        <a href="intake.html?duration=30&type=package" class="package-cta">Reserve Package</a>
         <div class="package-note">No expiry on sessions.</div>
       </div>
 
@@ -775,7 +720,7 @@
 <div class="package-original-price" data-audio-original="₹7,200" data-video-original="₹8,100">₹7,200</div>
               <div class="package-price" data-audio-price="₹6,600" data-video-price="₹7,500">₹6,600</div>
               <div class="package-savings" data-audio-savings="Save ₹600" data-video-savings="Save ₹600">Save ₹600</div>
-        <a href="intake.html?duration=60&type=package" class="package-cta">Book Package</a>
+        <a href="intake.html?duration=60&type=package" class="package-cta">Reserve Package</a>
         <div class="package-note">No expiry on sessions.</div>
       </div>
 
@@ -789,7 +734,7 @@
 <div class="package-original-price" data-audio-original="₹10,800" data-video-original="₹11,700">₹10,800</div>
               <div class="package-price" data-audio-price="₹9,900" data-video-price="₹10,800">₹9,900</div>
               <div class="package-savings" data-audio-savings="Save ₹900" data-video-savings="Save ₹900">Save ₹900</div>
-        <a href="intake.html?duration=90&type=package" class="package-cta">Book Package</a>
+        <a href="intake.html?duration=90&type=package" class="package-cta">Reserve Package</a>
         <div class="package-note">No expiry on sessions.</div>
       </div>
       </div>
@@ -805,7 +750,7 @@
         <div class="package-original-price" data-audio-original="$81" data-video-original="$99">$81</div>
         <div class="package-price" data-audio-price="$72" data-video-price="$90">$72</div>
         <div class="package-savings" data-audio-savings="Save $9" data-video-savings="Save $9">Save $9</div>
-        <a href="intake.html?duration=30&type=package" class="package-cta">Book Package</a>
+        <a href="intake.html?duration=30&type=package" class="package-cta">Reserve Package</a>
         <div class="package-note">No expiry on sessions.</div>
       </div>
       <div class="package-card">
@@ -818,7 +763,7 @@
         <div class="package-original-price" data-audio-original="$162" data-video-original="$198">$162</div>
         <div class="package-price" data-audio-price="$144" data-video-price="$180">$144</div>
         <div class="package-savings" data-audio-savings="Save $18" data-video-savings="Save $18">Save $18</div>
-        <a href="intake.html?duration=60&type=package" class="package-cta">Book Package</a>
+        <a href="intake.html?duration=60&type=package" class="package-cta">Reserve Package</a>
         <div class="package-note">No expiry on sessions.</div>
       </div>
       <div class="package-card">
@@ -831,7 +776,7 @@
         <div class="package-original-price" data-audio-original="$243" data-video-original="$297">$243</div>
         <div class="package-price" data-audio-price="$216" data-video-price="$270">$216</div>
         <div class="package-savings" data-audio-savings="Save $27" data-video-savings="Save $27">Save $27</div>
-        <a href="intake.html?duration=90&type=package" class="package-cta">Book Package</a>
+        <a href="intake.html?duration=90&type=package" class="package-cta">Reserve Package</a>
         <div class="package-note">No expiry on sessions.</div>
       </div>
       </div>
@@ -872,29 +817,29 @@
     <p class="process-intro">This work is about clarity, not just answers.<br>
     You leave with context where there was confusion, steadiness where there was pressure, and direction where decisions felt stuck.</p>
     <div style="text-align: center; margin-bottom: 64px;">
-      <a href="#pricing" class="process-cta">Book a Session</a>
+      <a href="#pricing" class="process-cta">Start with a Consultation</a>
     </div>
     <div class="process-flow">
       <div class="process-step">
-        <img src="assets/images/icons8-favorite-100.png" alt="Heart icon representing mindful approach to consultations" class="process-icon">
+        <img src="assets/images/icons8-favorite-100.png" alt="Heart icon representing mindful approach to consultations" class="process-icon" loading="lazy">
         <h3 class="process-heading">We begin by slowing things down.</h3>
-        <p class="process-text">We create space for you to settle, reflect, and arrive fully, without urgency or overwhelm.</p>
+        <p class="process-text">Space to settle, reflect, and arrive fully — without urgency.</p>
       </div>
       
       <div class="process-divider"></div>
       
       <div class="process-step">
-        <img src="assets/images/icons8-puzzle-100.png" alt="Puzzle piece icon representing pattern analysis and clarity" class="process-icon">
-        <h3 class="process-heading">We look at what truly matters right now.</h3>
-        <p class="process-text">Together, we explore patterns, timing, and questions that need clarity, helping you refocus on what's essential.</p>
+        <img src="assets/images/icons8-puzzle-100.png" alt="Puzzle piece icon representing pattern analysis and clarity" class="process-icon" loading="lazy">
+        <h3 class="process-heading">We examine what's actually operating.</h3>
+        <p class="process-text">Patterns, timing, and the questions beneath your questions.</p>
       </div>
       
       <div class="process-divider"></div>
       
       <div class="process-step">
-        <img src="assets/images/icons8-easy-100.png" alt="Checkmark icon representing actionable insights and direction" class="process-icon">
-        <h3 class="process-heading">We close with direction you can act on.</h3>
-        <p class="process-text">You leave with clear insights and practical takeaways you can apply in real life, at your own pace.</p>
+        <img src="assets/images/icons8-easy-100.png" alt="Checkmark icon representing actionable insights and direction" class="process-icon" loading="lazy">
+        <h3 class="process-heading">You leave with direction you can act on.</h3>
+        <p class="process-text">Clear takeaways. Practical next steps. No ambiguity.</p>
       </div>
     </div>
   </section>
@@ -932,7 +877,7 @@
     <div class="founder-content">
       <div class="founder-photo-wrapper">
         <div class="founder-white-circle"></div>
-        <img src="assets/images/Adobe Express - file (5).png" alt="Portrait of Saumya, founder of I Read Space" class="founder-photo-placeholder">
+        <img src="assets/images/Adobe Express - file (5).png" alt="Portrait of Saumya, founder of I Read Space" class="founder-photo-placeholder" loading="lazy">
         <svg class="founder-circle-outline" viewBox="-40 -40 280 280" xmlns="http://www.w3.org/2000/svg">
           <circle cx="100" cy="100" r="137" 
                   fill="none" 
@@ -965,8 +910,8 @@
 
         <div class="founder-note-section">
           <h3 class="founder-note-section-title">What I built</h3>
-          <p class="founder-note-section-text">A practice that returns astrology to its rightful place: disciplined, ethical, transformative.</p>
-          <p class="founder-note-section-text">It will tell you what you need to know.<br>It will not promise escape.<br>It will give you clarity, courage, and tools to move through life with dignity.</p>
+          <p class="founder-note-section-text">A practice that returns astrology to its rightful place: disciplined, ethical, grounded in tradition.</p>
+          <p class="founder-note-section-text">It tells you what you need to know.<br>It gives you clarity, courage, and tools to move through life with dignity.</p>
         </div>
 
         <div class="founder-note-section">
@@ -983,29 +928,19 @@
     <h2>Common Questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">What happens in a typical <a href="about.html#what-is-vedic-astrology" style="color: inherit; text-decoration: underline;">Vedic astrology</a> consultation?</button>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-1">What happens in a consultation?</button>
         <div class="faq-answer" id="faq-answer-1">
-          A consultation begins with your birth details: date, time, and place. I examine your chart to identify active patterns, underlying themes, and the timing of significant phases. We then discuss what you are experiencing, how it connects to these patterns, and what response supports clarity rather than repetition.<br><br>
-          Sessions are structured but conversational. You are encouraged to ask questions, push back on interpretations, and engage actively. The aim is not to impress you with predictions but to help you understand what you are dealing with and how to navigate it consciously.<br><br>
-          Most sessions run 60-90 minutes depending on complexity. Follow-up discussions may be suggested if your chart or circumstances require it.
+          We begin by confirming your birth details and any specific questions you want to address. I then examine your chart — birth chart, current <a href="insights/planetary-remedies.html" style="color: inherit; text-decoration: underline;">planetary periods</a>, transits, and any divisional charts relevant to your concern — to identify active patterns, underlying themes, and timing.<br><br>
+          During the session, I share what the chart reveals. You're invited to ask questions, push back on interpretations, and engage actively. The aim is not to impress you with predictions but to connect what the chart shows with what you're actually experiencing.<br><br>
+          The session concludes with clear takeaways: what patterns are active, what timing to be aware of, and what responses support your goals. You leave with actionable clarity, not just information. Most sessions run 60–90 minutes. Follow-up timing is discussed based on your chart's cycles.
         </div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-2">How does a session typically go?</button>
-        <div class="faq-answer" id="faq-answer-2">
-          Each session follows a structured yet flexible format designed to maximize clarity and practical value. We begin by confirming your birth details and any specific questions or concerns you want to address. I then analyze your chart using relevant <a href="about.html#what-is-vedic-astrology" style="color: inherit; text-decoration: underline;">Vedic astrology</a> techniques—examining your birth chart, current planetary periods (dashas), transits, and any divisional charts needed for your specific areas of concern.<br><br>
-          During the discussion, I share what the chart reveals about patterns, timing, and underlying themes. You're invited to share your experiences, ask questions, and challenge interpretations that don't resonate. This interactive approach ensures the reading connects with your actual life rather than remaining abstract.<br><br>
-          The session concludes with clear takeaways: what patterns are active, what timing to be aware of, and what responses support your goals. You'll leave with actionable insights, not just information. If follow-up is recommended, we discuss appropriate timing based on your chart's cycles.
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">What information do I need before booking?</button>
+        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-3">What do I need before booking?</button>
         <div class="faq-answer" id="faq-answer-3">
-          Before <a href="intake.html" style="color: inherit; text-decoration: underline;">booking</a> your <a href="about.html#what-is-vedic-astrology" style="color: inherit; text-decoration: underline;">Vedic astrology</a> consultation, gather your birth details: exact date of birth, precise time of birth (as accurate as possible), and place of birth (city and state/country). Birth time accuracy is crucial—even a 10-15 minute difference can significantly alter chart calculations.<br><br>
-          Beyond birth details, consider what questions or concerns you want to explore. While you don't need to have everything figured out, having a sense of your primary areas of focus—whether <a href="#career" style="color: inherit; text-decoration: underline;">career</a> decisions, <a href="#relationships" style="color: inherit; text-decoration: underline;">relationship</a> patterns, <a href="#health" style="color: inherit; text-decoration: underline;">health</a> concerns, or <a href="#transitions" style="color: inherit; text-decoration: underline;">life transitions</a>—helps tailor the session to your needs.<br><br>
-          You may also want to reflect on recurring patterns you've noticed, major life events that feel significant, or decisions you're currently facing. This preparation isn't required, but it helps you engage more actively during the consultation and get maximum value from the session.
+          Three things: your date of birth, precise time of birth, and place of birth (city and state/country). Birth time accuracy matters — even a 10–15 minute difference can shift key indicators.<br><br>
+          Beyond that, consider what questions or concerns you want to explore. You don't need everything figured out, but having a sense of your primary focus — <a href="#career" style="color: inherit; text-decoration: underline;">career</a>, <a href="#relationships" style="color: inherit; text-decoration: underline;">relationships</a>, <a href="#health" style="color: inherit; text-decoration: underline;">health</a>, or <a href="#transitions" style="color: inherit; text-decoration: underline;">timing</a> — helps tailor the session.
         </div>
       </div>
 
@@ -1026,18 +961,6 @@
         </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-5">What birth details do I need for a <a href="about.html#what-is-vedic-astrology" style="color: inherit; text-decoration: underline;">Vedic astrology</a> reading?</button>
-        <div class="faq-answer" id="faq-answer-5">
-          You need three things:
-          <ul>
-            <li>Your date of birth</li>
-            <li>Exact time of birth (as precise as possible)</li>
-            <li>Place of birth (city/town)</li>
-          </ul>
-          Birth time accuracy matters significantly. Even a 10-15 minute difference can shift key indicators in your chart. If you don't have your exact time, check birth certificates, hospital records, or ask family members who were present. If no time is available, we can still work with a partial reading, though predictive accuracy will be limited.
-        </div>
-      </div>
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false" aria-controls="faq-answer-6">How is Vedic astrology different from Western astrology?</button>
@@ -1161,11 +1084,11 @@
         <h2>Get in Touch</h2>
         <div class="contact-icons">
           <a href="https://wa.me/919217679635" class="contact-icon-item" target="_blank" rel="noopener noreferrer">
-            <img src="assets/images/icons8-whatsapp-logo-100.png" alt="WhatsApp" class="contact-icon">
+            <img src="assets/images/icons8-whatsapp-logo-100.png" alt="WhatsApp" class="contact-icon" loading="lazy">
             <span class="contact-label">WhatsApp</span>
           </a>
           <a href="mailto:consult@ireadspace.com" class="contact-icon-item">
-            <img src="assets/images/icons8-email-100.png" alt="Email" class="contact-icon">
+            <img src="assets/images/icons8-email-100.png" alt="Email" class="contact-icon" loading="lazy">
             <span class="contact-label">Email</span>
           </a>
         </div>
@@ -1174,11 +1097,11 @@
         <h2>Follow Us</h2>
         <div class="contact-icons">
           <a href="https://www.instagram.com/ireadspace?igsh=MmVlbWhzcjFwYmN5&utm_source=qr" target="_blank" rel="noopener noreferrer" class="contact-icon-item">
-            <img src="assets/images/icons8-instagram-logo-100.png" alt="Instagram" class="contact-icon">
+            <img src="assets/images/icons8-instagram-logo-100.png" alt="Instagram" class="contact-icon" loading="lazy">
             <span class="contact-label">Instagram</span>
           </a>
           <a href="https://www.linkedin.com/in/theonesaumya/" target="_blank" rel="noopener noreferrer" class="contact-icon-item">
-            <img src="assets/images/icons8-linkedin-logo-100.png" alt="LinkedIn" class="contact-icon">
+            <img src="assets/images/icons8-linkedin-logo-100.png" alt="LinkedIn" class="contact-icon" loading="lazy">
             <span class="contact-label">LinkedIn</span>
           </a>
         </div>
@@ -1492,7 +1415,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" /></a>
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" loading="lazy" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
@@ -1501,12 +1424,12 @@
         <a href="index.html#areas">Services</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
-        <a href="faq.html">FAQ</a>
+        <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
       <h3 class="footer-heading">A Trusted Approach to Vedic Astrology</h3>
       <p class="footer-description"><span>Your life is shaped as much by what goes unnoticed as by what you consciously choose.</span><br><span class="footer-description-italic">I Read Space offers a disciplined way to understand those deeper influences.</span></p>
-      <a href="index.html#pricing" class="footer-cta">Book a Session</a>
+      <a href="index.html#pricing" class="footer-cta">Request a Session</a>
       <nav class="footer-nav-policies">
         <a href="privacy.html">Privacy Policy</a>
         <a href="refund.html">Refund Policy</a>

@@ -19,6 +19,11 @@
   <meta property="og:url" content="https://ireadspace.com/intake" />
   <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Book a Vedic Astrology Consultation | I Read Space" />
+  <meta name="twitter:description" content="Book your Vedic astrology consultation. Share your birth details, select your session type, and schedule a time." />
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
@@ -27,6 +32,8 @@
 </head>
 
 <body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
   <header class="header">
@@ -45,14 +52,18 @@
       <a href="about.html">About</a>
       <a href="index.html#pricing">Pricing</a>
       <a href="index.html#areas">Services</a>
-      <a href="faq.html">FAQ</a>
+      <a href="insights.html">Insights</a>
+      <a href="alternative-healing-practices.html">Healing</a>
+      <a href="reset-now.html">Reset</a>
       <a href="index.html#contact">Contact</a>
+      <a href="index.html#pricing" class="header-cta">Request a Session</a>
     </nav>
   </header>
 
   <!-- Intake Section -->
-  <section class="intake">
+  <section class="intake" id="main-content">
     <div class="intake-container">
+      <h1>Book a Vedic Astrology Consultation</h1>
       <form class="intake-form" id="intake-form">
         <div class="intake-grid">
           
@@ -92,19 +103,19 @@
           <!-- Second Section: Personal Information (Name, Email, Phone) -->
           <div class="intake-section intake-section-personal">
       <div class="field">
-              <label>Name *</label>
-              <input type="text" name="name" required />
+              <label for="intake-name">Name *</label>
+              <input type="text" name="name" id="intake-name" required />
       </div>
   
       <div class="field">
-              <label>Email *</label>
-              <input type="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" />
+              <label for="intake-email">Email *</label>
+              <input type="email" name="email" id="intake-email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" title="Please enter a valid email address" />
               <span class="field-error" id="email-error"></span>
       </div>
   
       <div class="field">
-              <label>Phone Number *</label>
-              <input type="tel" name="phone" required pattern="[\d\s\+\-\(\)]+" title="Please enter a valid phone number with country code (7-15 digits)" maxlength="20" />
+              <label for="intake-phone">Phone Number *</label>
+              <input type="tel" name="phone" id="intake-phone" required pattern="[\d\s\+\-\(\)]+" title="Please enter a valid phone number with country code (7-15 digits)" maxlength="20" />
               <span class="field-error" id="phone-error"></span>
             </div>
       </div>
@@ -114,28 +125,28 @@
         <div class="birth-details-section">
           <div class="birth-details-block">
             <div class="field">
-              <label>Date of Birth *</label>
-              <input type="date" name="dob" required id="dob-input" max="" />
+              <label for="intake-dob">Date of Birth *</label>
+              <input type="date" name="dob" required id="intake-dob" max="" />
               <span class="field-error" id="dob-error"></span>
             </div>
   
             <div class="field">
-              <label>Time of Birth *</label>
-              <input type="time" name="tob" required id="tob-input" />
-              <label class="tob-unknown-label"><input type="checkbox" name="tob_unknown" id="tob-unknown" value="1" /> Don't know the time of birth</label>
+              <label for="intake-tob">Time of Birth *</label>
+              <input type="time" name="tob" required id="intake-tob" />
+              <label class="tob-unknown-label" for="intake-tob-unknown"><input type="checkbox" name="tob_unknown" id="intake-tob-unknown" value="1" /> Don't know the time of birth</label>
             </div>
   
             <div class="field">
-              <label>Place of Birth *</label>
+              <label for="intake-pob">Place of Birth *</label>
               <div class="autocomplete-wrapper">
-                <input type="text" name="pob" id="place-of-birth" autocomplete="off" required />
+                <input type="text" name="pob" id="intake-pob" autocomplete="off" required />
                 <div class="autocomplete-suggestions" id="place-suggestions"></div>
               </div>
             </div>
   
             <div class="field">
-              <label>Primary Area of Guidance *</label>
-              <select name="area" required>
+              <label for="intake-area">Primary Area of Guidance *</label>
+              <select name="area" id="intake-area" required>
                 <option value="">Select an area</option>
                 <option>Career & Finances</option>
                 <option>Marriage & Relationships</option>
@@ -162,8 +173,8 @@
         <!-- Optional Section -->
         <div class="intake-optional">
       <div class="field">
-            <label>What feels most unclear right now? (Optional)</label>
-            <textarea name="unclear" rows="4" id="unclear-textarea" maxlength="1000"></textarea>
+            <label for="intake-unclear">What feels most unclear right now? (Optional)</label>
+            <textarea name="unclear" rows="4" id="intake-unclear" maxlength="1000"></textarea>
             <div class="word-count"><span id="word-count-display">0</span> / 150 words</div>
             <span class="field-error" id="unclear-error"></span>
           </div>
@@ -193,7 +204,7 @@
   <script>
     // Set max date for Date of Birth (today's date) and mark required fields as empty
     document.addEventListener('DOMContentLoaded', function() {
-      const dobInput = document.getElementById('dob-input');
+      const dobInput = document.getElementById('intake-dob');
       if (dobInput) {
         const today = new Date();
         const maxDate = today.toISOString().split('T')[0];
@@ -212,7 +223,7 @@
       }
       
       // "Don't know the time of birth" – main chart
-      const tobUnknownCheckbox = document.getElementById('tob-unknown');
+      const tobUnknownCheckbox = document.getElementById('intake-tob-unknown');
       if (tobUnknownCheckbox && tobInput) {
         function syncMainTobUnknown() {
           if (tobUnknownCheckbox.checked) {
@@ -503,10 +514,10 @@
         '<h4 class="additional-chart-heading">Chart ' + chartNum + '</h4>' +
         '<button type="button" class="additional-chart-close" aria-label="Remove this chart">Remove</button>' +
         '</div>' +
-        '<div class="field"><label>Name *</label><input type="text" name="' + prefix + '_name" required /></div>' +
-        '<div class="field"><label>Date of Birth *</label><input type="date" name="' + prefix + '_dob" required id="' + prefix + '-dob" max="' + today + '" /><span class="field-error" id="' + prefix + '-dob-error"></span></div>' +
-        '<div class="field"><label>Time of Birth *</label><input type="time" name="' + prefix + '_tob" required id="' + prefix + '-tob" /><label class="tob-unknown-label"><input type="checkbox" name="' + prefix + '_tob_unknown" value="1" class="chart-tob-unknown" data-tob-for="' + prefix + '_tob" /> Don\'t know the time of birth</label></div>' +
-        '<div class="field"><label>Place of Birth *</label><div class="autocomplete-wrapper">' +
+        '<div class="field"><label for="' + prefix + '-name">Name *</label><input type="text" name="' + prefix + '_name" id="' + prefix + '-name" required /></div>' +
+        '<div class="field"><label for="' + prefix + '-dob">Date of Birth *</label><input type="date" name="' + prefix + '_dob" required id="' + prefix + '-dob" max="' + today + '" /><span class="field-error" id="' + prefix + '-dob-error"></span></div>' +
+        '<div class="field"><label for="' + prefix + '-tob">Time of Birth *</label><input type="time" name="' + prefix + '_tob" required id="' + prefix + '-tob" /><label class="tob-unknown-label" for="' + prefix + '-tob-unknown"><input type="checkbox" name="' + prefix + '_tob_unknown" id="' + prefix + '-tob-unknown" value="1" class="chart-tob-unknown" data-tob-for="' + prefix + '_tob" /> Don\'t know the time of birth</label></div>' +
+        '<div class="field"><label for="' + prefix + '-pob">Place of Birth *</label><div class="autocomplete-wrapper">' +
         '<input type="text" name="' + prefix + '_pob" id="' + prefix + '-pob" class="place-of-birth-input" autocomplete="off" required />' +
         '<div class="autocomplete-suggestions" id="place-suggestions-' + chartNum + '"></div></div></div>';
       const closeBtn = block.querySelector('.additional-chart-close');
@@ -719,7 +730,7 @@
     }
 
     // Word count for textarea
-    const unclearTextarea = document.getElementById('unclear-textarea');
+    const unclearTextarea = document.getElementById('intake-unclear');
     const wordCountDisplay = document.getElementById('word-count-display');
     if (unclearTextarea && wordCountDisplay) {
       unclearTextarea.addEventListener('input', function() {
@@ -784,7 +795,7 @@
     }
 
     // Real-time validation for date of birth
-    const dobInput = document.getElementById('dob-input');
+    const dobInput = document.getElementById('intake-dob');
     if (dobInput) {
       // Set max date immediately on page load (before DOMContentLoaded if possible)
       const today = new Date();
@@ -1163,7 +1174,7 @@
     }
 
     (function() {
-      const input = document.getElementById('place-of-birth');
+      const input = document.getElementById('intake-pob');
       const suggestionsContainer = document.getElementById('place-suggestions');
       if (input && suggestionsContainer) initPlaceAutocomplete(input, suggestionsContainer);
     })();
@@ -1172,5 +1183,17 @@
   <!-- Mobile Menu Script -->
   <script src="js/mobile-menu.js"></script>
 
+  <!-- FAQ Chat Widget -->
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">
+    ?
+  </button>
+  <div id="faq-chat-panel" class="faq-chat-panel">
+    <div class="faq-chat-header">
+      <h3>Have a Question?</h3>
+      <button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button>
+    </div>
+    <div id="faq-chat-content" class="faq-chat-content"></div>
+  </div>
+  <script src="js/faq-chat.js"></script>
 </body>
 </html>
