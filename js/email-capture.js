@@ -2,6 +2,19 @@
 (function() {
   var GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQX3YcflcWNrUZN7a4pcBkzWmf5B4R4vccK5Ci32LuPnpW6YJnKNJrlUYyJ_vz-609/exec';
   var SHEET_NAME = 'Sheet2';
+  var TRACKER_PDF_PATH = '../../assets/43day-reset-tracker-FINAL.pptx.pdf';
+
+  function isValidEmail(value) {
+    if (!value || typeof value !== 'string') return false;
+    var trimmed = value.trim();
+    if (trimmed.length === 0) return false;
+    // Basic check: has @, something before @, something after @ with at least one dot
+    var at = trimmed.indexOf('@');
+    if (at <= 0 || at === trimmed.length - 1) return false;
+    var after = trimmed.slice(at + 1);
+    if (after.indexOf('.') <= 0 || after.length < 3) return false;
+    return true;
+  }
 
   function sendEmailToSheets(email, source) {
     if (!email) return;
@@ -85,12 +98,28 @@
     var trackerBtn = document.getElementById('get-tracker-btn');
     if (!emailInput || !trackerBtn) return;
 
+    function setButtonState(valid) {
+      trackerBtn.disabled = !valid;
+      trackerBtn.setAttribute('aria-disabled', valid ? 'false' : 'true');
+    }
+
+    setButtonState(false);
+
+    emailInput.addEventListener('input', function() {
+      setButtonState(isValidEmail(emailInput.value));
+    });
+    emailInput.addEventListener('blur', function() {
+      setButtonState(isValidEmail(emailInput.value));
+    });
+
     trackerBtn.addEventListener('click', function() {
       var email = (emailInput.value || '').trim();
-      if (!email) {
+      if (!isValidEmail(email)) {
         emailInput.focus();
+        emailInput.setAttribute('aria-invalid', 'true');
         return;
       }
+      emailInput.setAttribute('aria-invalid', 'false');
 
       var source =
         (document.querySelector('main h1') && document.querySelector('main h1').textContent) ||
@@ -98,8 +127,17 @@
 
       trackerBtn.textContent = 'Sent!';
       trackerBtn.disabled = true;
+      trackerBtn.setAttribute('aria-disabled', 'true');
 
       sendEmailToSheets(email, source);
+
+      var a = document.createElement('a');
+      a.href = TRACKER_PDF_PATH;
+      a.download = '43-Day-Reset-Tracker.pdf';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     });
   }
 

@@ -3529,6 +3529,12 @@ section {
   min-height: 100px;
 }
 
+/* 43-Day Tracker download: button disabled until valid email */
+.tracker-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Autocomplete Styles */
 .autocomplete-wrapper {
   position: relative;

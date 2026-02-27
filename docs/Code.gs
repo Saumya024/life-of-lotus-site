@@ -74,6 +74,29 @@ function doPost(e) {
     let headers = [];
     let rowData = [];
 
+    // Simple email capture (e.g. tracker / insight) – only email and source
+    var isSimpleCapture = data && typeof data.email === 'string' && !data.name && !data.phone;
+    if (isSimpleCapture && (lastRow === 0 || sheetName === 'Sheet2')) {
+      if (lastRow === 0) {
+        headers = ['Email', 'Source', 'Timestamp'];
+        sheet.appendRow(headers);
+      } else {
+        headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+      }
+      rowData = headers.map(function(header) {
+        var h = header.toString().toLowerCase().trim();
+        if (h.indexOf('email') !== -1) return data.email || '';
+        if (h.indexOf('source') !== -1) return data.source || '';
+        if (h.indexOf('timestamp') !== -1 || h.indexOf('date') !== -1) return new Date();
+        return '';
+      });
+      sheet.appendRow(rowData);
+      return ContentService.createTextOutput(JSON.stringify({
+        success: true,
+        message: 'Data added successfully'
+      })).setMimeType(ContentService.MimeType.JSON);
+    }
+
     if (lastRow === 0) {
       // Sheet is empty - create headers and add data
       headers = ['Name', 'Email', 'Phone', 'Date of Birth', 'Time of Birth', 'Place of Birth', 'Primary Area', 'Unclear Question', 'Session Type', 'Duration', 'Package', 'Timestamp', 'Chart 2 Name', 'Chart 2 Date of Birth', 'Chart 2 Time of Birth', 'Chart 2 Place of Birth', 'Chart 3 Name', 'Chart 3 Date of Birth', 'Chart 3 Time of Birth', 'Chart 3 Place of Birth'];
@@ -120,6 +143,8 @@ function doPost(e) {
           return data.name || '';
         } else if (normalizedHeader.includes('email')) {
           return data.email || '';
+        } else if (normalizedHeader.includes('source')) {
+          return data.source || '';
         } else if (normalizedHeader.includes('phone')) {
           return data.phone || '';
         } else if ((normalizedHeader.includes('date of birth') || normalizedHeader.includes('dob')) && !normalizedHeader.includes('chart 2') && !normalizedHeader.includes('chart 3')) {
