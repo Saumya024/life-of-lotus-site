@@ -309,9 +309,30 @@ function initFAQChat() {
   });
 }
 
+// Hide floating button while it overlaps the hero CTA
+function initFAQButtonVisibility() {
+  const btn = document.getElementById('faq-chat-button');
+  const heroCta = document.querySelector('.hero-cta');
+  if (!btn || !heroCta) return;
+
+  function update() {
+    const ctaRect = heroCta.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    const overlaps = ctaRect.bottom > btnRect.top && ctaRect.top < btnRect.bottom &&
+                     ctaRect.right > btnRect.left && ctaRect.left < btnRect.right;
+    btn.style.opacity = overlaps ? '0' : '';
+    btn.style.pointerEvents = overlaps ? 'none' : '';
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update, { passive: true });
+  update();
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initFAQChat);
+  document.addEventListener('DOMContentLoaded', () => { initFAQChat(); initFAQButtonVisibility(); });
 } else {
   initFAQChat();
+  initFAQButtonVisibility();
 }
