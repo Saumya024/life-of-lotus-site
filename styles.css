@@ -4807,13 +4807,17 @@ section {
 
 .cal-modal-instruction {
   font-family: var(--font-body);
-  font-size: var(--text-small);
+  font-size: var(--text-body);
   font-weight: 700;
-  color: rgba(67, 16, 57, 0.7);
+  color: var(--primary);
   text-align: center;
   padding: 24px 48px 16px 24px;
   margin: 0;
   line-height: 1.5;
+  background-color: rgba(185, 151, 80, 0.12);
+  border-radius: 6px;
+  margin-left: 24px;
+  margin-right: 24px;
 }
 
 #cal-modal-content {
@@ -4841,8 +4845,10 @@ section {
   }
 
   .cal-modal-instruction {
-    padding: 20px 40px 12px 20px;
-    font-size: 13px;
+    padding: 16px 20px 12px 20px;
+    font-size: 14px;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   #cal-modal-content {
