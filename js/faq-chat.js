@@ -245,7 +245,7 @@ function initFAQChat() {
             // Show answer for this option
             const faq = FAQ_DATA.find(f => f.question === option.question);
             if (faq) {
-              answerContainer.innerHTML = `<p>${faq.answer}</p>`;
+              answerContainer.innerHTML = `<div class="faq-answer-text">${faq.answer}</div>`;
               answerContainer.dataset.question = option.question;
               answerContainer.classList.add('active');
             }

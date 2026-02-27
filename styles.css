@@ -8525,9 +8525,25 @@ section {
   border-radius: 12px;
 }
 
+/* Force entire answer text to cream white so it is visible on primary BG */
+#faq-chat-content .faq-answer-container.active,
+#faq-chat-content .faq-answer-container.active * {
+  color: var(--cream-white) !important;
+}
+
+/* Wrapper added by faq-chat.js - force all content inside to cream white */
+.faq-answer-text,
+.faq-answer-text p,
+.faq-answer-text strong,
+.faq-answer-text ul,
+.faq-answer-text li,
+.faq-answer-text a {
+  color: var(--cream-white) !important;
+}
+
 .faq-answer-container p {
   margin: 0;
-  color: var(--cream-white);
+  color: var(--cream-white) !important;
   font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.6;
@@ -8535,19 +8551,31 @@ section {
 }
 
 .faq-answer-container a {
-  color: var(--secondary);
+  color: var(--cream-white) !important;
   text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.faq-answer-container a:hover {
+  color: var(--cream-white) !important;
+  opacity: 0.9;
 }
 
 .faq-answer-container ul {
   list-style: disc;
   padding-left: 20px;
   margin: 10px 0;
+  color: var(--cream-white) !important;
 }
 
 .faq-answer-container ul li {
   margin-bottom: 6px;
   padding-left: 4px;
+  color: var(--cream-white) !important;
+}
+
+.faq-answer-container strong {
+  color: var(--cream-white) !important;
 }
 
 .faq-suggestions {
