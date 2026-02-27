@@ -3669,7 +3669,7 @@ section {
 
   /* Mobile nav: slide in smoothly from the right – brand primary frame, cream text */
   .nav {
-    display: none;
+    display: flex;
     position: fixed;
     top: 72px;
     right: 0;
@@ -3685,6 +3685,7 @@ section {
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
     max-height: calc(100vh - 72px);
@@ -3693,10 +3694,10 @@ section {
   }
 
   .nav.active {
-    display: flex;
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   /* All links in the open panel: full-width tappable rows with dividers */
@@ -3726,21 +3727,15 @@ section {
     border-bottom: none;
   }
 
-  /* Hide header-cta from normal header view, only show in hamburger menu */
+  /* Header CTA shown at bottom of hamburger menu */
   .nav .header-cta {
-    display: none;
-    border-bottom: none;
-  }
-
-  /* Style header-cta to appear at bottom of hamburger menu when active – secondary CTA */
-  .nav.active .header-cta {
-    display: flex;
     justify-content: center;
     align-items: center;
-    order: 999; /* Move to bottom of menu */
+    order: 999;
     margin-top: 16px;
     padding-top: 16px;
     border-top: 1px solid rgba(248, 246, 242, 0.25);
+    border-bottom: none;
     width: 100%;
     text-align: center;
     margin-left: 0;
@@ -4010,6 +4005,7 @@ section {
     transform: translateX(100%);
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
     z-index: 1000;
     max-height: calc(100vh - 56px);
@@ -4021,6 +4017,7 @@ section {
     transform: translateX(0);
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   .nav a {

@@ -45,13 +45,16 @@
   }
   </script>
 
+  <!-- Preload hero photo -->
+  <link rel="preload" as="image" href="assets/images/about-photo.jpg" />
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 
 <body>
@@ -92,7 +95,7 @@
       <div class="about-hero-photo">
         <div class="about-photo-wrapper">
           <div class="about-white-circle"></div>
-          <img src="assets/images/Adobe Express - file (5).png" alt="Saumya Singh, Vedic Astrologer and founder of I Read Space" class="about-photo-image" />
+          <img src="assets/images/about-photo.jpg" alt="Saumya Singh, Vedic Astrologer and founder of I Read Space" class="about-photo-image" width="440" height="440" fetchpriority="high" decoding="async" />
           <svg class="about-circle-outline" viewBox="-40 -40 280 280" xmlns="http://www.w3.org/2000/svg">
             <circle cx="100" cy="100" r="137" 
                     fill="none" 
