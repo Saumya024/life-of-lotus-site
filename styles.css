@@ -1198,26 +1198,28 @@ section {
   }
 }
 
+/* Hero text lives only in the top half; centered horizontally and vertically there. Bottom half untouched. */
 .hero-content {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 100%;
+  height: 50vh;
   z-index: 3;
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5vh;
   padding: 0 40px;
   overflow: visible;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 .hero-content h1 {
-  position: absolute;
-  top: calc(10px + 15px + 4.5vh);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: var(--text-h1-hero);
   margin: 0;
+  font-size: var(--text-h1-hero);
   color: var(--cream-white);
   max-width: 800px;
   width: 100%;
@@ -1227,17 +1229,13 @@ section {
   white-space: nowrap;
 }
 
-/* Gap 9.3vh keeps heading–subtext proportion same as full desktop at all viewports */
+/* Subtext: centered in top half, ample gap from heading via parent gap */
 .hero-content p {
-  position: absolute;
-  top: calc(85.5px + 13.8vh);
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 28px;
   margin: 0;
+  font-size: 28px;
   line-height: 1.25;
   color: var(--cream-white);
-  width: 94%;
+  width: 100%;
   max-width: 820px;
   box-sizing: border-box;
   text-align: center;
@@ -3884,19 +3882,26 @@ section {
     overflow: hidden !important;
   }
 
-  /* Hero section: prevent planet clipping on tablet */
+  /* Hero section: avoid clipping; allow vertical overflow so placement stays correct */
   .hero {
     overflow-x: visible;
-    overflow-y: hidden;
+    overflow-y: visible;
   }
 
-  /* Center hero text block on tablet so space is used evenly */
+  /* Center hero text (h1 + p) only within the TOP HALF; bottom half unchanged */
   .hero-content {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 3vh;
+    gap: 5vh;
+    padding: 0 24px;
+    overflow: visible;
+    box-sizing: border-box;
   }
   .hero-content h1 {
     position: static;
@@ -3909,11 +3914,12 @@ section {
     top: auto;
     left: auto;
     transform: none;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  .hero-cta {
-    top: calc(50% + 12vh);
-  }
-
+  /* CTA stays in original position (no override) */
   .hero-planets {
     gap: 24px;
     padding: 0 24px;
@@ -4264,11 +4270,16 @@ section {
   .hero-content {
     padding: 0 20px;
     top: 56px;
+    left: 0;
+    right: 0;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4vh;
+    gap: 5vh;
+    overflow: visible;
+    box-sizing: border-box;
   }
   
   .hero-content h1 {
@@ -4286,13 +4297,16 @@ section {
     top: auto;
     left: auto;
     transform: none;
-    margin: 0;
+    margin: 0 auto;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .hero-cta {
     position: absolute;
-    top: calc(50% + 16vh);
+    top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px - 5vh);
     transform: translateX(-50%);
     font-size: 24px !important;
     padding: 23px 48px !important;
@@ -4318,7 +4332,6 @@ section {
   }
 
   .hero-content h1 {
-    top: calc(10px + 15px);
     font-size: 40px;
     line-height: 1.15;
     white-space: normal;
@@ -4327,10 +4340,12 @@ section {
   }
 
   .hero-content p {
-    top: calc(71px + 9.3vh);
+    position: static;
+    left: auto;
+    transform: none;
     font-size: 22px;
     line-height: 1.3;
-    width: 94%;
+    width: 100%;
     max-width: 100%;
     padding: 0 16px;
     box-sizing: border-box;
@@ -4366,14 +4381,11 @@ section {
       text-align: center;
     }
     .hero-content p {
-      top: calc(62px + 9.3vh);
       font-size: 17px;
-      width: 94%;
+      width: 100%;
       max-width: 100%;
       padding: 0 12px;
       text-align: center;
-      left: 50%;
-      transform: translateX(-50%);
     }
     .hero-content p span {
       white-space: normal;
@@ -4392,14 +4404,11 @@ section {
       text-align: center;
     }
     .hero-content p {
-      top: calc(57px + 9.3vh);
       font-size: 15px;
-      width: 96%;
+      width: 100%;
       max-width: 100%;
       padding: 0 8px;
       text-align: center;
-      left: 50%;
-      transform: translateX(-50%);
     }
     .hero-content p span {
       line-height: 1.35;
