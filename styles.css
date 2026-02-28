@@ -1212,6 +1212,7 @@ section {
   justify-content: center;
   gap: 5vh;
   padding: 0 40px;
+  margin-top: -1.5vh;
   overflow: visible;
   text-align: center;
   box-sizing: border-box;
@@ -3894,6 +3895,7 @@ section {
     left: 0;
     right: 0;
     height: 50vh;
+    margin-top: -1.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4273,6 +4275,7 @@ section {
     left: 0;
     right: 0;
     height: 50vh;
+    margin-top: -1.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
