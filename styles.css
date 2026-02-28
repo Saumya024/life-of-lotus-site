@@ -238,6 +238,11 @@ section {
   width: 100%;
 }
 
+/* Section right after hero: reduce top padding to avoid large gap */
+.hero + section {
+  padding-top: 56px;
+}
+
 /* Guided Pathways Section */
 .guided-pathways-section {
   padding: var(--section-padding);
@@ -1222,9 +1227,10 @@ section {
   white-space: nowrap;
 }
 
+/* Gap 9.3vh keeps heading–subtext proportion same as full desktop at all viewports */
 .hero-content p {
   position: absolute;
-  top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 8px - 10vh);
+  top: calc(85.5px + 13.8vh);
   left: 50%;
   transform: translateX(-50%);
   font-size: 28px;
@@ -3939,16 +3945,28 @@ section {
   
   section:first-of-type:not(.hero) {
     margin-top: -56px;
+    padding-top: 112px;
+  }
+
+  section:first-of-type:not(.hero).healing-practices,
+  section:first-of-type:not(.hero).faq,
+  section:first-of-type:not(.hero).insights-landing {
+    padding-top: 112px;
+  }
+
+  /* Section right after hero (homepage): less top padding to avoid white gap */
+  .hero + section {
+    padding-top: 48px;
   }
 
   body {
     padding-top: 56px;
   }
 
-  /* Ascendant reset pages: remove white gap between header and page on mobile */
+  /* Ascendant reset pages: remove white gap but keep content below header */
   main[class$="-page"] {
     margin-top: -56px;
-    padding-top: 56px;
+    padding-top: 112px;
   }
 
   .hero-planet-circle {
@@ -4178,9 +4196,19 @@ section {
 
   html, body {
     margin: 0;
-    padding: 0;
     width: 100%;
     overflow-x: hidden;
+  }
+
+  html {
+    padding: 0;
+  }
+
+  body {
+    padding-top: 56px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
   }
 
   body.menu-open {
@@ -4221,7 +4249,7 @@ section {
   }
   
   .hero-content p {
-    top: calc(10px + (100vh - 20px) / 4 + 15px + 4.5vh + 8px + 56px - 10vh);
+    top: calc(141.5px + 13.8vh);
     text-align: center;
   }
 
@@ -4261,7 +4289,7 @@ section {
   }
 
   .hero-content p {
-    top: calc(10px + (100vh - 20px) / 4 + 15px + 4px - 10vh);
+    top: calc(71px + 9.3vh);
     font-size: 22px;
     line-height: 1.3;
     width: 94%;
@@ -4300,6 +4328,7 @@ section {
       text-align: center;
     }
     .hero-content p {
+      top: calc(62px + 9.3vh);
       font-size: 17px;
       width: 94%;
       max-width: 100%;
@@ -4325,6 +4354,7 @@ section {
       text-align: center;
     }
     .hero-content p {
+      top: calc(57px + 9.3vh);
       font-size: 15px;
       width: 96%;
       max-width: 100%;
@@ -5303,7 +5333,7 @@ section {
 
 @media (max-width: 768px) {
   .about-hero {
-    padding: 100px 20px 60px;
+    padding: 112px 20px 60px;
   }
   
   .about-hero-content {
@@ -7399,7 +7429,7 @@ section {
 /* Ritual Page Mobile Styles */
 @media (max-width: 768px) {
   .ritual-hero {
-    padding: 100px 20px 60px;
+    padding: 112px 20px 60px;
   }
   
   .ritual-hero-content h1 {
@@ -8614,6 +8644,17 @@ section {
 .faq-answer-text li,
 .faq-answer-text a {
   color: var(--cream-white) !important;
+}
+
+/* Floating FAQ answer: Comfortaa, same size as other FAQ answers (13px) */
+.faq-answer-container .faq-answer-text,
+.faq-answer-container .faq-answer-text p,
+.faq-answer-container .faq-answer-text strong,
+.faq-answer-container .faq-answer-text ul,
+.faq-answer-container .faq-answer-text li,
+.faq-answer-container .faq-answer-text a {
+  font-family: var(--font-body) !important;
+  font-size: 13px !important;
 }
 
 .faq-answer-container p {
