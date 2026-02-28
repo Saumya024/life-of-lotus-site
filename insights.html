@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Insights | Vedic Astrology Articles | I Read Space</title>
   <meta name="description" content="Practical Vedic astrology insights — what each planet means when it's weak, why patterns persist, and what actually helps." />
-  <link rel="canonical" href="https://ireadspace.com/insights" />
+  <link rel="canonical" href="https://ireadspace.com/insights.html" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
@@ -15,13 +15,41 @@
   <meta property="og:title" content="Insights | Astrology Articles & Remedies | I Read Space" />
   <meta property="og:description" content="Explore planetary remedies, relationship patterns, and life guidance through Vedic astrology." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ireadspace.com/insights" />
+  <meta property="og:url" content="https://ireadspace.com/insights.html" />
   <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Insights | Astrology Articles & Remedies | I Read Space" />
   <meta name="twitter:description" content="Explore planetary remedies, relationship patterns, and life guidance through Vedic astrology." />
+  <meta name="twitter:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+
+  <!-- ItemList schema for insights index (SEO / AEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Vedic Astrology Insights",
+    "description": "Practical Vedic astrology articles on planetary remedies, relationship patterns, and life guidance.",
+    "url": "https://ireadspace.com/insights.html",
+    "numberOfItems": 12,
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "url": "https://ireadspace.com/insights/power-up-your-sun.html", "name": "When Confidence Won't Hold: Working with Your Sun" },
+      { "@type": "ListItem", "position": 2, "url": "https://ireadspace.com/insights/nurture-your-moon.html", "name": "Why Emotional Stability Keeps Slipping: Your Moon" },
+      { "@type": "ListItem", "position": 3, "url": "https://ireadspace.com/insights/channel-your-mars.html", "name": "Anger, Inertia, and Misdirected Drive: Your Mars" },
+      { "@type": "ListItem", "position": 4, "url": "https://ireadspace.com/insights/sharpen-your-mercury.html", "name": "When Thinking Gets Foggy: Working with Your Mercury" },
+      { "@type": "ListItem", "position": 5, "url": "https://ireadspace.com/insights/expand-your-jupiter.html", "name": "Why Growth Stalls Despite Good Intentions: Your Jupiter" },
+      { "@type": "ListItem", "position": 6, "url": "https://ireadspace.com/insights/refine-your-venus.html", "name": "Why Relationships Keep Disappointing: Your Venus" },
+      { "@type": "ListItem", "position": 7, "url": "https://ireadspace.com/insights/honour-your-saturn.html", "name": "Saturn Is Not Your Enemy: Navigating Delays and Discipline" },
+      { "@type": "ListItem", "position": 8, "url": "https://ireadspace.com/insights/master-your-rahu.html", "name": "When Obsession Takes Over: Understanding Your Rahu" },
+      { "@type": "ListItem", "position": 9, "url": "https://ireadspace.com/insights/surrender-to-your-ketu.html", "name": "Detachment, Confusion, and the Pull Inward: Your Ketu" },
+      { "@type": "ListItem", "position": 10, "url": "https://ireadspace.com/insights/why-is-my-marriage-delayed.html", "name": "Why Marriage Keeps Getting Delayed — and What Your Chart Says" },
+      { "@type": "ListItem", "position": 11, "url": "https://ireadspace.com/insights/mangal-dosha-complete-guide.html", "name": "Mangal Dosha: Complete Guide" },
+      { "@type": "ListItem", "position": 12, "url": "https://ireadspace.com/insights/planetary-remedies.html", "name": "Planetary Remedies in Vedic Astrology" }
+    ]
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +57,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 
 <body>
@@ -65,7 +93,7 @@
   </header>
 
   <!-- Insights Landing Section -->
-  <section class="insights-landing" id="main-content">
+  <section class="insights-landing" id="main-content" role="main">
     <div class="insights-container">
       <h1>Insights</h1>
       <p class="insights-intro">What each planet means when it's working against you — and what to do about it. For personalised guidance, <a href="index.html#pricing" style="color: inherit; text-decoration: underline;">request a consultation</a>.</p>
@@ -195,7 +223,7 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" /></a>
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space"  loading="lazy" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>

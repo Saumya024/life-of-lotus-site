@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book a Vedic Astrology Consultation | I Read Space</title>
   <meta name="description" content="Book your Vedic astrology consultation with I Read Space. Share your birth details, select your session type, and schedule a time that works for you." />
-  <link rel="canonical" href="https://ireadspace.com/intake" />
+  <link rel="canonical" href="https://ireadspace.com/intake.html" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
@@ -16,19 +16,21 @@
   <meta property="og:title" content="Book a Vedic Astrology Consultation | I Read Space" />
   <meta property="og:description" content="Book your Vedic astrology consultation. Share your birth details, select your session type, and schedule a time." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://ireadspace.com/intake" />
+  <meta property="og:url" content="https://ireadspace.com/intake.html" />
   <meta property="og:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Book a Vedic Astrology Consultation | I Read Space" />
   <meta name="twitter:description" content="Book your Vedic astrology consultation. Share your birth details, select your session type, and schedule a time." />
+  <meta name="twitter:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=7" />
+  <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 
 <body>
@@ -1094,6 +1096,22 @@
         modalOverlay.style.display = 'none';
         document.body.style.overflow = ''; // Restore body scrolling
       }
+    });
+
+    // Listen for Cal.com booking completion and redirect to reserved page
+    window.addEventListener('message', function(e) {
+      if (!e.data) return;
+      try {
+        var d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (
+          (d.type === '__routeChanged' && d.data && d.data.url && d.data.url.indexOf('booking') !== -1) ||
+          d.type === 'booking:confirmed' ||
+          d.type === 'booking:created' ||
+          d.type === 'bookingSuccessful'
+        ) {
+          window.location.href = 'reserved.html';
+        }
+      } catch (err) {}
     });
 
     // Place of Birth Autocomplete using Nominatim (OpenStreetMap) – reusable for main and additional charts

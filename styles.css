@@ -2443,6 +2443,9 @@ section {
 /* Process / Session Experience */
 .process {
   background-color: var(--primary-lighter);
+  text-align: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
 .process h2 {
@@ -2488,17 +2491,22 @@ section {
   justify-content: center;
   gap: 40px;
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
 .process-step {
   flex: 1;
+  min-width: 0;
   text-align: center;
 }
 
 .process-icon {
   width: 120px;
   height: 120px;
+  max-width: 100%;
   margin-bottom: 24px;
   object-fit: contain;
   background-color: white;
@@ -2511,6 +2519,7 @@ section {
   font-size: 20px;
   margin-bottom: 16px;
   color: var(--primary);
+  word-wrap: break-word;
 }
 
 .process-text {
@@ -2519,6 +2528,7 @@ section {
   opacity: 0.85;
   color: var(--cream-white);
   font-family: var(--font-body);
+  word-wrap: break-word;
 }
 
 .process-divider {
@@ -2625,7 +2635,14 @@ section {
   }
 
   .about-saumya-photo-wrapper {
+    width: 220px;
+    height: 220px;
     margin-bottom: 28px;
+  }
+
+  .about-saumya-image {
+    width: 190px;
+    height: 190px;
   }
 
   .about-saumya-text p {
@@ -3642,6 +3659,29 @@ section {
   .packages-container {
     padding-left: 24px;
     padding-right: 24px;
+  }
+
+  /* Session Experience: use stacked layout from tablet down so content stays centered and nothing is cut off */
+  .process-flow {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0 12px;
+  }
+
+  .process-divider {
+    width: 200px;
+    height: 1px;
+    margin: 0 auto;
+  }
+
+  .process-step {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .process-heading {
+    font-size: 18px;
   }
 
   .header {
