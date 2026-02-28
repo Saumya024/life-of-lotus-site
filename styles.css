@@ -179,6 +179,21 @@ textarea:focus-visible {
   color: var(--cream-white);
 }
 
+@media (max-width: 768px) {
+  .error-404 {
+    padding: 80px 20px;
+  }
+  .error-404 h1 {
+    font-size: 48px;
+  }
+  .error-404 h2 {
+    font-size: 24px;
+  }
+  .error-404 p {
+    margin-bottom: 32px;
+  }
+}
+
 /* Base Styles */
 * {
   margin: 0;
@@ -1568,8 +1583,8 @@ section {
 /* When Do People Reach Out */
 .reach-out {
   background-color: var(--primary-light);
-  padding-bottom: 80 px;
-  margin-bottom: 80 px;
+  padding-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 .reach-out h2 {
@@ -2292,6 +2307,10 @@ section {
 
   .testimonial-slide {
     padding: 20px 24px;
+  }
+
+  .testimonial-quote {
+    font-size: 72px;
   }
 }
 
@@ -3888,7 +3907,13 @@ section {
   .core-benefits-container {
     max-width: 100%;
     padding: 0;
-    gap: 180px;
+    gap: 80px;
+  }
+
+  .core-benefit-description {
+    width: 100%;
+    position: static;
+    transform: none;
   }
 
   /* Ensure all shapes are the same size in tablet view */
@@ -4116,11 +4141,11 @@ section {
   .nav-dropdown-toggle {
     width: 100%;
     padding: 16px 0;
-    border-bottom: 1px solid rgba(67, 16, 57, 0.1);
+    border-bottom: 1px solid rgba(248, 246, 242, 0.2);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: var(--primary);
+    color: var(--cream-white);
     font-size: var(--text-caption);
   }
 
@@ -4155,12 +4180,7 @@ section {
     margin: 0;
     padding: 0;
     width: 100%;
-    /* Do not clip content: overflow-x visible so sections are not cut off */
-    overflow-x: visible;
-  }
-
-  body {
-    padding-top: 72px;
+    overflow-x: hidden;
   }
 
   body.menu-open {
@@ -4787,6 +4807,18 @@ section {
   color: var(--primary);
   margin-top: 24px;
   opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .confirmation {
+    padding: 100px 20px;
+  }
+  .confirmation-heading {
+    font-size: 32px;
+  }
+  .confirmation-message {
+    font-size: 17px;
+  }
 }
 
 /* Booking link will be replaced with Cal.com */
@@ -8713,6 +8745,40 @@ section {
     padding: 10px 12px 12px;
     margin-top: 6px;
     border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reach-out-list {
+    grid-template-columns: 1fr;
+  }
+
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reach-out-item {
+    min-height: auto;
+  }
+
+  .hero-content .cta {
+    padding: 16px 36px !important;
+    font-size: 20px !important;
+  }
+
+  .about-cta-section .cta {
+    padding: 16px 32px;
+    font-size: 18px;
+  }
+
+  .founder-photo-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .founder-white-circle {
+    width: 225px;
+    height: 225px;
   }
 }
 
