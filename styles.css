@@ -3890,6 +3890,30 @@ section {
     overflow-y: hidden;
   }
 
+  /* Center hero text block on tablet so space is used evenly */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vh;
+  }
+  .hero-content h1 {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+  .hero-content p {
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+  }
+  .hero-cta {
+    top: calc(50% + 12vh);
+  }
+
   .hero-planets {
     gap: 24px;
     padding: 0 24px;
@@ -4240,21 +4264,35 @@ section {
   .hero-content {
     padding: 0 20px;
     top: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
   }
   
   .hero-content h1 {
-    top: calc(10px + 15px + 4.5vh + 56px);
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0;
     white-space: normal;
     text-align: center;
   }
   
   .hero-content p {
-    top: calc(141.5px + 13.8vh);
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 0;
     text-align: center;
   }
 
   .hero-cta {
-    top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px - 5vh);
+    position: absolute;
+    top: calc(50% + 16vh);
     transform: translateX(-50%);
     font-size: 24px !important;
     padding: 23px 48px !important;
