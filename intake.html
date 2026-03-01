@@ -82,8 +82,8 @@
               </div>
               <div class="pricing-price" data-audio-price="₹2,400" data-video-price="₹2,700">₹2,400</div>
               <div class="pricing-details">
-                <div class="pricing-detail-item">Up to 3 topics allowed</div>
-                <div class="pricing-detail-item">2 charts covered</div>
+                <div class="pricing-detail-item">Up to 3 themes</div>
+                <div class="pricing-detail-item">Up to 2 charts</div>
               </div>
             </div>
             <!-- Package Card (hidden by default, shown for packages) -->
@@ -201,6 +201,11 @@
       <p class="cal-modal-instruction"><strong>Please Note: Kindly ensure you select your time zone to book the right slot.</strong></p>
       <div id="cal-modal-content"></div>
     </div>
+  </div>
+
+  <!-- Full-screen redirect overlay (shown after slot selection, before confirmation page loads) -->
+  <div id="redirect-overlay" class="redirect-overlay" style="display: none;" aria-live="polite">
+    <p class="redirect-overlay-text">Redirecting you to the confirmation and payment page &gt;&gt;&gt;</p>
   </div>
 
   <script>
@@ -330,8 +335,8 @@
         audioPrice: '₹1,200',
         videoPrice: '₹1,500',
         details: [
-          '1 key topic allowed',
-          '1 chart covered'
+          '1 key theme',
+          '1 chart'
         ]
       },
       60: {
@@ -341,8 +346,8 @@
         audioPrice: '₹2,400',
         videoPrice: '₹2,700',
         details: [
-          'Up to 3 related topics allowed',
-          '2 charts covered'
+          'Up to 3 themes',
+          'Up to 2 charts'
         ]
       },
       90: {
@@ -352,8 +357,8 @@
         audioPrice: '₹3,600',
         videoPrice: '₹3,900',
         details: [
-          'Multiple life areas allowed',
-          'Multiple charts covered'
+          'Multiple life areas',
+          'Multiple charts'
         ]
       }
     };
@@ -1103,16 +1108,41 @@
       if (!e.data) return;
       try {
         var d = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
-        if (
-          (d.type === '__routeChanged' && d.data && d.data.url && d.data.url.indexOf('booking') !== -1) ||
-          d.type === 'booking:confirmed' ||
-          d.type === 'booking:created' ||
-          d.type === 'bookingSuccessful'
-        ) {
-          window.location.href = 'reserved.html';
+        var eventType = (d && d.type) || (d && d.detail && d.detail.type);
+        var url = (d && d.data && d.data.url) ? d.data.url : '';
+        var isBookingDone =
+          eventType === 'bookingSuccessfulV2' ||
+          eventType === 'bookingSuccessful' ||
+          eventType === 'booking:confirmed' ||
+          eventType === 'booking:created' ||
+          (eventType === '__routeChanged' && url && (url.indexOf('booking') !== -1 || url.indexOf('success') !== -1));
+        if (isBookingDone) {
+          var overlay = document.getElementById('redirect-overlay');
+          if (overlay) {
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+          // Allow overlay to paint before redirect (fixes internal/testing where redirect was too fast)
+          setTimeout(function() {
+            window.location.href = 'reserved.html';
+          }, 200);
         }
       } catch (err) {}
     });
+
+    // Optional: test redirect overlay (internal testing). Add ?testRedirect=1 to intake URL to show overlay and redirect after 2s.
+    (function testRedirectOverlay() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('testRedirect') !== '1') return;
+      setTimeout(function() {
+        var overlay = document.getElementById('redirect-overlay');
+        if (overlay) {
+          overlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          setTimeout(function() { window.location.href = 'reserved.html'; }, 2000);
+        }
+      }, 500);
+    })();
 
     // Place of Birth Autocomplete using Nominatim (OpenStreetMap) – reusable for main and additional charts
     function initPlaceAutocomplete(input, suggestionsContainer) {

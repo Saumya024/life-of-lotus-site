@@ -33,8 +33,24 @@
 
     // Close menu when clicking on a nav link
     nav.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', function() {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') {
+          closeMenu();
+          return;
+        }
+        if (href.startsWith('#')) {
+          closeMenu();
+          return;
+        }
+        e.preventDefault();
+        // Close menu instantly (no transition) so text doesn't double before navigation
+        nav.style.transition = 'none';
         closeMenu();
+        requestAnimationFrame(function() {
+          nav.style.transition = '';
+        });
+        window.location.href = href;
       });
     });
 
