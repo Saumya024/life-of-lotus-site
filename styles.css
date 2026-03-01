@@ -18,7 +18,7 @@
   --font-body: 'Comfortaa', sans-serif;
   --text-display: 72px;
   --text-h1-hero: 55px;
-  --text-h1-page: 42px;
+  --text-h1-page: 34px;
   --text-h2: 34px;
   --text-h3: 24px;
   --text-h4: 20px;
@@ -234,6 +234,15 @@ h2 {
   font-weight: 500;
   text-transform: none;
   margin-bottom: 32px;
+  text-align: center;
+}
+
+/* Home: section titles use default h2 size (34px) - no override */
+/* Ascendant inner pages (Taurus, Libra, etc.): match Home section heading size */
+[class$="-hero"] h1 {
+  font-size: 34px !important;
+  color: var(--primary);
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -3199,13 +3208,19 @@ a.area-item:hover,
 /* Intake Page */
 .intake {
   background-color: var(--cream-white);
-  padding: 160px 40px;
+  padding: var(--section-padding);
   box-sizing: border-box;
 }
 
 .intake-container {
   max-width: 1400px;
   margin: 0 auto;
+}
+
+.intake-container h1 {
+  margin-bottom: 2.5rem;
+  font-size: 34px;
+  color: var(--primary);
 }
 
 .intake-grid {
@@ -3774,7 +3789,7 @@ main[class$="-page"] .wizard-chip.active {
 
   /* Reduce gap between header and intake form heading on tablet */
   .intake {
-    padding: 96px 24px 40px;
+    padding: 95px 24px 40px;
   }
 
   /* Intake form: center-align all fields on tablet for consistency with native date/time */
@@ -4262,7 +4277,8 @@ main[class$="-page"] .wizard-chip.active {
 
   section:first-of-type:not(.hero).healing-practices,
   section:first-of-type:not(.hero).faq,
-  section:first-of-type:not(.hero).insights-landing {
+  section:first-of-type:not(.hero).insights-landing,
+  section:first-of-type:not(.hero).intake {
     padding-top: 112px;
   }
 
@@ -4966,7 +4982,11 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .intake {
-    padding: 120px 16px;
+    padding: 112px 20px 80px;
+  }
+
+  .intake-container h1 {
+    font-size: 28px;
   }
 
   /* Intake form: center-align all fields on mobile for consistency with native date/time */
@@ -5809,7 +5829,7 @@ main[class$="-page"] .wizard-chip.active {
   }
   
   .about-hero-intro h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
   
   .about-hero-tagline {
@@ -6323,7 +6343,7 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .blog-post-title {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 16px;
@@ -6418,6 +6438,10 @@ main[class$="-page"] .wizard-chip.active {
     font-size: 36px;
   }
 
+  [class$="-hero"] h1 {
+    font-size: 28px !important;
+  }
+
   .insights-intro {
     font-size: 16px;
   }
@@ -6473,6 +6497,11 @@ main[class$="-page"] .wizard-chip.active {
   font-size: 48px;
   margin-bottom: 32px;
   color: var(--primary);
+}
+
+/* Resources subpage: same heading size as other subpages (34px) */
+.resources-page .healing-practices h1 {
+  font-size: 34px;
 }
 
 .healing-practices-intro {
@@ -6677,6 +6706,10 @@ main[class$="-page"] .wizard-chip.active {
   .healing-practices h1 {
     font-size: 36px;
     margin-bottom: 24px;
+  }
+
+  .resources-page .healing-practices h1 {
+    font-size: 28px;
   }
 
   .healing-practices-intro {
@@ -6920,7 +6953,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .modality-detail h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .modality-section h2 {
