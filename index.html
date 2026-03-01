@@ -69,7 +69,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=24" />
+  <link rel="stylesheet" href="styles.css?v=29" />
 </head>
 
 <body>
@@ -478,8 +478,10 @@
           <div class="pricing-detail-item">1 key theme</div>
           <div class="pricing-detail-item">1 chart</div>
         </div>
-        <a href="intake.html?duration=30" class="pricing-cta">Begin</a>
-        <button class="pricing-expand-toggle" data-card="quick-clarity-indian" aria-expanded="false" aria-controls="quick-clarity-indian">What's Included</button>
+        <div class="pricing-card-actions">
+          <a href="intake.html?duration=30" class="pricing-cta">Begin</a>
+          <button class="pricing-expand-toggle" data-card="quick-clarity-indian" aria-expanded="false" aria-controls="quick-clarity-indian">What's Included</button>
+        </div>
         <div class="pricing-expand-content" id="quick-clarity-indian">
           <div class="pricing-expand-section">
             <h4>What's Included</h4>
@@ -515,8 +517,10 @@
           <div class="pricing-detail-item">Up to 3 themes</div>
           <div class="pricing-detail-item">Up to 2 charts</div>
         </div>
-        <a href="intake.html?duration=60" class="pricing-cta">Begin</a>
-        <button class="pricing-expand-toggle" data-card="deep-insight-indian" aria-expanded="false" aria-controls="deep-insight-indian">What's Included</button>
+        <div class="pricing-card-actions">
+          <a href="intake.html?duration=60" class="pricing-cta">Begin</a>
+          <button class="pricing-expand-toggle" data-card="deep-insight-indian" aria-expanded="false" aria-controls="deep-insight-indian">What's Included</button>
+        </div>
         <div class="pricing-expand-content" id="deep-insight-indian">
           <div class="pricing-expand-section">
             <h4>What's Included</h4>
@@ -552,8 +556,10 @@
           <div class="pricing-detail-item">Multiple life areas</div>
           <div class="pricing-detail-item">Multiple charts</div>
         </div>
-        <a href="intake.html?duration=90" class="pricing-cta">Begin</a>
-        <button class="pricing-expand-toggle" data-card="holistic-guidance-indian" aria-expanded="false" aria-controls="holistic-guidance-indian">What's Included</button>
+        <div class="pricing-card-actions">
+          <a href="intake.html?duration=90" class="pricing-cta">Begin</a>
+          <button class="pricing-expand-toggle" data-card="holistic-guidance-indian" aria-expanded="false" aria-controls="holistic-guidance-indian">What's Included</button>
+        </div>
         <div class="pricing-expand-content" id="holistic-guidance-indian">
           <div class="pricing-expand-section">
             <h4>What's Included</h4>
@@ -592,8 +598,10 @@
           <div class="pricing-detail-item">1 key theme</div>
           <div class="pricing-detail-item">1 chart</div>
         </div>
-        <a href="intake.html?duration=30" class="pricing-cta">Begin</a>
-        <button class="pricing-expand-toggle" data-card="quick-clarity-international" aria-expanded="false" aria-controls="quick-clarity-international">What's Included</button>
+        <div class="pricing-card-actions">
+          <a href="intake.html?duration=30" class="pricing-cta">Begin</a>
+          <button class="pricing-expand-toggle" data-card="quick-clarity-international" aria-expanded="false" aria-controls="quick-clarity-international">What's Included</button>
+        </div>
         <div class="pricing-expand-content" id="quick-clarity-international">
           <div class="pricing-expand-section">
             <h4>What's Included</h4>
@@ -628,8 +636,10 @@
           <div class="pricing-detail-item">Up to 3 themes</div>
           <div class="pricing-detail-item">Up to 2 charts</div>
         </div>
-        <a href="intake.html?duration=60" class="pricing-cta">Begin</a>
-        <button class="pricing-expand-toggle" data-card="deep-insight-international" aria-expanded="false" aria-controls="deep-insight-international">What's Included</button>
+        <div class="pricing-card-actions">
+          <a href="intake.html?duration=60" class="pricing-cta">Begin</a>
+          <button class="pricing-expand-toggle" data-card="deep-insight-international" aria-expanded="false" aria-controls="deep-insight-international">What's Included</button>
+        </div>
         <div class="pricing-expand-content" id="deep-insight-international">
           <div class="pricing-expand-section">
             <h4>What's Included</h4>
@@ -664,8 +674,10 @@
           <div class="pricing-detail-item">Multiple life areas</div>
           <div class="pricing-detail-item">Multiple charts</div>
         </div>
-        <a href="intake.html?duration=90" class="pricing-cta">Begin</a>
-        <button class="pricing-expand-toggle" data-card="holistic-guidance-international" aria-expanded="false" aria-controls="holistic-guidance-international">What's Included</button>
+        <div class="pricing-card-actions">
+          <a href="intake.html?duration=90" class="pricing-cta">Begin</a>
+          <button class="pricing-expand-toggle" data-card="holistic-guidance-international" aria-expanded="false" aria-controls="holistic-guidance-international">What's Included</button>
+        </div>
         <div class="pricing-expand-content" id="holistic-guidance-international">
           <div class="pricing-expand-section">
             <h4>What's Included</h4>
@@ -1715,26 +1727,19 @@
 
   <!-- Pricing Expand Toggle -->
   <script>
-    document.querySelectorAll('.pricing-expand-toggle').forEach(toggle => {
+    document.querySelectorAll('.pricing-expand-toggle').forEach(function(toggle) {
       toggle.addEventListener('click', function() {
-        const cardId = this.dataset.card;
-        const content = document.getElementById(cardId);
-        
-        if (content) {
-          const isActive = content.classList.contains('active');
-          
-          // Toggle current section only (allow multiple sections to be open)
-          if (isActive) {
-            content.classList.remove('active');
-            this.classList.remove('active');
-            this.textContent = 'What\'s Included';
-            this.setAttribute('aria-expanded', 'false');
-          } else {
-            content.classList.add('active');
-            this.classList.add('active');
-            this.textContent = 'What\'s Included';
-            this.setAttribute('aria-expanded', 'true');
-          }
+        var cardId = this.getAttribute('data-card');
+        var content = document.getElementById(cardId);
+        if (!content) return;
+        if (content.classList.contains('active')) {
+          content.classList.remove('active');
+          this.classList.remove('active');
+          this.setAttribute('aria-expanded', 'false');
+        } else {
+          content.classList.add('active');
+          this.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
         }
       });
     });
