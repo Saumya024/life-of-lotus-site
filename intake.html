@@ -203,9 +203,11 @@
     </div>
   </div>
 
-  <!-- Full-screen redirect overlay (shown after slot selection, before confirmation page loads) -->
-  <div id="redirect-overlay" class="redirect-overlay" style="display: none;" aria-live="polite">
-    <p class="redirect-overlay-text">Redirecting you to the confirmation and payment page &gt;&gt;&gt;</p>
+  <!-- Full-screen redirect overlay (shown on top of intake page after slot selection, before confirmation page loads) -->
+  <div id="redirect-overlay" class="redirect-overlay" style="display: none;" aria-live="polite" aria-modal="true" role="dialog" aria-label="Redirecting">
+    <div class="redirect-overlay-content">
+      <p class="redirect-overlay-text">Redirecting you to the confirmation and payment page &gt;&gt;&gt;</p>
+    </div>
   </div>
 
   <script>
@@ -1118,14 +1120,15 @@
           (eventType === '__routeChanged' && url && (url.indexOf('booking') !== -1 || url.indexOf('success') !== -1));
         if (isBookingDone) {
           var overlay = document.getElementById('redirect-overlay');
+          var modalOverlay = document.getElementById('cal-modal-overlay');
+          if (modalOverlay) modalOverlay.style.display = 'none';
           if (overlay) {
             overlay.style.display = 'flex';
             document.body.style.overflow = 'hidden';
           }
-          // Allow overlay to paint before redirect (fixes internal/testing where redirect was too fast)
           setTimeout(function() {
             window.location.href = 'reserved.html';
-          }, 200);
+          }, 400);
         }
       } catch (err) {}
     });
@@ -1136,6 +1139,8 @@
       if (params.get('testRedirect') !== '1') return;
       setTimeout(function() {
         var overlay = document.getElementById('redirect-overlay');
+        var modalOverlay = document.getElementById('cal-modal-overlay');
+        if (modalOverlay) modalOverlay.style.display = 'none';
         if (overlay) {
           overlay.style.display = 'flex';
           document.body.style.overflow = 'hidden';
