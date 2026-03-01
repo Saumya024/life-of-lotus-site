@@ -4106,11 +4106,6 @@ section {
     padding-top: 112px;
   }
 
-  /* Reset rituals: ascendant options (Aries, Taurus, etc.) in primary on tablet/mobile */
-  .ascendant-option {
-    color: var(--primary) !important;
-  }
-
   .hero-planet-circle {
     opacity: 0.10;
   }
@@ -5743,29 +5738,22 @@ section {
   margin-top: 24px;
 }
 
-/* Desktop: Always show full content */
+/* Desktop: enforce collapsed state when .collapsed is present (no default expanded) */
 @media (min-width: 769px) {
-  .about-section-content {
-    max-height: none !important;
-    opacity: 1 !important;
+  .collapsible-section.collapsed .about-section-content {
+    max-height: 0 !important;
+    opacity: 0 !important;
     margin-top: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    overflow: hidden;
   }
-  
-  .about-section-toggle {
-    cursor: default;
-    pointer-events: none;
-  }
-  
-  .toggle-icon {
-    display: none;
-  }
-  
-  .about-section-toggle h2 {
+  .collapsible-section:not(.collapsed) .about-section-toggle h2 {
     margin-bottom: 48px;
   }
 }
 
-/* Mobile: Collapse sections 2 and 3 by default */
+/* Mobile/tablet: About section spacing */
 @media (max-width: 768px) {
   .collapsible-section {
     padding: 80px 24px;

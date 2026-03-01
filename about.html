@@ -115,9 +115,9 @@
   </section>
 
   <!-- About Section 1: What You Can Expect -->
-  <section class="about-section about-section-1 collapsible-section">
+  <section class="about-section about-section-1 collapsible-section collapsed">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="true" aria-controls="about-section-content-1">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-1">
         <h2>What You Can Expect from a Session</h2>
         <span class="toggle-icon">▼</span>
       </button>
@@ -135,9 +135,9 @@
   </section>
 
   <!-- About Section 2: My Path to Astrology -->
-  <section class="about-section about-section-2 collapsible-section">
+  <section class="about-section about-section-2 collapsible-section collapsed">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="true" aria-controls="about-section-content-2">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-2">
         <h2>My Path to Astrology</h2>
         <span class="toggle-icon">▼</span>
       </button>
@@ -157,14 +157,14 @@
   </section>
 
   <!-- About Section 3: What Is Vedic Astrology -->
-  <section class="about-section about-section-3 collapsible-section" id="what-is-vedic-astrology">
+  <section class="about-section about-section-3 collapsible-section collapsed" id="what-is-vedic-astrology">
     <div class="about-content">
-      <button class="about-section-toggle" aria-label="Toggle section">
+      <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-3">
         <h2>What Is Vedic Astrology</h2>
         <span class="toggle-icon">▼</span>
       </button>
       
-      <div class="about-section-content">
+      <div class="about-section-content" id="about-section-content-3">
         <p>Vedic astrology is a predictive system, thousands of years old, used to understand repeating life patterns, decision timing, and periods of challenge or opportunity.</p>
         
         <p>Charts reveal why one person repeatedly attracts unstable partnerships, why another faces career stagnation despite competence, or why health issues surface under stress rather than randomly. A birth chart shows what's already set in motion and when particular themes become active.</p>
@@ -175,7 +175,7 @@
   </section>
 
   <!-- About Section 4: How I Practice -->
-  <section class="about-section about-section-4 collapsible-section">
+  <section class="about-section about-section-4 collapsible-section collapsed">
     <div class="about-content">
       <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-4">
         <h2>How I Practice</h2>
@@ -197,7 +197,7 @@
   </section>
 
   <!-- About Section 5: The Lens I Bring -->
-  <section class="about-section about-section-5 collapsible-section">
+  <section class="about-section about-section-5 collapsible-section collapsed">
     <div class="about-content">
       <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-5">
         <h2>The Lens I Bring</h2>
@@ -219,7 +219,7 @@
   </section>
 
   <!-- About Section 6: My Approach -->
-  <section class="about-section about-section-6 collapsible-section">
+  <section class="about-section about-section-6 collapsible-section collapsed">
     <div class="about-content">
       <button class="about-section-toggle" aria-label="Toggle section" aria-expanded="false" aria-controls="about-section-content-6">
         <h2>My Approach</h2>
@@ -386,63 +386,19 @@
     // Initialize carousel 4
     initTestimonialCarousel('testimonial-carousel-4');
 
-    // Collapsible About Sections
+    // Collapsible About Sections — accordion on all viewports, all collapsed by default
     function initCollapsibleSections() {
       const collapsibleSections = document.querySelectorAll('.collapsible-section');
       
-      // Collapse sections 3, 4, 5 by default on mobile (keep 1 and 2 open)
-      if (window.innerWidth <= 768) {
-        collapsibleSections.forEach(section => {
-          if (section.classList.contains('about-section-3') || 
-              section.classList.contains('about-section-4') || 
-              section.classList.contains('about-section-5')) {
-            section.classList.add('collapsed');
-          }
-        });
-      }
-      
-      // Add toggle functionality
       collapsibleSections.forEach(section => {
         const toggle = section.querySelector('.about-section-toggle');
         if (toggle) {
           toggle.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
-              const isCollapsed = section.classList.contains('collapsed');
-              section.classList.toggle('collapsed');
-              // Update aria-expanded attribute
-              toggle.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
-            }
+            const isCollapsed = section.classList.contains('collapsed');
+            section.classList.toggle('collapsed');
+            toggle.setAttribute('aria-expanded', isCollapsed ? 'true' : 'false');
           });
         }
-      });
-      
-      // Handle window resize
-      let resizeTimer;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-          if (window.innerWidth > 768) {
-            // On desktop, expand all sections
-            collapsibleSections.forEach(section => {
-              section.classList.remove('collapsed');
-              const toggle = section.querySelector('.about-section-toggle');
-              if (toggle) toggle.setAttribute('aria-expanded', 'true');
-            });
-          } else {
-            // On mobile, collapse sections 3, 4, 5
-            collapsibleSections.forEach(section => {
-              if (section.classList.contains('about-section-3') || 
-                  section.classList.contains('about-section-4') || 
-                  section.classList.contains('about-section-5')) {
-                section.classList.add('collapsed');
-                const toggle = section.querySelector('.about-section-toggle');
-                if (toggle) toggle.setAttribute('aria-expanded', 'false');
-              } else {
-                section.classList.remove('collapsed');
-              }
-            });
-          }
-        }, 250);
       });
     }
     
