@@ -3277,6 +3277,7 @@ a.area-item:hover {
   padding-right: 40px !important;
   border: 1px solid rgba(67, 16, 57, 0.2) !important;
   border-radius: 8px !important;
+  text-align: left !important;
 }
 
 .tob-unknown-label {
@@ -3426,6 +3427,7 @@ a.area-item:hover {
   padding-right: 40px !important;
   border: 1px solid rgba(67, 16, 57, 0.2) !important;
   border-radius: 8px !important;
+  text-align: left !important;
 }
 
 .additional-chart-heading {
@@ -3969,6 +3971,7 @@ main[class$="-page"] .wizard-chip.active {
     box-sizing: border-box !important;
     overflow: hidden !important;
     display: block !important;
+    text-align: left !important;
   }
 
   .birth-details-block .autocomplete-wrapper {
