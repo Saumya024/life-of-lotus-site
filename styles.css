@@ -1822,9 +1822,20 @@ section {
   transition: box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-a.area-item:hover {
+a.area-item:hover,
+.area-item:hover {
   border-color: var(--primary);
   box-shadow: 0 4px 16px rgba(67, 16, 57, 0.12);
+}
+
+.area-item-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
 }
 
 .area-icon-wrapper {
@@ -3561,8 +3572,8 @@ a.area-item:hover {
   opacity: 1;
 }
 
-/* Desktop: ensure native time/date picker dropdown works */
-@media (min-width: 769px) {
+/* Desktop only (>1024px): use native date/time picker appearance */
+@media (min-width: 1025px) {
   .field input[type="date"],
   .field input[type="time"],
   .birth-details-block .field input[type="date"],
@@ -3975,6 +3986,8 @@ main[class$="-page"] .wizard-chip.active {
   
   .birth-details-block .field input[type="date"],
   .birth-details-block .field input[type="time"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -3983,6 +3996,9 @@ main[class$="-page"] .wizard-chip.active {
     display: block !important;
     text-align: left !important;
     min-height: 44px;
+    padding: 12px 14px !important;
+    padding-right: 36px !important;
+    font-size: 16px !important;
   }
 
   .birth-details-block .autocomplete-wrapper {
@@ -4008,12 +4024,17 @@ main[class$="-page"] .wizard-chip.active {
 
   .additional-chart-block .field input[type="date"],
   .additional-chart-block .field input[type="time"] {
+    -webkit-appearance: none !important;
+    appearance: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
     display: block !important;
     min-height: 44px;
     text-align: left !important;
+    padding: 12px 14px !important;
+    padding-right: 36px !important;
+    font-size: 16px !important;
   }
 
   .birth-details-block .autocomplete-suggestions {
@@ -4905,8 +4926,8 @@ main[class$="-page"] .wizard-chip.active {
   
   .birth-details-block .field input[type="date"],
   .birth-details-block .field input[type="time"] {
-    -webkit-appearance: none;
-    appearance: none;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -4915,6 +4936,8 @@ main[class$="-page"] .wizard-chip.active {
     padding-right: 36px !important;
     overflow: hidden !important;
     text-align: left !important;
+    font-size: 16px !important;
+    min-height: 44px;
   }
 
   /* Place of Birth dropdown: ensure it shows above other form elements on mobile */
@@ -4970,8 +4993,8 @@ main[class$="-page"] .wizard-chip.active {
   
   .additional-chart-block .field input[type="date"],
   .additional-chart-block .field input[type="time"] {
-    -webkit-appearance: none;
-    appearance: none;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
@@ -4981,13 +5004,15 @@ main[class$="-page"] .wizard-chip.active {
     padding-right: 36px !important;
     overflow: hidden !important;
     text-align: left !important;
+    font-size: 16px !important;
+    min-height: 44px;
   }
 
   /* Mobile Date and Time Input Fixes */
   .field input[type="date"],
   .field input[type="time"] {
-    -webkit-appearance: none;
-    appearance: none;
+    -webkit-appearance: none !important;
+    appearance: none !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
