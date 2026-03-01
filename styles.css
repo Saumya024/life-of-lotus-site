@@ -3295,6 +3295,52 @@ a.area-item:hover,
   min-height: 44px;
 }
 
+/* Custom Select Wrapper — keeps native picker but centers displayed value */
+.custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.custom-select-display {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid rgba(67, 16, 57, 0.2);
+  border-radius: 8px;
+  font-family: var(--font-heading);
+  font-size: var(--text-body);
+  color: var(--primary);
+  background-color: var(--white);
+  box-sizing: border-box;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+  opacity: 0.5;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23431039' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+}
+
+.custom-select-native {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+  border: none;
+  background: transparent;
+  font-size: 16px; /* prevent iOS zoom */
+}
+
+.custom-select-wrapper.required-empty .custom-select-display,
+.custom-select-native.required-empty ~ .custom-select-display {
+  border-color: #d32f2f;
+}
+
 .tob-unknown-label {
   display: block;
   margin-top: 8px;
@@ -4011,18 +4057,18 @@ main[class$="-page"] .wizard-chip.active {
     box-sizing: border-box !important;
   }
   
-  .birth-details-block .field select {
-    padding: 12px 14px !important;
+  .birth-details-block .field select,
+  .birth-details-block .field .custom-select-native {
     font-size: 16px !important;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23431039' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px !important;
-    text-align: center !important;
   }
-  
+
+  .birth-details-block .field .custom-select-display {
+    justify-content: center !important;
+    text-align: center !important;
+    font-size: 16px !important;
+    padding: 12px 36px 12px 36px !important;
+  }
+
   .birth-details-block .field input[type="date"],
   .birth-details-block .field input[type="time"] {
     -webkit-appearance: none !important;
@@ -4061,16 +4107,15 @@ main[class$="-page"] .wizard-chip.active {
     box-sizing: border-box !important;
   }
 
-  .additional-chart-block .field select {
-    padding: 12px 14px !important;
+  .additional-chart-block .field .custom-select-native {
     font-size: 16px !important;
-    -webkit-appearance: none;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23431039' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 14px center;
-    padding-right: 36px !important;
+  }
+
+  .additional-chart-block .field .custom-select-display {
+    justify-content: center !important;
     text-align: center !important;
+    font-size: 16px !important;
+    padding: 12px 36px 12px 36px !important;
   }
 
   .additional-chart-block .field input[type="date"],
@@ -5081,10 +5126,13 @@ main[class$="-page"] .wizard-chip.active {
     min-height: 44px;
   }
 
-  /* Primary Area of Guidance / select: center selected text on mobile */
-  .birth-details-block .field select,
-  .additional-chart-block .field select {
+  /* Primary Area of Guidance: center display text on mobile */
+  .birth-details-block .field .custom-select-display,
+  .additional-chart-block .field .custom-select-display {
+    justify-content: center !important;
     text-align: center !important;
+    padding: 12px 36px 12px 36px !important;
+    font-size: 16px !important;
   }
 
   /* Mobile Date and Time Input Fixes */

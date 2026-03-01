@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=11" />
+  <link rel="stylesheet" href="styles.css?v=12" />
 </head>
 
 <body>
@@ -148,15 +148,18 @@
   
             <div class="field">
               <label for="intake-area">Primary Area of Guidance *</label>
-              <select name="area" id="intake-area" required>
-                <option value="">Select an area</option>
-                <option>Career & Finances</option>
-                <option>Marriage & Relationships</option>
-                <option>Health & Wellbeing</option>
-                <option>Family & Children</option>
-                <option>Personal / Spiritual Growth</option>
-                <option>Open session</option>
-              </select>
+              <div class="custom-select-wrapper">
+                <div class="custom-select-display" id="area-display" aria-hidden="true">Select an area</div>
+                <select name="area" id="intake-area" required class="custom-select-native">
+                  <option value="">Select an area</option>
+                  <option>Career & Finances</option>
+                  <option>Marriage & Relationships</option>
+                  <option>Health & Wellbeing</option>
+                  <option>Family & Children</option>
+                  <option>Personal / Spiritual Growth</option>
+                  <option>Open session</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
@@ -1234,6 +1237,28 @@
       const input = document.getElementById('intake-pob');
       const suggestionsContainer = document.getElementById('place-suggestions');
       if (input && suggestionsContainer) initPlaceAutocomplete(input, suggestionsContainer);
+    })();
+
+    // Custom select display: sync selected value to centered display div
+    (function() {
+      const areaSelect = document.getElementById('intake-area');
+      const areaDisplay = document.getElementById('area-display');
+      if (areaSelect && areaDisplay) {
+        areaSelect.addEventListener('change', function() {
+          const selected = this.options[this.selectedIndex];
+          areaDisplay.textContent = selected.value ? selected.text : 'Select an area';
+          areaDisplay.style.opacity = selected.value ? '1' : '0.5';
+          // sync border color with required-empty state
+          const wrapper = areaSelect.closest('.custom-select-wrapper');
+          if (wrapper) {
+            if (!selected.value) {
+              areaDisplay.style.borderColor = '#d32f2f';
+            } else {
+              areaDisplay.style.borderColor = '';
+            }
+          }
+        });
+      }
     })();
   </script>
 
