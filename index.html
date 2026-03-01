@@ -1730,6 +1730,7 @@
     (function() {
       function equalizePricingCards() {
         document.querySelectorAll('.pricing-grid').forEach(function(grid) {
+          if (window.getComputedStyle(grid).display === 'none') return;
           var cards = grid.querySelectorAll('.pricing-card');
           cards.forEach(function(c) { c.style.minHeight = ''; });
           var maxH = 0;
@@ -1752,23 +1753,27 @@
       window.addEventListener('resize', equalizePricingCards);
 
       document.querySelectorAll('.pricing-expand-toggle').forEach(function(toggle) {
-        toggle.addEventListener('click', function() {
+        toggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
           var cardId = this.getAttribute('data-card');
           var content = document.getElementById(cardId);
           if (!content) return;
           var card = this.closest('.pricing-card');
-          if (content.classList.contains('active')) {
+          var isClosing = content.classList.contains('active');
+          if (isClosing) {
             content.classList.remove('active');
             this.classList.remove('active');
             this.setAttribute('aria-expanded', 'false');
             if (card) card.style.minHeight = '';
+            window.setTimeout(equalizePricingCards, 450);
           } else {
             content.classList.add('active');
             this.classList.add('active');
             this.setAttribute('aria-expanded', 'true');
             if (card) card.style.minHeight = 'auto';
+            window.setTimeout(equalizePricingCards, 100);
           }
-          setTimeout(equalizePricingCards, 50);
         });
       });
     })();
