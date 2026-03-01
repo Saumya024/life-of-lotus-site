@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Core Benefits – gap test</title>
+  <!--
+    Layout test: open this file in a browser (or run a local server and open index.html).
+    Check: 1) Clear horizontal gap between Clarity | Timing | Action. 2) Console shows column-gap (expect 120px desktop, 80px tablet).
+    Verify layout changes here before claiming they're fixed.
+  -->
+  <link rel="stylesheet" href="styles.css?v=17" />
+  <style>
+    body { margin: 0; padding: 20px; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <section class="core-benefits" id="main-content" role="main">
+    <div class="core-benefits-container" id="core-container">
+      <div class="core-benefit-block">
+        <h3 class="core-benefit-title">Clarity</h3>
+        <p class="core-benefit-description">What's happening?</p>
+      </div>
+      <div class="core-benefit-block">
+        <h3 class="core-benefit-title">Timing</h3>
+        <p class="core-benefit-description">When will it change?</p>
+      </div>
+      <div class="core-benefit-block">
+        <h3 class="core-benefit-title">Action</h3>
+        <p class="core-benefit-description">What should I do now?</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      var el = document.getElementById('core-container');
+      if (!el) return;
+      var cs = window.getComputedStyle(el);
+      var gap = cs.getPropertyValue('column-gap');
+      var grid = cs.getPropertyValue('grid-template-columns');
+      var display = cs.getPropertyValue('display');
+      console.log('Core Benefits gap test:');
+      console.log('  display:', display);
+      console.log('  grid-template-columns:', grid);
+      console.log('  column-gap:', gap);
+      console.log('  row-gap:', cs.getPropertyValue('row-gap'));
+      if (gap === '0px' || gap === 'normal') {
+        console.warn('Gap is missing or zero – check CSS cascade / cache.');
+      }
+    })();
+  </script>
+</body>
+</html>

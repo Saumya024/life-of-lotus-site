@@ -1349,24 +1349,34 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 .core-benefits-container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 250px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  column-gap: 100px;
+  row-gap: 24px;
   align-items: stretch;
+  padding: 0 24px;
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .core-benefit-block {
   background: transparent;
-  padding: 48px 32px;
+  padding: 48px 24px;
+  margin: 0;
   text-align: center;
   position: relative;
   transition: transform 0.3s ease;
   min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .core-benefit-block::before {
@@ -1404,8 +1414,10 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  margin: 0;
+  margin: 0 !important;
   white-space: nowrap;
+  width: max-content !important;
+  text-align: center !important;
 }
 
 .core-benefit-description {
@@ -1413,31 +1425,60 @@ section {
   font-size: var(--text-body);
   color: rgba(248, 246, 242, 0.9);
   line-height: 1.6;
-  margin: 0;
   position: absolute;
-  top: calc(75% + 20px);
+  top: calc(50% + 110px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
-  width: 500%;
-  text-align: center;
+  margin: 0 !important;
+  text-align: center !important;
+  box-sizing: border-box;
+  padding: 0 8px;
+  white-space: nowrap;
+  width: max-content !important;
+}
+
+@media (max-width: 920px) {
+  .core-benefits {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding-bottom: 48px;
+    display: block;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .core-benefits-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 100%;
+    overflow: visible;
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
   .core-benefits {
-    padding: 30px 20px;
-    height: auto;
-    min-height: auto;
+    padding: 30px 20px 48px 20px;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
   
   .core-benefits-container {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 20px;
     width: 100%;
+    padding: 0 16px;
+    box-sizing: border-box;
   }
   
   .core-benefit-block {
     padding: 20px 16px;
+    margin: 0;
     min-height: 180px;
     text-align: center;
   }
@@ -1454,16 +1495,19 @@ section {
   
   .core-benefit-title {
     font-size: var(--text-h3);
-    margin: 0;
+    margin: 0 !important;
     white-space: nowrap;
+    width: max-content !important;
   }
   
   .core-benefit-description {
     font-size: var(--text-small);
     line-height: 1.6;
-    margin: 0;
-    text-align: center;
-    width: 100%;
+    top: calc(50% + 88px);
+    margin: 0 !important;
+    text-align: center !important;
+    padding: 0 8px;
+    width: max-content !important;
   }
 }
 
@@ -3991,18 +4035,28 @@ section {
   .core-benefits {
     padding: 80px 24px;
     overflow: visible;
+    height: auto;
+    min-height: auto;
   }
 
   .core-benefits-container {
     max-width: 100%;
-    padding: 0;
-    gap: 80px;
+    padding: 0 24px;
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    column-gap: 64px;
+    row-gap: 24px;
+    box-sizing: border-box;
+    overflow: visible;
   }
 
+  /* Shape 160px; question 10% lower */
   .core-benefit-description {
-    width: 100%;
-    position: static;
-    transform: none;
+    top: calc(50% + 99px);
+    white-space: nowrap;
+  }
+
+  .core-benefit-block {
+    margin: 0;
   }
 
   /* Ensure all shapes are the same size in tablet view */
@@ -4050,6 +4104,11 @@ section {
   main[class$="-page"] {
     margin-top: -56px;
     padding-top: 112px;
+  }
+
+  /* Reset rituals: ascendant options (Aries, Taurus, etc.) in primary on tablet/mobile */
+  .ascendant-option {
+    color: var(--primary) !important;
   }
 
   .hero-planet-circle {
@@ -5545,6 +5604,11 @@ section {
   color: var(--primary);
 }
 
+.about-section-6 {
+  background-color: var(--primary-light);
+  color: var(--cream-white);
+}
+
 /* Section 6 removed - now only 5 sections */
 
 .about-content {
@@ -5564,7 +5628,8 @@ section {
 }
 
 .about-section-2 h2,
-.about-section-4 h2 {
+.about-section-4 h2,
+.about-section-6 h2 {
   color: var(--cream-white);
 }
 
@@ -5599,7 +5664,9 @@ section {
 .about-section-2 p,
 .about-section-2 li,
 .about-section-4 p,
-.about-section-4 li {
+.about-section-4 li,
+.about-section-6 p,
+.about-section-6 li {
   color: var(--cream-white);
 }
 
@@ -5615,6 +5682,7 @@ section {
   align-items: center;
   text-align: left;
   margin-bottom: 0;
+  color: inherit;
 }
 
 .about-section-toggle h2 {
@@ -5632,7 +5700,8 @@ section {
 }
 
 .about-section-2 .toggle-icon,
-.about-section-4 .toggle-icon {
+.about-section-4 .toggle-icon,
+.about-section-6 .toggle-icon {
   color: var(--cream-white);
 }
 
