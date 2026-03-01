@@ -3336,9 +3336,8 @@ a.area-item:hover,
   font-size: 16px; /* prevent iOS zoom */
 }
 
-.custom-select-wrapper.required-empty .custom-select-display,
-.custom-select-native.required-empty ~ .custom-select-display {
-  border-color: #d32f2f;
+.custom-select-display.required-empty {
+  border-color: #d32f2f !important;
 }
 
 .tob-unknown-label {

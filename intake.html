@@ -1244,14 +1244,18 @@
       const areaSelect = document.getElementById('intake-area');
       const areaDisplay = document.getElementById('area-display');
       if (areaSelect && areaDisplay) {
-        // Set red border on page load since field is empty
-        areaDisplay.style.borderColor = '#d32f2f';
+        // Red border on page load (empty = required-empty like other fields)
+        areaDisplay.classList.add('required-empty');
 
         areaSelect.addEventListener('change', function() {
           const selected = this.options[this.selectedIndex];
           areaDisplay.textContent = selected.value ? selected.text : 'Select an area';
           areaDisplay.style.opacity = selected.value ? '1' : '0.5';
-          areaDisplay.style.borderColor = selected.value ? '' : '#d32f2f';
+          if (selected.value) {
+            areaDisplay.classList.remove('required-empty');
+          } else {
+            areaDisplay.classList.add('required-empty');
+          }
         });
       }
     })();
