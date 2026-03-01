@@ -4013,6 +4013,7 @@ main[class$="-page"] .wizard-chip.active {
     min-width: 0 !important;
     display: block !important;
     min-height: 44px;
+    text-align: left !important;
   }
 
   .birth-details-block .autocomplete-suggestions {
