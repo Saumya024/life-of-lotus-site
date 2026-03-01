@@ -1965,6 +1965,10 @@ section {
   font-weight: 500;
   margin: 0 0 12px 0;
   color: var(--primary);
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pricing-best-for {
@@ -3843,11 +3847,21 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .pricing-name {
-    font-size: 26px;
+    font-size: 24px;
+    min-height: 2.8em;
+  }
+
+  .pricing-best-for {
+    min-height: 56px;
+    font-size: 14px;
+  }
+
+  .pricing-duration {
+    font-size: 17px;
   }
 
   .pricing-price {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .pricing-cta {
