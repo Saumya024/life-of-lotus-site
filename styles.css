@@ -1958,6 +1958,9 @@ section {
   margin-bottom: 12px;
   color: rgba(67, 16, 57, 0.7);
   font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pricing-name {
@@ -1965,7 +1968,6 @@ section {
   font-weight: 500;
   margin: 0 0 12px 0;
   color: var(--primary);
-  min-height: 2.4em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2021,6 +2023,9 @@ section {
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(67, 16, 57, 0.12);
   font-family: var(--font-body);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .pricing-details {
@@ -3848,11 +3853,9 @@ main[class$="-page"] .wizard-chip.active {
 
   .pricing-name {
     font-size: 24px;
-    min-height: 2.8em;
   }
 
   .pricing-best-for {
-    min-height: 56px;
     font-size: 14px;
   }
 

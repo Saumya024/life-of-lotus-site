@@ -69,7 +69,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=31" />
+  <link rel="stylesheet" href="styles.css?v=32" />
 </head>
 
 <body>
@@ -1728,29 +1728,50 @@
   <!-- Pricing Expand Toggle + Equal Heights -->
   <script>
     (function() {
-      function equalizePricingCards() {
+      var sectionClasses = [
+        '.pricing-duration',
+        '.pricing-name',
+        '.pricing-best-for',
+        '.pricing-toggle',
+        '.pricing-price',
+        '.pricing-details'
+      ];
+
+      function alignPricingSections() {
         document.querySelectorAll('.pricing-grid').forEach(function(grid) {
           if (window.getComputedStyle(grid).display === 'none') return;
-          var cards = grid.querySelectorAll('.pricing-card');
-          cards.forEach(function(c) { c.style.minHeight = ''; });
-          var maxH = 0;
-          cards.forEach(function(c) {
-            if (!c.querySelector('.pricing-expand-content.active')) {
-              maxH = Math.max(maxH, c.scrollHeight);
+          var cards = Array.from(grid.querySelectorAll('.pricing-card'));
+          if (cards.length < 2) return;
+
+          sectionClasses.forEach(function(sel) {
+            var els = cards.map(function(c) { return c.querySelector(sel); });
+            els.forEach(function(el) { if (el) el.style.minHeight = ''; });
+            var maxH = 0;
+            els.forEach(function(el) { if (el) maxH = Math.max(maxH, el.offsetHeight); });
+            if (maxH > 0) {
+              els.forEach(function(el) { if (el) el.style.minHeight = maxH + 'px'; });
             }
           });
-          if (maxH > 0) {
+
+          cards.forEach(function(c) { c.style.minHeight = ''; });
+          var maxCardH = 0;
+          cards.forEach(function(c) {
+            if (!c.querySelector('.pricing-expand-content.active')) {
+              maxCardH = Math.max(maxCardH, c.scrollHeight);
+            }
+          });
+          if (maxCardH > 0) {
             cards.forEach(function(c) {
               if (!c.querySelector('.pricing-expand-content.active')) {
-                c.style.minHeight = maxH + 'px';
+                c.style.minHeight = maxCardH + 'px';
               }
             });
           }
         });
       }
 
-      equalizePricingCards();
-      window.addEventListener('resize', equalizePricingCards);
+      alignPricingSections();
+      window.addEventListener('resize', alignPricingSections);
 
       document.querySelectorAll('.pricing-expand-toggle').forEach(function(toggle) {
         toggle.addEventListener('click', function(e) {
@@ -1766,13 +1787,13 @@
             this.classList.remove('active');
             this.setAttribute('aria-expanded', 'false');
             if (card) card.style.minHeight = '';
-            window.setTimeout(equalizePricingCards, 450);
+            window.setTimeout(alignPricingSections, 450);
           } else {
             content.classList.add('active');
             this.classList.add('active');
             this.setAttribute('aria-expanded', 'true');
             if (card) card.style.minHeight = 'auto';
-            window.setTimeout(equalizePricingCards, 100);
+            window.setTimeout(alignPricingSections, 100);
           }
         });
       });
