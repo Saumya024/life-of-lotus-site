@@ -4020,6 +4020,7 @@ main[class$="-page"] .wizard-chip.active {
     background-repeat: no-repeat;
     background-position: right 14px center;
     padding-right: 36px !important;
+    text-align: center !important;
   }
   
   .birth-details-block .field input[type="date"],
@@ -4069,6 +4070,7 @@ main[class$="-page"] .wizard-chip.active {
     background-repeat: no-repeat;
     background-position: right 14px center;
     padding-right: 36px !important;
+    text-align: center !important;
   }
 
   .additional-chart-block .field input[type="date"],
@@ -5077,6 +5079,12 @@ main[class$="-page"] .wizard-chip.active {
     text-align: center !important;
     font-size: 16px !important;
     min-height: 44px;
+  }
+
+  /* Primary Area of Guidance / select: center selected text on mobile */
+  .birth-details-block .field select,
+  .additional-chart-block .field select {
+    text-align: center !important;
   }
 
   /* Mobile Date and Time Input Fixes */
