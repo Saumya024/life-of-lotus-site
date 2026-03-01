@@ -1937,7 +1937,6 @@ section {
   display: flex;
   flex-direction: column;
   overflow: visible;
-  min-height: 620px;
 }
 
 .pricing-popular-badge {

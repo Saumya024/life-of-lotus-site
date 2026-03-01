@@ -69,7 +69,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=29" />
+  <link rel="stylesheet" href="styles.css?v=30" />
 </head>
 
 <body>
@@ -1725,24 +1725,53 @@
     }
   </script>
 
-  <!-- Pricing Expand Toggle -->
+  <!-- Pricing Expand Toggle + Equal Heights -->
   <script>
-    document.querySelectorAll('.pricing-expand-toggle').forEach(function(toggle) {
-      toggle.addEventListener('click', function() {
-        var cardId = this.getAttribute('data-card');
-        var content = document.getElementById(cardId);
-        if (!content) return;
-        if (content.classList.contains('active')) {
-          content.classList.remove('active');
-          this.classList.remove('active');
-          this.setAttribute('aria-expanded', 'false');
-        } else {
-          content.classList.add('active');
-          this.classList.add('active');
-          this.setAttribute('aria-expanded', 'true');
-        }
+    (function() {
+      function equalizePricingCards() {
+        document.querySelectorAll('.pricing-grid').forEach(function(grid) {
+          var cards = grid.querySelectorAll('.pricing-card');
+          cards.forEach(function(c) { c.style.minHeight = ''; });
+          var maxH = 0;
+          cards.forEach(function(c) {
+            if (!c.querySelector('.pricing-expand-content.active')) {
+              maxH = Math.max(maxH, c.scrollHeight);
+            }
+          });
+          if (maxH > 0) {
+            cards.forEach(function(c) {
+              if (!c.querySelector('.pricing-expand-content.active')) {
+                c.style.minHeight = maxH + 'px';
+              }
+            });
+          }
+        });
+      }
+
+      equalizePricingCards();
+      window.addEventListener('resize', equalizePricingCards);
+
+      document.querySelectorAll('.pricing-expand-toggle').forEach(function(toggle) {
+        toggle.addEventListener('click', function() {
+          var cardId = this.getAttribute('data-card');
+          var content = document.getElementById(cardId);
+          if (!content) return;
+          var card = this.closest('.pricing-card');
+          if (content.classList.contains('active')) {
+            content.classList.remove('active');
+            this.classList.remove('active');
+            this.setAttribute('aria-expanded', 'false');
+            if (card) card.style.minHeight = '';
+          } else {
+            content.classList.add('active');
+            this.classList.add('active');
+            this.setAttribute('aria-expanded', 'true');
+            if (card) card.style.minHeight = 'auto';
+          }
+          setTimeout(equalizePricingCards, 50);
+        });
       });
-    });
+    })();
   </script>
 
   <!-- FAQ Chat Widget -->
