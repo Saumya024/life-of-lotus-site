@@ -3308,7 +3308,7 @@ a.area-item:hover,
   border-radius: 8px;
   font-family: var(--font-heading);
   font-size: var(--text-body);
-  color: var(--primary);
+  color: rgba(67, 16, 57, 0.4); /* placeholder text color */
   background-color: var(--white);
   box-sizing: border-box;
   min-height: 44px;
@@ -3316,10 +3316,13 @@ a.area-item:hover,
   align-items: center;
   justify-content: flex-start;
   pointer-events: none;
-  opacity: 0.5;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23431039' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 14px center;
+}
+
+.custom-select-display.filled {
+  color: var(--primary);
 }
 
 .custom-select-native {

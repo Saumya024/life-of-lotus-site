@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=12" />
+  <link rel="stylesheet" href="styles.css?v=13" />
 </head>
 
 <body>
@@ -1250,11 +1250,12 @@
         areaSelect.addEventListener('change', function() {
           const selected = this.options[this.selectedIndex];
           areaDisplay.textContent = selected.value ? selected.text : 'Select an area';
-          areaDisplay.style.opacity = selected.value ? '1' : '0.5';
           if (selected.value) {
             areaDisplay.classList.remove('required-empty');
+            areaDisplay.classList.add('filled');
           } else {
             areaDisplay.classList.add('required-empty');
+            areaDisplay.classList.remove('filled');
           }
         });
       }
