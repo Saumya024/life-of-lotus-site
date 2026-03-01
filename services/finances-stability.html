@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=32" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can astrology predict when my financial situation will improve?", "acceptedAnswer": { "@type": "Answer", "text": "Astrology identifies timing windows when wealth-related houses and planets become active. This shows when conditions favor financial improvement — not a guaranteed date, but a structural framework for planning." } },
+      { "@type": "Question", "name": "Is this a substitute for financial advice?", "acceptedAnswer": { "@type": "Answer", "text": "No. This consultation provides timing insight and pattern recognition — not investment advice. Use it alongside qualified financial counsel, not instead of it." } },
+      { "@type": "Question", "name": "Why does money seem to slip away despite earning well?", "acceptedAnswer": { "@type": "Answer", "text": "Certain planetary configurations create patterns where accumulation is harder regardless of income. Your chart shows whether this is a temporary phase or a structural pattern, and what timing supports better retention." } },
+      { "@type": "Question", "name": "Can astrology help decide when to buy property or make large investments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Timing analysis identifies periods when property and investment-related houses are activated favorably. This doesn't replace due diligence but adds a timing layer to your decision-making." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -107,8 +119,30 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book Financial Guidance Session</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Financial Astrology — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology predict when my financial situation will improve?</button>
+        <div class="faq-answer">Astrology identifies timing windows when wealth-related houses and planets become active. This shows when conditions favor financial improvement — not a guaranteed date, but a structural framework for planning.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is this a substitute for financial advice?</button>
+        <div class="faq-answer">No. This consultation provides timing insight and pattern recognition — not investment advice. Use it alongside qualified financial counsel, not instead of it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Why does money seem to slip away despite earning well?</button>
+        <div class="faq-answer">Certain planetary configurations create patterns where accumulation is harder regardless of income. Your chart shows whether this is a temporary phase or a structural pattern, and what timing supports better retention.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology help decide when to buy property or make large investments?</button>
+        <div class="faq-answer">Yes. Timing analysis identifies periods when property and investment-related houses are activated favorably. This doesn't replace due diligence but adds a timing layer to your decision-making.</div>
+      </div>
     </div>
   </section>
 
@@ -155,5 +189,14 @@
   </div>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
 </body>
 </html>

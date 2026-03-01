@@ -25,6 +25,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=32" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can astrology predict when I will have children?", "acceptedAnswer": { "@type": "Answer", "text": "Astrology can identify timing windows when childbirth or family expansion is more likely based on your 5th house, divisional charts, and active planetary periods. It shows favorable windows, not guaranteed dates." } },
+      { "@type": "Question", "name": "Why is there constant tension in my family despite effort to resolve it?", "acceptedAnswer": { "@type": "Answer", "text": "Family tension often corresponds to specific planetary activations in your 4th house and related areas. Understanding the timing helps you know when to engage, when to step back, and when conditions are likely to ease." } },
+      { "@type": "Question", "name": "Can astrology help with parenting challenges during difficult phases?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your child's chart (if birth details are available) and your own chart together reveal what's driving the challenge and when the phase may shift. This provides perspective and timing, not parenting advice." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -107,8 +118,26 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book Family & Children Consultation</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Family & Children Astrology — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology predict when I will have children?</button>
+        <div class="faq-answer">Astrology can identify timing windows when childbirth or family expansion is more likely based on your 5th house, divisional charts, and active planetary periods. It shows favorable windows, not guaranteed dates.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Why is there constant tension in my family despite effort to resolve it?</button>
+        <div class="faq-answer">Family tension often corresponds to specific planetary activations in your 4th house and related areas. Understanding the timing helps you know when to engage, when to step back, and when conditions are likely to ease.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology help with parenting challenges during difficult phases?</button>
+        <div class="faq-answer">Yes. Your child's chart (if birth details are available) and your own chart together reveal what's driving the challenge and when the phase may shift. This provides perspective and timing, not parenting advice.</div>
+      </div>
     </div>
   </section>
 
@@ -155,5 +184,14 @@
   </div>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
 </body>
 </html>

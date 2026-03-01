@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=32" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can astrology help me time a major business or investment decision?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Timing analysis identifies when your chart supports bold action and when caution is warranted. For business decisions, investments, or major commitments, this adds a structural timing layer to your own judgment." } },
+      { "@type": "Question", "name": "How do I know if now is the right time for a big decision?", "acceptedAnswer": { "@type": "Answer", "text": "Your active planetary period and current transits indicate whether you're in a window that supports decisive action or one that favors patience. A consultation maps this specifically to your chart and situation." } },
+      { "@type": "Question", "name": "Is this consultation relevant for entrepreneurs and business owners?", "acceptedAnswer": { "@type": "Answer", "text": "Particularly so. Entrepreneurs and business owners use this for timing expansions, partnerships, exits, and major pivots. The analysis is the same as any consultation — the stakes and specificity are often higher." } },
+      { "@type": "Question", "name": "What if I've already made a decision — can astrology still help?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Post-decision, astrology shows what's likely to unfold, when critical phases will come, and what supports a better outcome. Knowing the timing ahead helps you prepare rather than react." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -107,8 +119,30 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book Decision Timing Session</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>High-Stakes Decisions — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology help me time a major business or investment decision?</button>
+        <div class="faq-answer">Yes. Timing analysis identifies when your chart supports bold action and when caution is warranted. For business decisions, investments, or major commitments, this adds a structural timing layer to your own judgment.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How do I know if now is the right time for a big decision?</button>
+        <div class="faq-answer">Your active planetary period and current transits indicate whether you're in a window that supports decisive action or one that favors patience. A consultation maps this specifically to your chart and situation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is this consultation relevant for entrepreneurs and business owners?</button>
+        <div class="faq-answer">Particularly so. Entrepreneurs and business owners use this for timing expansions, partnerships, exits, and major pivots. The analysis is the same as any consultation — the stakes and specificity are often higher.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What if I've already made a decision — can astrology still help?</button>
+        <div class="faq-answer">Yes. Post-decision, astrology shows what's likely to unfold, when critical phases will come, and what supports a better outcome. Knowing the timing ahead helps you prepare rather than react.</div>
+      </div>
     </div>
   </section>
 
@@ -153,6 +187,15 @@
     <div class="faq-chat-header"><h3>Have a Question?</h3><button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button></div>
     <div id="faq-chat-content" class="faq-chat-content"></div>
   </div>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
 </body>

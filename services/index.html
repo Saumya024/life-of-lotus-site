@@ -69,6 +69,17 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What makes a Vedic astrology consultation different from a horoscope reading?", "acceptedAnswer": { "@type": "Answer", "text": "A horoscope is based on your sun sign alone. A Vedic astrology consultation uses your exact birth chart — date, time, and place — to analyze planetary periods, transits, and divisional charts. It's structured, specific to you, and actionable." } },
+      { "@type": "Question", "name": "How do online Vedic astrology consultations work?", "acceptedAnswer": { "@type": "Answer", "text": "Sessions are conducted via audio or video call. You share your birth details beforehand. The astrologer analyzes your chart before the session and discusses findings, timing, and guidance during the call. No in-person meeting is needed." } },
+      { "@type": "Question", "name": "How do I choose between a 30, 60, or 90-minute session?", "acceptedAnswer": { "@type": "Answer", "text": "30 minutes suits focused, single-topic questions. 60 minutes covers up to three related themes with deeper analysis. 90 minutes allows exploration of multiple life areas, charts, and long-term patterns. Most first-time clients choose 60 or 90 minutes." } }
+    ]
+  }
+  </script>
 
   <link rel="icon" type="image/png" href="../assets/images/Radicle (4).png">
   <link rel="apple-touch-icon" href="../assets/images/Radicle (4).png">
@@ -168,8 +179,26 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book a Consultation</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Vedic Astrology Consultations — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What makes a Vedic astrology consultation different from a horoscope reading?</button>
+        <div class="faq-answer">A horoscope is based on your sun sign alone. A Vedic astrology consultation uses your exact birth chart — date, time, and place — to analyze planetary periods, transits, and divisional charts. It's structured, specific to you, and actionable.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How do online Vedic astrology consultations work?</button>
+        <div class="faq-answer">Sessions are conducted via audio or video call. You share your birth details beforehand. The astrologer analyzes your chart before the session and discusses findings, timing, and guidance during the call. No in-person meeting is needed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How do I choose between a 30, 60, or 90-minute session?</button>
+        <div class="faq-answer">30 minutes suits focused, single-topic questions. 60 minutes covers up to three related themes with deeper analysis. 90 minutes allows exploration of multiple life areas, charts, and long-term patterns. Most first-time clients choose 60 or 90 minutes.</div>
+      </div>
     </div>
   </section>
 
@@ -214,6 +243,15 @@
     <div class="faq-chat-header"><h3>Have a Question?</h3><button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button></div>
     <div id="faq-chat-content" class="faq-chat-content"></div>
   </div>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
 </body>

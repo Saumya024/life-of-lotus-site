@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=32" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "How can astrology help me decide when to relocate or move abroad?", "acceptedAnswer": { "@type": "Answer", "text": "Your chart shows when relocation-related houses and planets are active. Combined with transit analysis, this identifies windows when moves are more likely to go smoothly — and periods to avoid." } },
+      { "@type": "Question", "name": "Is there a right time to make a major life change according to astrology?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Major life changes align better with certain planetary periods. Timing analysis shows when your chart supports change versus when it favors consolidation — so you're not fighting structural resistance." } },
+      { "@type": "Question", "name": "How long will this difficult phase last?", "acceptedAnswer": { "@type": "Answer", "text": "Planetary periods have defined durations. A consultation maps when the current challenging phase is likely to shift, what's driving the difficulty, and what supports you through it." } },
+      { "@type": "Question", "name": "Can astrology help during divorce or separation decisions?", "acceptedAnswer": { "@type": "Answer", "text": "Astrology shows what's structurally active in your relationship house and whether difficulties are temporary or part of a longer cycle. This provides context for the decision — the choice remains yours." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -107,8 +119,30 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book Transition Timing Session</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Life Transitions & Timing — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How can astrology help me decide when to relocate or move abroad?</button>
+        <div class="faq-answer">Your chart shows when relocation-related houses and planets are active. Combined with transit analysis, this identifies windows when moves are more likely to go smoothly — and periods to avoid.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Is there a right time to make a major life change according to astrology?</button>
+        <div class="faq-answer">Yes. Major life changes align better with certain planetary periods. Timing analysis shows when your chart supports change versus when it favors consolidation — so you're not fighting structural resistance.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How long will this difficult phase last?</button>
+        <div class="faq-answer">Planetary periods have defined durations. A consultation maps when the current challenging phase is likely to shift, what's driving the difficulty, and what supports you through it.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology help during divorce or separation decisions?</button>
+        <div class="faq-answer">Astrology shows what's structurally active in your relationship house and whether difficulties are temporary or part of a longer cycle. This provides context for the decision — the choice remains yours.</div>
+      </div>
     </div>
   </section>
 
@@ -155,5 +189,14 @@
   </div>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
 </body>
 </html>

@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=32" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What are karmic patterns in Vedic astrology?", "acceptedAnswer": { "@type": "Answer", "text": "Karmic patterns are recurring themes — in relationships, career, health, or life events — that trace back to specific planetary placements in your birth chart. They show what you're predisposed to experience repeatedly until the underlying cycle shifts." } },
+      { "@type": "Question", "name": "Can karmic cycles be broken or do they just repeat?", "acceptedAnswer": { "@type": "Answer", "text": "Some patterns soften through awareness and conscious effort. Others have defined durations tied to planetary periods. A consultation clarifies which patterns you can influence and which ones you need to navigate with preparation." } },
+      { "@type": "Question", "name": "Why does the same problem keep coming back in different forms?", "acceptedAnswer": { "@type": "Answer", "text": "Different life events often share the same underlying planetary trigger. Your chart reveals the common root beneath seemingly different problems — which is why addressing surface symptoms alone doesn't resolve the pattern." } },
+      { "@type": "Question", "name": "How long do karmic cycles last in Vedic astrology?", "acceptedAnswer": { "@type": "Answer", "text": "Karmic cycles are governed by dashas (planetary periods) that range from 6 to 20 years for major periods, with sub-periods within them. Timing analysis maps exactly where you are in the cycle and when shifts are expected." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -107,8 +119,30 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book Karmic Pattern Consultation</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Karmic Patterns & Cycles — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">What are karmic patterns in Vedic astrology?</button>
+        <div class="faq-answer">Karmic patterns are recurring themes — in relationships, career, health, or life events — that trace back to specific planetary placements in your birth chart. They show what you're predisposed to experience repeatedly until the underlying cycle shifts.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can karmic cycles be broken or do they just repeat?</button>
+        <div class="faq-answer">Some patterns soften through awareness and conscious effort. Others have defined durations tied to planetary periods. A consultation clarifies which patterns you can influence and which ones you need to navigate with preparation.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Why does the same problem keep coming back in different forms?</button>
+        <div class="faq-answer">Different life events often share the same underlying planetary trigger. Your chart reveals the common root beneath seemingly different problems — which is why addressing surface symptoms alone doesn't resolve the pattern.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How long do karmic cycles last in Vedic astrology?</button>
+        <div class="faq-answer">Karmic cycles are governed by dashas (planetary periods) that range from 6 to 20 years for major periods, with sub-periods within them. Timing analysis maps exactly where you are in the cycle and when shifts are expected.</div>
+      </div>
     </div>
   </section>
 
@@ -153,6 +187,15 @@
     <div class="faq-chat-header"><h3>Have a Question?</h3><button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button></div>
     <div id="faq-chat-content" class="faq-chat-content"></div>
   </div>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
 </body>

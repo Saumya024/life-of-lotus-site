@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Brygada+1918:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css?v=32" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "Can Vedic astrology predict when I will get married?", "acceptedAnswer": { "@type": "Answer", "text": "Vedic astrology can identify timing windows when marriage or committed partnership is more likely based on your planetary periods and transits. It doesn't guarantee a date, but it shows when conditions are most favorable." } },
+      { "@type": "Question", "name": "How accurate is Vedic astrology compatibility matching?", "acceptedAnswer": { "@type": "Answer", "text": "When both birth charts are available, compatibility analysis examines harmony and friction points across multiple dimensions — not just sun signs. It highlights areas of natural alignment and where conscious effort will be needed." } },
+      { "@type": "Question", "name": "Why do I keep attracting the same type of partner?", "acceptedAnswer": { "@type": "Answer", "text": "Recurring relationship patterns often trace back to specific planetary placements and active dashas. Your chart can show what's driving the repetition and when the pattern is likely to shift or soften." } },
+      { "@type": "Question", "name": "Can astrology help decide whether to stay in or leave a relationship?", "acceptedAnswer": { "@type": "Answer", "text": "Astrology can show what's structurally active in your relationship house, whether current difficulties are temporary or long-term, and when conditions may improve. The decision remains yours — the chart provides context." } }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -107,8 +119,30 @@
     </div>
 
     <div class="modality-ctas">
-      <a href="../intake.html" class="modality-cta-primary">Request a Session</a>
+      <a href="../intake.html" class="modality-cta-primary">Book Relationship Consultation</a>
       <a href="../index.html#pricing" class="modality-cta-secondary">View Pricing</a>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <h2>Marriage & Relationship Astrology — Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can Vedic astrology predict when I will get married?</button>
+        <div class="faq-answer">Vedic astrology can identify timing windows when marriage or committed partnership is more likely based on your planetary periods and transits. It doesn't guarantee a date, but it shows when conditions are most favorable.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">How accurate is Vedic astrology compatibility matching?</button>
+        <div class="faq-answer">When both birth charts are available, compatibility analysis examines harmony and friction points across multiple dimensions — not just sun signs. It highlights areas of natural alignment and where conscious effort will be needed.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Why do I keep attracting the same type of partner?</button>
+        <div class="faq-answer">Recurring relationship patterns often trace back to specific planetary placements and active dashas. Your chart can show what's driving the repetition and when the pattern is likely to shift or soften.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">Can astrology help decide whether to stay in or leave a relationship?</button>
+        <div class="faq-answer">Astrology can show what's structurally active in your relationship house, whether current difficulties are temporary or long-term, and when conditions may improve. The decision remains yours — the chart provides context.</div>
+      </div>
     </div>
   </section>
 
@@ -153,6 +187,15 @@
     <div class="faq-chat-header"><h3>Have a Question?</h3><button id="faq-chat-close" class="faq-chat-close" aria-label="Close chat">×</button></div>
     <div id="faq-chat-content" class="faq-chat-content"></div>
   </div>
+  <script>
+    document.querySelectorAll('.faq-question').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.parentElement;
+        item.classList.toggle('active');
+        this.setAttribute('aria-expanded', item.classList.contains('active'));
+      });
+    });
+  </script>
   <script src="../js/mobile-menu.js"></script>
   <script src="../js/faq-chat.js?v=7"></script>
 </body>
