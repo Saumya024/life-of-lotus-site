@@ -2204,7 +2204,7 @@ a.area-item:hover {
 }
 
 .safe-space-text {
-  font-size: var(--text-small);
+  font-size: 18px;
   line-height: 1.8;
   margin-bottom: 40px;
   color: var(--cream-white);
@@ -2216,6 +2216,18 @@ a.area-item:hover {
   height: 135px;
   margin: 0 auto;
   filter: brightness(0) saturate(100%) invert(78%) sepia(12%) saturate(1000%) hue-rotate(350deg) brightness(98%) contrast(90%);
+}
+
+@media (max-width: 1024px) {
+  .safe-space-text {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 768px) {
+  .safe-space-text {
+    font-size: 16px;
+  }
 }
 
 /* Testimonials */
@@ -2476,7 +2488,7 @@ a.area-item:hover {
 
 .process-intro {
   font-family: var(--font-body);
-  font-size: var(--text-small);
+  font-size: 18px;
   line-height: 1.8;
   color: var(--cream-white);
   text-align: center;
@@ -3719,6 +3731,10 @@ main[class$="-page"] .wizard-chip.active {
 
   .process-heading {
     font-size: 18px;
+  }
+
+  .process-intro {
+    font-size: 16px;
   }
 
   .header {
@@ -6010,6 +6026,22 @@ main[class$="-page"] .wizard-chip.active {
   border-color: var(--primary);
 }
 
+@media (max-width: 1024px) {
+  .insights-intro {
+    font-size: 17px;
+  }
+  .healing-practices-intro {
+    font-size: 17px;
+  }
+  .ascendant-reset-intro,
+  .ascendant-reset-subtext {
+    font-size: 17px;
+  }
+  .process-intro {
+    font-size: 17px;
+  }
+}
+
 .blog-posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -6193,7 +6225,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .insights-intro {
-    font-size: var(--text-body);
+    font-size: 16px;
   }
 
   .insights-search-filter {
@@ -6251,7 +6283,7 @@ main[class$="-page"] .wizard-chip.active {
 
 .healing-practices-intro {
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  font-size: 18px;
   color: var(--primary-light);
   text-align: center;
   margin-bottom: 48px;
@@ -6268,6 +6300,11 @@ main[class$="-page"] .wizard-chip.active {
 
 .healing-practices-intro p:last-child {
   margin-bottom: 0;
+}
+
+.ascendant-reset-intro,
+.ascendant-reset-subtext {
+  font-size: 18px;
 }
 
 .healing-search-filter {
@@ -6449,13 +6486,18 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .healing-practices-intro {
-    font-size: var(--text-body);
+    font-size: 16px;
     margin-bottom: 48px;
     padding: 0 10px;
   }
 
   .healing-practices-intro p {
     margin-bottom: 16px;
+  }
+
+  .ascendant-reset-intro,
+  .ascendant-reset-subtext {
+    font-size: 16px;
   }
 
   .healing-search-filter {
