@@ -3724,6 +3724,11 @@ main[class$="-page"] .wizard-chip.active {
     box-sizing: border-box;
   }
 
+  /* Reduce gap between header and intake form heading on tablet */
+  .intake {
+    padding: 96px 24px 40px;
+  }
+
   .pricing-container,
   .packages-container {
     padding-left: 24px;
