@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>43-Day Ascendant / Moon Sign Reset | I Read Space</title>
+  <title>43-Day Ascendant / Moon Sign Reset | I Read Space | A Trusted Approach to Astrology</title>
   <meta name="description" content="43-day discipline reset by ascendant or moon sign. Choose your sign, complete a short reflection, commit to one daily action. No scoring—just a clear contract." />
-  <meta property="og:title" content="43-Day Ascendant / Moon Sign Reset | I Read Space" />
+  <meta property="og:title" content="43-Day Ascendant / Moon Sign Reset | I Read Space | A Trusted Approach to Astrology" />
   <meta property="og:description" content="43-day discipline reset by ascendant or moon sign. Choose your sign, complete a short reflection, commit to one daily action. No scoring—just a clear contract." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://ireadspace.com/reset-now.html" />
@@ -14,7 +14,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="43-Day Ascendant / Moon Sign Reset | I Read Space" />
+  <meta name="twitter:title" content="43-Day Ascendant / Moon Sign Reset | I Read Space | A Trusted Approach to Astrology" />
   <meta name="twitter:description" content="43-day discipline reset by ascendant or moon sign. Choose your sign, complete a short reflection, commit to one daily action. No scoring—just a clear contract." />
   <meta name="twitter:image" content="https://ireadspace.com/assets/images/lotus%20image.webp" />
   <link rel="canonical" href="https://ireadspace.com/reset-now.html" />
@@ -30,6 +30,18 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css?v=9" />
+
+  <script>
+    (function() {
+      var ua = navigator.userAgent || navigator.vendor || '';
+      var isAndroid = /android/i.test(ua) ||
+        (/Linux/i.test(ua) && /Mobile/i.test(ua) && !/iPhone|iPad|iPod|iPhone OS/i.test(ua)) ||
+        /\bwv\b/i.test(ua);
+      if (isAndroid) {
+        document.documentElement.classList.add('device-android');
+      }
+    })();
+  </script>
 
   <style>
     .ascendant-reset-page {
@@ -98,10 +110,12 @@
         margin-bottom: 16px;
       }
       /* Android only: center the grid so circles aren't shifted right */
-      html.device-android .ascendant-grid {
-        max-width: 360px;
-        margin-left: auto;
-        margin-right: auto;
+      html.device-android .ascendant-grid,
+      body.device-android .ascendant-grid {
+        max-width: 360px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100%;
       }
       .ascendant-reset-page {
         padding: 32px 20px 64px;
@@ -222,8 +236,12 @@
   <script>
     (function() {
       var ua = navigator.userAgent || navigator.vendor || '';
-      if (/android/i.test(ua)) {
+      var isAndroid = /android/i.test(ua) ||
+        (/Linux/i.test(ua) && /Mobile/i.test(ua) && !/iPhone|iPad|iPod|iPhone OS/i.test(ua)) ||
+        /\bwv\b/i.test(ua);
+      if (isAndroid) {
         document.documentElement.classList.add('device-android');
+        document.body.classList.add('device-android');
       }
     })();
   </script>
