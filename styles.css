@@ -1511,8 +1511,9 @@ section {
   
   .core-benefit-description {
     font-size: var(--text-small);
+    font-weight: 700;
     line-height: 1.6;
-    top: calc(50% + 82px);
+    top: calc(50% + 70px);
     margin: 0 !important;
     text-align: center !important;
     padding: 0 8px;
@@ -4619,7 +4620,11 @@ main[class$="-page"] .wizard-chip.active {
   .hero-cta {
     position: absolute;
     top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px - 5vh);
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
     max-width: calc(100vw - 32px);
     box-sizing: border-box;
     font-size: 24px !important;
@@ -6067,6 +6072,14 @@ main[class$="-page"] .wizard-chip.active {
   line-height: 1.7;
 }
 
+/* About CTA service links: smaller so they fit one line on desktop */
+.about-cta-links {
+  font-size: 13px;
+  white-space: nowrap;
+  margin-top: 40px;
+  margin-bottom: 1.5rem;
+}
+
 .about-cta {
   text-align: center;
   margin-top: 40px;
@@ -6076,9 +6089,31 @@ main[class$="-page"] .wizard-chip.active {
   .about-cta-text {
     font-size: var(--text-h3);
   }
-  
+
   .about-cta-subtext {
     font-size: var(--text-small);
+  }
+
+  /* Keep same CTA gap and link size on mobile */
+  .about-cta {
+    margin-top: 40px;
+  }
+  .about-cta-links {
+    font-size: 13px;
+    margin-top: 40px;
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Tablet: same CTA gap and link size as desktop */
+@media (max-width: 1024px) {
+  .about-cta {
+    margin-top: 40px;
+  }
+  .about-cta-links {
+    font-size: 13px;
+    margin-top: 40px;
+    margin-bottom: 1.5rem;
   }
 }
 
