@@ -1300,6 +1300,7 @@ section {
   font-size: 30px;
   white-space: nowrap;
   transition: background-color 0.3s;
+  text-align: center;
 }
 
 .hero-cta:hover {
@@ -4620,11 +4621,8 @@ main[class$="-page"] .wizard-chip.active {
   .hero-cta {
     position: absolute;
     top: calc(10px + 3 * (100vh - 20px) / 4 + 15px + 56px - 5vh);
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: max-content;
+    left: 50%;
+    transform: translateX(-50%);
     max-width: calc(100vw - 32px);
     box-sizing: border-box;
     font-size: 24px !important;
@@ -4633,6 +4631,7 @@ main[class$="-page"] .wizard-chip.active {
     box-shadow: 0 4px 12px rgba(67, 16, 57, 0.25), 0 2px 4px rgba(64, 192, 197, 0.3);
     border-width: 3px;
     z-index: 10;
+    text-align: center;
   }
 
   .hero-planets {
@@ -6072,7 +6071,7 @@ main[class$="-page"] .wizard-chip.active {
   line-height: 1.7;
 }
 
-/* About CTA service links: smaller so they fit one line on desktop */
+/* About CTA service links: smaller so they fit one line on desktop; wrap on small screens so they don't get cut off */
 .about-cta-links {
   font-size: 13px;
   white-space: nowrap;
@@ -6102,10 +6101,14 @@ main[class$="-page"] .wizard-chip.active {
     font-size: 13px;
     margin-top: 40px;
     margin-bottom: 1.5rem;
+    white-space: normal;
+    max-width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
   }
 }
 
-/* Tablet: same CTA gap and link size as desktop */
+/* Tablet: same CTA gap and link size as desktop; allow links to wrap so they don't get cut off */
 @media (max-width: 1024px) {
   .about-cta {
     margin-top: 40px;
@@ -6114,6 +6117,10 @@ main[class$="-page"] .wizard-chip.active {
     font-size: 13px;
     margin-top: 40px;
     margin-bottom: 1.5rem;
+    white-space: normal;
+    max-width: 100%;
+    padding: 0 8px;
+    box-sizing: border-box;
   }
 }
 
