@@ -4832,7 +4832,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .reach-out-text {
-    font-size: var(--text-body);
+    font-size: 18px;
   }
 
   .reach-out-subtext {
@@ -4871,7 +4871,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .reach-out-text {
-    font-size: var(--text-body);
+    font-size: 18px;
   }
 
   .reach-out-bullets {
@@ -4909,7 +4909,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .area-title {
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 4px;
   }
 
@@ -9495,7 +9495,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .area-title {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .area-cta {
