@@ -4885,15 +4885,32 @@ main[class$="-page"] .wizard-chip.active {
 
   .areas-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 16px;
   }
 
   .area-item {
-    padding: 24px 16px;
+    padding: 20px 14px;
+  }
+
+  .area-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 16px;
+  }
+
+  .area-icon-primary-circle {
+    width: 52px;
+    height: 52px;
+  }
+
+  .area-icon {
+    width: 26px;
+    height: 26px;
   }
 
   .area-title {
-    font-size: 15px;
+    font-size: 14px;
+    margin-bottom: 4px;
   }
 
   .area-detail {
@@ -4905,25 +4922,28 @@ main[class$="-page"] .wizard-chip.active {
     display: inline-flex;
     align-items: center;
     padding: 4px 0;
+    margin-top: 8px;
   }
 
   .area-topics-toggle {
     min-height: 44px;
-    padding: 10px 0;
-    margin-top: 8px;
+    padding: 8px 0;
+    margin-top: 6px;
+    font-size: 13px;
   }
 
   .area-topics-content .area-card-bullets {
-    margin: 12px 0 0 0;
-    padding-top: 12px;
+    margin: 10px 0 0 0;
+    padding-top: 10px;
   }
 
   .area-topics-content.is-open {
-    max-height: 220px;
+    max-height: 200px;
   }
 
   .area-card-bullets li {
     font-size: 13px;
+    margin-bottom: 4px;
   }
 
   .pricing-grid,
@@ -9451,11 +9471,44 @@ main[class$="-page"] .wizard-chip.active {
 
   .areas-grid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 12px;
   }
 
   .area-item {
-    padding: 20px 14px;
+    padding: 18px 12px;
+  }
+
+  .area-icon-wrapper {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+  }
+
+  .area-icon-primary-circle {
+    width: 48px;
+    height: 48px;
+  }
+
+  .area-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .area-title {
+    font-size: 14px;
+  }
+
+  .area-cta {
+    margin-top: 6px;
+  }
+
+  .area-topics-toggle {
+    margin-top: 4px;
+  }
+
+  .area-topics-content .area-card-bullets {
+    margin: 8px 0 0 0;
+    padding-top: 8px;
   }
 
   .reach-out-item {
