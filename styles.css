@@ -1715,7 +1715,7 @@ section {
   border-radius: 16px;
   padding: 32px 24px;
   border: 1px solid rgba(248, 246, 242, 0.15);
-  justify-content: flex-start;
+  justify-content: center;
   min-height: 280px;
   text-decoration: none;
   color: inherit;
@@ -1818,6 +1818,14 @@ section {
   gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
 }
 
 .area-item {
@@ -1846,7 +1854,6 @@ a.area-item:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1 1 auto;
   min-width: 0;
   text-decoration: none;
   color: inherit;
@@ -1882,8 +1889,66 @@ a.area-item:hover,
 .area-title {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 0;
   color: var(--primary);
+}
+
+/* Topics accordion - same layout on all viewports, no box */
+.area-topics-toggle {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-small);
+  font-weight: 500;
+  color: var(--primary);
+  background: none;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.area-topics-toggle:hover {
+  opacity: 0.85;
+}
+
+.area-topics-toggle::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid currentColor;
+  transition: transform 0.25s ease;
+}
+
+.area-topics-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.area-topics-content {
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.area-topics-content.is-open {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.area-topics-content .area-card-bullets {
+  margin: 16px 0 0 0;
+  padding-top: 16px;
+  border-top: 1px solid rgba(67, 16, 57, 0.1);
 }
 
 .area-detail {
@@ -1927,10 +1992,12 @@ a.area-item:hover,
 }
 
 .area-cta {
+  display: inline-block;
+  margin-top: 12px;
   color: var(--secondary);
   text-decoration: none;
-  font-size: var(--text-small);
-  font-weight: 500;
+  font-size: var(--text-body);
+  font-weight: 600;
 }
 
 /* Pricing Section */
@@ -4831,6 +4898,28 @@ main[class$="-page"] .wizard-chip.active {
 
   .area-detail {
     font-size: 13px;
+  }
+
+  .area-cta {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 0;
+  }
+
+  .area-topics-toggle {
+    min-height: 44px;
+    padding: 10px 0;
+    margin-top: 8px;
+  }
+
+  .area-topics-content .area-card-bullets {
+    margin: 12px 0 0 0;
+    padding-top: 12px;
+  }
+
+  .area-topics-content.is-open {
+    max-height: 220px;
   }
 
   .area-card-bullets li {
@@ -9362,6 +9451,11 @@ main[class$="-page"] .wizard-chip.active {
 
   .areas-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .area-item {
+    padding: 20px 14px;
   }
 
   .reach-out-item {
