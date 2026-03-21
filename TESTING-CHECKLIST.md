@@ -39,7 +39,7 @@ Use this for a final pass before launch.
 - [ ] Brand highlights (Often described as, Client feedback, Practice principles) visible
 - [ ] Pricing cards and “Book Now” go to intake with correct `?duration=`
 - [ ] In-page FAQ accordions open/close
-- [ ] Founder’s Note: photo, “Saumya Singh”, sections (no “What I bring”), text readable
+- [ ] Founder’s Note: photo, “Saumyaa S Singh”, sections (no “What I bring”), text readable
 
 ### Floating FAQ (?)
 - [ ] Button visible bottom-right; “?” bold

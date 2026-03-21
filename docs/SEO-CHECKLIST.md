@@ -23,7 +23,7 @@ This is a final check of how each section and page is set up for Google ranking.
 
 ### Rich results / schema
 - **Home (index.html)** — Organization + WebSite JSON-LD.
-- **About** — Person schema (Saumya Singh, Vedic Astrologer).
+- **About** — Person schema (Saumyaa S Singh, Vedic Astrologer).
 - **Insights index** — ItemList of articles.
 - **FAQ** — FAQPage schema (questions/answers).
 - **Insight articles** (e.g. planetary-remedies) — FAQPage where applicable.
