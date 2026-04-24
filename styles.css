@@ -9841,9 +9841,13 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .hero.hero-overhaul .hero-cta {
-  z-index: 4;
+  position: static;
+  transform: none;
   top: auto;
-  bottom: 42%;
+  bottom: auto;
+  left: auto;
+  z-index: 4;
+  margin-top: 56px;
   font-size: 25.5px;
   padding: 23px 54px;
 }
@@ -9940,7 +9944,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-cta {
-    bottom: 38%;
+    bottom: auto;
+    margin-top: 24px;
     font-size: 18px !important;
     padding: 16px 34px !important;
   }
@@ -9995,7 +10000,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-cta {
-    bottom: 36%;
+    bottom: auto;
+    margin-top: 20px;
     font-size: 16px !important;
     padding: 14px 28px !important;
   }
