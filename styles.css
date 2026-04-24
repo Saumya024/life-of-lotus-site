@@ -10266,6 +10266,8 @@ main[class$="-page"] .wizard-chip.active {
     height: 95svh;
     min-height: 95vh;
     min-height: 95svh;
+    box-sizing: border-box;
+    padding-top: 6px;
   }
 
   .hero-stars {
@@ -10296,10 +10298,11 @@ main[class$="-page"] .wizard-chip.active {
     height: 95svh;
     min-height: 95vh;
     min-height: 95svh;
+    padding-top: 8px;
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(112px, 15vh, 152px);
+    top: clamp(118px, 16vh, 160px);
     bottom: calc(29% + 10px);
     justify-content: center;
     padding: 0 clamp(20px, 5vw, 40px);
@@ -10382,10 +10385,11 @@ main[class$="-page"] .wizard-chip.active {
     height: 95svh;
     min-height: 95vh;
     min-height: 95svh;
+    padding-top: 10px;
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(116px, 16vh, 160px);
+    top: clamp(122px, 17vh, 168px);
     bottom: calc(28% + 8px);
     justify-content: center;
     padding: 0 clamp(16px, 4vw, 28px);
