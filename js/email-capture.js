@@ -141,14 +141,56 @@
     });
   }
 
+  function handleGenericEmailCaptureForms() {
+    var forms = document.querySelectorAll('form[data-email-capture]');
+    if (!forms || !forms.length) return;
+
+    forms.forEach(function(form) {
+      if (form.dataset.captureBound === 'true') return;
+      form.dataset.captureBound = 'true';
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var input = form.querySelector('input[name="email"]');
+        var btn = form.querySelector('button[type="submit"], button');
+        if (!input || !btn) return;
+
+        var email = (input.value || '').trim();
+        if (!isValidEmail(email)) {
+          input.focus();
+          input.setAttribute('aria-invalid', 'true');
+          return;
+        }
+        input.setAttribute('aria-invalid', 'false');
+
+        var source =
+          form.getAttribute('data-source') ||
+          document.title ||
+          'Website Email Capture';
+        var successText =
+          form.getAttribute('data-success-text') ||
+          'Subscribed!';
+
+        btn.textContent = successText;
+        btn.disabled = true;
+        btn.setAttribute('aria-disabled', 'true');
+
+        sendEmailToSheets(email, source);
+      });
+    });
+  }
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       handleInsightEmailForm();
       handleResetTrackerEmail();
+      handleGenericEmailCaptureForms();
     });
   } else {
     handleInsightEmailForm();
     handleResetTrackerEmail();
+    handleGenericEmailCaptureForms();
   }
 })();
 

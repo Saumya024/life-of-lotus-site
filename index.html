@@ -110,7 +110,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=97" />
+  <link rel="stylesheet" href="styles.css?v=102" />
 </head>
 
 <body class="home">
@@ -1353,9 +1353,26 @@
         }
       }
 
+      // Keep booking flow currency-consistent on intake page
+      function updateBookingLinks(region) {
+        const ctaLinks = document.querySelectorAll('a[href^="intake.html?duration="]');
+        ctaLinks.forEach(link => {
+          try {
+            const href = link.getAttribute('href');
+            if (!href) return;
+            const url = new URL(href, window.location.origin);
+            url.searchParams.set('region', region);
+            link.setAttribute('href', url.pathname + url.search);
+          } catch (e) {
+            // no-op: skip malformed hrefs
+          }
+        });
+      }
+
       // Initialize
       detectLocation().then(() => {
         showPricing();
+        updateBookingLinks(isIndia ? 'in' : 'intl');
       });
     })();
   </script>
@@ -1513,6 +1530,7 @@
 
   <!-- Mobile Menu Script -->
   <script src="js/mobile-menu.js"></script>
+  <script src="js/email-capture.js"></script>
 
   <!-- Navigation Dropdown Script -->
   <script>
@@ -1600,6 +1618,13 @@
         <a href="reset-now.html">Reset</a>
         <a href="index.html#contact">Contact</a>
       </nav>
+      <div class="footer-newsletter">
+        <p class="footer-newsletter-text">Want practical Vedic knowledge in your inbox? No spam. Unsubscribe anytime.</p>
+        <form class="footer-newsletter-form" id="footer-email-form" data-email-capture data-source="Footer Newsletter - Home" data-success-text="Subscribed!">
+          <input type="email" name="email" placeholder="Your email" required aria-label="Email address for newsletter" />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
       <div class="footer-socials">
         <a href="https://wa.me/919217679635" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" class="footer-social">
           <img src="assets/images/icons8-whatsapp-logo-100.png" alt="" loading="lazy">
