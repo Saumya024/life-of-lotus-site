@@ -9831,6 +9831,8 @@ main[class$="-page"] .wizard-chip.active {
 .hero.hero-overhaul .hero-content {
   z-index: 3;
   height: auto;
+  min-height: 0;
+  justify-content: flex-start;
   top: 14%;
   width: min(86%, 860px);
   margin: 0 auto;
@@ -9845,6 +9847,7 @@ main[class$="-page"] .wizard-chip.active {
   font-size: var(--text-h1-hero);
   line-height: 1.1;
   white-space: nowrap;
+  text-wrap: balance;
 }
 
 .hero.hero-overhaul .hero-content .hero-subhead {
@@ -9854,16 +9857,18 @@ main[class$="-page"] .wizard-chip.active {
   font-size: 28px;
   line-height: 1.25;
   white-space: nowrap;
+  text-wrap: balance;
 }
 
 .hero.hero-overhaul .hero-content .hero-support {
-  max-width: 860px;
+  max-width: 720px;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--text-h4);
   line-height: 1.35;
   opacity: 0.9;
   white-space: nowrap;
+  text-wrap: balance;
   margin-top: 28px;
 }
 
@@ -9919,6 +9924,17 @@ main[class$="-page"] .wizard-chip.active {
     top: 15%;
     width: min(84%, 700px);
     padding: 0 14px;
+    gap: 18px;
+  }
+
+  .hero.hero-overhaul .hero-content .hero-support {
+    margin-top: 18px;
+  }
+
+  .hero.hero-overhaul .hero-cta {
+    margin-top: 36px;
+    font-size: 22px;
+    padding: 20px 44px;
   }
 }
 
