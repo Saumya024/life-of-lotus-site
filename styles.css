@@ -1418,7 +1418,7 @@ section {
 
 .core-benefit-title {
   font-family: var(--font-heading);
-  font-size: 18px;
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--cream-white);
   letter-spacing: -0.2px;
@@ -1435,11 +1435,11 @@ section {
 
 .core-benefit-description {
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  font-size: var(--text-small);
   color: rgba(248, 246, 242, 0.9);
-  line-height: 1.6;
+  line-height: 1.5;
   position: absolute;
-  top: calc(50% + 98px);
+  top: calc(50% + 92px);
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
@@ -1469,59 +1469,6 @@ section {
     max-width: 100%;
     overflow: visible;
     width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .core-benefits {
-    padding: 30px 20px 48px 20px;
-    height: auto !important;
-    min-height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-  }
-  
-  .core-benefits-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 100%;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-  
-  .core-benefit-block {
-    padding: 20px 16px;
-    margin: 0;
-    min-height: 180px;
-    text-align: center;
-  }
-  
-  .core-benefit-block::before {
-    width: 140px;
-    height: 140px;
-  }
-  
-  .core-benefit-block:hover::before {
-    width: 160px;
-    height: 160px;
-  }
-  
-  .core-benefit-title {
-    font-size: var(--text-h3);
-    margin: 0 !important;
-    white-space: nowrap;
-    width: max-content !important;
-  }
-  
-  .core-benefit-description {
-    font-size: var(--text-small);
-    font-weight: 700;
-    line-height: 1.6;
-    top: calc(50% + 70px);
-    margin: 0 !important;
-    text-align: center !important;
-    padding: 0 8px;
-    width: max-content !important;
   }
 }
 
@@ -2679,25 +2626,37 @@ a.area-item:hover,
   font-size: var(--text-h2);
   font-weight: 500;
   color: var(--primary);
-  margin-bottom: 32px;
+  margin: 0 0 32px;
   text-align: center;
 }
 
+.about-saumya-left-meta {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
 .about-saumya-name {
-  display: block;
   font-family: var(--font-heading);
   font-size: var(--text-h3);
   font-weight: 500;
-  margin-top: 4px;
+  margin: 0 0 4px;
   color: var(--primary);
 }
 
-/* About Saumya photo – between heading and text (like founder note) */
+.about-saumya-role {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  color: var(--primary);
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* About Saumya photo – left column (same convention as Founder's Note) */
 .about-saumya-photo-wrapper {
   position: relative;
   width: 323px;
   height: 323px;
-  margin: 0 auto 32px;
+  margin: 0 auto 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2750,6 +2709,7 @@ a.area-item:hover,
     max-width: 1100px;
     display: grid;
     grid-template-columns: 330px minmax(0, 1fr);
+    grid-template-rows: auto auto;
     column-gap: 56px;
     align-items: start;
     position: relative;
@@ -2768,25 +2728,39 @@ a.area-item:hover,
 
   .about-saumya-photo-wrapper {
     grid-column: 1;
-    grid-row: 1 / span 2;
-    margin: 0;
+    grid-row: 1;
+    margin: 0 0 16px;
     justify-self: center;
   }
 
-  .about-saumya-title {
+  .about-saumya-left-meta {
+    grid-column: 1;
+    grid-row: 2;
+    margin: 0;
+    justify-self: center;
+    align-self: start;
+  }
+
+  .about-saumya-right-column {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 1 / 3;
+    padding-left: 28px;
+    align-self: start;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-saumya-title {
     text-align: left;
     margin: 0 0 20px;
-    padding-left: 28px;
+    padding-left: 0;
   }
 
   .about-saumya-text {
-    grid-column: 2;
-    grid-row: 2;
     max-width: 100%;
     margin: 0;
-    padding-left: 28px;
+    padding-left: 0;
   }
 }
 
@@ -2797,17 +2771,21 @@ a.area-item:hover,
 
   .about-saumya-title {
     font-size: 28px;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .about-saumya-name {
     font-size: var(--text-h3);
   }
 
+  .about-saumya-left-meta {
+    margin-bottom: 28px;
+  }
+
   .about-saumya-photo-wrapper {
     width: 220px;
     height: 220px;
-    margin-bottom: 28px;
+    margin-bottom: 16px;
   }
 
   .about-saumya-image {
@@ -2901,11 +2879,20 @@ a.area-item:hover,
   margin: 0 auto;
 }
 
+.founder-left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 28px;
+}
+
 .founder-photo-wrapper {
   position: relative;
   width: 281px;
   height: 281px;
-  margin: 0 auto 32px;
+  margin: 0 0 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2946,7 +2933,8 @@ a.area-item:hover,
 
 .founder-left-meta {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0;
+  width: 100%;
 }
 
 .founder-role {
@@ -3002,7 +2990,7 @@ a.area-item:hover,
     max-width: 1120px;
     display: grid;
     grid-template-columns: 320px minmax(0, 1fr);
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
     column-gap: 56px;
     align-items: start;
     position: relative;
@@ -3019,26 +3007,22 @@ a.area-item:hover,
     pointer-events: none;
   }
 
-  .founder-photo-wrapper {
+  .founder-left-column {
     grid-column: 1;
     grid-row: 1;
-    margin: 0 0 16px;
+    margin: 0;
     justify-self: center;
     align-self: start;
+    max-width: 320px;
   }
 
-  .founder-left-meta {
-    grid-column: 1;
-    grid-row: 2;
-    margin: 0;
-    text-align: center;
-    justify-self: center;
-    align-self: start;
+  .founder-photo-wrapper {
+    margin: 0 0 16px;
   }
 
   .founder-right-column {
     grid-column: 2;
-    grid-row: 1 / 3;
+    grid-row: 1;
     padding-left: 28px;
     align-self: start;
     min-width: 0;
@@ -3242,7 +3226,8 @@ a.area-item:hover,
 .contact-section h2 {
   margin-bottom: 16px;
   color: var(--cream-white);
-  font-size: 20px;
+  font-family: var(--font-heading);
+  font-size: var(--text-h3);
   font-weight: 500;
 }
 
@@ -3274,7 +3259,7 @@ a.area-item:hover,
 
 .contact-label {
   font-family: var(--font-body);
-  font-size: var(--text-body);
+  font-size: var(--text-small);
   color: var(--secondary);
   margin-top: 4px;
 }
@@ -5152,7 +5137,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .contact-section h2 {
-    font-size: var(--text-body);
+    font-size: var(--text-h3);
     font-weight: 500;
     margin-bottom: 14px;
   }
@@ -5247,7 +5232,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .contact-label {
-    font-size: var(--text-body);
+    font-size: var(--text-small);
     margin-top: 2px;
     white-space: nowrap;
   }
@@ -10359,62 +10344,63 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .core-benefit-title {
-    font-size: 18px !important;
+    font-size: var(--text-h3) !important;
+    white-space: nowrap !important;
   }
 
   .core-benefit-description {
-    font-size: var(--text-body) !important;
+    font-size: var(--text-small) !important;
     top: calc(50% + 84px) !important;
-    white-space: normal !important;
-    width: auto !important;
-    line-height: 1.5 !important;
+    white-space: nowrap !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    line-height: 1.4 !important;
   }
 }
 
-@media (max-width: 768px) {
-  .core-benefit-title,
-  .core-benefit-description {
-    font-size: var(--text-body) !important;
-  }
-
+/* Section 2: three blobs in one row down to ~481px; typography = larger orb title, smaller caption */
+@media (max-width: 768px) and (min-width: 481px) {
   .core-benefits {
-    padding: 32px 20px 32px !important;
+    padding: 28px 10px 28px !important;
   }
 
   .core-benefits-container {
-    grid-template-columns: 1fr !important;
-    row-gap: 16px !important;
-    column-gap: 0 !important;
-    padding: 0 !important;
-    max-width: 360px !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    column-gap: 8px !important;
+    row-gap: 8px !important;
+    padding: 0 6px !important;
+    max-width: none !important;
     margin: 0 auto !important;
   }
 
   .core-benefit-block {
-    min-height: 190px !important;
-    padding: 18px 12px !important;
+    min-height: 168px !important;
+    padding: 12px 4px !important;
   }
 
   .core-benefit-block::before {
-    width: 150px !important;
-    height: 150px !important;
+    width: 92px !important;
+    height: 92px !important;
+  }
+
+  .core-benefit-title {
+    font-size: clamp(17px, 4.2vw, 22px) !important;
+    white-space: nowrap !important;
   }
 
   .core-benefit-description {
-    top: calc(50% + 74px) !important;
-    line-height: 1.5 !important;
-    white-space: normal !important;
-    width: auto !important;
-    letter-spacing: 0 !important;
+    font-size: clamp(11px, 2.6vw, 13px) !important;
+    top: calc(50% + 52px) !important;
+    line-height: 1.35 !important;
+    white-space: nowrap !important;
+    width: max-content !important;
+    max-width: 100% !important;
+    padding: 0 2px !important;
+    letter-spacing: -0.02em !important;
   }
 }
 
 @media (max-width: 480px) {
-  .core-benefit-title,
-  .core-benefit-description {
-    font-size: var(--text-body) !important;
-  }
-
   .core-benefits {
     padding: 24px 16px 24px !important;
   }
@@ -10422,7 +10408,10 @@ main[class$="-page"] .wizard-chip.active {
   .core-benefits-container {
     grid-template-columns: 1fr !important;
     row-gap: 14px !important;
+    column-gap: 0 !important;
+    padding: 0 !important;
     max-width: 300px !important;
+    margin: 0 auto !important;
   }
 
   .core-benefit-block {
@@ -10435,10 +10424,16 @@ main[class$="-page"] .wizard-chip.active {
     height: 130px !important;
   }
 
+  .core-benefit-title {
+    font-size: var(--text-h3) !important;
+    white-space: nowrap !important;
+  }
+
   .core-benefit-description {
+    font-size: var(--text-small) !important;
     line-height: 1.5 !important;
-    white-space: normal !important;
-    width: auto !important;
+    white-space: nowrap !important;
+    width: max-content !important;
     top: calc(50% + 64px) !important;
     padding: 0 !important;
   }
