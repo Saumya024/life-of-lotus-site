@@ -1947,6 +1947,58 @@ a.area-item:hover,
   font-weight: 600;
 }
 
+/* Desktop: slightly tighter Reach out + Areas of Guidance (no tablet/mobile change) */
+@media (min-width: 1025px) {
+  .reach-out {
+    padding-bottom: 64px;
+    margin-bottom: 56px;
+  }
+
+  .reach-out h2 {
+    margin-bottom: 36px;
+  }
+
+  .reach-out-list {
+    gap: 20px;
+    max-width: 1180px;
+  }
+
+  .reach-out-item {
+    padding: 26px 20px;
+    min-height: 248px;
+    gap: 14px;
+  }
+
+  .reach-out-text {
+    margin: 0 0 6px 0;
+  }
+
+  .areas h2 {
+    margin-bottom: 28px;
+  }
+
+  .areas-grid {
+    gap: 28px;
+    max-width: 1180px;
+  }
+
+  .area-item {
+    padding: 28px 22px;
+  }
+
+  .area-icon-wrapper {
+    margin-bottom: 18px;
+  }
+
+  .area-cta {
+    margin-top: 10px;
+  }
+
+  .area-topics-toggle {
+    margin-top: 10px;
+  }
+}
+
 /* Pricing Section */
 .pricing {
   background-color: var(--primary);
@@ -2229,11 +2281,12 @@ a.area-item:hover,
 .safe-space {
   background-color: var(--primary-light);
   color: var(--cream-white);
+  padding-bottom: 56px;
 }
 
 .safe-space h2 {
   color: var(--cream-white);
-  margin-bottom: 48px;
+  margin-bottom: 36px;
 }
 
 .safe-space-content {
@@ -2245,7 +2298,7 @@ a.area-item:hover,
 .safe-space-text {
   font-size: 18px;
   line-height: 1.8;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   color: var(--cream-white);
   font-family: var(--font-body);
 }
@@ -3267,7 +3320,7 @@ a.area-item:hover,
 /* Footer */
 .footer {
   background-color: var(--primary-light);
-  padding: 6px 40px 10px;
+  padding: 15px 40px 15px;
 }
 
 .footer-content {
@@ -3281,7 +3334,7 @@ a.area-item:hover,
 }
 
 .footer-logo {
-  margin: 2px 0 0;
+  margin: 0;
 }
 
 .footer-logo a {
@@ -5151,7 +5204,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .footer {
-    padding: 6px 20px 10px;
+    padding: 15px 20px 15px;
   }
 
   .footer-content {
