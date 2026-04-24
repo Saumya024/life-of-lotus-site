@@ -110,7 +110,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=32" />
+  <link rel="stylesheet" href="styles.css?v=46" />
 </head>
 
 <body class="home">
@@ -148,10 +148,29 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-overhaul">
     <div class="hero-top"></div>
     <div class="hero-bottom"></div>
-    <div class="hero-planets">
+    <div class="hero-moon" aria-hidden="true"></div>
+    <svg class="hero-waves" viewBox="0 0 1600 400" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,95 C 180,20 340,18 500,52 C 640,82 760,100 880,98 C 1020,95 1180,82 1320,70 C 1440,60 1540,64 1600,68 L 1600,400 L 0,400 Z" fill="#65355b"/>
+      <path d="M0,170 C 140,200 260,160 420,168 C 600,178 740,110 920,138 C 1120,170 1280,208 1440,172 C 1520,154 1580,166 1600,162 L 1600,400 L 0,400 Z" fill="#6c4263"/>
+      <path d="M0,250 C 220,275 400,212 560,228 C 760,248 960,298 1180,252 C 1360,214 1500,238 1600,230 L 1600,400 L 0,400 Z" fill="#5e2353"/>
+      <path d="M0,334 C 120,320 260,344 400,330 C 560,312 740,340 940,320 C 1140,302 1320,338 1480,322 C 1540,316 1580,328 1600,325 L 1600,400 L 0,400 Z" fill="#65355b"/>
+    </svg>
+    <div class="hero-stars" aria-hidden="true">
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+      <span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span><span class="star"></span>
+    </div>
+    <div class="hero-planets" aria-hidden="true">
       <!-- Sun -->
       <svg class="planet-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Sun planet icon">
         <circle cx="12" cy="12" r="6.5" fill="#FF6B35"/>
@@ -182,10 +201,12 @@
       </svg>
     </div>
     <div class="hero-content">
-      <h1>Why does this keep happening?</h1>
-      <p>Not because you aren't trying,<br>Because something deeper is running.<br>Vedic astrology makes that visible,<br>So you stop guessing and start acting.</p>
+      <h1>You have a question.<br>Your chart has the answer.</h1>
+      <p class="hero-subhead">Stop guessing. Read what your Vedic chart says.</p>
+      <p class="hero-support">Whether it's a relationship, career move, or a decision you can't make,<br>your birth chart gives you a specific, honest answer.</p>
     </div>
     <a class="hero-cta" href="#pricing">Book a Consultation</a>
+    <div class="hero-scroll-indicator" aria-hidden="true"></div>
   </section>
 
   <!-- CORE BENEFITS -->
