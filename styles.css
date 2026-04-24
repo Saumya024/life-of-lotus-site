@@ -9650,10 +9650,10 @@ main[class$="-page"] .wizard-chip.active {
 /* Homepage hero overhaul — fully coded background (no raster image) */
 .hero.hero-overhaul {
   position: relative;
-  height: 100vh;
-  height: 100svh;
-  min-height: 100vh;
-  min-height: 100svh;
+  height: 95vh;
+  height: 95svh;
+  min-height: 95vh;
+  min-height: 95svh;
   overflow: hidden;
   background: var(--primary);
 }
@@ -9704,7 +9704,7 @@ main[class$="-page"] .wizard-chip.active {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 30%;
+  height: 36%;
   display: block;
   z-index: 1;
   pointer-events: none;
@@ -9852,7 +9852,7 @@ main[class$="-page"] .wizard-chip.active {
   min-height: 0;
   justify-content: center;
   top: clamp(80px, 10vh, 120px);
-  bottom: calc(30% + 4px);
+  bottom: calc(36% + 4px);
   left: 0;
   right: 0;
   width: 100%;
@@ -9942,10 +9942,10 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 1024px) {
   .hero.hero-overhaul {
-    height: 100vh;
-    height: 100svh;
-    min-height: 100vh;
-    min-height: 100svh;
+    height: 95vh;
+    height: 95svh;
+    min-height: 95vh;
+    min-height: 95svh;
   }
 
   .hero-stars {
@@ -9960,27 +9960,27 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 30%;
+    height: 36%;
   }
 
   .hero.hero-overhaul .hero-content {
     top: clamp(72px, 10vh, 120px);
-    bottom: calc(30% + 4px);
+    bottom: calc(36% + 4px);
     justify-content: center;
   }
 }
 
 @media (max-width: 768px) {
   .hero.hero-overhaul {
-    height: 100vh;
-    height: 100svh;
-    min-height: 100vh;
-    min-height: 100svh;
+    height: 95vh;
+    height: 95svh;
+    min-height: 95vh;
+    min-height: 95svh;
   }
 
   .hero.hero-overhaul .hero-content {
     top: clamp(64px, 10vh, 100px);
-    bottom: calc(30% + 4px);
+    bottom: calc(36% + 4px);
     justify-content: center;
     padding: 0 clamp(20px, 5vw, 40px);
   }
@@ -9997,7 +9997,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 30%;
+    height: 36%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
@@ -10041,15 +10041,15 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 480px) {
   .hero.hero-overhaul {
-    height: 100vh;
-    height: 100svh;
-    min-height: 100vh;
-    min-height: 100svh;
+    height: 95vh;
+    height: 95svh;
+    min-height: 95vh;
+    min-height: 95svh;
   }
 
   .hero.hero-overhaul .hero-content {
     top: clamp(58px, 9vh, 90px);
-    bottom: calc(30% + 4px);
+    bottom: calc(36% + 4px);
     justify-content: center;
     padding: 0 clamp(16px, 4vw, 28px);
   }
@@ -10068,7 +10068,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 30%;
+    height: 36%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
