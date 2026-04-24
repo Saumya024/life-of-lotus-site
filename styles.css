@@ -5901,8 +5901,8 @@ main[class$="-page"] .wizard-chip.active {
 
 .about-hero .about-hero-intro h1 {
   font-family: var(--font-heading);
-  font-size: var(--text-h1-hero) !important;
-  line-height: 1.1;
+  font-size: var(--text-h2) !important;
+  line-height: 1.2;
   font-weight: 500;
   color: var(--cream-white);
   margin: 0 0 16px 0;
@@ -5911,8 +5911,8 @@ main[class$="-page"] .wizard-chip.active {
 
 .about-hero-tagline {
   font-family: var(--font-body);
-  font-size: 28px;
-  line-height: 1.25;
+  font-size: var(--text-body);
+  line-height: 1.5;
   color: var(--tertiary);
   margin: 0 0 20px 0;
   letter-spacing: 0.5px;
@@ -5921,8 +5921,8 @@ main[class$="-page"] .wizard-chip.active {
 
 .about-hero-text {
   font-family: var(--font-body);
-  font-size: var(--text-h4);
-  line-height: 1.35;
+  font-size: var(--text-body);
+  line-height: 1.6;
   color: rgba(248, 246, 242, 0.9);
   margin: 0;
   text-align: center;
@@ -5950,18 +5950,18 @@ main[class$="-page"] .wizard-chip.active {
   }
   
   .about-hero .about-hero-intro h1 {
-    font-size: clamp(22px, 5.8vw, 32px) !important;
-    line-height: 1.18;
+    font-size: clamp(22px, 5.2vw, 28px) !important;
+    line-height: 1.2;
   }
 
   .about-hero-tagline {
-    font-size: clamp(14px, 3.8vw, 19px);
-    line-height: 1.3;
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.5;
   }
 
   .about-hero-text {
-    font-size: clamp(12px, 3.2vw, 16px);
-    line-height: 1.4;
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.6;
   }
 }
 
@@ -6346,16 +6346,16 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .insights-landing h1 {
-  font-size: var(--text-h1-hero);
-  line-height: 1.1;
+  font-size: var(--text-h2);
+  line-height: 1.2;
   margin-bottom: 24px;
   color: var(--primary);
 }
 
 .insights-intro {
   font-family: var(--font-body);
-  font-size: 28px;
-  line-height: 1.35;
+  font-size: var(--text-body);
+  line-height: 1.5;
   color: var(--primary-light);
   text-align: center;
   margin-bottom: 48px;
@@ -6613,8 +6613,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .insights-landing h1 {
-    font-size: clamp(22px, 5.8vw, 32px);
-    line-height: 1.18;
+    font-size: clamp(22px, 5.2vw, 28px);
+    line-height: 1.2;
   }
 
   [class$="-hero"] h1 {
@@ -6622,8 +6622,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .insights-intro {
-    font-size: clamp(14px, 3.8vw, 19px);
-    line-height: 1.35;
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.5;
   }
 
   .insights-search-filter {
@@ -6674,8 +6674,8 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .healing-practices h1 {
-  font-size: var(--text-h1-hero);
-  line-height: 1.1;
+  font-size: var(--text-h2);
+  line-height: 1.2;
   margin-bottom: 32px;
   color: var(--primary);
 }
@@ -6687,7 +6687,8 @@ main[class$="-page"] .wizard-chip.active {
 
 .healing-practices-intro {
   font-family: var(--font-body);
-  font-size: 28px;
+  font-size: var(--text-body);
+  line-height: 1.5;
   color: var(--primary-light);
   text-align: center;
   margin-bottom: 48px;
@@ -6707,16 +6708,16 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .ascendant-reset-page h1 {
-  font-size: var(--text-h1-hero);
-  line-height: 1.1;
+  font-size: var(--text-h2);
+  line-height: 1.2;
   color: var(--primary);
   margin-bottom: 24px;
 }
 
 .ascendant-reset-intro,
 .ascendant-reset-subtext {
-  font-size: 28px;
-  line-height: 1.35;
+  font-size: var(--text-body);
+  line-height: 1.5;
 }
 
 .healing-search-filter {
@@ -6893,8 +6894,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .healing-practices h1 {
-    font-size: clamp(22px, 5.8vw, 32px);
-    line-height: 1.18;
+    font-size: clamp(22px, 5.2vw, 28px);
+    line-height: 1.2;
     margin-bottom: 24px;
   }
 
@@ -6903,8 +6904,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .healing-practices-intro {
-    font-size: clamp(14px, 3.8vw, 19px);
-    line-height: 1.35;
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.5;
     margin-bottom: 48px;
     padding: 0 10px;
   }
@@ -6914,14 +6915,14 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .ascendant-reset-page h1 {
-    font-size: clamp(22px, 5.8vw, 32px);
-    line-height: 1.18;
+    font-size: clamp(22px, 5.2vw, 28px);
+    line-height: 1.2;
   }
 
   .ascendant-reset-intro,
   .ascendant-reset-subtext {
-    font-size: clamp(14px, 3.8vw, 19px);
-    line-height: 1.35;
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.5;
   }
 
   .healing-search-filter {
@@ -9649,6 +9650,8 @@ main[class$="-page"] .wizard-chip.active {
 /* Homepage hero overhaul — fully coded background (no raster image) */
 .hero.hero-overhaul {
   position: relative;
+  height: 80vh;
+  height: 80svh;
   min-height: 80vh;
   min-height: 80svh;
   overflow: hidden;
@@ -9701,7 +9704,7 @@ main[class$="-page"] .wizard-chip.active {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 40%;
+  height: 30%;
   display: block;
   z-index: 1;
   pointer-events: none;
@@ -9713,7 +9716,7 @@ main[class$="-page"] .wizard-chip.active {
   left: 50%;
   transform: translateX(-50%);
   width: 92%;
-  height: 58%;
+  height: 66%;
   z-index: 2;
   pointer-events: none;
 }
@@ -9847,11 +9850,12 @@ main[class$="-page"] .wizard-chip.active {
   z-index: 3;
   height: auto;
   min-height: 0;
-  justify-content: flex-start;
-  top: auto;
-  bottom: calc(40% + 138px);
+  justify-content: flex-end;
+  top: 72px;
+  bottom: calc(40% + 10px);
   width: min(86%, 860px);
   margin: 0 auto;
+  margin-top: 0;
   padding: 0 16px;
   gap: 18px;
 }
@@ -9864,6 +9868,7 @@ main[class$="-page"] .wizard-chip.active {
   line-height: 1.1;
   white-space: nowrap;
   text-wrap: balance;
+  margin: 0;
 }
 
 .hero.hero-overhaul .hero-content .hero-subhead {
@@ -9874,28 +9879,31 @@ main[class$="-page"] .wizard-chip.active {
   line-height: 1.25;
   white-space: nowrap;
   text-wrap: balance;
+  margin: 0;
 }
 
 .hero.hero-overhaul .hero-content .hero-support {
-  max-width: 720px;
+  max-width: 820px;
   font-family: var(--font-body);
   font-weight: 400;
   font-size: var(--text-h4);
   line-height: 1.35;
   opacity: 0.9;
-  white-space: nowrap;
+  white-space: normal;
   text-wrap: balance;
+  margin: 0;
   margin-top: 18px;
 }
 
 .hero.hero-overhaul .hero-cta {
-  position: absolute;
-  left: 50%;
-  bottom: calc(40% + 10px);
-  transform: translateX(-50%);
+  position: static;
+  transform: none;
   top: auto;
-  margin: 0;
+  bottom: auto;
+  left: auto;
   z-index: 4;
+  margin-top: 36px;
+  align-self: center;
   font-size: 25.5px;
   padding: 23px 54px;
 }
@@ -9929,6 +9937,8 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 1024px) {
   .hero.hero-overhaul {
+    height: 80vh;
+    height: 80svh;
     min-height: 80vh;
     min-height: 80svh;
   }
@@ -9945,12 +9955,13 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 38%;
+    height: 28%;
   }
 
   .hero.hero-overhaul .hero-content {
-    top: auto;
-    bottom: calc(38% + 118px);
+    top: 72px;
+    bottom: calc(28% + 10px);
+    justify-content: flex-end;
     width: min(84%, 700px);
     padding: 0 14px;
     gap: 14px;
@@ -9961,8 +9972,13 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-cta {
-    bottom: calc(38% + 10px);
-    margin: 0;
+    position: static;
+    transform: none;
+    bottom: auto;
+    left: auto;
+    top: auto;
+    margin: 28px 0 0 0;
+    align-self: center;
     font-size: 22px;
     padding: 20px 44px;
   }
@@ -9970,13 +9986,16 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 768px) {
   .hero.hero-overhaul {
+    height: 80vh;
+    height: 80svh;
     min-height: 80vh;
     min-height: 80svh;
   }
 
   .hero.hero-overhaul .hero-content {
-    top: auto;
-    bottom: calc(36% + 90px);
+    top: 64px;
+    bottom: calc(26% + 8px);
+    justify-content: flex-end;
     width: min(94%, 560px);
     margin: 0 auto;
     padding: 0 6px;
@@ -9995,7 +10014,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 36%;
+    height: 26%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
@@ -10018,8 +10037,13 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-cta {
-    bottom: calc(36% + 8px);
-    margin: 0;
+    position: static;
+    transform: none;
+    bottom: auto;
+    left: auto;
+    top: auto;
+    margin: 20px 0 0 0;
+    align-self: center;
     font-size: 18px !important;
     padding: 16px 34px !important;
   }
@@ -10033,13 +10057,16 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 480px) {
   .hero.hero-overhaul {
+    height: 80vh;
+    height: 80svh;
     min-height: 80vh;
     min-height: 80svh;
   }
 
   .hero.hero-overhaul .hero-content {
-    top: auto;
-    bottom: calc(34% + 74px);
+    top: 56px;
+    bottom: calc(24% + 6px);
+    justify-content: flex-end;
     width: min(96%, 420px);
     padding: 0 4px;
     gap: 8px;
@@ -10059,7 +10086,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 34%;
+    height: 24%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
@@ -10077,8 +10104,13 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-cta {
-    bottom: calc(34% + 6px);
-    margin: 0;
+    position: static;
+    transform: none;
+    bottom: auto;
+    left: auto;
+    top: auto;
+    margin: 16px 0 0 0;
+    align-self: center;
     font-size: 16px !important;
     padding: 14px 28px !important;
   }
