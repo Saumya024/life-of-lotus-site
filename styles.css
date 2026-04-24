@@ -9885,7 +9885,19 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .hero.hero-overhaul .hero-scroll-indicator {
-  display: none;
+  display: block;
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid rgba(248, 246, 242, 0.95);
+  border-bottom: 2px solid rgba(248, 246, 242, 0.95);
+  transform: translateX(-50%) rotate(45deg);
+  animation: heroArrowFloat 2.4s ease-in-out infinite;
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
 }
 
 @keyframes heroArrowFloat {
@@ -9994,7 +10006,9 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-scroll-indicator {
-    display: none;
+    width: 18px;
+    height: 18px;
+    bottom: 16px;
   }
 }
 
