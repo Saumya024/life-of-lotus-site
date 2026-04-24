@@ -10309,7 +10309,7 @@ main[class$="-page"] .wizard-chip.active {
 
   .hero-stars {
     width: 94%;
-    height: 58%;
+    height: 72%;
   }
 
   .hero-moon {
@@ -10372,6 +10372,11 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 @media (max-width: 480px) {
+  .hero-stars {
+    width: 95%;
+    height: 74%;
+  }
+
   .hero.hero-overhaul {
     height: 95vh;
     height: 95svh;
