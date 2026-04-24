@@ -9634,8 +9634,8 @@ main[class$="-page"] .wizard-chip.active {
 /* Homepage hero overhaul — fully coded background (no raster image) */
 .hero.hero-overhaul {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 90vh;
+  min-height: 90svh;
   overflow: hidden;
   background: var(--primary);
 }
@@ -9686,7 +9686,7 @@ main[class$="-page"] .wizard-chip.active {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 40%;
+  height: 62%;
   display: block;
   z-index: 1;
   pointer-events: none;
@@ -9901,13 +9901,13 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 1024px) {
   .hero.hero-overhaul {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 90vh;
+    min-height: 90svh;
   }
 
   .hero-stars {
     width: 82%;
-    height: 56%;
+    height: 50%;
   }
 
   .hero-moon {
@@ -9917,7 +9917,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 38%;
+    height: 58%;
   }
 
   .hero.hero-overhaul .hero-content {
@@ -9940,8 +9940,8 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 768px) {
   .hero.hero-overhaul {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 90vh;
+    min-height: 90svh;
   }
 
   .hero.hero-overhaul .hero-content {
@@ -9964,7 +9964,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 36%;
+    height: 54%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
@@ -10000,8 +10000,8 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 480px) {
   .hero.hero-overhaul {
-    min-height: 100vh;
-    min-height: 100svh;
+    min-height: 90vh;
+    min-height: 90svh;
   }
 
   .hero.hero-overhaul .hero-content {
@@ -10025,7 +10025,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 34%;
+    height: 52%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
