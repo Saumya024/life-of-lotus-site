@@ -9850,9 +9850,9 @@ main[class$="-page"] .wizard-chip.active {
   z-index: 3;
   height: auto;
   min-height: 0;
-  justify-content: flex-end;
-  top: clamp(100px, 14vh, 180px);
-  bottom: calc(30% + 10px);
+  justify-content: center;
+  top: clamp(80px, 10vh, 120px);
+  bottom: calc(30% + 4px);
   left: 0;
   right: 0;
   width: 100%;
@@ -9914,27 +9914,28 @@ main[class$="-page"] .wizard-chip.active {
 
 .hero.hero-overhaul .hero-scroll-indicator {
   display: block;
-  position: absolute;
-  bottom: 22px;
-  left: 50%;
-  width: 24px;
-  height: 24px;
-  border-right: 2px solid rgba(248, 246, 242, 0.95);
-  border-bottom: 2px solid rgba(248, 246, 242, 0.95);
-  transform: translateX(-50%) rotate(45deg);
+  position: static;
+  align-self: center;
+  width: 20px;
+  height: 20px;
+  margin-top: clamp(20px, 3.5vw, 40px);
+  border-right: 2px solid rgba(248, 246, 242, 0.85);
+  border-bottom: 2px solid rgba(248, 246, 242, 0.85);
+  transform: rotate(45deg);
   animation: heroArrowFloat 2.4s ease-in-out infinite;
   z-index: 5;
   pointer-events: none;
+  flex-shrink: 0;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
 }
 
 @keyframes heroArrowFloat {
   0%, 100% {
-    transform: translateX(-50%) translateY(0) rotate(45deg);
-    opacity: 0.88;
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.75;
   }
   50% {
-    transform: translateX(-50%) translateY(8px) rotate(45deg);
+    transform: rotate(45deg) translateY(6px);
     opacity: 1;
   }
 }
@@ -9963,8 +9964,9 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(90px, 13vh, 160px);
-    bottom: calc(30% + 10px);
+    top: clamp(72px, 10vh, 120px);
+    bottom: calc(30% + 4px);
+    justify-content: center;
   }
 }
 
@@ -9977,8 +9979,10 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(80px, 12vh, 130px);
-    bottom: calc(30% + 8px);
+    top: clamp(64px, 10vh, 100px);
+    bottom: calc(30% + 4px);
+    justify-content: center;
+    padding: 0 clamp(20px, 5vw, 40px);
   }
 
   .hero-stars {
@@ -9997,23 +10001,23 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(22px, 5.8vw, 32px);
+    font-size: clamp(24px, 5.5vw, 34px);
     white-space: normal;
-    line-height: 1.18;
+    line-height: 1.15;
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
-    font-size: clamp(14px, 3.8vw, 19px);
+    font-size: clamp(15px, 3.5vw, 20px);
     white-space: normal;
     line-height: 1.3;
-    margin-top: clamp(6px, 1.4vw, 10px);
+    margin-top: clamp(10px, 2vw, 16px);
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(12px, 3.2vw, 16px);
-    margin-top: clamp(12px, 2.8vw, 20px);
+    font-size: clamp(13px, 3vw, 17px);
+    margin-top: clamp(20px, 4vw, 32px);
     white-space: normal;
-    line-height: 1.4;
+    line-height: 1.45;
   }
 
   .hero.hero-overhaul .hero-cta {
@@ -10022,16 +10026,16 @@ main[class$="-page"] .wizard-chip.active {
     bottom: auto;
     left: auto;
     top: auto;
-    margin: clamp(18px, 4.2vw, 30px) 0 0 0;
+    margin: clamp(30px, 6vw, 48px) 0 0 0;
     align-self: center;
     font-size: 18px !important;
-    padding: 16px 34px !important;
+    padding: 16px 36px !important;
   }
 
   .hero.hero-overhaul .hero-scroll-indicator {
-    width: 18px;
-    height: 18px;
-    bottom: 16px;
+    width: 16px;
+    height: 16px;
+    margin-top: clamp(18px, 3vw, 28px);
   }
 }
 
@@ -10044,8 +10048,10 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(70px, 11vh, 110px);
-    bottom: calc(30% + 6px);
+    top: clamp(58px, 9vh, 90px);
+    bottom: calc(30% + 4px);
+    justify-content: center;
+    padding: 0 clamp(16px, 4vw, 28px);
   }
 
   .hero-moon {
@@ -10066,18 +10072,19 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(20px, 5.6vw, 26px);
-    line-height: 1.2;
+    font-size: clamp(20px, 5.5vw, 24px);
+    line-height: 1.18;
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
-    font-size: clamp(13px, 3.6vw, 17px);
-    margin-top: clamp(5px, 1.4vw, 8px);
+    font-size: clamp(13px, 3.4vw, 16px);
+    margin-top: clamp(8px, 2vw, 12px);
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(11px, 3vw, 14px);
-    margin-top: clamp(10px, 2.8vw, 16px);
+    font-size: clamp(11px, 2.8vw, 14px);
+    margin-top: clamp(16px, 4vw, 24px);
+    line-height: 1.45;
   }
 
   .hero.hero-overhaul .hero-cta {
@@ -10086,10 +10093,16 @@ main[class$="-page"] .wizard-chip.active {
     bottom: auto;
     left: auto;
     top: auto;
-    margin: clamp(15px, 4.2vw, 24px) 0 0 0;
+    margin: clamp(24px, 6vw, 36px) 0 0 0;
     align-self: center;
-    font-size: 16px !important;
+    font-size: 15px !important;
     padding: 14px 28px !important;
+  }
+
+  .hero.hero-overhaul .hero-scroll-indicator {
+    width: 14px;
+    height: 14px;
+    margin-top: clamp(14px, 3.5vw, 22px);
   }
 }
 
