@@ -59,7 +59,7 @@ If you do 1–4, you are ready to launch.
 
 | # | Severity | Issue | File(s) | Notes |
 |---|----------|-------|---------|-------|
-| 2 | Medium | Above-the-fold CTA on `index.html` says "Request a Session" but links to `#pricing` (scroll, not direct booking) | `index.html` | Consider whether a more direct CTA to `intake.html` would reduce friction |
+| 2 | Medium | Above-the-fold CTA on `index.html` says "Book a Session" but links to `#pricing` (scroll, not direct booking) | `index.html` | Consider whether a more direct CTA to `intake.html` would reduce friction |
 | 3 | Low | Inconsistent naming in modality pages — some use "Resources & Tools" text in older cached copy (all code references updated to "Resources") | Various | Verify on live site after deploy |
 
 ---
