@@ -110,7 +110,7 @@
 
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=102" />
+  <link rel="stylesheet" href="styles.css?v=103" />
 </head>
 
 <body class="home">
@@ -1360,9 +1360,11 @@
           try {
             const href = link.getAttribute('href');
             if (!href) return;
-            const url = new URL(href, window.location.origin);
-            url.searchParams.set('region', region);
-            link.setAttribute('href', url.pathname + url.search);
+            const parts = href.split('?');
+            const base = parts[0] || 'intake.html';
+            const params = new URLSearchParams(parts[1] || '');
+            params.set('region', region);
+            link.setAttribute('href', `${base}?${params.toString()}`);
           } catch (e) {
             // no-op: skip malformed hrefs
           }
