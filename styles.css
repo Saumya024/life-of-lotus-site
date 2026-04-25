@@ -3988,21 +3988,15 @@ a.area-item:hover,
   background-color: var(--white);
 }
 
-.field input:required:invalid,
-.field select:required:invalid,
 .field input.error,
 .field select.error,
 .field input.required-empty,
 .field select.required-empty,
-.field input[type="date"]:required:invalid,
-.field input[type="time"]:required:invalid,
 .field input[type="date"].required-empty,
 .field input[type="time"].required-empty {
   border-color: #d32f2f !important;
 }
 
-.field input:required:valid,
-.field select:required:valid,
 .field input.required-filled,
 .field select.required-filled {
   border-color: rgba(67, 16, 57, 0.2);
@@ -4048,8 +4042,8 @@ a.area-item:hover,
 
 .field input[type="date"].required-empty,
 .field input[type="time"].required-empty,
-.field input[type="date"]:required:invalid,
-.field input[type="time"]:required:invalid {
+.field input[type="date"].error,
+.field input[type="time"].error {
   border-color: #d32f2f !important;
 }
 
@@ -5745,8 +5739,8 @@ main[class$="-page"] .wizard-chip.active {
 
   .field input[type="date"].required-empty,
   .field input[type="time"].required-empty,
-  .field input[type="date"]:required:invalid,
-  .field input[type="time"]:required:invalid {
+  .field input[type="date"].error,
+  .field input[type="time"].error {
     border-color: #d32f2f !important;
   }
 }

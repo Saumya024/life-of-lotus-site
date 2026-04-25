@@ -216,7 +216,65 @@
   </div>
 
   <script>
-    // Set max date for Date of Birth (today's date) and mark required fields as empty
+    let hasAttemptedIntakeSubmit = false;
+
+    function setRequiredFieldState(field, shouldShowEmptyState) {
+      if (!field) return;
+      if (field.disabled) {
+        field.classList.remove('required-empty', 'required-filled');
+        return;
+      }
+      const hasValue = !!(field.value && field.value.trim() !== '');
+      if (hasValue) {
+        field.classList.remove('required-empty');
+        field.classList.add('required-filled');
+      } else {
+        field.classList.remove('required-filled');
+        if (shouldShowEmptyState) {
+          field.classList.add('required-empty');
+        } else {
+          field.classList.remove('required-empty');
+        }
+      }
+    }
+
+    function validateRequiredFieldsAndFocus(form) {
+      const requiredFields = form.querySelectorAll('.field input[required], .field select[required]');
+      let firstInvalidField = null;
+
+      requiredFields.forEach(function(field) {
+        if (field.disabled) {
+          field.classList.remove('required-empty', 'required-filled');
+          return;
+        }
+        const hasValue = !!(field.value && field.value.trim() !== '');
+        if (!hasValue && !firstInvalidField) {
+          firstInvalidField = field;
+        }
+        setRequiredFieldState(field, true);
+      });
+
+      const areaSelect = document.getElementById('intake-area');
+      const areaDisplay = document.getElementById('area-display');
+      if (areaSelect && areaDisplay) {
+        if (areaSelect.value) {
+          areaDisplay.classList.remove('required-empty');
+          areaDisplay.classList.add('filled');
+        } else {
+          areaDisplay.classList.remove('filled');
+          areaDisplay.classList.add('required-empty');
+        }
+      }
+
+      if (firstInvalidField) {
+        firstInvalidField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        firstInvalidField.focus({ preventScroll: true });
+        return false;
+      }
+      return true;
+    }
+
+    // Set max date for Date of Birth (today's date)
     document.addEventListener('DOMContentLoaded', function() {
       const dobInput = document.getElementById('intake-dob');
       if (dobInput) {
@@ -224,17 +282,9 @@
         const maxDate = today.toISOString().split('T')[0];
         dobInput.setAttribute('max', maxDate);
         dobInput.max = maxDate; // Also set property directly for mobile compatibility
-        // Explicitly mark DOB as empty
-        if (!dobInput.value || dobInput.value === '') {
-          dobInput.classList.add('required-empty');
-        }
       }
       
-      // Explicitly mark Time of Birth as empty
       const tobInput = document.querySelector('input[name="tob"]');
-      if (tobInput && (!tobInput.value || tobInput.value === '')) {
-        tobInput.classList.add('required-empty');
-      }
       
       // "Don't know the time of birth" – main chart
       const tobUnknownCheckbox = document.getElementById('intake-tob-unknown');
@@ -248,9 +298,7 @@
           } else {
             tobInput.disabled = false;
             tobInput.setAttribute('required', 'required');
-            if (!tobInput.value || tobInput.value === '') {
-              tobInput.classList.add('required-empty');
-            }
+            setRequiredFieldState(tobInput, hasAttemptedIntakeSubmit);
           }
         }
         tobUnknownCheckbox.addEventListener('change', syncMainTobUnknown);
@@ -271,57 +319,29 @@
           } else {
             timeInput.disabled = false;
             timeInput.setAttribute('required', 'required');
-            if (!timeInput.value || timeInput.value === '') {
-              timeInput.classList.add('required-empty');
-            }
+            setRequiredFieldState(timeInput, hasAttemptedIntakeSubmit);
           }
         }
       });
       
-      // Mark all required fields as empty on page load
+      // Keep required fields neutral initially; show red only after submit attempt
       const requiredFields = document.querySelectorAll('.field input[required], .field select[required]');
       requiredFields.forEach(function(field) {
-        // For date and time inputs, check if value is empty
-        const isEmpty = !field.value || field.value === '' || (field.type === 'date' && field.value === '') || (field.type === 'time' && field.value === '');
-        
-        if (isEmpty) {
-          field.classList.add('required-empty');
-        }
+        setRequiredFieldState(field, false);
         
         // Add event listeners to update classes on change
         field.addEventListener('change', function() {
-          const hasValue = this.value && this.value !== '';
-          if (hasValue) {
-            this.classList.remove('required-empty');
-            this.classList.add('required-filled');
-          } else {
-            this.classList.add('required-empty');
-            this.classList.remove('required-filled');
-          }
+          setRequiredFieldState(this, hasAttemptedIntakeSubmit);
         });
         
         // For date/time inputs, also listen to input event
         if (field.type === 'date' || field.type === 'time') {
           field.addEventListener('input', function() {
-            const hasValue = this.value && this.value !== '';
-            if (hasValue) {
-              this.classList.remove('required-empty');
-              this.classList.add('required-filled');
-            } else {
-              this.classList.add('required-empty');
-              this.classList.remove('required-filled');
-            }
+            setRequiredFieldState(this, hasAttemptedIntakeSubmit);
           });
         } else {
           field.addEventListener('input', function() {
-            const hasValue = this.value && this.value !== '';
-            if (hasValue) {
-              this.classList.remove('required-empty');
-              this.classList.add('required-filled');
-            } else {
-              this.classList.add('required-empty');
-              this.classList.remove('required-filled');
-            }
+            setRequiredFieldState(this, hasAttemptedIntakeSubmit);
           });
         }
       });
@@ -971,6 +991,7 @@
     // Book Slot button - open modal with Cal.com iframe after form submission
     document.getElementById('book-slot-btn').addEventListener('click', function(e) {
       e.preventDefault();
+      hasAttemptedIntakeSubmit = true;
       
       // Clear previous errors
       clearError('email');
@@ -984,8 +1005,7 @@
       
       // Validate form first
       const form = document.getElementById('intake-form');
-      if (!form.checkValidity()) {
-        form.reportValidity();
+      if (!validateRequiredFieldsAndFocus(form)) {
         return;
       }
       
@@ -996,12 +1016,6 @@
       const phone = formData.get('phone');
       const dob = formData.get('dob');
       const unclear = formData.get('unclear');
-      
-      // Validate required fields
-      if (!name || !email) {
-        form.reportValidity();
-        return;
-      }
       
       // Custom validation for email
       if (!validateEmail(email)) {
@@ -1051,11 +1065,6 @@
           return;
         }
       }
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      
       // Get session type (audio/video) from active toggle button
       const activeToggle = document.querySelector('.toggle-btn.active');
       const sessionType = activeToggle ? activeToggle.dataset.type : 'audio';
@@ -1375,8 +1384,7 @@
       const areaSelect = document.getElementById('intake-area');
       const areaDisplay = document.getElementById('area-display');
       if (areaSelect && areaDisplay) {
-        // Red border on page load (empty = required-empty like other fields)
-        areaDisplay.classList.add('required-empty');
+        areaDisplay.classList.remove('required-empty');
 
         areaSelect.addEventListener('change', function() {
           const selected = this.options[this.selectedIndex];
@@ -1385,7 +1393,11 @@
             areaDisplay.classList.remove('required-empty');
             areaDisplay.classList.add('filled');
           } else {
-            areaDisplay.classList.add('required-empty');
+            if (hasAttemptedIntakeSubmit) {
+              areaDisplay.classList.add('required-empty');
+            } else {
+              areaDisplay.classList.remove('required-empty');
+            }
             areaDisplay.classList.remove('filled');
           }
         });
