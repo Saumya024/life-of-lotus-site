@@ -14,8 +14,8 @@
   --white: #FFFFFF;
 
   /* Typography */
-  --font-heading: 'Brygada 1918', serif;
-  --font-body: 'Comfortaa', sans-serif;
+  --font-heading: 'Spectral', serif;
+  --font-body: 'Inter', sans-serif;
   --text-display: 72px;
   --text-h1-hero: 55px;
   --text-h1-page: 34px;
@@ -9786,7 +9786,7 @@ main[class$="-page"] .wizard-chip.active {
   color: var(--cream-white) !important;
 }
 
-/* Floating FAQ answer: Comfortaa, 14px to match founder note / accordion answers */
+/* Floating FAQ answer: Inter, 14px to match founder note / accordion answers */
 .faq-answer-container .faq-answer-text,
 .faq-answer-container .faq-answer-text p,
 .faq-answer-container .faq-answer-text strong,
