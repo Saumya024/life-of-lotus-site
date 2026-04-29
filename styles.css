@@ -4368,6 +4368,7 @@ main[class$="-page"] .wizard-chip.active {
 
   .process-heading {
     font-size: 18px;
+    max-width: 100%;
   }
 
   .process-intro {
