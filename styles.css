@@ -2711,7 +2711,7 @@ a.area-item:hover,
 }
 
 .process-heading {
-  font-size: var(--text-h5);
+  font-size: 18px;
   line-height: 1.35;
   max-width: 260px;
   margin-left: auto;
