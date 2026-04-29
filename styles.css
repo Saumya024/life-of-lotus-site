@@ -6473,6 +6473,7 @@ main[class$="-page"] .wizard-chip.active {
 .about-hero-tagline {
   font-family: var(--font-body);
   font-size: var(--text-body);
+  font-weight: 600;
   line-height: 1.5;
   color: var(--tertiary);
   margin: 0 0 20px 0;
