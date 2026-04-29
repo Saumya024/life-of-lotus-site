@@ -203,7 +203,7 @@
       <h1>You have a question.<br>Your chart has the answer.</h1>
       <p class="hero-subhead">The truth? You've held the answers since birth.</p>
       <p class="hero-support">Let's decode your chart with Vedic Astrology.<br>Get clarity on relationships, work, wealth, and life's biggest decisions.</p>
-      <a class="hero-cta" href="#pricing">Book a Consultation</a>
+      <a class="hero-cta" href="#pricing">Book a Session</a>
       <div class="hero-scroll-indicator" aria-hidden="true"></div>
     </div>
   </section>
@@ -980,7 +980,7 @@
     <p class="process-intro">This work is about clarity, not just answers.<br>
     You leave with context where there was confusion, steadiness where there was pressure, and direction where decisions felt stuck.</p>
     <div style="text-align: center; margin-bottom: 64px;">
-      <a href="#pricing" class="process-cta">Book a Consultation</a>
+      <a href="#pricing" class="process-cta">Book a Session</a>
     </div>
     <div class="process-flow">
       <div class="process-step">
@@ -1479,7 +1479,7 @@
       });
     });
 
-    // Testimonial Carousel Manual Navigation
+    // Testimonial Carousel: arrows + 7s auto-advance
     function initTestimonialCarousel(carouselId) {
       const carousel = document.getElementById(carouselId);
       if (!carousel) return;
@@ -1492,6 +1492,7 @@
       if (slides.length === 0) return;
 
       let currentIndex = 0;
+      let autoTimer = null;
 
       function showSlide(index) {
         slides.forEach((slide, i) => {
@@ -1512,15 +1513,26 @@
         showSlide(currentIndex);
       }
 
-      // Initialize first slide
-      showSlide(0);
+      function restartAuto() {
+        if (slides.length <= 1) return;
+        if (autoTimer) clearInterval(autoTimer);
+        autoTimer = setInterval(nextSlide, 10000);
+      }
 
-      // Add event listeners
+      showSlide(0);
+      restartAuto();
+
       if (rightArrow) {
-        rightArrow.addEventListener('click', nextSlide);
+        rightArrow.addEventListener('click', function() {
+          nextSlide();
+          restartAuto();
+        });
       }
       if (leftArrow) {
-        leftArrow.addEventListener('click', prevSlide);
+        leftArrow.addEventListener('click', function() {
+          prevSlide();
+          restartAuto();
+        });
       }
     }
 

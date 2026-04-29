@@ -2347,18 +2347,18 @@ a.area-item:hover,
 .testimonial {
   background-color: var(--white);
   text-align: center;
-  padding: var(--section-padding);
+  padding: 56px 24px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(67, 16, 57, 0.08);
-  border-bottom: 1px solid rgba(67, 16, 57, 0.08);
-  box-shadow: 0 2px 24px rgba(67, 16, 57, 0.06);
+  border-top: none;
+  border-bottom: none;
+  box-shadow: none;
 }
 
 .testimonial-carousel {
   position: relative;
   width: 100%;
-  max-width: 920px;
+  max-width: 820px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -2368,17 +2368,30 @@ a.area-item:hover,
 .testimonial-slides-wrapper {
   flex: 1;
   position: relative;
-  min-height: 200px;
+  min-height: 170px;
 }
 
 .testimonial-slide {
   display: none;
   opacity: 0;
   transition: opacity 0.6s ease-in-out;
-  padding: 24px 40px;
-  border-radius: 12px;
-  background: rgba(67, 16, 57, 0.02);
-  border: 1px solid rgba(67, 16, 57, 0.1);
+  padding: 8px 12px;
+  border-radius: 0;
+  background: transparent;
+  border: none;
+}
+
+.testimonial-slide::before {
+  content: '★ ★ ★ ★ ★';
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: 0.45em;
+  color: var(--tertiary);
+  opacity: 0.42;
+  margin-bottom: 14px;
+  font-family: var(--font-body);
+  font-weight: 400;
 }
 
 .testimonial-slide.active {
@@ -2427,31 +2440,22 @@ a.area-item:hover,
   }
 
   .testimonial {
-    padding: 80px 20px;
+    padding: 44px 16px;
   }
 
   .testimonial-slide {
-    padding: 20px 24px;
-  }
-
-  .testimonial-quote {
-    font-size: 72px;
+    padding: 6px 8px;
   }
 }
 
 .testimonial-quote {
-  font-size: 120px;
-  line-height: 1;
-  color: rgba(67, 16, 57, 0.2);
-  margin-bottom: -28px;
-  font-family: var(--font-heading);
-  font-weight: 600;
+  display: none;
 }
 
 .testimonial-text {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.75;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   color: var(--primary);
   max-width: 100%;
   margin-left: auto;
@@ -2462,7 +2466,7 @@ a.area-item:hover,
 }
 
 .testimonial-attribution {
-  font-size: 14px;
+  font-size: 13px;
   color: rgba(67, 16, 57, 0.88);
   font-style: italic;
   font-family: var(--font-body);
@@ -2588,7 +2592,7 @@ a.area-item:hover,
 
 /* Process / Session Experience */
 .process {
-  background-color: var(--primary-lighter);
+  background-color: var(--primary-light);
   text-align: center;
   overflow-x: hidden;
   box-sizing: border-box;
@@ -2664,7 +2668,7 @@ a.area-item:hover,
 .process-heading {
   font-size: 20px;
   margin-bottom: 16px;
-  color: var(--primary);
+  color: var(--tertiary-light);
   word-wrap: break-word;
 }
 
@@ -3858,22 +3862,57 @@ a.area-item:hover,
   gap: 24px;
 }
 
-.add-chart-btn {
-  display: inline-block;
-  padding: 14px 32px;
-  border: 1px solid var(--primary);
-  border-radius: var(--radius-pill);
-  background: transparent;
+.add-chart-link {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  border: none;
+  background: none;
   color: var(--primary);
-  font-family: var(--font-heading);
+  font-family: var(--font-body);
   font-size: var(--text-body);
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
-  transition: background 0.3s, border-color 0.3s;
+  text-align: center;
+  line-height: 1.45;
 }
 
-.add-chart-btn:hover {
-  background: rgba(67, 16, 57, 0.06);
+.add-chart-link:hover {
+  opacity: 0.85;
+}
+
+.add-chart-link-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.add-chart-plus-icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.add-chart-label {
+  font-family: var(--font-heading);
+  font-weight: 500;
+}
+
+.add-chart-parenthetical {
+  font-size: var(--text-caption);
+  color: rgba(67, 16, 57, 0.62);
+  font-weight: 400;
+  max-width: 420px;
 }
 
 #add-chart-btn-2-wrap.add-chart-cta-wrap {

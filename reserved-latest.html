@@ -4,29 +4,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Booking Confirmation | I Read Space | A Trusted Approach to Astrology</title>
+  <title>Slot Reserved | I Read Space | A Trusted Approach to Astrology</title>
   <meta name="description" content="Complete payment via WhatsApp to confirm your Vedic astrology consultation with I Read Space." />
   <meta name="robots" content="noindex, nofollow" />
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/images/Radicle (4).png">
   <link rel="apple-touch-icon" href="assets/images/Radicle (4).png">
-
-  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
   <link rel="stylesheet" href="styles.css?v=9" />
 </head>
 
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Header -->
   <header class="header">
     <div class="logo">
       <a href="index.html"><img src="assets/images/22.png" alt="I Read Space" /></a>
-      </div>
+    </div>
     <div class="header-mobile-actions">
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span>
@@ -39,7 +35,6 @@
       <a href="about.html">About</a>
       <a href="index.html#areas">Services</a>
       <a href="index.html#pricing">Pricing</a>
-      
       <a href="insights.html">Insights</a>
       <a href="alternative-healing-practices.html">Healing</a>
       <a href="reset-now.html">Reset</a>
@@ -48,28 +43,24 @@
     </nav>
   </header>
 
-  <!-- Confirmation Section -->
-  <section class="confirmation" id="main-content">
-    <div class="confirmation-container">
-      <h1 class="confirmation-heading">Almost there!</h1>
-      <p class="confirmation-message">Complete payment via WhatsApp to confirm your session.</p>
-      <a href="#" class="confirmation-cta" id="payment-cta">Pay via WhatsApp</a>
-      <p class="redirect-message" id="redirect-message" style="display: none;">Redirecting you to WhatsApp for booking confirmation and payment…</p>
+  <section class="reserved" id="main-content">
+    <div class="reserved-container">
+      <h1 class="reserved-heading">Almost there!</h1>
+      <p class="reserved-subheading">Complete payment via WhatsApp to confirm your session.</p>
+      <a href="#" class="reserved-cta" id="whatsapp-cta">Pay via WhatsApp</a>
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-logo">
-        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space"  loading="lazy" /></a>
+        <a href="index.html"><img src="assets/images/23.png" alt="I Read Space" loading="lazy" /></a>
       </div>
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="index.html#areas">Services</a>
-      <a href="index.html#pricing">Pricing</a>
-        
+        <a href="index.html#pricing">Pricing</a>
         <a href="insights.html">Insights</a>
         <a href="alternative-healing-practices.html">Healing</a>
         <a href="reset-now.html">Reset</a>
@@ -77,7 +68,7 @@
       </nav>
       <div class="footer-newsletter">
         <p class="footer-newsletter-text">Want practical Vedic knowledge in your inbox? No spam. Unsubscribe anytime.</p>
-        <form class="footer-newsletter-form" id="footer-email-form" data-email-capture data-source="Footer Newsletter - confirm" data-success-text="Subscribed!">
+        <form class="footer-newsletter-form" id="footer-email-form" data-email-capture data-source="Footer Newsletter - reserved" data-success-text="Subscribed!">
           <input type="email" name="email" placeholder="Your email" required aria-label="Email address for newsletter" />
           <button type="submit">Subscribe</button>
         </form>
@@ -94,54 +85,17 @@
     </div>
   </footer>
 
-  <!-- Mobile Menu Script -->
+  <script>
+    document.getElementById('whatsapp-cta').addEventListener('click', function(e) {
+      e.preventDefault();
+      const message = "Hello, I've reserved a session slot with I Read Space. Please share payment details and next steps.";
+      window.location.href = 'https://wa.me/919217679635?text=' + encodeURIComponent(message);
+    });
+  </script>
+
   <script src="js/mobile-menu.js"></script>
   <script src="js/email-capture.js"></script>
-
-  <!-- Navigation Dropdown Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const dropdowns = document.querySelectorAll('.nav-dropdown');
-      dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.nav-dropdown-toggle');
-        if (toggle) {
-          toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-              e.preventDefault();
-              dropdown.classList.toggle('active');
-              dropdowns.forEach(other => {
-                if (other !== dropdown) other.classList.remove('active');
-              });
-            }
-          });
-        }
-      });
-      document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768 && !e.target.closest('.nav-dropdown')) {
-          dropdowns.forEach(dropdown => dropdown.classList.remove('active'));
-        }
-      });
-    });
-  </script>
-
-  <script>
-    document.getElementById('payment-cta').addEventListener('click', function(e) {
-      e.preventDefault();
-      
-      // Show redirect message
-      const redirectMessage = document.getElementById('redirect-message');
-      redirectMessage.style.display = 'block';
-      
-      // Redirect to WhatsApp after a brief delay
-      setTimeout(function() {
-        window.location.href = 'https://wa.me/919217679635?text=Hi%2C%20I%E2%80%99ve%20booked%20a%20session%20on%20Calendly.%0AName%3A%20%0ADate%20%26%20Time%3A%20%0ASession%20type%3A%2030%20minutes%0APlease%20share%20payment%20details.';
-      }, 1500);
-    });
-  </script>
-
-  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">
-    ?
-  </button>
+  <button id="faq-chat-button" class="faq-chat-button" aria-label="Open FAQ chat">?</button>
   <div id="faq-chat-panel" class="faq-chat-panel">
     <div class="faq-chat-header">
       <h3>Have a Question?</h3>
@@ -150,6 +104,6 @@
     <div id="faq-chat-content" class="faq-chat-content"></div>
   </div>
   <script src="js/faq-chat.js?v=7"></script>
-
 </body>
+
 </html>
