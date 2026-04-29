@@ -11074,3 +11074,120 @@ body.home .founder-heading {
     margin-bottom: 28px;
   }
 }
+
+/* ============================================================
+   ANTI AUTO-DARK PATCH (Chrome Android / Samsung Internet)
+
+   color-scheme:light only + meta tags should opt out of Chrome's
+   Auto Dark Theme — but on some Android builds Chrome ignores it
+   and forces algorithmic inversion of light backgrounds anyway,
+   producing the dark/pink artifacts seen on cream sections.
+
+   The reliable workaround: Chrome auto-dark inverts solid
+   `background-color` but NOT `background-image`. So we paint these
+   sections with a 1-stop linear-gradient that is visually identical
+   to the original cream colour, but counts as an image to the
+   browser engine.
+   ============================================================ */
+.header,
+.about-saumya,
+.brand-highlights,
+.core-benefits,
+.contact,
+.faq,
+.about-section-1,
+.about-section-3,
+.about-hero,
+.about-content,
+.insights-landing,
+.healing-practices,
+.ascendant-reset-page,
+.privacy-policy,
+.terms-content,
+.refund-content {
+  background-color: var(--cream-white) !important;
+  background-image: linear-gradient(var(--cream-white), var(--cream-white)) !important;
+}
+
+/* White cards on cream backgrounds — same trick */
+.pricing-card,
+.package-card,
+.blog-post-card,
+.testimonial-card,
+.faq-answer,
+.brand-pill,
+.brand-principle-pill,
+.area-item,
+.reach-out-item {
+  background-image: linear-gradient(var(--white), var(--white)) !important;
+}
+
+/* Force text colours on key visible content so Chrome auto-dark cannot
+   remap maroon (#431039) to a pink-shifted hue */
+.header,
+.header .nav a,
+.about-saumya,
+.about-saumya h2,
+.about-saumya p,
+.about-saumya-name,
+.about-saumya-role,
+.about-saumya-text p,
+.brand-highlights,
+.brand-subsection-heading,
+.brand-stars-text,
+.core-benefit-title,
+.core-benefit-description,
+.contact h2,
+.contact p,
+.faq h1,
+.faq h2,
+.faq-question,
+.faq-answer,
+.insights-landing h1,
+.insights-intro,
+.healing-practices h1,
+.healing-practices-intro,
+.healing-practices-intro p,
+.ascendant-reset-page h1,
+.ascendant-reset-subtext,
+.about-section-1,
+.about-section-3,
+.about-section-1 h2,
+.about-section-3 h2,
+.about-content,
+.about-content p,
+.about-content li,
+.about-hero-content,
+.area-title,
+.area-detail,
+.reach-out-text,
+.reach-out-detail {
+  color: var(--primary) !important;
+}
+
+/* Sections that are intentionally dark (primary-light background) keep
+   their cream foreground in dark mode too */
+.about-section-2,
+.about-section-2 h2,
+.about-section-2 p,
+.about-section-2 li,
+.about-cta-section,
+.about-cta-section h2,
+.about-cta-section p,
+.about-cta-text,
+.about-cta-subtext,
+.founder-note,
+.founder-heading,
+.founder-name,
+.founder-role,
+.founder-note-section-text,
+.process,
+.process-heading,
+.process-text,
+.pricing,
+.pricing h2,
+.footer,
+.footer-nav a,
+.footer-description {
+  color: var(--cream-white) !important;
+}
