@@ -10506,6 +10506,7 @@ main[class$="-page"] .wizard-chip.active {
   display: inline-block;
   width: auto;
   text-align: center;
+  white-space: nowrap;
 }
 
 .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
