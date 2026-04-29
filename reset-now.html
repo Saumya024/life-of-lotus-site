@@ -31,7 +31,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=127" />
+  <link rel="stylesheet" href="styles.css?v=128" />
 
   <script>
     (function() {
@@ -116,21 +116,34 @@
     }
 
     @media (max-width: 768px) {
+      .ascendant-reset-page {
+        padding: 32px 16px 64px;
+      }
+      .ascendant-reset-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        box-sizing: border-box;
+      }
       .ascendant-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        margin-bottom: 16px;
-      }
-      /* Android only: center the grid so circles aren't shifted right */
-      html.device-android .ascendant-grid,
-      body.device-android .ascendant-grid {
-        max-width: 360px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
+        gap: 16px;
+        margin: 0 auto;
         width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
       }
-      .ascendant-reset-page {
-        padding: 32px 20px 64px;
+      .ascendant-circle {
+        width: min(148px, calc(44vw));
+        height: min(148px, calc(44vw));
+        padding: 14px;
+      }
+      .ascendant-circle img {
+        width: min(64px, calc(18vw));
+        height: min(64px, calc(18vw));
+      }
+      .ascendant-label {
+        font-size: 17px;
       }
     }
 

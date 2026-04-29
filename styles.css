@@ -4506,6 +4506,74 @@ main[class$="-page"] .wizard-chip.active {
     color: #252525 !important;
     text-align: left !important;
   }
+
+  /* Tablet hamburger nav: Resources dropdown — show arrow + divider (mirrors ≤768px rules) */
+  .nav-dropdown {
+    width: 100%;
+  }
+
+  .nav-dropdown-toggle {
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(248, 246, 242, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--cream-white);
+    font-size: var(--text-small);
+  }
+
+  .dropdown-arrow {
+    display: inline-block;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    display: none;
+    min-width: auto;
+  }
+
+  .nav-dropdown.active .nav-dropdown-menu {
+    display: block;
+  }
+
+  .nav-dropdown-menu a {
+    padding: 12px 0 12px 24px;
+    font-size: var(--text-small);
+    border-bottom: 1px solid rgba(248, 246, 242, 0.12);
+  }
+
+  .nav-dropdown-menu a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* Tablet only (769–1024px): misc visual fixes */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Quote band: clamp(16px,1.7vw,24px) resolves to ~17px at 1024px — too small */
+  .about-quote-band-text {
+    font-size: clamp(20px, 2.4vw, 26px);
+    white-space: normal;
+  }
+
+  /* Hero: shift content block 0.5cm lower so it visually centres on tablet */
+  .hero.hero-overhaul .hero-content {
+    top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift) + 0.5cm);
+  }
+
+  /* Hero CTA: desktop clamp resolves too small on 1024px tablet */
+  .hero.hero-overhaul .hero-cta {
+    font-size: 20px !important;
+    padding: 16px 44px !important;
+    border-width: 1.5px;
+  }
 }
 
 /* Tablet only (769–1024px): 2-column grids for pricing/packages so cards aren’t cut off */
