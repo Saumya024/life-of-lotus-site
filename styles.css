@@ -6961,6 +6961,7 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 /* Insights Page */
+/* Resource landings (Insights / Healing / Reset): title = homepage section h2 pattern; lead = About hero .about-hero-text */
 .insights-landing {
   background-color: var(--cream-white);
   padding: var(--section-padding);
@@ -6971,21 +6972,36 @@ main[class$="-page"] .wizard-chip.active {
   margin: 0 auto;
 }
 
-.insights-landing h1 {
+.insights-landing h1,
+.healing-practices h1,
+.ascendant-reset-page h1 {
+  font-family: var(--font-heading);
+  font-weight: 500;
   font-size: var(--text-h2);
   line-height: 1.2;
-  margin-bottom: 24px;
+  margin: 0 0 32px;
+  color: var(--primary);
+}
+
+.insights-intro,
+.healing-practices-intro p,
+.ascendant-reset-intro,
+.ascendant-reset-subtext {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  color: var(--primary-light);
+  text-align: center;
+}
+
+.ascendant-reset-subtext {
+  margin: 0 auto 48px;
   color: var(--primary);
 }
 
 .insights-intro {
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: 1.5;
-  color: var(--primary-light);
-  text-align: center;
-  margin-bottom: 48px;
-  opacity: 0.9;
+  margin: 0 auto 48px;
+  max-width: min(900px, 100%);
 }
 
 .insights-search-filter {
@@ -7232,18 +7248,28 @@ main[class$="-page"] .wizard-chip.active {
     padding: 80px 20px;
   }
 
-  .insights-landing h1 {
-    font-size: clamp(22px, 5.2vw, 28px);
+  .insights-landing h1,
+  .healing-practices h1,
+  .ascendant-reset-page h1 {
+    font-size: 28px;
     line-height: 1.2;
+    margin-bottom: 28px;
   }
 
   [class$="-hero"] h1 {
     font-size: 28px !important;
   }
 
-  .insights-intro {
+  .insights-intro,
+  .healing-practices-intro p,
+  .ascendant-reset-intro,
+  .ascendant-reset-subtext {
     font-size: clamp(13px, 3.4vw, 15px);
-    line-height: 1.5;
+    line-height: 1.6;
+  }
+
+  .ascendant-reset-subtext {
+    margin-bottom: 40px;
   }
 
   .insights-search-filter {
@@ -7293,30 +7319,13 @@ main[class$="-page"] .wizard-chip.active {
   margin: 0 auto;
 }
 
-.healing-practices h1 {
-  font-size: var(--text-h2);
-  line-height: 1.2;
-  margin-bottom: 32px;
-  color: var(--primary);
-}
-
-/* Resources subpage: same heading size as other subpages (34px) */
-.resources-page .healing-practices h1 {
-  font-size: 34px;
-}
+/* .healing-practices h1 — grouped with .insights-landing h1 above */
 
 .healing-practices-intro {
-  font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: 1.5;
   color: var(--primary-light);
   text-align: center;
-  margin-bottom: 48px;
-  opacity: 0.9;
+  margin: 0 auto 48px;
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.35;
 }
 
 .healing-practices-intro p {
@@ -7327,18 +7336,7 @@ main[class$="-page"] .wizard-chip.active {
   margin-bottom: 0;
 }
 
-.ascendant-reset-page h1 {
-  font-size: var(--text-h2);
-  line-height: 1.2;
-  color: var(--primary);
-  margin-bottom: 24px;
-}
-
-.ascendant-reset-intro,
-.ascendant-reset-subtext {
-  font-size: var(--text-body);
-  line-height: 1.5;
-}
+/* .ascendant-reset-page h1 — grouped with resource landing titles above */
 
 .healing-search-filter {
   display: flex;
@@ -7513,36 +7511,13 @@ main[class$="-page"] .wizard-chip.active {
     padding: 80px 20px;
   }
 
-  .healing-practices h1 {
-    font-size: clamp(22px, 5.2vw, 28px);
-    line-height: 1.2;
-    margin-bottom: 24px;
-  }
-
-  .resources-page .healing-practices h1 {
-    font-size: 28px;
-  }
-
   .healing-practices-intro {
-    font-size: clamp(13px, 3.4vw, 15px);
-    line-height: 1.5;
     margin-bottom: 48px;
     padding: 0 10px;
   }
 
   .healing-practices-intro p {
     margin-bottom: 16px;
-  }
-
-  .ascendant-reset-page h1 {
-    font-size: clamp(22px, 5.2vw, 28px);
-    line-height: 1.2;
-  }
-
-  .ascendant-reset-intro,
-  .ascendant-reset-subtext {
-    font-size: clamp(13px, 3.4vw, 15px);
-    line-height: 1.5;
   }
 
   .healing-search-filter {
@@ -10527,6 +10502,10 @@ main[class$="-page"] .wizard-chip.active {
   margin-top: clamp(10px, 1.6vw, 22px);
 }
 
+.hero.hero-overhaul .hero-content .hero-support .hero-support-line1 {
+  display: inline;
+}
+
 .hero.hero-overhaul .hero-content .hero-support {
   max-width: min(820px, 88vw);
   font-family: var(--font-body);
@@ -10626,7 +10605,7 @@ main[class$="-page"] .wizard-chip.active {
     top: calc(clamp(118px, 16vh, 160px) + var(--hero-block-shift));
     bottom: calc(29% + 10px);
     justify-content: center;
-    padding: 0 clamp(20px, 5vw, 40px);
+    padding: 0 clamp(10px, 3vw, 24px);
     margin-top: 0 !important;
     transform: none !important;
   }
@@ -10681,12 +10660,17 @@ main[class$="-page"] .wizard-chip.active {
     font-size: clamp(14px, 3.8vw, 16px);
     margin-top: clamp(14px, 2.8vw, 22px);
     white-space: normal;
+    text-wrap: initial;
     line-height: 1.6;
-    max-width: min(100%, 38ch);
+    max-width: 100%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     overflow-wrap: break-word;
+  }
+
+  .hero.hero-overhaul .hero-content .hero-support .hero-support-line1 {
+    white-space: nowrap;
   }
 
   .hero.hero-overhaul .hero-cta {
@@ -10772,7 +10756,8 @@ main[class$="-page"] .wizard-chip.active {
     font-size: clamp(13px, 3.8vw, 15px);
     margin-top: clamp(12px, 2.8vw, 18px);
     line-height: 1.62;
-    max-width: min(100%, 34ch);
+    text-wrap: initial;
+    max-width: 100%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -10803,7 +10788,7 @@ main[class$="-page"] .wizard-chip.active {
     top: calc(clamp(92px, 13vh, 124px) + var(--hero-block-shift));
     bottom: calc(36% + 8px);
     justify-content: center;
-    padding: 0 14px;
+    padding: 0 8px;
   }
 
   .hero.hero-overhaul .hero-content h1 {
@@ -10826,6 +10811,11 @@ main[class$="-page"] .wizard-chip.active {
   .hero.hero-overhaul .hero-content .hero-support {
     font-size: clamp(13px, 3.7vw, 14px);
     line-height: 1.62;
+    text-wrap: initial;
+  }
+
+  .hero.hero-overhaul .hero-content .hero-support .hero-support-line1 {
+    white-space: normal;
   }
 }
 
