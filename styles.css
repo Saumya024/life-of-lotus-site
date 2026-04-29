@@ -28,6 +28,10 @@
   --text-caption: 12px;
   --faq-question-size: 16px;
   --faq-answer-size: 14px;
+  /* Hero: heading +25% vs section h2; subline scale (narrow screens — wide screens see block after :root) */
+  --hero-heading-scale: 1.25;
+  /* ≤768px: 0.9× h4 (18px) so sub doesn’t compete with title on small viewports */
+  --hero-subhead-scale: 0.9;
   --line-tight: 1.1;
   --line-snug: 1.3;
   --line-normal: 1.6;
@@ -72,6 +76,13 @@
   --letter-wide: 0.5px;
   --letter-wider: 1px;
   --letter-widest: 2px;
+}
+
+/* Hero subhead/support: larger on tablet+ so desktop isn’t stuck at phone size */
+@media (min-width: 769px) {
+  :root {
+    --hero-subhead-scale: 1.08;
+  }
 }
 
 /* Skip link (a11y) - visible on focus */
@@ -10492,7 +10503,8 @@ main[class$="-page"] .wizard-chip.active {
   max-width: min(900px, 90vw);
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: calc(var(--text-h2) + 4px);
+  /* +25% vs site section h2 (--text-h2, 34px on desktop) */
+  font-size: calc(var(--text-h2) * var(--hero-heading-scale));
   line-height: 1.2;
   white-space: normal;
   text-wrap: balance;
@@ -10522,7 +10534,7 @@ main[class$="-page"] .wizard-chip.active {
   max-width: min(900px, 90vw);
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: var(--text-h4);
+  font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
   line-height: 1.35;
   white-space: normal;
   text-wrap: balance;
@@ -10533,9 +10545,9 @@ main[class$="-page"] .wizard-chip.active {
 .hero.hero-overhaul .hero-content .hero-support {
   max-width: min(820px, 88vw);
   font-family: var(--font-body);
-  font-weight: 400;
-  font-size: calc(var(--text-body) + 2px);
-  line-height: 1.6;
+  font-weight: 500;
+  font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
+  line-height: 1.5;
   opacity: 0.9;
   white-space: normal;
   text-wrap: balance;
@@ -10650,7 +10662,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(22px, 4.4vw, 28px);
+    /* Matches h2 mobile size (28px in this breakpoint) × 1.25 */
+    font-size: calc(28px * var(--hero-heading-scale));
     white-space: normal;
     line-height: 1.32;
     /* Wide enough for single-line hero rows; narrow ch widths caused wrapping */
@@ -10660,7 +10673,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
-    font-size: clamp(13px, 2.8vw, 16px);
+    font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
     white-space: normal;
     line-height: 1.6;
     max-width: 34ch;
@@ -10670,7 +10683,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(13px, 2.7vw, 15px);
+    font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
     margin-top: clamp(14px, 2.8vw, 22px);
     white-space: normal;
     line-height: 1.72;
@@ -10740,7 +10753,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(19px, 5.4vw, 24px);
+    font-size: calc(28px * var(--hero-heading-scale));
     line-height: 1.34;
     max-width: min(92vw, 400px);
     margin-left: auto;
@@ -10748,7 +10761,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
-    font-size: clamp(12px, 3.8vw, 14px);
+    font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
     line-height: 1.62;
     max-width: 30ch;
     margin-top: clamp(12px, 2.8vw, 18px);
@@ -10757,7 +10770,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(12px, 3.6vw, 14px);
+    font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
     margin-top: clamp(12px, 2.8vw, 18px);
     line-height: 1.75;
     max-width: 34ch;
@@ -10794,7 +10807,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(16px, 4.4vw, 20px);
+    font-size: calc(28px * var(--hero-heading-scale));
     line-height: 1.38;
     max-width: min(92vw, 380px);
     /* Do not force normal here — it breaks single-line hero spans on very small screens */
@@ -10806,12 +10819,12 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
-    font-size: clamp(11px, 3.6vw, 13px);
+    font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
     line-height: 1.65;
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(11px, 3.3vw, 13px);
+    font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
     line-height: 1.78;
   }
 }
