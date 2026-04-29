@@ -909,11 +909,17 @@ section {
 }
 
 .nav-dropdown-toggle {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
   display: flex;
   align-items: center;
   gap: 4px;
   cursor: pointer;
-  color: var(--primary);
+  color: var(--cream-white);
+  font-family: inherit;
+  font-weight: inherit;
   text-decoration: none;
   font-size: var(--text-body);
   transition: opacity 0.3s;
@@ -926,6 +932,7 @@ section {
 .dropdown-arrow {
   font-size: 10px;
   transition: transform 0.3s;
+  display: none;
 }
 
 .nav-dropdown:hover .dropdown-arrow,
@@ -937,9 +944,9 @@ section {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: var(--cream-white);
+  background-color: var(--primary);
   min-width: 220px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
   border-radius: 8px;
   padding: 8px 0;
   margin-top: 8px;
@@ -960,15 +967,17 @@ section {
 .nav-dropdown-menu a {
   display: block;
   padding: 12px 20px;
-  color: var(--primary);
+  color: var(--cream-white) !important;
   text-decoration: none;
   font-size: var(--text-body);
   transition: background-color 0.2s;
   border-bottom: none;
+  width: auto;
+  margin: 0;
 }
 
 .nav-dropdown-menu a:hover {
-  background-color: rgba(67, 16, 57, 0.05);
+  background-color: rgba(248, 246, 242, 0.10);
   opacity: 1;
 }
 
@@ -2362,7 +2371,7 @@ a.area-item:hover,
   margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 40px;
 }
 
 .testimonial-slides-wrapper {
@@ -3280,7 +3289,7 @@ a.area-item:hover,
 /* Contact / Closing Conversion Block */
 .contact {
   background-color: var(--primary);
-  padding: 76px 40px;
+  padding: 72px 40px;
 }
 
 .contact-container {
@@ -3291,7 +3300,7 @@ a.area-item:hover,
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 46px;
+  gap: 0;
   text-align: center;
 }
 
@@ -3356,6 +3365,24 @@ a.area-item:hover,
   align-items: flex-start;
   flex-wrap: wrap;
   margin-top: 4px;
+}
+
+.contact-icons-band {
+  background-color: var(--primary-dark);
+  border-top: 1px solid rgba(248, 246, 242, 0.12);
+  border-bottom: 1px solid rgba(248, 246, 242, 0.12);
+  padding: 18px 20px;
+}
+
+.contact-icons-band-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.contact-icons-heading {
+  color: var(--cream-white);
+  text-align: center;
+  margin: 0 0 32px;
 }
 
 .contact-icon-item {
@@ -3478,7 +3505,7 @@ a.area-item:hover,
   opacity: 0.9;
   margin: 0 0 14px;
   line-height: 1.5;
-  text-align: left;
+  text-align: center;
 }
 
 .footer-newsletter-form {
@@ -4064,19 +4091,26 @@ a.area-item:hover,
   border-color: var(--secondary);
 }
 
-/* Date and Time Picker Styling - Native Appearance Preserved */
+/* Date and Time Picker Styling (native, visually polished) */
 .field input[type="date"],
 .field input[type="time"] {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
   padding: 12px 16px;
-  padding-right: 40px; /* Space for native calendar/time picker icon */
+  padding-right: 44px; /* Space for native calendar/time picker icon */
   height: auto;
   min-height: 44px;
   margin: 0;
   border: 1px solid rgba(67, 16, 57, 0.2);
   border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--primary);
+  background: linear-gradient(180deg, #ffffff 0%, #fdfbfd 100%);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .field input[type="date"].required-empty,
@@ -4090,6 +4124,28 @@ a.area-item:hover,
 .field input[type="time"]::-webkit-calendar-picker-indicator {
   cursor: pointer;
   opacity: 1;
+  filter: saturate(0.8) contrast(1.05);
+}
+
+.field input[type="date"]::-webkit-datetime-edit,
+.field input[type="time"]::-webkit-datetime-edit {
+  color: rgba(67, 16, 57, 0.48);
+  font-weight: 400;
+}
+
+.field input[type="date"]:focus::-webkit-datetime-edit,
+.field input[type="time"]:focus::-webkit-datetime-edit {
+  color: rgba(67, 16, 57, 0.7);
+}
+
+.field input[type="date"]:hover,
+.field input[type="time"]:hover {
+  border-color: rgba(67, 16, 57, 0.34);
+}
+
+.field input[type="date"]:focus,
+.field input[type="time"]:focus {
+  box-shadow: 0 0 0 3px rgba(64, 192, 197, 0.15);
 }
 
 /* Desktop only (>1024px): use native date/time picker appearance */
@@ -4111,9 +4167,6 @@ a.area-item:hover,
   }
 }
 
-/* Note: Browser-native date/time pickers have limited styling options.
-   The selection color in the popup is controlled by the browser's native styling.
-   For better control, you may need a custom date/time picker library. */
 
 .field textarea {
   resize: vertical;
@@ -4961,6 +5014,10 @@ main[class$="-page"] .wizard-chip.active {
     font-size: var(--text-caption);
   }
 
+  .dropdown-arrow {
+    display: inline-block;
+  }
+
   .nav-dropdown-menu {
     position: static;
     opacity: 1;
@@ -4980,7 +5037,7 @@ main[class$="-page"] .wizard-chip.active {
 
   .nav-dropdown-menu a {
     padding: 12px 0 12px 24px;
-    font-size: var(--text-small);
+    font-size: var(--text-caption);
     border-bottom: 1px solid rgba(67, 16, 57, 0.1);
   }
 
@@ -5391,7 +5448,7 @@ main[class$="-page"] .wizard-chip.active {
 }
 
   .contact {
-    padding: 60px 20px;
+    padding: 56px 20px;
   }
 
   .contact-container {
@@ -5423,6 +5480,10 @@ main[class$="-page"] .wizard-chip.active {
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
+  }
+
+  .contact-icons-band {
+    padding: 14px 12px;
   }
 
   .footer {
@@ -5748,20 +5809,21 @@ main[class$="-page"] .wizard-chip.active {
     max-width: 100% !important;
     min-width: 0 !important;
     padding: 12px 14px !important;
-    padding-right: 36px !important;
+    padding-right: 40px !important;
     box-sizing: border-box !important;
     border: 1px solid rgba(67, 16, 57, 0.2) !important;
     border-radius: 8px !important;
-    font-family: var(--font-heading) !important;
+    font-family: var(--font-body) !important;
     font-size: 16px !important;
+    font-weight: 500 !important;
     color: var(--primary) !important;
-    background-color: var(--white) !important;
+    background: linear-gradient(180deg, #ffffff 0%, #fdfbfd 100%) !important;
     height: auto;
     min-height: 44px;
     line-height: 1.5;
     margin: 0;
     overflow: hidden;
-    text-align: center !important;
+    text-align: left !important;
   }
 
   .field input[type="date"]::-webkit-calendar-picker-indicator,
@@ -5774,6 +5836,7 @@ main[class$="-page"] .wizard-chip.active {
   .field input[type="time"]:focus {
     outline: none !important;
     border-color: var(--secondary) !important;
+    box-shadow: 0 0 0 3px rgba(64, 192, 197, 0.15) !important;
   }
 
   .field input[type="date"].required-empty,
@@ -5801,7 +5864,7 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .confirmation-heading {
-  font-size: 48px;
+  font-size: 52px;
   color: var(--primary);
   margin-bottom: 24px;
   font-family: var(--font-heading);
@@ -6047,7 +6110,7 @@ main[class$="-page"] .wizard-chip.active {
 
 .reserved-heading {
   font-family: var(--font-heading);
-  font-size: 36px;
+  font-size: 40px;
   font-weight: 500;
   color: var(--primary);
   margin-bottom: 24px;
@@ -6391,15 +6454,37 @@ main[class$="-page"] .wizard-chip.active {
   text-align: center;
 }
 
+.about-quote-band {
+  background: var(--primary-dark);
+  padding: 20px 16px;
+}
+
+.about-quote-band-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-quote-band-text {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.7vw, 24px);
+  line-height: 1.25;
+  color: var(--tertiary);
+  font-weight: 500;
+  font-style: italic;
+  white-space: nowrap;
+}
+
 @media (max-width: 768px) {
   .about-hero {
-    padding: 112px 20px 60px;
+    padding: 102px 16px 50px;
   }
   
   .about-hero-content {
     flex-direction: column;
     text-align: left;
-    gap: 30px;
+    gap: 24px;
   }
   
   .about-photo-wrapper {
@@ -6425,6 +6510,18 @@ main[class$="-page"] .wizard-chip.active {
   .about-hero-text {
     font-size: clamp(13px, 3.4vw, 15px);
     line-height: 1.6;
+  }
+
+  .about-quote-band {
+    padding: 14px 8px;
+  }
+
+  .about-quote-band-text {
+    font-size: clamp(13px, 2.8vw, 16px);
+    line-height: 1.35;
+    white-space: nowrap;
+    max-width: none;
+    margin: 0 auto;
   }
 }
 
@@ -10331,7 +10428,7 @@ main[class$="-page"] .wizard-chip.active {
   max-width: min(900px, 90vw);
   font-family: var(--font-heading);
   font-weight: 500;
-  font-size: var(--text-h2);
+  font-size: calc(var(--text-h2) + 4px);
   line-height: 1.2;
   white-space: normal;
   text-wrap: balance;
@@ -10354,7 +10451,7 @@ main[class$="-page"] .wizard-chip.active {
   max-width: min(820px, 88vw);
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: var(--text-body);
+  font-size: calc(var(--text-body) + 2px);
   line-height: 1.6;
   opacity: 0.9;
   white-space: normal;
@@ -10470,7 +10567,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(20px, 4.2vw, 26px);
+    font-size: clamp(22px, 4.4vw, 28px);
     white-space: normal;
     line-height: 1.32;
     max-width: 20ch;
@@ -10489,7 +10586,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(12px, 2.5vw, 14px);
+    font-size: clamp(13px, 2.7vw, 15px);
     margin-top: clamp(14px, 2.8vw, 22px);
     white-space: normal;
     line-height: 1.72;
@@ -10559,7 +10656,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(17px, 5.2vw, 22px);
+    font-size: clamp(19px, 5.4vw, 24px);
     line-height: 1.34;
     max-width: 19ch;
     margin-left: auto;
@@ -10576,7 +10673,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(11px, 3.4vw, 13px);
+    font-size: clamp(12px, 3.6vw, 14px);
     margin-top: clamp(12px, 2.8vw, 18px);
     line-height: 1.75;
     max-width: 34ch;
@@ -10613,7 +10710,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(15px, 4.2vw, 19px);
+    font-size: clamp(16px, 4.4vw, 20px);
     line-height: 1.38;
     max-width: 22ch;
     white-space: normal !important;
@@ -10630,7 +10727,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(10px, 3.2vw, 12px);
+    font-size: clamp(11px, 3.3vw, 13px);
     line-height: 1.78;
   }
 }

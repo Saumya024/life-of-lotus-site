@@ -81,27 +81,55 @@
     }
     .ascendant-option {
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .ascendant-circle {
+      display: flex;
       align-items: center;
       justify-content: center;
       width: 168px;
       height: 168px;
       border-radius: 50%;
-      background: var(--primary-light);
-      color: var(--cream-white);
+      background: var(--primary);
       border: 3px solid var(--tertiary);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    .ascendant-circle img {
+      width: 76px;
+      height: 76px;
+      object-fit: contain;
+      display: block;
+    }
+    .ascendant-label {
       font-family: 'Spectral', serif;
       font-size: 20px;
       font-weight: 500;
+      color: var(--primary);
+      line-height: 1.1;
       text-align: center;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      padding: 12px;
     }
     .ascendant-option:hover {
-      background: var(--primary);
-      transform: scale(1.05);
+      transform: none;
+    }
+    .ascendant-option:focus,
+    .ascendant-option:active,
+    .ascendant-option:focus-visible {
+      transform: none;
+    }
+    .ascendant-option:hover .ascendant-circle {
+      background: var(--primary-light);
       border-color: var(--secondary);
-      color: var(--cream-white);
+    }
+    .ascendant-option:hover .ascendant-circle,
+    .ascendant-option:focus .ascendant-circle,
+    .ascendant-option:active .ascendant-circle,
+    .ascendant-option:focus-visible .ascendant-circle {
+      transform: none;
     }
 
     @media (max-width: 768px) {
@@ -268,9 +296,14 @@
       <a href="index.html#areas">Services</a>
       <a href="index.html#pricing">Pricing</a>
       
-      <a href="insights.html">Insights</a>
-      <a href="alternative-healing-practices.html">Healing</a>
-      <a href="reset-now.html">Reset</a>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false">Resources <span class="dropdown-arrow">▼</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="insights.html">Insights</a>
+          <a href="reset-now.html">Reset</a>
+          <a href="alternative-healing-practices.html">Healing</a>
+        </div>
+      </div>
       <a href="index.html#contact">Contact</a>
       <a href="login.html" id="nav-login" style="display: none;">Login</a>
       <a href="my-pathways.html" id="nav-my-pathways" style="display: none;">My Pathways</a>
@@ -285,18 +318,18 @@
       <p class="ascendant-reset-subtext">Structured behavioral reset using psychological astrology.<br>Choose your Ascendant or Moon sign. Build one disciplined intervention. Follow it for 43 days.</p>
 
       <div class="ascendant-grid" role="list">
-        <a href="practice/ascendant-reset/aries.html?v=2" class="ascendant-option" role="listitem">Aries</a>
-        <a href="practice/ascendant-reset/taurus.html?v=2" class="ascendant-option" role="listitem">Taurus</a>
-        <a href="practice/ascendant-reset/gemini.html?v=2" class="ascendant-option" role="listitem">Gemini</a>
-        <a href="practice/ascendant-reset/cancer.html?v=2" class="ascendant-option" role="listitem">Cancer</a>
-        <a href="practice/ascendant-reset/leo.html?v=2" class="ascendant-option" role="listitem">Leo</a>
-        <a href="practice/ascendant-reset/virgo.html?v=2" class="ascendant-option" role="listitem">Virgo</a>
-        <a href="practice/ascendant-reset/libra.html?v=2" class="ascendant-option" role="listitem">Libra</a>
-        <a href="practice/ascendant-reset/scorpio.html?v=2" class="ascendant-option" role="listitem">Scorpio</a>
-        <a href="practice/ascendant-reset/sagittarius.html?v=2" class="ascendant-option" role="listitem">Sagittarius</a>
-        <a href="practice/ascendant-reset/capricorn.html?v=2" class="ascendant-option" role="listitem">Capricorn</a>
-        <a href="practice/ascendant-reset/aquarius.html?v=2" class="ascendant-option" role="listitem">Aquarius</a>
-        <a href="practice/ascendant-reset/pisces.html?v=2" class="ascendant-option" role="listitem">Pisces</a>
+        <a href="practice/ascendant-reset/aries.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-aries.png" alt="Aries symbol" loading="lazy" /></span><span class="ascendant-label">Aries</span></a>
+        <a href="practice/ascendant-reset/taurus.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-taurus.png" alt="Taurus symbol" loading="lazy" /></span><span class="ascendant-label">Taurus</span></a>
+        <a href="practice/ascendant-reset/gemini.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-gemini.png" alt="Gemini symbol" loading="lazy" /></span><span class="ascendant-label">Gemini</span></a>
+        <a href="practice/ascendant-reset/cancer.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-cancer.png" alt="Cancer symbol" loading="lazy" /></span><span class="ascendant-label">Cancer</span></a>
+        <a href="practice/ascendant-reset/leo.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-leo.png" alt="Leo symbol" loading="lazy" /></span><span class="ascendant-label">Leo</span></a>
+        <a href="practice/ascendant-reset/virgo.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-virgo.png" alt="Virgo symbol" loading="lazy" /></span><span class="ascendant-label">Virgo</span></a>
+        <a href="practice/ascendant-reset/libra.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-libra.png" alt="Libra symbol" loading="lazy" /></span><span class="ascendant-label">Libra</span></a>
+        <a href="practice/ascendant-reset/scorpio.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-scorpio.png" alt="Scorpio symbol" loading="lazy" /></span><span class="ascendant-label">Scorpio</span></a>
+        <a href="practice/ascendant-reset/sagittarius.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-sagittarius.png" alt="Sagittarius symbol" loading="lazy" /></span><span class="ascendant-label">Sagittarius</span></a>
+        <a href="practice/ascendant-reset/capricorn.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-capricorn.png" alt="Capricorn symbol" loading="lazy" /></span><span class="ascendant-label">Capricorn</span></a>
+        <a href="practice/ascendant-reset/aquarius.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-aquarius.png" alt="Aquarius symbol" loading="lazy" /></span><span class="ascendant-label">Aquarius</span></a>
+        <a href="practice/ascendant-reset/pisces.html?v=2" class="ascendant-option" role="listitem"><span class="ascendant-circle"><img src="assets/images/zodiac-pisces.png" alt="Pisces symbol" loading="lazy" /></span><span class="ascendant-label">Pisces</span></a>
       </div>
 
       <div class="ascendant-faq-spacer" aria-hidden="true"></div>
@@ -327,7 +360,7 @@
             <div class="ascendant-accordion-panel" id="panel-why" role="region" aria-labelledby="toggle-why">
               <div class="ascendant-accordion-content">
                 <p>Short bursts create motivation. Sustained repetition creates change.</p>
-                <p>Forty-three days is long enough to outlast enthusiasm, resistance, and distraction — but short enough to commit to without drama. Most people quit between Day 12 and Day 21. This structure pushes beyond that drop-off point.</p>
+                <p>Forty-three days is long enough to outlast enthusiasm, resistance, and distraction — but short enough to commit to without much hassle. Most people quit between Day 12 and Day 21. This structure pushes beyond that drop-off point.</p>
                 <p>It's behavioral, not symbolic.</p>
               </div>
             </div>
@@ -340,7 +373,7 @@
             </button>
             <div class="ascendant-accordion-panel" id="panel-how" role="region" aria-labelledby="toggle-how">
               <div class="ascendant-accordion-content">
-                <p>You identify one domain. You define one daily action (15 minutes or less). You set a fixed time and minimum standard. You follow it for 43 days. You recalibrate on Day 7.</p>
+                <p>Identify your Ascendant/Moonsign in a Vedic chart. You define one daily action (15 minutes or less). You set a fixed time and minimum standard. You follow it for 43 days. You recalibrate on Day 7.</p>
                 <p>The action is small on purpose. Consistency builds structural force. Momentum comes from repetition, not motivation.</p>
               </div>
             </div>
@@ -348,12 +381,12 @@
 
           <div class="ascendant-accordion" id="accordion-who-not">
             <button type="button" class="ascendant-accordion-toggle" aria-expanded="false" aria-controls="panel-who-not" id="toggle-who-not">
-              <span>Who This Is Not For</span>
+              <span>Who This Is For</span>
               <span class="accordion-icon" aria-hidden="true">▼</span>
             </button>
             <div class="ascendant-accordion-panel" id="panel-who-not" role="region" aria-labelledby="toggle-who-not">
               <div class="ascendant-accordion-content">
-                <p>This is not for people looking for astrological prediction, personality validation, or inspiration without follow-through. It requires a willingness to follow a daily structure — even on the days you don't feel like it.</p>
+                <p>This is for people who want structure over motivation and are ready to follow through daily. It's ideal if you want a practical reset, clear discipline, and one small action you can sustain even on low-energy days.</p>
               </div>
             </div>
           </div>
@@ -371,11 +404,16 @@
       <nav class="footer-nav">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="index.html#pricing">Pricing</a>
         <a href="services/">Services</a>
-        <a href="insights.html">Insights</a>
-        <a href="alternative-healing-practices.html">Healing</a>
-        <a href="reset-now.html">Reset</a>
+        <a href="index.html#pricing">Pricing</a>
+        <div class="nav-dropdown">
+        <button class="nav-dropdown-toggle" aria-expanded="false">Resources <span class="dropdown-arrow">▼</span></button>
+        <div class="nav-dropdown-menu">
+          <a href="insights.html">Insights</a>
+          <a href="reset-now.html">Reset</a>
+          <a href="alternative-healing-practices.html">Healing</a>
+        </div>
+      </div>
         <a href="index.html#contact">Contact</a>
       </nav>
       <div class="footer-newsletter">
