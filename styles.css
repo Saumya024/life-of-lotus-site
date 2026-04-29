@@ -2385,12 +2385,7 @@ a.area-item:hover,
   width: 135px;
   height: 135px;
   margin: 0 auto;
-  /* Use the PNG as a mask shape; the visible color comes from background-color
-     which is independent of image pixels, so Chrome auto-dark cannot recolor
-     it to black. Gold stays gold in light AND dark mode. */
-  background-color: var(--gold);
-  -webkit-mask: url('assets/images/Designer_-_2024-08-13T161700.705-removebg-preview.png') no-repeat center / contain;
-  mask: url('assets/images/Designer_-_2024-08-13T161700.705-removebg-preview.png') no-repeat center / contain;
+  filter: brightness(0) saturate(100%) invert(78%) sepia(12%) saturate(1000%) hue-rotate(350deg) brightness(98%) contrast(90%);
 }
 
 /* Testimonials */
@@ -10322,19 +10317,7 @@ main[class$="-page"] .wizard-chip.active {
   min-height: 95vh;
   min-height: 95svh;
   overflow: hidden;
-  /* Static raster background so the hero is immune to Chrome auto-dark.
-     The image already contains the moon, stars and waves baked in, so the
-     CSS-coded layers below are hidden to avoid double-rendering / weird
-     inversion artifacts on Android dark mode. */
-  background: var(--primary) url('assets/images/hero-bg.png') center center / cover no-repeat;
-}
-
-/* Hide the coded star/moon/wave layers on the homepage hero — the static
-   image now provides them and survives dark mode unchanged. */
-.hero.hero-overhaul .hero-stars,
-.hero.hero-overhaul .hero-moon,
-.hero.hero-overhaul .hero-waves {
-  display: none !important;
+  background: var(--primary);
 }
 
 .hero.hero-overhaul .hero-top,
