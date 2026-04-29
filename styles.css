@@ -4547,25 +4547,16 @@ main[class$="-page"] .wizard-chip.active {
   .nav-dropdown-menu a {
     padding: 12px 0 12px 24px;
     font-size: var(--text-small);
-    border-bottom: 1px solid rgba(248, 246, 242, 0.12);
-  }
-
-  .nav-dropdown-menu a:last-child {
-    border-bottom: none;
+    /* Keep border on all including last — separates last dropdown item from Contact */
+    border-bottom: 1px solid rgba(248, 246, 242, 0.2);
   }
 }
 
 /* Tablet only (769–1024px): misc visual fixes */
 @media (min-width: 769px) and (max-width: 1024px) {
-  /* Quote band: clamp(16px,1.7vw,24px) resolves to ~17px at 1024px — too small */
-  .about-quote-band-text {
-    font-size: clamp(20px, 2.4vw, 26px);
-    white-space: normal;
-  }
-
   /* Hero: shift content block 0.5cm lower so it visually centres on tablet */
   .hero.hero-overhaul .hero-content {
-    top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift) + 0.5cm);
+    top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift) + 1cm);
   }
 
   /* Hero CTA: desktop clamp resolves too small on 1024px tablet */
@@ -6576,12 +6567,14 @@ main[class$="-page"] .wizard-chip.active {
   margin: 0;
   text-align: center;
   font-family: var(--font-heading);
-  font-size: clamp(16px, 1.7vw, 24px);
-  line-height: 1.25;
+  /* Tablet (769–1024px) resolves 1.7vw to ~17px which is too small.
+     Using a fluid value that gives ~22–24px on large desktop, ~20px on tablet. */
+  font-size: clamp(18px, 2.2vw, 26px);
+  line-height: 1.3;
   color: var(--tertiary);
   font-weight: 500;
   font-style: italic;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 @media (max-width: 768px) {

@@ -412,7 +412,7 @@
         const toggle = dropdown.querySelector('.nav-dropdown-toggle');
         if (toggle) {
           toggle.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 1024) {
               e.preventDefault();
               dropdown.classList.toggle('active');
               dropdowns.forEach(other => {
