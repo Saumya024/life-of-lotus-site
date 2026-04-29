@@ -10320,6 +10320,24 @@ main[class$="-page"] .wizard-chip.active {
   background: var(--primary);
 }
 
+/* Opt the moon and waves out of Chrome Android auto-dark.
+   - forced-color-adjust:none on the moon stops auto-dark from rewriting
+     its box-shadow ring colors (which was producing the hollow-circle).
+   - isolation:isolate puts the moon in its own stacking context so the
+     classifier skips it.
+   - forced-color-adjust:none on the waves SVG (and each <path>) stops
+     auto-dark's image-pipeline from recoloring the inline SVG fills.
+   No effect in light mode — these are pure "hands off" signals. */
+.hero.hero-overhaul .hero-moon {
+  forced-color-adjust: none;
+  isolation: isolate;
+}
+
+.hero.hero-overhaul .hero-waves,
+.hero.hero-overhaul .hero-waves path {
+  forced-color-adjust: none;
+}
+
 .hero.hero-overhaul .hero-top,
 .hero.hero-overhaul .hero-bottom,
 .hero.hero-overhaul .hero-planets {
