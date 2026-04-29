@@ -1,5 +1,9 @@
 /* CSS Variables */
 :root {
+  /* Site is designed for light mode only. Opts out of Chrome Android auto-dark
+     theme + Samsung Internet "dark mode" auto-inversion which otherwise
+     repaints white sections black and shifts accent colors to pink. */
+  color-scheme: light only;
   --primary: #431039;
   --primary-dark: #350a2d;
   --primary-light: #663e61;
