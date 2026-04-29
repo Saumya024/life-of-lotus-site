@@ -10769,9 +10769,9 @@ main[class$="-page"] .wizard-chip.active {
     top: auto;
     margin: clamp(24px, 6vw, 36px) 0 0 0;
     align-self: center;
-    font-size: 14px !important;
-    padding: 12px 24px !important;
-    border-width: 1.2px;
+    font-size: 17px !important;
+    padding: 14px 30px !important;
+    border-width: 1.5px;
   }
 
   .hero.hero-overhaul .hero-scroll-indicator {
