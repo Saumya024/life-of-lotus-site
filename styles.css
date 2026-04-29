@@ -3,7 +3,7 @@
   /* Site is designed for light mode only. Opts out of Chrome Android auto-dark
      theme + Samsung Internet "dark mode" auto-inversion which otherwise
      repaints white sections black and shifts accent colors to pink. */
-  color-scheme: light only;
+  color-scheme: light;
   --primary: #431039;
   --primary-dark: #350a2d;
   --primary-light: #663e61;
@@ -222,9 +222,9 @@ textarea:focus-visible {
 
 html {
   /* Explicit light defaults so Chrome Android auto-dark + Samsung Internet
-     dark mode have no excuse to invert. Combined with color-scheme:light only
+     dark mode have no excuse to invert. Combined with color-scheme:light
      in :root and meta tags in <head>. */
-  color-scheme: light only;
+  color-scheme: light;
   background-color: var(--cream-white);
   color: var(--primary);
   scroll-behavior: smooth;
@@ -10298,7 +10298,7 @@ main[class$="-page"] .wizard-chip.active {
    forcing partial dark styles when users had system dark mode on, which
    conflicted with the rest of the site (still light) and produced the
    "header turns dark / pink text" symptom on Android Chrome and reading
-   mode. Removed in favor of the global color-scheme: light only opt-out. */
+   mode. Removed in favor of the global color-scheme: light opt-out. */
 
 /* Homepage hero overhaul — fully coded background (no raster image) */
 .hero.hero-overhaul {
