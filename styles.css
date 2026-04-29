@@ -11074,3 +11074,66 @@ body.home .founder-heading {
     margin-bottom: 28px;
   }
 }
+
+/* ============================================================
+   ANTI AUTO-DARK PATCH (surgical version)
+
+   Chrome's auto-dark inverts solid background-color but NOT
+   background-image. Replacing flat cream/white fills with a
+   1-stop linear-gradient is visually identical but counts as an
+   image, so the inversion heuristic skips them. NO !important
+   text-color overrides — this is just for backgrounds.
+   ============================================================ */
+.header,
+.about-saumya,
+.brand-highlights,
+.core-benefits,
+.contact,
+.faq,
+.about-section-1,
+.about-section-3,
+.about-hero,
+.about-content,
+.insights-landing,
+.healing-practices,
+.ascendant-reset-page,
+.privacy-policy,
+.terms-content,
+.refund-content {
+  background-image: linear-gradient(var(--cream-white), var(--cream-white)) !important;
+}
+
+.pricing-card,
+.package-card,
+.blog-post-card,
+.testimonial-card,
+.faq-answer,
+.brand-pill,
+.brand-principle-pill,
+.area-item,
+.reach-out-item {
+  background-image: linear-gradient(var(--white), var(--white)) !important;
+}
+
+/* Hero: replace fully-coded background with a static image so the hero
+   stays visually intact in Chrome auto-dark mode (auto-dark doesn't
+   transform background images). Hide the coded star/moon/wave layers. */
+.hero.hero-overhaul {
+  background-image: url("assets/images/hero-bg.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+}
+
+.hero.hero-overhaul .hero-stars,
+.hero.hero-overhaul .hero-moon,
+.hero.hero-overhaul .hero-waves {
+  display: none !important;
+}
+
+/* Core Benefits blobs: add a visible gold ring so the orbs don't wash
+   out when Chrome auto-dark inverts the cream section background.
+   Gold (#B99750) reads well on both cream and dark inverted bgs. */
+.core-benefit-block::before {
+  border: 1.5px solid rgba(185, 151, 80, 0.55) !important;
+}
