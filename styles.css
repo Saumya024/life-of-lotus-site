@@ -49,6 +49,8 @@
   --spacing-4xl: 80px;
   --spacing-5xl: 120px;
   --section-padding: 95px 40px;
+  /* Hero text block vertical offset (heading + support + CTA) */
+  --hero-block-shift: 1cm;
 
   /* Border radius */
   --radius-sm: 8px;
@@ -10473,7 +10475,7 @@ main[class$="-page"] .wizard-chip.active {
   height: auto;
   min-height: 0;
   justify-content: center;
-  top: clamp(80px, 10vh, 120px);
+  top: calc(clamp(80px, 10vh, 120px) + var(--hero-block-shift));
   bottom: calc(36% + 4px);
   left: 0;
   right: 0;
@@ -10608,7 +10610,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(72px, 10vh, 120px);
+    top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift));
     bottom: calc(36% + 4px);
     justify-content: center;
   }
@@ -10624,7 +10626,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(118px, 16vh, 160px);
+    top: calc(clamp(118px, 16vh, 160px) + var(--hero-block-shift));
     bottom: calc(29% + 10px);
     justify-content: center;
     padding: 0 clamp(20px, 5vw, 40px);
@@ -10712,7 +10714,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: clamp(122px, 17vh, 168px);
+    top: calc(clamp(122px, 17vh, 168px) + var(--hero-block-shift));
     bottom: calc(28% + 8px);
     justify-content: center;
     padding: 0 clamp(16px, 4vw, 28px);
@@ -10785,7 +10787,7 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 360px) {
   .hero.hero-overhaul .hero-content {
-    top: clamp(92px, 13vh, 124px);
+    top: calc(clamp(92px, 13vh, 124px) + var(--hero-block-shift));
     bottom: calc(36% + 8px);
     justify-content: center;
     padding: 0 14px;
