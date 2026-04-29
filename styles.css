@@ -1404,7 +1404,7 @@ section {
   margin: 0;
   text-align: center;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: none;
   min-height: 350px;
   display: flex;
   flex-direction: column;
@@ -1423,17 +1423,29 @@ section {
   background: linear-gradient(135deg, rgba(248, 246, 242, 0.15) 0%, rgba(248, 246, 242, 0.05) 100%);
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   z-index: 0;
-  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  transition: none;
 }
 
 .core-benefit-block:hover::before {
-  transform: translate(-50%, -50%) rotate(45deg) scale(1.1);
-  width: 200px;
-  height: 200px;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 180px;
+  height: 180px;
 }
 
 .core-benefit-block:hover {
-  transform: translateY(-4px);
+  transform: none;
+}
+
+.core-benefit-block:focus,
+.core-benefit-block:active,
+.core-benefit-block:focus-visible {
+  transform: none;
+}
+
+.core-benefit-block:focus::before,
+.core-benefit-block:active::before,
+.core-benefit-block:focus-visible::before {
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .core-benefit-title {
@@ -2648,8 +2660,8 @@ a.area-item:hover,
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  gap: 40px;
-  max-width: 1000px;
+  gap: 24px;
+  max-width: 1120px;
   width: 100%;
   margin: 0 auto;
   padding: 0 16px;
@@ -2675,7 +2687,11 @@ a.area-item:hover,
 }
 
 .process-heading {
-  font-size: 20px;
+  font-size: clamp(18px, 1.35vw, 20px);
+  line-height: 1.35;
+  max-width: 260px;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 16px;
   color: var(--tertiary-light);
   word-wrap: break-word;
@@ -2694,7 +2710,7 @@ a.area-item:hover,
   width: 1px;
   height: 200px;
   background-color: rgba(67, 16, 57, 0.15);
-  margin: 0 40px;
+  margin: 0 20px;
 }
 
 /* About – Saumyaa S Singh */
@@ -4767,8 +4783,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .core-benefit-block:hover::before {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -6532,6 +6548,12 @@ main[class$="-page"] .wizard-chip.active {
   padding: var(--section-padding);
 }
 
+/* Keep collapsed bands compact so more sections are visible upfront */
+.collapsible-section.collapsed {
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
 .about-section-1 {
   background-color: var(--cream-white);
   color: var(--primary);
@@ -6706,6 +6728,11 @@ main[class$="-page"] .wizard-chip.active {
   .collapsible-section {
     padding: 80px 24px;
   }
+
+  .collapsible-section.collapsed {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
   
   .about-section-toggle {
     margin-bottom: 24px;
@@ -6734,6 +6761,14 @@ main[class$="-page"] .wizard-chip.active {
   text-align: center;
 }
 
+.about-cta-content > :first-child {
+  margin-top: 0;
+}
+
+.about-cta-content > :last-child {
+  margin-bottom: 0;
+}
+
 .about-cta-text {
   font-family: var(--font-heading);
   font-size: 28px;
@@ -6757,7 +6792,7 @@ main[class$="-page"] .wizard-chip.active {
   font-size: 13px;
   white-space: nowrap;
   margin-top: 40px;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
 }
 
 .about-cta {
@@ -6781,7 +6816,7 @@ main[class$="-page"] .wizard-chip.active {
   .about-cta-links {
     font-size: 13px;
     margin-top: 40px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     white-space: normal;
     max-width: 100%;
     padding: 0 8px;
@@ -6797,7 +6832,7 @@ main[class$="-page"] .wizard-chip.active {
   .about-cta-links {
     font-size: 13px;
     margin-top: 40px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     white-space: normal;
     max-width: 100%;
     padding: 0 8px;
@@ -6818,7 +6853,7 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .privacy-policy h1 {
-  font-size: calc(var(--text-h2) * 0.5);
+  font-size: calc((var(--text-h2) * 0.5) + 8px);
   text-align: center;
   margin-bottom: 48px;
   color: var(--primary);
@@ -6834,10 +6869,11 @@ main[class$="-page"] .wizard-chip.active {
   margin-top: 28px;
   margin-bottom: 10px;
   color: var(--primary);
+  text-align: left;
 }
 
 .privacy-content h3 {
-  font-size: calc(var(--text-h4) * 0.5);
+  font-size: calc((var(--text-h4) * 0.5) + 3px);
   margin-top: 20px;
   margin-bottom: 8px;
   color: var(--primary);
@@ -6849,7 +6885,7 @@ main[class$="-page"] .wizard-chip.active {
 .privacy-content p,
 .privacy-content li {
   font-family: var(--font-body);
-  font-size: calc(var(--text-h4) * 0.5);
+  font-size: calc((var(--text-h4) * 0.5) + 3px);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 10px;
@@ -6857,7 +6893,7 @@ main[class$="-page"] .wizard-chip.active {
 
 .privacy-intro {
   font-family: var(--font-body);
-  font-size: calc(var(--text-h4) * 0.5);
+  font-size: calc((var(--text-h4) * 0.5) + 3px);
   line-height: 1.8;
   color: var(--primary);
   margin-bottom: 12px;
