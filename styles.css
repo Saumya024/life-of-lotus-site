@@ -1060,6 +1060,8 @@ section {
   width: 24px;
   height: 2px;
   background-color: var(--cream-white);
+  background-image: linear-gradient(var(--cream-white), var(--cream-white));
+  forced-color-adjust: none;
   border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -1392,6 +1394,33 @@ section {
   background: var(--secondary-light);
 }
 
+/* CTA color lock for Android/Chrome forced dark:
+   paint explicit solid layers so auto-dark doesn't reinterpret button cyan. */
+.cta,
+.hero-cta,
+.nav .header-cta,
+.header-mobile-cta,
+.pricing-cta,
+.package-cta,
+.process-cta {
+  forced-color-adjust: none;
+  background-color: var(--secondary);
+  background-image: linear-gradient(var(--secondary), var(--secondary));
+  color: var(--primary);
+  -webkit-text-fill-color: var(--primary);
+}
+
+.cta:hover,
+.hero-cta:hover,
+.nav .header-cta:hover,
+.header-mobile-cta:hover,
+.pricing-cta:hover,
+.package-cta:hover,
+.process-cta:hover {
+  background-color: var(--secondary-light);
+  background-image: linear-gradient(var(--secondary-light), var(--secondary-light));
+}
+
 .intake .cta {
   background: var(--secondary);
   color: var(--primary);
@@ -1458,7 +1487,7 @@ section {
   width: 180px;
   height: 180px;
   background: linear-gradient(135deg, rgba(248, 246, 242, 0.15) 0%, rgba(248, 246, 242, 0.05) 100%);
-  border: 1.5px solid rgba(186, 151, 81, 0.55);
+  border: 3px solid rgba(186, 151, 81, 0.55);
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   z-index: 0;
   transition: none;
@@ -1585,7 +1614,7 @@ section {
   padding: 10px 20px;
   background-color: var(--primary);
   color: var(--cream-white);
-  border: none;
+  border: 3px solid rgba(185, 151, 80, 0.55);
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: var(--text-small);
@@ -1624,7 +1653,7 @@ section {
   padding: 10px 20px;
   background-color: var(--primary);
   color: var(--cream-white);
-  border: none;
+  border: 3px solid rgba(185, 151, 80, 0.55);
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: var(--text-small);
@@ -1729,7 +1758,7 @@ section {
   background-color: var(--primary);
   border-radius: 16px;
   padding: 32px 24px;
-  border: 1px solid rgba(248, 246, 242, 0.15);
+  border: 3px solid rgba(185, 151, 80, 0.45);
   justify-content: center;
   min-height: 280px;
   text-decoration: none;
@@ -1845,7 +1874,7 @@ section {
 .area-item {
   scroll-margin-top: 100px;
   background-color: var(--white);
-  border: 1px solid rgba(67, 16, 57, 0.1);
+  border: 3px solid rgba(185, 151, 80, 0.45);
   border-radius: 12px;
   padding: 40px;
   text-align: center;
@@ -2108,7 +2137,7 @@ a.area-item:hover,
 
 .pricing-card {
   background-color: var(--white);
-  border: 1px solid rgba(67, 16, 57, 0.12);
+  border: 3px solid rgba(185, 151, 80, 0.45);
   border-radius: 20px;
   padding: 32px;
   text-align: center;
@@ -2707,6 +2736,7 @@ a.area-item:hover,
   margin-bottom: 24px;
   object-fit: contain;
   background-color: white;
+  border: 3px solid rgba(185, 151, 80, 0.45);
   border-radius: 50%;
   padding: 20px;
   box-sizing: border-box;
@@ -2736,9 +2766,9 @@ a.area-item:hover,
 }
 
 .process-divider {
-  width: 1px;
+  width: 3px;
   height: 200px;
-  background-color: rgba(67, 16, 57, 0.15);
+  background-color: rgba(185, 151, 80, 0.55);
   margin: 0 20px;
 }
 
@@ -2746,6 +2776,7 @@ a.area-item:hover,
 .about-saumya {
   background-color: var(--cream-white);
   padding: var(--section-padding);
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
 }
 
 .about-saumya-inner {
@@ -3427,8 +3458,14 @@ a.area-item:hover,
 .contact-icons-band {
   background-color: var(--primary-dark);
   border-top: 1px solid rgba(248, 246, 242, 0.12);
-  border-bottom: 1px solid rgba(248, 246, 242, 0.12);
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
   padding: 28px 20px;
+}
+
+/* About page review carousel block */
+#testimonial-4 {
+  border-top: 3px solid rgba(185, 151, 80, 0.45);
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
 }
 
 .contact-icons-band-inner {
@@ -4397,7 +4434,7 @@ main[class$="-page"] .wizard-chip.active {
 
   .process-divider {
     width: 200px;
-    height: 1px;
+    height: 3px;
     margin: 0 auto;
   }
 
@@ -5562,7 +5599,7 @@ main[class$="-page"] .wizard-chip.active {
 
   .process-divider {
     width: 200px;
-    height: 1px;
+    height: 3px;
   margin: 0 auto;
 }
 
@@ -6491,6 +6528,7 @@ main[class$="-page"] .wizard-chip.active {
   background-color: var(--primary);
   padding: 120px 40px 95px;
   width: 100%;
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
 }
 
 .about-hero-content {
@@ -6577,6 +6615,7 @@ main[class$="-page"] .wizard-chip.active {
 .about-quote-band {
   background: var(--primary-dark);
   padding: 20px 16px;
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
 }
 
 .about-quote-band-inner {
@@ -6651,6 +6690,7 @@ main[class$="-page"] .wizard-chip.active {
 .about-section {
   width: 100%;
   padding: var(--section-padding);
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
 }
 
 /* Keep collapsed bands compact so more sections are visible upfront */
@@ -7107,7 +7147,7 @@ main[class$="-page"] .wizard-chip.active {
 .insights-search-input {
   width: 100%;
   padding: 14px 20px;
-  border: 1px solid rgba(67, 16, 57, 0.2);
+  border: 1px solid var(--primary);
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: var(--text-body);
@@ -7132,7 +7172,7 @@ main[class$="-page"] .wizard-chip.active {
 
 .insights-filter-select {
   padding: 14px 40px 14px 20px;
-  border: 1px solid rgba(67, 16, 57, 0.2);
+  border: 1px solid var(--primary);
   border-radius: var(--radius-pill);
   font-family: var(--font-heading);
   font-size: var(--text-body);
@@ -7165,7 +7205,7 @@ main[class$="-page"] .wizard-chip.active {
 
 .blog-post-card {
   background-color: var(--white);
-  border: 1px solid rgba(67, 16, 57, 0.1);
+  border: 2px solid var(--primary);
   border-radius: 8px;
   padding: 32px;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -9541,7 +9581,7 @@ main[class$="-page"] .wizard-chip.active {
 .blog-post-card {
   display: block;
   background-color: var(--white);
-  border: 1px solid rgba(67, 16, 57, 0.1);
+  border: 2px solid var(--primary);
   border-radius: 12px;
   padding: 36px 28px;
   text-decoration: none;
@@ -9608,7 +9648,7 @@ main[class$="-page"] .wizard-chip.active {
 
 .blog-post-card-featured {
   background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-  border: none;
+  border: 2px solid var(--primary);
 }
 
 .blog-post-card-featured .blog-post-card-title {
@@ -10413,45 +10453,45 @@ main[class$="-page"] .wizard-chip.active {
   width: 100%;
   border-radius: 0;
   /* Subtle gold separator so bands stay distinct in forced dark mode */
-  border-top: 1px solid rgba(185, 151, 80, 0.34);
+  border-top: 2px solid rgba(185, 151, 80, 0.34);
 }
 
-/* Bands fill 100% of the .hero-waves container (which is 38% of hero).
-   Ratio ~0.8 per step bottom→top: 27.1+21.7+17.3+13.9+11.1+8.9 = 100% */
+/* Bands fill 100% of the .hero-waves container with equal strip heights. */
 .hero-wave-1 {
-  height: 8.9%;
-  bottom: 91.1%;
+  height: 16.6667%;
+  bottom: 83.3333%;
   background: #896b84;
 }
 
 .hero-wave-2 {
-  height: 11.1%;
-  bottom: 80%;
+  height: 16.6667%;
+  bottom: 66.6667%;
   background: #7d5976;
 }
 
 .hero-wave-3 {
-  height: 13.9%;
-  bottom: 66.1%;
+  height: 16.6667%;
+  bottom: 50%;
   background: #724d6a;
 }
 
 .hero-wave-4 {
-  height: 17.3%;
-  bottom: 48.8%;
+  height: 16.6667%;
+  bottom: 33.3333%;
   background: #68415f;
 }
 
 .hero-wave-5 {
-  height: 21.7%;
-  bottom: 27.1%;
+  height: 16.6667%;
+  bottom: 16.6667%;
   background: #5f3256;
 }
 
 .hero-wave-6 {
-  height: 27.1%;
+  height: 16.6667%;
   bottom: 0;
   background: #55274d;
+  border-bottom: none;
 }
 
 .hero-stars {
@@ -11106,6 +11146,10 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 /* Homepage section rhythm lock: keep vertical spacing visually consistent */
+body.home > section {
+  border-bottom: 3px solid rgba(185, 151, 80, 0.45);
+}
+
 body.home .about-saumya,
 body.home .brand-highlights,
 body.home .reach-out,
@@ -11118,6 +11162,13 @@ body.home .process,
 body.home .founder-note {
   padding-top: 72px;
   padding-bottom: 72px;
+}
+
+/* Keep hamburger icon white across breakpoints/menus (forced-dark safe) */
+.hamburger span {
+  background-color: var(--cream-white) !important;
+  background-image: linear-gradient(var(--cream-white), var(--cream-white)) !important;
+  forced-color-adjust: none;
 }
 
 body.home .about-saumya h2,
