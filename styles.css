@@ -10383,7 +10383,10 @@ main[class$="-page"] .wizard-chip.active {
 .hero-moon::after {
   content: "";
   position: absolute;
-  inset: -18%;
+  /* Outer ring: gap intentionally smaller than the inner gap (-9%)
+     so the perceived spacing between rings 2-3 matches rings 1-2.
+     Equal math here looks uneven because the outer arc is longer. */
+  inset: -15%;
   border-radius: 50%;
   border: 2px solid rgba(185, 151, 80, 0.42);
 }
@@ -10395,7 +10398,9 @@ main[class$="-page"] .wizard-chip.active {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 38%;
+  /* Stops just below the scroll-arrow. Arrow sits at 36% from bottom
+     (.hero-content bottom: calc(36% + 4px)) — so 32% leaves a clean ~4% gap. */
+  height: 32%;
   display: block;
   z-index: 1;
   pointer-events: none;
@@ -10726,7 +10731,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 36%;
+    /* Tablet: arrow ≈ 36% from bottom, leave ~4% gap. */
+    height: 32%;
   }
 
   .hero.hero-overhaul .hero-content {
@@ -10766,7 +10772,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 29%;
+    /* Mobile: arrow ≈ 29% from bottom, leave ~4% gap. */
+    height: 25%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
@@ -10867,7 +10874,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero-waves {
-    height: 28%;
+    /* Small mobile: arrow ≈ 28% from bottom, leave ~4% gap. */
+    height: 24%;
   }
 
   .hero.hero-overhaul .hero-content h1 {
