@@ -10859,15 +10859,16 @@ main[class$="-page"] .wizard-chip.active {
     top: 10%;
     right: 5%;
     width: clamp(62px, 16vw, 92px);
+    border-width: 1.5px;
   }
 
   .hero-moon::before {
-    inset: -12%;
+    inset: -10%;
     border-width: 1.5px;
   }
 
   .hero-moon::after {
-    inset: -24%;
+    inset: -20%;
     border-width: 1.5px;
   }
 
