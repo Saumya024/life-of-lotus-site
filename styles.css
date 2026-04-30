@@ -10454,8 +10454,8 @@ main[class$="-page"] .wizard-chip.active {
   left: 0;
   width: 100%;
   border-radius: 0;
-  /* Ultra-thin separators: only to keep band boundaries visible in forced dark */
-  border-top: 0.5px solid rgba(185, 151, 80, 0.34);
+  /* Match moon ring stroke thickness */
+  border-top: 2px solid rgba(185, 151, 80, 0.34);
 }
 
 /* Bands fill 100% of the .hero-waves container proportionally
