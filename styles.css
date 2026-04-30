@@ -10340,7 +10340,7 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .hero.hero-overhaul .hero-waves,
-.hero.hero-overhaul .hero-waves path {
+.hero.hero-overhaul .hero-wave {
   forced-color-adjust: none;
 }
 
@@ -10358,7 +10358,7 @@ main[class$="-page"] .wizard-chip.active {
   display: none;
 }
 
-/* Moon: solid #65355b body with soft glow and 3 equally-spaced outer rings */
+/* Moon: simplified solid-disc + ring borders (no filter/box-shadow stack) */
 .hero-moon {
   position: absolute;
   top: 8%;
@@ -10366,25 +10366,29 @@ main[class$="-page"] .wizard-chip.active {
   width: clamp(110px, 14vw, 180px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: #65355b;
-  box-shadow:
-    0 0 0 8px var(--primary),
-    0 0 0 10px #65355b,
-    0 0 0 20px var(--primary),
-    0 0 0 22px #65355b,
-    0 0 0 32px var(--primary),
-    0 0 0 34px #65355b;
-  filter: drop-shadow(0 0 22px rgba(101, 53, 91, 0.65));
+  background: #603257;
+  border: 2px solid rgba(106, 66, 98, 0.9);
   z-index: 1;
   pointer-events: none;
 }
 
-.hero-moon::before,
-.hero-moon::after {
-  content: none;
+.hero-moon::before {
+  content: "";
+  position: absolute;
+  inset: -14%;
+  border-radius: 50%;
+  border: 2px solid rgba(120, 86, 114, 0.82);
 }
 
-/* Four layered water-wave bands at the bottom of the hero */
+.hero-moon::after {
+  content: "";
+  position: absolute;
+  inset: -28%;
+  border-radius: 50%;
+  border: 2px solid rgba(137, 107, 132, 0.74);
+}
+
+/* Bottom wave bands built with plain blocks (more stable than SVG fills) */
 .hero-waves {
   position: absolute;
   left: 0;
@@ -10394,6 +10398,50 @@ main[class$="-page"] .wizard-chip.active {
   display: block;
   z-index: 1;
   pointer-events: none;
+  overflow: hidden;
+}
+
+.hero-wave {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-radius: 0;
+}
+
+.hero-wave-1 {
+  height: 12%;
+  bottom: 60%;
+  background: #896b84;
+}
+
+.hero-wave-2 {
+  height: 12%;
+  bottom: 48%;
+  background: #7d5976;
+}
+
+.hero-wave-3 {
+  height: 12%;
+  bottom: 36%;
+  background: #724d6a;
+}
+
+.hero-wave-4 {
+  height: 12%;
+  bottom: 24%;
+  background: #68415f;
+}
+
+.hero-wave-5 {
+  height: 12%;
+  bottom: 12%;
+  background: #5f3256;
+}
+
+.hero-wave-6 {
+  height: 12%;
+  bottom: 0;
+  background: #55274d;
 }
 
 .hero-stars {
@@ -10811,13 +10859,16 @@ main[class$="-page"] .wizard-chip.active {
     top: 10%;
     right: 5%;
     width: clamp(62px, 16vw, 92px);
-    box-shadow:
-      0 0 0 3px var(--primary),
-      0 0 0 4px #65355b,
-      0 0 0 8px var(--primary),
-      0 0 0 9px #65355b,
-      0 0 0 13px var(--primary),
-      0 0 0 14px #65355b;
+  }
+
+  .hero-moon::before {
+    inset: -12%;
+    border-width: 1.5px;
+  }
+
+  .hero-moon::after {
+    inset: -24%;
+    border-width: 1.5px;
   }
 
   .hero-waves {
