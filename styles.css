@@ -10458,13 +10458,7 @@ main[class$="-page"] .wizard-chip.active {
   border-top: 2px solid rgba(137, 107, 132, 0.34);
 }
 
-/* Bands fill 100% of the .hero-waves container with equal strip heights. */
-.hero-wave-1 {
-  height: 16.6667%;
-  bottom: 83.3333%;
-  background: #896b84;
-}
-
+/* Five-band stack: topmost band removed; remaining bands keep original sizes. */
 .hero-wave-2 {
   height: 16.6667%;
   bottom: 66.6667%;
