@@ -61,6 +61,8 @@
   --section-padding: 95px 40px;
   /* Hero text block vertical offset (heading + support + CTA) */
   --hero-block-shift: 1cm;
+  /* Extra downward offset for desktop/mobile; tablet is excluded below */
+  --hero-extra-shift: 1cm;
 
   /* Border radius */
   --radius-sm: 8px;
@@ -4572,6 +4574,10 @@ main[class$="-page"] .wizard-chip.active {
 
 /* Tablet only (769–1024px): misc visual fixes */
 @media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --hero-extra-shift: 0cm;
+  }
+
   /* Hero: shift content block 0.5cm lower so it visually centres on tablet */
   .hero.hero-overhaul .hero-content {
     top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift) + 1.5cm);
@@ -10531,7 +10537,7 @@ main[class$="-page"] .wizard-chip.active {
   height: auto;
   min-height: 0;
   justify-content: center;
-  top: calc(clamp(80px, 10vh, 120px) + var(--hero-block-shift));
+  top: calc(clamp(80px, 10vh, 120px) + var(--hero-block-shift) + var(--hero-extra-shift));
   bottom: calc(36% + 4px);
   left: 0;
   right: 0;
@@ -10671,7 +10677,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift));
+    top: calc(clamp(72px, 10vh, 120px) + var(--hero-block-shift) + var(--hero-extra-shift));
     bottom: calc(36% + 4px);
     justify-content: center;
   }
@@ -10687,7 +10693,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: calc(clamp(118px, 16vh, 160px) + var(--hero-block-shift));
+    top: calc(clamp(118px, 16vh, 160px) + var(--hero-block-shift) + var(--hero-extra-shift));
     bottom: calc(29% + 10px);
     justify-content: center;
     padding: 0 clamp(10px, 3vw, 24px);
@@ -10793,7 +10799,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content {
-    top: calc(clamp(122px, 17vh, 168px) + var(--hero-block-shift));
+    top: calc(clamp(122px, 17vh, 168px) + var(--hero-block-shift) + var(--hero-extra-shift));
     bottom: calc(28% + 8px);
     justify-content: center;
     padding: 0 clamp(16px, 4vw, 28px);
@@ -10870,7 +10876,7 @@ main[class$="-page"] .wizard-chip.active {
 
 @media (max-width: 360px) {
   .hero.hero-overhaul .hero-content {
-    top: calc(clamp(92px, 13vh, 124px) + var(--hero-block-shift));
+    top: calc(clamp(92px, 13vh, 124px) + var(--hero-block-shift) + var(--hero-extra-shift));
     bottom: calc(36% + 8px);
     justify-content: center;
     padding: 0 8px;
