@@ -2415,6 +2415,12 @@ a.area-item:hover,
   width: 135px;
   height: 135px;
   margin: 0 auto;
+  display: block;
+  pointer-events: none;
+  /* Keep lotus gold in forced-dark browsers (Samsung/Chrome auto-dark). */
+  forced-color-adjust: none;
+  isolation: isolate;
+  -webkit-filter: brightness(0) saturate(100%) invert(78%) sepia(12%) saturate(1000%) hue-rotate(350deg) brightness(98%) contrast(90%) !important;
   filter: brightness(0) saturate(100%) invert(78%) sepia(12%) saturate(1000%) hue-rotate(350deg) brightness(98%) contrast(90%);
 }
 
@@ -11145,8 +11151,13 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 /* Homepage section rhythm lock: keep vertical spacing visually consistent */
-body.home > section {
+body.home > section:not(.hero) {
   border-bottom: 3px solid rgba(185, 151, 80, 0.45);
+}
+
+/* Hero-to-next-section separator: thin like wave separator lines */
+body.home > .hero.hero-overhaul {
+  border-bottom: 0.5px solid rgba(185, 151, 80, 0.34);
 }
 
 body.home .about-saumya,
