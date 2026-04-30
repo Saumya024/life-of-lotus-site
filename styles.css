@@ -10366,8 +10366,8 @@ main[class$="-page"] .wizard-chip.active {
   width: clamp(110px, 14vw, 180px);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  background: #603257;
-  border: 2px solid rgba(106, 66, 98, 0.9);
+  background: #4f2348;
+  border: 2px solid rgba(118, 84, 112, 0.92);
   z-index: 1;
   pointer-events: none;
 }
@@ -10377,7 +10377,7 @@ main[class$="-page"] .wizard-chip.active {
   position: absolute;
   inset: -14%;
   border-radius: 50%;
-  border: 2px solid rgba(120, 86, 114, 0.82);
+  border: 2px solid rgba(140, 110, 134, 0.84);
 }
 
 .hero-moon::after {
@@ -10385,7 +10385,7 @@ main[class$="-page"] .wizard-chip.active {
   position: absolute;
   inset: -28%;
   border-radius: 50%;
-  border: 2px solid rgba(137, 107, 132, 0.74);
+  border: 2px solid rgba(162, 136, 157, 0.78);
 }
 
 /* Bottom wave bands built with plain blocks (more stable than SVG fills) */
@@ -10409,37 +10409,37 @@ main[class$="-page"] .wizard-chip.active {
 }
 
 .hero-wave-1 {
-  height: 12%;
-  bottom: 60%;
+  height: 16.6667%;
+  bottom: 83.3333%;
   background: #896b84;
 }
 
 .hero-wave-2 {
-  height: 12%;
-  bottom: 48%;
+  height: 16.6667%;
+  bottom: 66.6667%;
   background: #7d5976;
 }
 
 .hero-wave-3 {
-  height: 12%;
-  bottom: 36%;
+  height: 16.6667%;
+  bottom: 50%;
   background: #724d6a;
 }
 
 .hero-wave-4 {
-  height: 12%;
-  bottom: 24%;
+  height: 16.6667%;
+  bottom: 33.3333%;
   background: #68415f;
 }
 
 .hero-wave-5 {
-  height: 12%;
-  bottom: 12%;
+  height: 16.6667%;
+  bottom: 16.6667%;
   background: #5f3256;
 }
 
 .hero-wave-6 {
-  height: 12%;
+  height: 16.6667%;
   bottom: 0;
   background: #55274d;
 }
