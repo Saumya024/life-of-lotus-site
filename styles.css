@@ -1059,9 +1059,7 @@ section {
 .hamburger span {
   width: 24px;
   height: 2px;
-  background-color: var(--gold);
-  background-image: linear-gradient(var(--gold), var(--gold));
-  forced-color-adjust: none;
+  background-color: var(--cream-white);
   border-radius: 2px;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -11174,11 +11172,9 @@ body.home .founder-note {
   padding-bottom: 72px;
 }
 
-/* Samsung/forced-dark-safe hamburger paint lock */
+/* Keep hamburger white across all pages/modes */
 .hamburger span {
-  background-color: var(--gold) !important;
-  background-image: linear-gradient(var(--gold), var(--gold)) !important;
-  forced-color-adjust: none;
+  background-color: var(--cream-white) !important;
 }
 
 body.home .about-saumya h2,
