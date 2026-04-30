@@ -10464,6 +10464,7 @@ main[class$="-page"] .wizard-chip.active {
   height: 8.9%;
   bottom: 91.1%;
   background: #896b84;
+  border-top: 2px solid rgba(185, 151, 80, 0.34);
 }
 
 .hero-wave-2 {
@@ -10494,7 +10495,7 @@ main[class$="-page"] .wizard-chip.active {
   height: 27.1%;
   bottom: 0;
   background: #55274d;
-  border-bottom: none;
+  border-bottom: 2px solid rgba(185, 151, 80, 0.34);
 }
 
 .hero-stars {
