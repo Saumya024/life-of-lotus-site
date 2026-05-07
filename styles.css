@@ -2467,7 +2467,6 @@ a.area-item:hover,
   font-size: 14px;
   letter-spacing: 0.45em;
   color: var(--tertiary);
-  opacity: 0.42;
   margin-bottom: 14px;
   font-family: var(--font-body);
   font-weight: 400;
