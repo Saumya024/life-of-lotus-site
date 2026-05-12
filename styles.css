@@ -10709,17 +10709,17 @@ main[class$="-page"] .wizard-chip.active {
 
 /* Use p.hero-support so we beat legacy `.hero-content p { font-size: 28px }` */
 .hero.hero-overhaul .hero-content p.hero-support {
-  max-width: min(680px, calc(88vw - clamp(72px, 14vw, 180px)));
+  max-width: min(820px, 88vw);
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: clamp(0.78rem, 0.42vw + 0.52rem, 0.95rem);
-  line-height: 1.75;
+  font-size: clamp(1rem, 0.6vw + 0.75rem, 1.35rem);
+  line-height: 1.65;
   opacity: 0.9;
   white-space: normal;
   text-wrap: initial;
   text-align: center;
   margin: 0;
-  margin-top: clamp(10px, 1.6vw, 22px);
+  margin-top: clamp(14px, 2vw, 26px);
 }
 
 .hero.hero-overhaul .hero-cta {
@@ -10805,8 +10805,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(0.8rem, 0.52vw + 0.44rem, 0.92rem);
-    max-width: min(620px, calc(92vw - clamp(48px, 10vw, 120px)));
+    font-size: clamp(0.95rem, 0.6vw + 0.55rem, 1.15rem);
+    max-width: min(720px, 92vw);
   }
 }
 
@@ -10877,7 +10877,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(12px, 2.85vw, 14px);
+    font-size: clamp(14px, 3.8vw, 16px);
     margin-top: clamp(14px, 2.8vw, 22px);
     white-space: normal;
     text-wrap: initial;
@@ -10967,7 +10967,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(11px, 2.75vw, 13px);
+    font-size: clamp(13px, 3.8vw, 15px);
     margin-top: clamp(12px, 2.8vw, 18px);
     line-height: 1.62;
     text-wrap: initial;
@@ -11023,7 +11023,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(11px, 2.65vw, 13px);
+    font-size: clamp(13px, 3.7vw, 14px);
     line-height: 1.62;
     text-wrap: initial;
   }
