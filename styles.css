@@ -10476,9 +10476,9 @@ main[class$="-page"] .wizard-chip.active {
 .hero.hero-overhaul {
   position: relative;
   height: 95vh;
-  height: 95svh;
+  height: 95dvh;
   min-height: 95vh;
-  min-height: 95svh;
+  min-height: 95dvh;
   overflow: hidden;
   background: var(--primary);
 }
@@ -10880,9 +10880,9 @@ main[class$="-page"] .wizard-chip.active {
 @media (max-width: 1024px) {
   .hero.hero-overhaul {
     height: 95vh;
-    height: 95svh;
+    height: 95dvh;
     min-height: 95vh;
-    min-height: 95svh;
+    min-height: 95dvh;
     box-sizing: border-box;
     padding-top: 12px;
   }
@@ -10927,9 +10927,9 @@ main[class$="-page"] .wizard-chip.active {
 @media (max-width: 768px) {
   .hero.hero-overhaul {
     height: 95vh;
-    height: 95svh;
+    height: 95dvh;
     min-height: 95vh;
-    min-height: 95svh;
+    min-height: 95dvh;
     padding-top: 14px;
   }
 
@@ -11035,9 +11035,9 @@ main[class$="-page"] .wizard-chip.active {
 
   .hero.hero-overhaul {
     height: 95vh;
-    height: 95svh;
+    height: 95dvh;
     min-height: 95vh;
-    min-height: 95svh;
+    min-height: 95dvh;
     padding-top: 16px;
   }
 
