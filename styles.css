@@ -1451,7 +1451,7 @@ section {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 100px;
   row-gap: 24px;
   align-items: stretch;
@@ -4899,7 +4899,7 @@ main[class$="-page"] .wizard-chip.active {
   .core-benefits-container {
     max-width: 100%;
     padding: 0 24px;
-    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 64px;
     row-gap: 24px;
     box-sizing: border-box;
@@ -10639,49 +10639,53 @@ main[class$="-page"] .wizard-chip.active {
   margin: 0;
   margin-top: 0 !important;
   padding: 0 clamp(16px, 4vw, 48px);
+  padding-right: clamp(72px, 14vw, 180px);
+  box-sizing: border-box;
   gap: 0;
   transform: none;
 }
 
 .hero.hero-overhaul .hero-content h1 {
-  max-width: min(14em, min(940px, 94vw));
+  max-width: min(900px, calc(90vw - clamp(72px, 14vw, 180px)));
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: clamp(1.75rem, 2.95vw + 1.05rem, 4.625rem);
-  line-height: 1.14;
-  letter-spacing: -0.024em;
+  font-weight: 500;
+  font-size: clamp(2.65rem, 2.4vw + 1.15rem, 3.85rem);
+  line-height: 1.15;
   white-space: normal;
-  text-wrap: wrap;
+  text-wrap: balance;
   text-align: center;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0;
-  text-shadow: none;
-  -webkit-font-smoothing: antialiased;
 }
 
 .hero.hero-overhaul .hero-content h1 .hero-line {
-  display: block;
-  width: 100%;
-  max-width: 100%;
+  display: inline-block;
+  width: auto;
   text-align: center;
+  /* Must beat any parent white-space resets (narrow breakpoints) */
   white-space: nowrap !important;
 }
 
 .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-  display: block;
-  width: 100%;
-  max-width: 100%;
+  display: inline-block;
+  width: auto;
   white-space: nowrap !important;
-  margin-top: 0.1em;
+}
+
+/* Keep both headline rows and the accent word at the same computed size (italic alone can read smaller) */
+.hero.hero-overhaul .hero-content h1 .hero-line,
+.hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
+  font-size: inherit;
 }
 
 /* Italic focal word — light gold mixed with cream so it stays warm but below CTA intensity */
 .hero.hero-overhaul .hero-content h1 .hero-accent {
   font-style: italic;
-  font-weight: 600;
+  font-weight: inherit;
+  font-size: 1em;
   color: var(--tertiary-light);
   color: color-mix(in srgb, var(--tertiary-light) 68%, var(--cream-white) 32%);
   letter-spacing: -0.01em;
@@ -10699,19 +10703,21 @@ main[class$="-page"] .wizard-chip.active {
   margin-top: clamp(10px, 1.6vw, 22px);
 }
 
-.hero.hero-overhaul .hero-content .hero-support .hero-support-line1 {
+.hero.hero-overhaul .hero-content p.hero-support .hero-support-line1 {
   display: inline;
 }
 
-.hero.hero-overhaul .hero-content .hero-support {
-  max-width: min(820px, 88vw);
+/* Use p.hero-support so we beat legacy `.hero-content p { font-size: 28px }` */
+.hero.hero-overhaul .hero-content p.hero-support {
+  max-width: min(680px, calc(88vw - clamp(72px, 14vw, 180px)));
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: calc(var(--text-h4) * var(--hero-subhead-scale));
-  line-height: 1.5;
+  font-size: clamp(0.78rem, 0.42vw + 0.52rem, 0.95rem);
+  line-height: 1.75;
   opacity: 0.9;
   white-space: normal;
-  text-wrap: balance;
+  text-wrap: initial;
+  text-align: center;
   margin: 0;
   margin-top: clamp(10px, 1.6vw, 22px);
 }
@@ -10788,19 +10794,19 @@ main[class$="-page"] .wizard-chip.active {
     bottom: calc(36% + 4px);
     justify-content: center;
   }
+}
 
-  /* Tablet: headline must stay within nowrap lines + overflow:hidden hero */
+/* Tablet: scale down from desktop */
+@media (max-width: 1024px) and (min-width: 769px) {
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(1.4rem, 1.65vw + 1rem, 2.5rem);
+    font-size: clamp(2rem, 2vw + 0.85rem, 2.95rem);
+    max-width: min(900px, calc(92vw - clamp(48px, 10vw, 120px)));
     line-height: 1.18;
-    max-width: min(100%, 36rem);
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
   }
 
-  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-    font-size: 0.94em;
+  .hero.hero-overhaul .hero-content p.hero-support {
+    font-size: clamp(0.8rem, 0.52vw + 0.44rem, 0.92rem);
+    max-width: min(620px, calc(92vw - clamp(48px, 10vw, 120px)));
   }
 }
 
@@ -10817,7 +10823,7 @@ main[class$="-page"] .wizard-chip.active {
     top: calc(clamp(118px, 16vh, 160px) + var(--hero-block-shift) + var(--hero-extra-shift));
     bottom: calc(29% + 10px);
     justify-content: center;
-    padding: 0 clamp(10px, 3vw, 24px);
+    padding: 0 clamp(12px, 4vw, 22px);
     margin-top: 0 !important;
     transform: none !important;
   }
@@ -10839,20 +10845,13 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(18px, 5.2vw + 0.55rem, 27px);
-    font-weight: 700;
+    font-size: clamp(1.3rem, 3.5vw, 1.75rem);
     white-space: normal;
-    line-height: 1.22;
-    letter-spacing: -0.03em;
-    max-width: 100%;
+    line-height: 1.26;
+    max-width: min(100%, 94vw);
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  .hero.hero-overhaul .hero-content h1 .hero-accent {
-    font-weight: 700;
   }
 
   .hero.hero-overhaul .hero-content h1 .hero-line,
@@ -10860,13 +10859,9 @@ main[class$="-page"] .wizard-chip.active {
     display: block;
     width: 100%;
     max-width: 100%;
-    white-space: nowrap !important;
+    font-size: inherit;
+    white-space: normal !important;
     overflow-wrap: normal;
-  }
-
-  /* Second line is longer; slight scale helps it fit before first line */
-  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-    font-size: 0.92em;
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
@@ -10881,8 +10876,8 @@ main[class$="-page"] .wizard-chip.active {
     overflow-wrap: break-word;
   }
 
-  .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(14px, 3.8vw, 16px);
+  .hero.hero-overhaul .hero-content p.hero-support {
+    font-size: clamp(12px, 2.85vw, 14px);
     margin-top: clamp(14px, 2.8vw, 22px);
     white-space: normal;
     text-wrap: initial;
@@ -10894,7 +10889,7 @@ main[class$="-page"] .wizard-chip.active {
     overflow-wrap: break-word;
   }
 
-  .hero.hero-overhaul .hero-content .hero-support .hero-support-line1 {
+  .hero.hero-overhaul .hero-content p.hero-support .hero-support-line1 {
     white-space: nowrap;
   }
 
@@ -10953,27 +10948,12 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(13px, 4.65vw + 0.42rem, 22px);
-    font-weight: 700;
-    line-height: 1.24;
-    letter-spacing: -0.034em;
-    max-width: 100%;
+    font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+    line-height: 1.28;
+    max-width: min(100%, 96vw);
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  .hero.hero-overhaul .hero-content h1 .hero-line,
-  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-    white-space: nowrap !important;
-  }
-
-  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-    font-size: 0.89em;
-  }
-
-  .hero.hero-overhaul .hero-content h1 .hero-accent {
-    font-weight: 700;
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
@@ -10986,8 +10966,8 @@ main[class$="-page"] .wizard-chip.active {
     margin-right: auto;
   }
 
-  .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(13px, 3.8vw, 15px);
+  .hero.hero-overhaul .hero-content p.hero-support {
+    font-size: clamp(11px, 2.75vw, 13px);
     margin-top: clamp(12px, 2.8vw, 18px);
     line-height: 1.62;
     text-wrap: initial;
@@ -11026,11 +11006,9 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(12px, 4.05vw + 0.4rem, 20px);
-    font-weight: 700;
-    line-height: 1.26;
-    letter-spacing: -0.038em;
-    max-width: 100%;
+    font-size: clamp(1.05rem, 3.5vw, 1.3rem);
+    line-height: 1.3;
+    max-width: min(100%, 96vw);
     width: 100%;
     color: var(--cream-white);
     opacity: 1;
@@ -11039,31 +11017,18 @@ main[class$="-page"] .wizard-chip.active {
     margin-top: 0 !important;
   }
 
-  .hero.hero-overhaul .hero-content h1 .hero-line,
-  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-    white-space: nowrap !important;
-  }
-
-  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
-    font-size: 0.87em;
-  }
-
-  .hero.hero-overhaul .hero-content h1 .hero-accent {
-    font-weight: 700;
-  }
-
   .hero.hero-overhaul .hero-content .hero-subhead {
     font-size: clamp(13px, 3.7vw, 14px);
     line-height: 1.58;
   }
 
-  .hero.hero-overhaul .hero-content .hero-support {
-    font-size: clamp(13px, 3.7vw, 14px);
+  .hero.hero-overhaul .hero-content p.hero-support {
+    font-size: clamp(11px, 2.65vw, 13px);
     line-height: 1.62;
     text-wrap: initial;
   }
 
-  .hero.hero-overhaul .hero-content .hero-support .hero-support-line1 {
+  .hero.hero-overhaul .hero-content p.hero-support .hero-support-line1 {
     white-space: normal;
   }
 }
@@ -11080,10 +11045,13 @@ main[class$="-page"] .wizard-chip.active {
   padding: 40px 24px 40px;
 }
 
-.core-benefits-container {
-  grid-template-columns: repeat(3, minmax(180px, 1fr));
-  column-gap: 56px;
-  row-gap: 10px;
+/* Must stay inside min-width so it does not override the <=920px single-column rule above */
+@media (min-width: 921px) {
+  .core-benefits-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 56px;
+    row-gap: 10px;
+  }
 }
 
 .core-benefit-block {
