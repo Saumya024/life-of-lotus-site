@@ -1451,7 +1451,7 @@ section {
   max-width: 1400px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
   column-gap: 100px;
   row-gap: 24px;
   align-items: stretch;
@@ -4899,7 +4899,7 @@ main[class$="-page"] .wizard-chip.active {
   .core-benefits-container {
     max-width: 100%;
     padding: 0 24px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
     column-gap: 64px;
     row-gap: 24px;
     box-sizing: border-box;
@@ -10639,14 +10639,13 @@ main[class$="-page"] .wizard-chip.active {
   margin: 0;
   margin-top: 0 !important;
   padding: 0 clamp(16px, 4vw, 48px);
-  padding-right: clamp(72px, 14vw, 180px);
   box-sizing: border-box;
   gap: 0;
   transform: none;
 }
 
 .hero.hero-overhaul .hero-content h1 {
-  max-width: min(900px, calc(90vw - clamp(72px, 14vw, 180px)));
+  max-width: min(900px, 90vw);
   font-family: var(--font-heading);
   font-weight: 500;
   font-size: clamp(2.65rem, 2.4vw + 1.15rem, 3.85rem);
@@ -10709,7 +10708,7 @@ main[class$="-page"] .wizard-chip.active {
 
 /* Use p.hero-support so we beat legacy `.hero-content p { font-size: 28px }` */
 .hero.hero-overhaul .hero-content p.hero-support {
-  max-width: min(820px, 88vw);
+  max-width: min(720px, 88vw);
   font-family: var(--font-body);
   font-weight: 400;
   font-size: clamp(1rem, 0.6vw + 0.75rem, 1.35rem);
@@ -10805,8 +10804,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(0.95rem, 0.6vw + 0.55rem, 1.15rem);
-    max-width: min(720px, 92vw);
+    font-size: clamp(0.95rem, 0.6vw + 0.55rem, 1.1rem);
+    max-width: min(640px, 92vw);
   }
 }
 
@@ -11045,13 +11044,10 @@ main[class$="-page"] .wizard-chip.active {
   padding: 40px 24px 40px;
 }
 
-/* Must stay inside min-width so it does not override the <=920px single-column rule above */
-@media (min-width: 921px) {
-  .core-benefits-container {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    column-gap: 56px;
-    row-gap: 10px;
-  }
+.core-benefits-container {
+  grid-template-columns: repeat(3, minmax(180px, 1fr));
+  column-gap: 56px;
+  row-gap: 10px;
 }
 
 .core-benefit-block {
