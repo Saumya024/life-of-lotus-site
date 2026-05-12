@@ -1713,9 +1713,11 @@ section {
 .reach-out-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
   gap: 20px;
   max-width: 1100px;
   margin: 0 auto;
+  align-items: stretch;
 }
 
 .reach-out-bullets {
@@ -1756,7 +1758,8 @@ section {
   padding: 20px 24px;
   border: 3px solid rgba(185, 151, 80, 0.45);
   justify-content: flex-start;
-  min-height: 96px;
+  min-height: 120px;
+  height: 100%;
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
@@ -5447,8 +5450,10 @@ main[class$="-page"] .wizard-chip.active {
 
   .reach-out-list {
     grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
     gap: 14px;
     max-width: 560px;
+    align-items: stretch;
   }
 
   .reach-out-item {
@@ -5457,7 +5462,8 @@ main[class$="-page"] .wizard-chip.active {
     text-align: left;
     gap: 16px;
     padding: 16px 18px;
-    min-height: 88px;
+    min-height: 108px;
+    height: 100%;
     justify-content: flex-start;
   }
 
@@ -10382,7 +10388,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .reach-out-item {
-    min-height: 84px;
+    min-height: 104px;
+    height: 100%;
     padding: 14px 16px;
     gap: 14px;
   }
@@ -10903,16 +10910,16 @@ main[class$="-page"] .wizard-chip.active {
   }
 }
 
-/* Tablet: scale down from desktop */
+/* Tablet: scale down from desktop, but clearly above section h2 (34px) and body (16px) */
 @media (max-width: 1024px) and (min-width: 769px) {
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(2rem, 2vw + 0.85rem, 2.95rem);
+    font-size: clamp(2.5rem, 2.5vw + 1.15rem, 3.25rem);
     max-width: min(900px, calc(92vw - clamp(48px, 10vw, 120px)));
     line-height: 1.18;
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(0.95rem, 0.6vw + 0.55rem, 1.1rem);
+    font-size: clamp(1.125rem, 0.6vw + 0.7rem, 1.25rem);
     max-width: min(640px, 92vw);
   }
 }
@@ -10952,9 +10959,9 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(1.85rem, 5.5vw, 2.4rem);
+    font-size: clamp(2.15rem, 6vw, 2.75rem);
     white-space: normal;
-    line-height: 1.26;
+    line-height: 1.22;
     max-width: min(100%, 94vw);
     width: 100%;
     margin-left: auto;
@@ -10984,7 +10991,7 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(14px, 2.5vw, 16px);
+    font-size: clamp(17px, 3vw, 19px);
     margin-top: clamp(14px, 2.8vw, 22px);
     white-space: normal;
     text-wrap: initial;
@@ -11055,8 +11062,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(1.6rem, 6vw, 1.85rem);
-    line-height: 1.28;
+    font-size: clamp(2rem, 6.5vw, 2.25rem);
+    line-height: 1.24;
     max-width: min(100%, 96vw);
     width: 100%;
     margin-left: auto;
@@ -11074,9 +11081,9 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(12px, 2.6vw, 13px);
+    font-size: clamp(16px, 4vw, 17px);
     margin-top: clamp(12px, 2.8vw, 18px);
-    line-height: 1.62;
+    line-height: 1.6;
     text-wrap: initial;
     max-width: 100%;
     width: 100%;
@@ -11113,8 +11120,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(1.5rem, 6.5vw, 1.7rem);
-    line-height: 1.3;
+    font-size: clamp(1.85rem, 7vw, 2.05rem);
+    line-height: 1.26;
     max-width: min(100%, 96vw);
     width: 100%;
     color: var(--cream-white);
@@ -11130,8 +11137,8 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content p.hero-support {
-    font-size: clamp(11px, 2.5vw, 12px);
-    line-height: 1.62;
+    font-size: clamp(15px, 4vw, 16px);
+    line-height: 1.6;
     text-wrap: initial;
   }
 
