@@ -10788,6 +10788,20 @@ main[class$="-page"] .wizard-chip.active {
     bottom: calc(36% + 4px);
     justify-content: center;
   }
+
+  /* Tablet: headline must stay within nowrap lines + overflow:hidden hero */
+  .hero.hero-overhaul .hero-content h1 {
+    font-size: clamp(1.4rem, 1.65vw + 1rem, 2.5rem);
+    line-height: 1.18;
+    max-width: min(100%, 36rem);
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
+    font-size: 0.94em;
+  }
 }
 
 @media (max-width: 768px) {
@@ -10825,12 +10839,12 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(24px, 7.5vw + 0.72rem, 34px);
+    font-size: clamp(18px, 5.2vw + 0.55rem, 27px);
     font-weight: 700;
     white-space: normal;
-    line-height: 1.28;
-    letter-spacing: -0.028em;
-    max-width: min(100%, 440px);
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+    max-width: 100%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -10848,6 +10862,11 @@ main[class$="-page"] .wizard-chip.active {
     max-width: 100%;
     white-space: nowrap !important;
     overflow-wrap: normal;
+  }
+
+  /* Second line is longer; slight scale helps it fit before first line */
+  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
+    font-size: 0.92em;
   }
 
   .hero.hero-overhaul .hero-content .hero-subhead {
@@ -10934,11 +10953,11 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(23px, 7.2vw + 0.72rem, 35px);
+    font-size: clamp(13px, 4.65vw + 0.42rem, 22px);
     font-weight: 700;
-    line-height: 1.28;
-    letter-spacing: -0.03em;
-    max-width: min(100%, 430px);
+    line-height: 1.24;
+    letter-spacing: -0.034em;
+    max-width: 100%;
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -10947,6 +10966,10 @@ main[class$="-page"] .wizard-chip.active {
   .hero.hero-overhaul .hero-content h1 .hero-line,
   .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
     white-space: nowrap !important;
+  }
+
+  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
+    font-size: 0.89em;
   }
 
   .hero.hero-overhaul .hero-content h1 .hero-accent {
@@ -11003,10 +11026,10 @@ main[class$="-page"] .wizard-chip.active {
   }
 
   .hero.hero-overhaul .hero-content h1 {
-    font-size: clamp(20px, 6.5vw + 0.72rem, 30px);
+    font-size: clamp(12px, 4.05vw + 0.4rem, 20px);
     font-weight: 700;
-    line-height: 1.34;
-    letter-spacing: -0.036em;
+    line-height: 1.26;
+    letter-spacing: -0.038em;
     max-width: 100%;
     width: 100%;
     color: var(--cream-white);
@@ -11019,6 +11042,10 @@ main[class$="-page"] .wizard-chip.active {
   .hero.hero-overhaul .hero-content h1 .hero-line,
   .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
     white-space: nowrap !important;
+  }
+
+  .hero.hero-overhaul .hero-content h1 .hero-nowrap-line {
+    font-size: 0.87em;
   }
 
   .hero.hero-overhaul .hero-content h1 .hero-accent {
